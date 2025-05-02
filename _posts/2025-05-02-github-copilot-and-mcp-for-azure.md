@@ -21,7 +21,7 @@ One of the most impactful ways to create a more sustainable future is through th
 
 Agriculture is a major contributor to environmental degradation, from deforestation to soil depletion and water usage. However, innovation is transforming the way we grow and harvest food. Vertical farming, for instance, allows crops to be grown indoors using less water, land, and pesticides. Precision agriculture uses data analytics and drones to monitor crop health and optimize resource use, reducing waste. Innovations like lab-grown meat and plant-based alternatives also help minimize the environmental impact of animal farming, promoting a more sustainable food system.
 
-![Room]({{site.baseurl}}/images/06-1.jpg)
+![Room]({{site.baseurl}}./images/06-1.jpg)
 *Room of the future*
 
 Transportation is another major sector where green innovation is making a difference. Electric vehicles (EVs) are becoming more common, with major advancements in battery technology extending driving ranges and reducing charging times. Public transportation is also evolving, with electric buses, high-speed trains, and even bike-sharing programs reducing the reliance on fossil fuels. In the future, innovations such as hydrogen fuel cells and autonomous electric vehicles could further revolutionize the transportation industry, cutting emissions and congestion.
