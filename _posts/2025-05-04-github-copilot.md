@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Github Copilot and MCP for Azure
+title: Github Copilot
 description: Github Copilot and MCP for Azure are two powerful tools that can help developers streamline their workflow and improve productivity. This article explores their features and benefits.
-date: 2025-05-02 15:01:35 +0300
+date: 2025-05-04 15:01:35 +0300
 author: hidde
 image: '/images/githubcopilotagentmode.jpg'
 video_embed: https://www.youtube.com/embed/TumrA0XsX0A?si=CpIToREi6CEh1KFu
