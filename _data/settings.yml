@@ -60,7 +60,7 @@ blog:
 #-------------------------------
 # Recommended Section Settings
 recommended:
-  enable: true
+  enable: false
   recommended_title: Recommended
   recommended_tag: "AI"
 
