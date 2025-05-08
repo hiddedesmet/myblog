@@ -6,7 +6,7 @@ date: 2025-05-08 10:00:00 +0300
 author: hidde
 image: '/images/mcp1.jpg'
 tags: [AI, MCP]
-featured: true
+featured: false
 toc: true
 ---
 

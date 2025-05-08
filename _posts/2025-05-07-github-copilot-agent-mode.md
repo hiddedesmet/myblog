@@ -6,7 +6,7 @@ date: 2025-05-07 10:00:00 +0300
 author: hidde
 image: '/images/githubcopilotagentmode.jpg'
 tags: [AI, Development]
-featured: true
+featured: false
 toc: true
 ---
 

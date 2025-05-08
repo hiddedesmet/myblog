@@ -4,7 +4,7 @@ title: About me
 description: Learn more about my biography, roles, certifications, competences, and more.
 permalink: /about/
 image: '/images/family.jpg'
-image_caption: The beginning of a new wonderful day
+image_caption: My family and I
 ---
 
 ## biography
@@ -22,7 +22,7 @@ As a certified Azure Solution Architect, I specialize in designing, implementing
 
 ## Certifications
 
-<div class="certifications-grid" style="margin-top: 40px; margin-bottom: 40px;">
+<div class="certifications-grid">
   <img src="/images/Picture1.png" alt="Microsoft Azure Administrator Associate">
   <img src="/images/Picture2.png" alt="Microsoft Azure Developer Associate">
   <img src="/images/Picture3.png" alt="Microsoft Devops Engineer Expert">
@@ -49,8 +49,8 @@ As a certified Azure Solution Architect, I specialize in designing, implementing
     <h3>Cloud & Architecture</h3>
     <div class="skill-tags">
       <span class="skill-tag">Azure Cloud Platform</span>
-      <span class="skill-tag">Solution Architecture</span>
-      <span class="skill-tag">Cost Optimization</span>
+      <span class="skill-tag">Solution architecture</span>
+      <span class="skill-tag">Cost optimization</span>
       <span class="skill-tag">Infrastructure as Code</span>
       <span class="skill-tag">Microservices</span>
     </div>
@@ -62,7 +62,7 @@ As a certified Azure Solution Architect, I specialize in designing, implementing
       <span class="skill-tag">CI/CD Pipelines</span>
       <span class="skill-tag">Docker & Kubernetes</span>
       <span class="skill-tag">Git & GitHub</span>
-      <span class="skill-tag">Infrastructure Automation</span>
+      <span class="skill-tag">Infrastructure automation</span>
       <span class="skill-tag">Monitoring & Observability</span>
     </div>
   </div>
@@ -97,64 +97,24 @@ As a certified Azure Solution Architect, I specialize in designing, implementing
     <h3>Methodology & Process</h3>
     <div class="skill-tags">
       <span class="skill-tag">Agile & Scrum</span>
-      <span class="skill-tag">Technical Leadership</span>
-      <span class="skill-tag">Project Management</span>
+      <span class="skill-tag">Technical leadership</span>
+      <span class="skill-tag">Project management</span>
       <span class="skill-tag">Documentation</span>
-      <span class="skill-tag">Knowledge Sharing</span>
+      <span class="skill-tag">Knowledge sharing</span>
     </div>
   </div>
 </div>
-
-<style>
-.competences-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  margin-bottom: 40px;
-}
-
-.competence-area {
-  flex: 1 1 calc(50% - 20px);
-  min-width: 250px;
-  background: #f8f9fa;
-  border-radius: 8px;
-  padding: 16px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-
-.competence-area h3 {
-  margin-top: 0;
-  margin-bottom: 12px;
-  color: #333;
-  font-size: 1.2em;
-}
-
-.skill-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.skill-tag {
-  background: #e9ecef;
-  color: #495057;
-  padding: 5px 10px;
-  border-radius: 4px;
-  font-size: 0.85em;
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-.skill-tag:hover {
-  background: #007bff;
-  color: white;
-  transform: translateY(-2px);
-}
-</style>
 
 ## Personal Life
 I live in Jisp, a charming village in the Netherlands, with my wife Chantel and our daughter Isabelle. Outside of my professional career, I enjoy cycling through the beautiful Dutch countryside, which provides a perfect balance to my technical work and helps me stay active and refreshed.
 
 My passion for cycling has taken me to many challenging terrains - I've climbed numerous mountains on my bike and completed the prestigious Ronde van Vlaanderen (Tour of Flanders), one of cycling's most iconic classics. When I'm not on two wheels, you can often find me supporting Ajax, attending matches and following the team's journey through various competitions.
+
+<div class="personal-gallery">
+  <img src="/images/06-1.jpg" alt="Cycling in the mountains">
+  <img src="/images/06-2.jpg" alt="Tour of Flanders">
+  <img src="/images/17-1.jpg" alt="With family">
+  <img src="/images/17-2.jpg" alt="Supporting Ajax">
+</div>
 
 I'm also passionate about public speaking and have been working to develop this skill to share my technical knowledge and experiences with broader audiences. Beyond work and sports, quality time with my family remains a top priority - whether it's watching movies together, exploring new places, or simply enjoying each other's company at home.

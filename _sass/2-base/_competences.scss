@@ -1,0 +1,66 @@
+// Competences section styling
+.competences-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.competence-area {
+  flex: 1 1 calc(50% - 20px);
+  min-width: 250px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: #333;
+    font-size: 1.2em;
+  }
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-tag {
+  background: #e9ecef;
+  color: #495057;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.85em;
+  font-weight: 500;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: #007bff;
+    color: white;
+    transform: translateY(-2px);
+  }
+}
+
+// Personal life image gallery
+.personal-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 20px;
+  margin: 30px 0;
+
+  img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    
+    &:hover {
+      transform: scale(1.03);
+    }
+  }
+}
