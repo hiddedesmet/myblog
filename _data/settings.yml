@@ -42,7 +42,7 @@ cta_button:
 hero:
   enable: true
   hero_title: Stories, journeys, and ideas for the creatively curious
-  hero_description: Join us on a journey where every post brings a fresh perspective. This blog is for those who are driven by curiosity and a desire to learn.
+  hero_description: Join me on a journey where every post brings a fresh perspective. This blog is for those who are driven by curiosity and a desire to learn.
 
 hero_authors:
   enable: true
@@ -101,7 +101,7 @@ mailchimp:
 
 #-------------------------------
 # Footer Settings
-footer_description: Join us on a journey where every post brings a fresh perspective. This blog is for those who are driven by curiosity and a desire to learn.
+footer_description: Join me on a journey where every post brings a fresh perspective. This blog is for those who are driven by curiosity and a desire to learn.
 
 
 # Social Links
