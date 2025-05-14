@@ -111,10 +111,10 @@ I live in Jisp, a charming village in the Netherlands, with my wife Chantel and 
 My passion for cycling has taken me to many challenging terrains - I've climbed numerous mountains on my bike and completed the prestigious Ronde van Vlaanderen (Tour of Flanders), one of cycling's most iconic classics. When I'm not on two wheels, you can often find me supporting Ajax, attending matches and following the team's journey through various competitions.
 
 <div class="personal-gallery">
-  <img src="/images/06-1.jpg" alt="Cycling in the mountains">
-  <img src="/images/06-2.jpg" alt="Tour of Flanders">
-  <img src="/images/17-1.jpg" alt="With family">
-  <img src="/images/17-2.jpg" alt="Supporting Ajax">
+  <img src="/images/cycling.jpg" alt="Cycling in the mountains" style="object-position: center 20%; object-fit: cover;">
+  <img src="/images/Isabelle.jpg" alt="My daughter Isabelle" style="object-position: center 12%; object-fit: cover;">
+  <img src="/images/Isabelle-Chantel.jpg" alt="With family" style="object-position: center 5%; object-fit: cover;">
+  <img src="/images/friends.jpg" alt="With friends" style="object-position: center 20%; object-fit: cover;">
 </div>
 
 I'm also passionate about public speaking and have been working to develop this skill to share my technical knowledge and experiences with broader audiences. Beyond work and sports, quality time with my family remains a top priority - whether it's watching movies together, exploring new places, or simply enjoying each other's company at home.
