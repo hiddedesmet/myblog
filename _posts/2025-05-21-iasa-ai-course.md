@@ -1,6 +1,6 @@
 ---
 layout: post
-title: A Practical guide to Machine Learning for image classification
+title: A practical guide to Machine Learning for image classification
 description: An overview of a typical machine learning workflow for image classification, covering problem definition, ML type, tooling, data preparation, model training, and deployment using TensorFlow, Flask, and Docker.
 date: 2025-05-21 10:00:00 +0300
 author: hidde
