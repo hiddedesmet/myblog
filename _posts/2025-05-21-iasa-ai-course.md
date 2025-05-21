@@ -28,7 +28,7 @@ The main challenge in image classification is to analyze an image and determine 
 
 Each category typically possesses distinct visual characteristics. Differentiating these by eye can be difficult, especially when dealing with a large volume of images or when the visual differences are subtle.
 
-%% Figure 1: Basic Image Classification Process
+**Figure 1: Basic image classification process**
 ```mermaid
 flowchart TD
     A[Input Images] --> B{Classification}
@@ -43,9 +43,7 @@ Using images for classification is often more efficient than manual inspection. 
 
 To tackle image classification, we typically turn to **supervised learning**. In this approach, we provide the computer with a large dataset of examples where the correct answer (the category label) is already known. The model learns to recognize patterns from these labeled examples.
 
-For image-based tasks, **convolutional neural networks (CNNs)** are a particularly effective type of ML model. CNNs are designed to process and understand visual information. We feed the CNN numerous images, each tagged with its correct category, and the network learns to distinguish between them.
-
-%% Figure 2: Supervised Learning with CNNs
+**Figure 2: Supervised learning with CNNs**
 ```mermaid
 graph LR
     Input[Input: Labeled images] --> Model[Convolutional Neural Network]
@@ -72,7 +70,7 @@ A machine learning project relies on a set of tools to manage the various stages
 
 The typical workflow involving these tools can be visualized as follows:
 
-%% Figure 3: Data Preparation Workflow
+**Figure 3: Data preparation workflow**
 ```mermaid
 flowchart LR
     A[Data collection] --> B[Labeling tool]
@@ -120,7 +118,7 @@ datagen = ImageDataGenerator(
 # )
 ```
 
-%% Figure 3: Data Preparation Workflow
+**Figure 3: Data preparation workflow**
 ```mermaid
 flowchart TD
     A[Raw Images] --> B[Labeling]
@@ -283,14 +281,14 @@ This `Dockerfile` defines the steps to build a Docker image. It starts from a ba
 
 The overall workflow, from a user or system providing an image to receiving a classification, can be summarized with the following diagram:
 
-%% Figure 4: Complete Image Classification and Serving Workflow
+**Figure 4: Complete image classification and serving workflow**
 ```mermaid
 flowchart TD
-    A[User Uploads Image / Image from System] --> B[Flask API (via HTTP)]
-    B --> C[Docker Container hosting Flask App & TensorFlow Model]
+    A["User Uploads Image / Image from System"] --> B["Flask API (via HTTP)"]
+    B --> C["Docker Container hosting Flask App & TensorFlow Model"]
     C -- Preprocesses Image --> D[TensorFlow Model Inference]
     D -- Returns Prediction --> C
-    C -- Sends JSON Response --> A[Prediction (Category) returned to User/System]
+    C -- Sends JSON Response --> A["Prediction (Category) returned to User/System"]
 ```
 
 A user or an automated system sends an image to the Flask API. The API, running inside a Docker container, receives the image. The Flask application preprocesses the image and feeds it to the TensorFlow model for inference. The model returns a prediction, which the Flask app then formats as a JSON response and sends back to the requester.
