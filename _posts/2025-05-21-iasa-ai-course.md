@@ -157,18 +157,18 @@ from tensorflow.keras import layers, models
 # Assuming 3 categories and input images of size 224x224x3 (RGB)
 model = models.Sequential([
     layers.Input(shape=(224, 224, 3)),
-    layers.Conv2D(32, (3, 3), activation=\'relu\'),
+    layers.Conv2D(32, (3, 3), activation='relu'),
     layers.MaxPooling2D((2, 2)),
-    layers.Conv2D(64, (3, 3), activation=\'relu\'),
+    layers.Conv2D(64, (3, 3), activation='relu'),
     layers.MaxPooling2D((2, 2)),
     layers.Flatten(),
-    layers.Dense(64, activation=\'relu\'),
-    layers.Dense(3, activation=\'softmax\') # Output layer for 3 classes
+    layers.Dense(64, activation='relu'),
+    layers.Dense(3, activation='softmax') # Output layer for 3 classes
 ])
 
-model.compile(optimizer=\'adam\',
-              loss=\'categorical_crossentropy\',
-              metrics=[\'accuracy\'])
+model.compile(optimizer='adam',
+              loss='categorical_crossentropy',
+              metrics=['accuracy'])
 
 # model.fit(training_data, validation_data=validation_data, epochs=N) # Actual training step
 ```
