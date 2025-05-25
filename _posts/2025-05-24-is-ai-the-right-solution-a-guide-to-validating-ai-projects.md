@@ -2,10 +2,10 @@
 layout: post
 title: Is AI the right solution? A guide to validating AI projects
 description: A guide to help you decide if implementing an AI solution is the right choice for your project, based on the IASA AI Architecture course.
-date: 2025-05-27 10:00:00 +0300
+date: 2028-05-25 10:00:00 +0300
 author: hidde
 image: '/images/ai_validation.png' # Placeholder image, please update
-tags: [AI, IASA, Decision Making, Project Validation, ROI]
+tags: [AI, IASA, Decision Making, ROI]
 featured: true
 toc: true
 ---
@@ -183,10 +183,10 @@ AI systems learn from data, and if that data reflects existing societal biases, 
     For example, if an AI model is trained to generate images of historical figures and is predominantly shown images of one demographic for a particular role, it might exclusively produce results reflecting that bias. Consider an AI asked to depict the "Founding Fathers of America." If the training data lacks diversity, the AI might only generate images of white men, inadvertently erasing the contributions and existence of other individuals who were part of that historical context but are underrepresented in common datasets.
 
     ![AI-generated image of Founding Fathers showing bias](/images/founding%20fathers%202.png)
-    *Caption: Example of potential bias in AI-generated imagery if not carefully managed.*
+    *Example of potential bias in AI-generated imagery if not carefully managed.*
 
     ![AI-generated image of Founding Fathers more accurate](/images/founding%20fathers.png)
-    *Caption: Striving for more inclusive and accurate AI outputs requires diverse data and conscious design.*
+    *Striving for more inclusive and accurate AI outputs requires diverse data and conscious design.*
 
 *   **Privacy considerations:** AI systems often require vast amounts of data for training and validation, raising significant privacy concerns.
     *   **Data de-identification:** Can we truly ensure that all data used is adequately de-identified to protect individuals?
@@ -212,7 +212,7 @@ AI systems learn from data, and if that data reflects existing societal biases, 
     *   **Scope of regulation:** It's important to note, however, that most AI applications will likely not fall under the "high-risk" category as defined by the EU AI Act. The majority will be considered "low-risk" or "minimal risk," and thus, the regulatory requirements will be less stringent. However, adhering to ethical guidelines and ensuring transparency will remain best practices regardless of regulatory classification.
 
     ![EU ACT](/images/eu-act.png)
-    *Caption: The EU AI Act aims to regulate high-risk AI systems, emphasizing transparency and user awareness.*
+    *The EU AI Act aims to regulate high-risk AI systems, emphasizing transparency and user awareness.*
    
 ## Defining success metrics
 
@@ -257,7 +257,7 @@ Instead of a large-scale, high-risk deployment, starting with a pilot project is
 
    
     ![Simple diagram](/images/simplediagram.png)
-    *Caption: The iterative cycle of a pilot project allows for continuous improvement and risk mitigation.*
+    *The iterative cycle of a pilot project allows for continuous improvement and risk mitigation.*
 
 *   **Assess feasibility and scalability:**
     *   Can the solution, as tested in the pilot, be scaled effectively to meet the full project requirements?
@@ -288,7 +288,7 @@ Validating an AI project is not just a preliminary step; it's an ongoing process
 *   **Human oversight remains crucial:** AI should augment human capabilities, not replace human accountability. Ensure mechanisms for human review and intervention.
 
 ![Decision tree](/images/ai_validation.png)
-*Caption: Validating AI projects thoroughly leads to more impactful and responsible innovation.*
+*Validating AI projects thoroughly leads to more impactful and responsible innovation.*
 
 Determining the viability and potential ROI of AI projects requires a nuanced understanding of both the technology and the specific business context. By following a structured framework like the one outlined above, and by giving due consideration to the ethical implications, organizations can make more informed, strategic decisions about AI investments.
 
