@@ -76,7 +76,7 @@ This level integrates the "Evaluate key project pillars" with a more direct asse
 ### Visualizing the decision process: AI project ROI decision tree
 
 ```mermaid
-graph LR
+graph TD
     A[Start: New AI project proposal] --> B{L1: Strategic alignment?};
     B -- Yes --> FP[Evaluate: Objective, Audience, Training, Operations];
     B -- No --> Z1[Reject/Re-evaluate: not aligned];
