@@ -2,11 +2,11 @@
 layout: post
 title: Is AI the right solution? A guide to validating AI projects
 description: A guide to help you decide if implementing an AI solution is the right choice for your project, based on the IASA AI Architecture course.
-date: 2025-05-25 10:00:00 +0300
+date: 2025-05-27 10:00:00 +0300
 author: hidde
 image: '/images/ai_validation.png' # Placeholder image, please update
 tags: [AI, IASA, Decision Making, Project Validation, ROI]
-featured: false
+featured: true
 toc: true
 ---
 
