@@ -6,22 +6,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Explore topics</title>
-  <meta name='description' content='Explore this topics page to easily navigate the wide range of content available on this blog. This is your gateway to discovering the diverse conversations a...'>
+  <title>A practical guide to Machine Learning for image classification</title>
+  <meta name='description' content='An overview of a typical machine learning workflow for image classification, covering problem definition, ML type, tooling, data preparation, model training,...'>
 
-  <link rel="canonical" href="http://localhost:4000/tags/">
+  <link rel="canonical" href="http://localhost:4000/iasa-ai-course">
   <link rel="alternate" type="application/rss+xml" title="" href="/feed.xml">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Explore topics – Hidde de Smet">
-  <meta name="twitter:description" content="Explore this topics page to easily navigate the wide range of content available on this blog. This is your gateway to discovering the diverse conversations and ideas that this blog covers.">
-  <meta name="twitter:image:src" content="">
+  <meta name="twitter:title" content="A practical guide to Machine Learning for image classification – Hidde de Smet">
+  <meta name="twitter:description" content="An overview of a typical machine learning workflow for image classification, covering problem definition, ML type, tooling, data preparation, model training, and deployment using TensorFlow, Flask, and Docker.">
+  <meta name="twitter:image:src" content="http://localhost:4000/images/machinelearning.png">
 
   <!-- Facebook OpenGraph -->
-  <meta property="og:title" content="Explore topics – Hidde de Smet">
-  <meta property="og:description" content="Explore this topics page to easily navigate the wide range of content available on this blog. This is your gateway to discovering the diverse conversations and ideas that this blog covers.">
-  <meta property="og:image" content="">
+  <meta property="og:title" content="A practical guide to Machine Learning for image classification – Hidde de Smet">
+  <meta property="og:description" content="An overview of a typical machine learning workflow for image classification, covering problem definition, ML type, tooling, data preparation, model training, and deployment using TensorFlow, Flask, and Docker.">
+  <meta property="og:image" content="http://localhost:4000/images/machinelearning.png">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -150,7 +150,7 @@
                 
                   <a href="/featured/" class="nav__link">Featured</a>
                 
-                  <a href="/tags/" class="nav__link active-link">Topics</a>
+                  <a href="/tags/" class="nav__link">Topics</a>
                 
                 </div>
               </li>
@@ -203,124 +203,545 @@
 
     <!-- begin content -->
     <main class="content" aria-label="Content">
+      <div class="container">
+  <div class="post__head">
+    <div class="post__info">
+
+      <div class="post__head__inner">
+        
+        <div class="post__tags">
+        
+          <a href="/tags#AI" class="post__tag">AI</a>
+        
+          <a href="/tags#Machine Learning" class="post__tag">Machine Learning</a>
+        
+          <a href="/tags#Image Classification" class="post__tag">Image Classification</a>
+        
+          <a href="/tags#IASA" class="post__tag">IASA</a>
+        
+        </div>
+        
+        <div class="post__date">•
+          <time datetime="2025-05-21T09:00:00+02:00">May 21, 2025</time>
+        </div>
+        <div class="post__minutes">•
+          <span>
+            
+            
+              15 min read
+            
+          </span>
+        </div>
+      </div>
+
+      <h1 class="post__title">A practical guide to Machine Learning for image classification</h1>
+
+      
+      <div class="post__description">An overview of a typical machine learning workflow for image classification, covering problem definition, ML type, tooling, data preparation, model training, and deployment using TensorFlow, Flask, and Docker.</div>
       
 
+      <div class="post__meta">
+        <div class="post__author">
+          
+          
+          <a href="/hidde" class="post__author__image">
+            <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
+          </a>
+          <div class="post__author__bottom">
+            <span>Written by</span>
+            <a class="post__author__name" href="/hidde">Hidde de Smet</a>
+          </div>
+          
+        </div>
 
-<!-- begin hero -->
-<section class="hero">
+        <div class="post__share">
+          <div class="post__share">
+  <ul class="share__list list-reset">
+    <li class="share__item">
+      <a class="share__link share__twitter"
+        href="https://twitter.com/intent/tweet?text=A%20practical%20guide%20to%20Machine%20Learning%20for%20image%20classification&url=http://localhost:4000/iasa-ai-course"
+        onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+        title="Share on Twitter" rel="nofollow"><i class="fa-brands fa-x-twitter"></i></a>
+    </li>
+    <li class="share__item">
+      <a class="share__link share__facebook"
+        href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/iasa-ai-course"
+        onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+        title="Share on Facebook" rel="nofollow"><i class="fa-brands fa-facebook-f"></i></a>
+    </li>
+    <li class="share__item">
+      <a class="share__link share__pinterest"
+        href="http://pinterest.com/pin/create/button/?url=http://localhost:4000/iasa-ai-course&amp;media=http://localhost:4000/images/machinelearning.png&amp;description=A%20practical%20guide%20to%20Machine%20Learning%20for%20image%20classification"
+        onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"
+        title="Share on Pinterest" rel="nofollow"><i class="fa-brands fa-pinterest"></i></a>
+    </li>
+    <li class="share__item">
+      <a class="share__link share__linkedin"
+        href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/iasa-ai-course&title=A%20practical%20guide%20to%20Machine%20Learning%20for%20image%20classification&summary=An%20overview%20of%20a%20typical%20machine%20learning%20workflow%20for%20image%20classification,%20covering%20problem%20definition,%20ML%20type,%20tooling,%20data%20preparation,%20model%20training,%20and%20deployment%20using%20TensorFlow,%20Flask,%20and%20Docker.&source="
+        onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+        title="Share on LinkedIn" rel="nofollow"><i class="fa-brands fa-linkedin"></i></a>
+    </li>
+  </ul>
+</div>
+        </div>
+      </div>
+
+    </div>
+
+    
+
+    
+    <div class="post__image">
+      <img class="lazy" data-src="/images/machinelearning.png" alt="A practical guide to Machine Learning for image classification">
+    </div>
+    
+    
+
+    
+  </div>
+
+  <!-- begin post -->
+  <article class="post">
+    <div class="post__content">
+      
+      <div class="post__toc">
+        <h2 class="post__toc__title">Table of Contents</h2>
+        <ol class="post__toc__list"><li><a href="#defining-the-problem-image-classification">Defining the problem: image classification</a></li><li><a href="#choosing-the-right-approach-supervised-learning-and-cnns">Choosing the right approach: supervised learning and CNNs</a></li><li><a href="#essential-tools-for-the-workflow">Essential tools for the workflow</a></li><li><a href="#preparing-the-data-collection-splitting-and-augmentation">Preparing the data: collection, splitting, and augmentation</a></li><li><a href="#building-and-training-the-model">Building and training the model</a></li><li><a href="#saving-your-trained-model">Saving your trained model</a></li><li><a href="#making-the-model-accessible-serving-with-flask">Making the model accessible: serving with Flask</a></li><li><a href="#ensuring-portability-dockerizing-the-application">Ensuring portability: dockerizing the application</a></li><li><a href="#the-complete-workflow">The complete workflow</a></li><li><a href="#conclusion-and-key-takeaways">Conclusion and key takeaways</a></li></ol>
+      </div>
+      
+
+      <p>I recently started the AI Architecture course by Zach Gardner from IASA Global, which aims to equip professionals with the knowledge to implement AI effectively within businesses. The course delves into AI principles, frameworks, MLOps, governance, and best practices, emphasizing a business-first approach to security, scalability, and performance in AI architectures. Inspired by this, I wanted to share a practical walkthrough of a typical machine learning project.</p>
+
+<h1 id="a-practical-guide-to-machine-learning-for-image-classification">A practical guide to Machine Learning for image classification</h1>
+
+<p>Many real-world problems involve classifying items based on visual features. Identifying these categories is important for various applications. Often, these classification tasks are performed manually, a process that can be slow and prone to inconsistencies. Machine learning (ML) offers an alternative, enabling computers to learn from examples and automate this process, leading to increased speed, efficiency, and reliability. This post will walk through a common machine learning project focused on image classification, explaining each step from defining the problem to deploying a solution. We’ll see how ML can be used to analyze images and assign them to predefined categories.</p>
+
+<p>Computers can analyze vast numbers of images quickly without fatigue or distraction. For instance, manually sorting hundreds or thousands of images can lead to errors over time. An ML model, once trained, can maintain consistent performance, ensuring uniform quality in classification tasks.</p>
+
+<h2 id="defining-the-problem-image-classification">Defining the problem: image classification</h2>
+
+<p>The main challenge in image classification is to analyze an image and determine which predefined category it belongs to. For example, we might need to classify images into:</p>
+
+<ul>
+  <li>Object type 1</li>
+  <li>Object type 2</li>
+  <li>Object type 3</li>
+</ul>
+
+<p>Each category typically possesses distinct visual characteristics. Differentiating these by eye can be difficult, especially when dealing with a large volume of images or when the visual differences are subtle.</p>
+
+<p><strong>Figure 1: Basic image classification process</strong></p>
+<pre><code class="language-mermaid">flowchart TD
+    A[Input Images] --&gt; B{Classification}
+    B --&gt; C[Object type 1]
+    B --&gt; D[Object type 2]
+    B --&gt; E[Object type 3]
+</code></pre>
+
+<p>Using images for classification is often more efficient than manual inspection. Consider an automated system where items pass by a camera; the camera captures images, and a computer instantly sorts them. This not only saves time but also minimizes errors that might occur due to human fatigue or haste.</p>
+
+<h2 id="choosing-the-right-approach-supervised-learning-and-cnns">Choosing the right approach: supervised learning and CNNs</h2>
+
+<p>To tackle image classification, we typically turn to <strong>supervised learning</strong>. In this approach, we provide the computer with a large dataset of examples where the correct answer (the category label) is already known. The model learns to recognize patterns from these labeled examples.</p>
+
+<p><strong>Figure 2: Supervised learning with CNNs</strong></p>
+<pre><code class="language-mermaid">graph LR
+    Input[Input: Labeled images] --&gt; Model[Convolutional Neural Network]
+    Model --&gt; Output[Output: Category label]
+</code></pre>
+
+<p>Supervised learning with CNNs is like teaching a child with flashcards: “This image is object type 1,” “This one is object type 2,” and so on. CNNs are effective because they can automatically learn hierarchical features from images, such as edges, textures, and complex shapes, which are important for accurate classification.</p>
+
+<h2 id="essential-tools-for-the-workflow">Essential tools for the workflow</h2>
+
+<p>A machine learning project relies on a set of tools to manage the various stages of development. Here are some common categories and examples:</p>
+
+<ul>
+  <li><strong>ML frameworks</strong>: These provide the building blocks for creating and training models.
+    <ul>
+      <li>TensorFlow (often with Keras API)</li>
+      <li>PyTorch</li>
+    </ul>
+  </li>
+  <li><strong>Data labeling tools</strong>: Used to annotate images with their correct categories.
+    <ul>
+      <li>LabelImg</li>
+      <li>Roboflow</li>
+      <li>CVAT (Computer Vision Annotation Tool)</li>
+    </ul>
+  </li>
+  <li><strong>Experiment tracking</strong>: Helps monitor and compare different model versions and training runs.
+    <ul>
+      <li>MLflow</li>
+      <li>TensorBoard (especially for TensorFlow)</li>
+      <li>Weights &amp; Biases</li>
+    </ul>
+  </li>
+</ul>
+
+<p>The typical workflow involving these tools can be visualized as follows:</p>
+
+<p><strong>Figure 3: Data preparation workflow</strong></p>
+<pre><code class="language-mermaid">flowchart LR
+    A[Data collection] --&gt; B[Labeling tool]
+    B --&gt; C[ML framework]
+    C --&gt; D[Experiment tracking]
+</code></pre>
+
+<p>First, we collect the necessary images. Then, using a labeling tool, we assign the correct category to each image. With the labeled dataset, we use an ML framework like TensorFlow or PyTorch to design and train our CNN model. Throughout this process, experiment tracking tools log metrics, parameters, and artifacts, allowing us to reproduce results and understand what works best. These tools are like a scientist’s lab notebook, helpful for systematic improvement.</p>
+
+<h2 id="preparing-the-data-collection-splitting-and-augmentation">Preparing the data: collection, splitting, and augmentation</h2>
+
+<p>The quality and quantity of data are very important in machine learning. For our image classification model to learn effectively, it needs to see a diverse set of examples.</p>
+
+<p>Key steps in data preparation include:</p>
+
+<ol>
+  <li><strong>Collect diverse, labeled images</strong>: Gather a wide variety of images for each category, ensuring they represent different conditions (lighting, angles, backgrounds) the model might encounter in the real world.</li>
+  <li><strong>Split data</strong>: Divide the dataset into three distinct subsets:
+    <ul>
+      <li><strong>Training set (e.g., 70%)</strong>: Used to train the model.</li>
+      <li><strong>Validation set (e.g., 15%)</strong>: Used to tune model parameters and monitor for overfitting during training.</li>
+      <li><strong>Test set (e.g., 15%)</strong>: Used for a final, unbiased evaluation of the trained model’s performance on unseen data.</li>
+    </ul>
+  </li>
+  <li><strong>Use data augmentation</strong>: Artificially increase the size and diversity of the training set by applying random transformations to existing images (e.g., rotations, flips, brightness adjustments). This helps the model become more robust and generalize better to new, unseen images.</li>
+</ol>
+
+<p>Here’s an example of how you can set up data augmentation using <code class="language-plaintext highlighter-rouge">ImageDataGenerator</code> in TensorFlow/Keras:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">tensorflow.keras.preprocessing.image</span> <span class="kn">import</span> <span class="n">ImageDataGenerator</span>
+
+<span class="c1"># Create an ImageDataGenerator instance with desired augmentations
+</span><span class="n">datagen</span> <span class="o">=</span> <span class="nc">ImageDataGenerator</span><span class="p">(</span>
+    <span class="n">rotation_range</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>      <span class="c1"># Randomly rotate images by up to 20 degrees
+</span>    <span class="n">width_shift_range</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>  <span class="c1"># Randomly shift images horizontally by up to 20% of the width
+</span>    <span class="n">height_shift_range</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="c1"># Randomly shift images vertically by up to 20% of the height
+</span>    <span class="n">shear_range</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>        <span class="c1"># Apply shear transformations
+</span>    <span class="n">zoom_range</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>         <span class="c1"># Randomly zoom into images
+</span>    <span class="n">horizontal_flip</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>   <span class="c1"># Randomly flip images horizontally
+</span>    <span class="n">fill_mode</span><span class="o">=</span><span class="sh">'</span><span class="s">nearest</span><span class="sh">'</span>     <span class="c1"># Strategy for filling newly created pixels
+</span><span class="p">)</span>
+
+<span class="c1"># Example: Applying it to a training data generator
+# train_generator = datagen.flow_from_directory(
+#     'path/to/train_data',
+#     target_size=(224, 224),
+#     batch_size=32,
+#     class_mode='categorical'
+# )
+</span></code></pre></div></div>
+
+<p><strong>Figure 3: Data preparation workflow</strong></p>
+<pre><code class="language-mermaid">flowchart TD
+    A[Raw Images] --&gt; B[Labeling]
+    B --&gt; C[Dataset split]
+    C --&gt; D1[Training set]
+    C --&gt; D2[Validation set]
+    C --&gt; D3[Test set]
+</code></pre>
+
+<p>Splitting the data is important to ensure the model isn’t just “memorizing” the training examples but is actually learning to generalize. Data augmentation acts as a regularizer, preventing the model from becoming too specialized to the training data and improving its performance on real-world data.</p>
+
+<h2 id="building-and-training-the-model">Building and training the model</h2>
+
+<p>With the data prepared, the next step is to define the model architecture and train it.</p>
+
+<ul>
+  <li><strong>Choose a CNN architecture</strong>: Select a CNN architecture suitable for image classification. This could be a custom-built network or a pre-trained model using <strong>transfer learning</strong>. Transfer learning is a powerful technique where a model developed for a task (e.g., classifying a large dataset like ImageNet) is reused as the starting point for a model on a second task. This approach can significantly reduce training time and improve performance, especially when your dataset is relatively small, as the model has already learned general features from the larger dataset.</li>
+  <li><strong>Example architecture</strong>: A simple CNN might consist of:
+    <ul>
+      <li>Input layer (receiving image data)</li>
+      <li>Convolutional layers (Conv2D) with activation functions (e.g., ReLU)</li>
+      <li>Pooling layers (MaxPooling) to reduce dimensionality</li>
+      <li>Flatten layer (to convert 2D feature maps to a 1D vector)</li>
+      <li>Dense layers (fully connected layers) for classification</li>
+      <li>Output layer with an activation function (e.g., softmax for multi-class classification)</li>
+    </ul>
+  </li>
+  <li><strong>Compile the model</strong>: Configure the learning process by specifying:
+    <ul>
+      <li><strong>Optimizer</strong> (e.g., Adam, SGD): Algorithm to update model weights.</li>
+      <li><strong>Loss function</strong> (e.g., <code class="language-plaintext highlighter-rouge">categorical_crossentropy</code> for multi-class): Measures how well the model is performing.</li>
+      <li><strong>Metrics</strong> (e.g., <code class="language-plaintext highlighter-rouge">accuracy</code>): Used to monitor training and testing steps.</li>
+    </ul>
+  </li>
+  <li><strong>Train the model</strong>: Fit the model to the training data, using the validation set to monitor its performance and prevent overfitting.</li>
+</ul>
+
+<p>Here's a simplified example of defining and compiling a CNN model using TensorFlow/Keras:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">tensorflow</span> <span class="k">as</span> <span class="n">tf</span>
+<span class="kn">from</span> <span class="n">tensorflow.keras</span> <span class="kn">import</span> <span class="n">layers</span><span class="p">,</span> <span class="n">models</span>
+
+<span class="c1"># Assuming 3 categories and input images of size 224x224x3 (RGB)
+</span><span class="n">model</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="nc">Sequential</span><span class="p">([</span>
+    <span class="n">layers</span><span class="p">.</span><span class="nc">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">3</span><span class="p">)),</span>
+    <span class="n">layers</span><span class="p">.</span><span class="nc">Conv2D</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="sh">'</span><span class="s">relu</span><span class="sh">'</span><span class="p">),</span>
+    <span class="n">layers</span><span class="p">.</span><span class="nc">MaxPooling2D</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span>
+    <span class="n">layers</span><span class="p">.</span><span class="nc">Conv2D</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="sh">'</span><span class="s">relu</span><span class="sh">'</span><span class="p">),</span>
+    <span class="n">layers</span><span class="p">.</span><span class="nc">MaxPooling2D</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span>
+    <span class="n">layers</span><span class="p">.</span><span class="nc">Flatten</span><span class="p">(),</span>
+    <span class="n">layers</span><span class="p">.</span><span class="nc">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="sh">'</span><span class="s">relu</span><span class="sh">'</span><span class="p">),</span>
+    <span class="n">layers</span><span class="p">.</span><span class="nc">Dense</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="sh">'</span><span class="s">softmax</span><span class="sh">'</span><span class="p">)</span> <span class="c1"># Output layer for 3 classes
+</span><span class="p">])</span>
+
+<span class="n">model</span><span class="p">.</span><span class="nf">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="sh">'</span><span class="s">adam</span><span class="sh">'</span><span class="p">,</span>
+              <span class="n">loss</span><span class="o">=</span><span class="sh">'</span><span class="s">categorical_crossentropy</span><span class="sh">'</span><span class="p">,</span>
+              <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="sh">'</span><span class="s">accuracy</span><span class="sh">'</span><span class="p">])</span>
+
+<span class="c1"># model.fit(training_data, validation_data=validation_data, epochs=N) # Actual training step
+</span></code></pre></div></div>
+
+<p>The model's architecture dictates its capacity to learn. Convolutional layers act as feature extractors, learning to identify patterns like edges and textures. Pooling layers help to make the learned features more robust to variations in object scale and position. Dense layers then use these high-level features to make the final classification. The training process iteratively adjusts the model's weights to minimize the chosen loss function.</p>
+
+<h2 id="saving-your-trained-model">Saving your trained model</h2>
+
+<p>Once the model is trained to a satisfactory performance level, it's important to save its learned parameters (weights) and architecture. This allows you to reuse the model later for predictions without needing to retrain it from scratch.</p>
+
+<p>In TensorFlow/Keras, saving a model is straightforward:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Assume 'model' is your trained Keras model
+</span><span class="n">model</span><span class="p">.</span><span class="nf">save</span><span class="p">(</span><span class="sh">'</span><span class="s">image_classifier_model</span><span class="sh">'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>This command saves the entire model (architecture, weights, and training configuration) to a directory named <code class="language-plaintext highlighter-rouge">image_classifier_model</code>. This saved model can then be loaded into other applications or deployed to a server. It’s like saving your progress in a complex task, ensuring your efforts are preserved for future use.</p>
+
+<h2 id="making-the-model-accessible-serving-with-flask">Making the model accessible: serving with Flask</h2>
+
+<p>To make your trained image classification model usable by other applications or users, you can expose it as a web API. Flask is a lightweight Python web framework that is excellent for this purpose.</p>
+
+<p>Here’s a conceptual example of a Flask app that loads the saved TensorFlow model and provides a <code class="language-plaintext highlighter-rouge">/predict</code> endpoint:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">jsonify</span>
+<span class="kn">import</span> <span class="n">tensorflow</span> <span class="k">as</span> <span class="n">tf</span>
+<span class="kn">from</span> <span class="n">PIL</span> <span class="kn">import</span> <span class="n">Image</span> <span class="c1"># Pillow library for image manipulation
+</span><span class="kn">import</span> <span class="n">numpy</span> <span class="k">as</span> <span class="n">np</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="nc">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="c1"># Load the saved model
+</span><span class="n">model</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">keras</span><span class="p">.</span><span class="n">models</span><span class="p">.</span><span class="nf">load_model</span><span class="p">(</span><span class="sh">'</span><span class="s">image_classifier_model</span><span class="sh">'</span><span class="p">)</span>
+<span class="c1"># Define the class names (ensure order matches model output)
+</span><span class="n">CLASSES</span> <span class="o">=</span> <span class="p">[</span><span class="sh">'</span><span class="s">Object type 1</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">Object type 2</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">Object type 3</span><span class="sh">'</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">preprocess_image</span><span class="p">(</span><span class="n">image_file</span><span class="p">):</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="n">image_file</span><span class="p">.</span><span class="n">stream</span><span class="p">).</span><span class="nf">convert</span><span class="p">(</span><span class="sh">'</span><span class="s">RGB</span><span class="sh">'</span><span class="p">)</span> <span class="c1"># Ensure 3 channels
+</span>    <span class="n">img</span> <span class="o">=</span> <span class="n">img</span><span class="p">.</span><span class="nf">resize</span><span class="p">((</span><span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">))</span> <span class="c1"># Resize to model's expected input size
+</span>    <span class="n">img_array</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">array</span><span class="p">(</span><span class="n">img</span><span class="p">)</span> <span class="o">/</span> <span class="mf">255.0</span> <span class="c1"># Normalize pixel values
+</span>    <span class="n">img_array</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">expand_dims</span><span class="p">(</span><span class="n">img_array</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># Add batch dimension
+</span>    <span class="k">return</span> <span class="n">img_array</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="sh">'</span><span class="s">/predict</span><span class="sh">'</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="sh">'</span><span class="s">POST</span><span class="sh">'</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">predict</span><span class="p">():</span>
+    <span class="k">if</span> <span class="sh">'</span><span class="s">file</span><span class="sh">'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">request</span><span class="p">.</span><span class="n">files</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nf">jsonify</span><span class="p">({</span><span class="sh">'</span><span class="s">error</span><span class="sh">'</span><span class="p">:</span> <span class="sh">'</span><span class="s">No file part</span><span class="sh">'</span><span class="p">}),</span> <span class="mi">400</span>
+    <span class="nb">file</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">files</span><span class="p">[</span><span class="sh">'</span><span class="s">file</span><span class="sh">'</span><span class="p">]</span>
+    <span class="k">if</span> <span class="nb">file</span><span class="p">.</span><span class="n">filename</span> <span class="o">==</span> <span class="sh">''</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nf">jsonify</span><span class="p">({</span><span class="sh">'</span><span class="s">error</span><span class="sh">'</span><span class="p">:</span> <span class="sh">'</span><span class="s">No selected file</span><span class="sh">'</span><span class="p">}),</span> <span class="mi">400</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">img_array</span> <span class="o">=</span> <span class="nf">preprocess_image</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span>
+        <span class="n">prediction</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="nf">predict</span><span class="p">(</span><span class="n">img_array</span><span class="p">)</span>
+        <span class="n">class_idx</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">argmax</span><span class="p">(</span><span class="n">prediction</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">return</span> <span class="nf">jsonify</span><span class="p">({</span><span class="sh">'</span><span class="s">class</span><span class="sh">'</span><span class="p">:</span> <span class="n">CLASSES</span><span class="p">[</span><span class="n">class_idx</span><span class="p">],</span> <span class="sh">'</span><span class="s">confidence</span><span class="sh">'</span><span class="p">:</span> <span class="nf">float</span><span class="p">(</span><span class="n">prediction</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">class_idx</span><span class="p">])})</span>
+    <span class="k">except</span> <span class="nb">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nf">jsonify</span><span class="p">({</span><span class="sh">'</span><span class="s">error</span><span class="sh">'</span><span class="p">:</span> <span class="nf">str</span><span class="p">(</span><span class="n">e</span><span class="p">)}),</span> <span class="mi">500</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">'</span><span class="s">__main__</span><span class="sh">'</span><span class="p">:</span>
+    <span class="n">app</span><span class="p">.</span><span class="nf">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="sh">'</span><span class="s">0.0.0.0</span><span class="sh">'</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>This Flask application creates an endpoint that accepts an image file, preprocesses it to match the model’s input requirements, gets a prediction from the loaded TensorFlow model, and returns the predicted class as a JSON response. This makes the model accessible over the network.</p>
+
+<h2 id="ensuring-portability-dockerizing-the-application">Ensuring portability: dockerizing the application</h2>
+
+<p>To ensure that your Flask application (and the ML model it serves) runs consistently across different environments (development, testing, production), containerization with Docker is highly recommended. Docker packages the application and all its dependencies into a standardized unit called a container.</p>
+
+<p>Here’s an example <code class="language-plaintext highlighter-rouge">Dockerfile</code> for the Flask application:</p>
+
+<div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Use an official Python runtime as a parent image</span>
+<span class="k">FROM</span><span class="s"> python:3.10-slim</span>
+
+<span class="c"># Set the working directory in the container</span>
+<span class="k">WORKDIR</span><span class="s"> /app</span>
+
+<span class="c"># Copy the current directory contents into the container at /app</span>
+<span class="k">COPY</span><span class="s"> . /app</span>
+
+<span class="c"># Copy requirements.txt and install dependencies</span>
+<span class="k">COPY</span><span class="s"> requirements.txt .</span>
+<span class="k">RUN </span>pip <span class="nb">install</span> <span class="nt">--no-cache-dir</span> <span class="nt">-r</span> requirements.txt
+
+<span class="c"># Make port 5000 available to the world outside this container</span>
+<span class="k">EXPOSE</span><span class="s"> 5000</span>
+
+<span class="c"># Define environment variable</span>
+<span class="k">ENV</span><span class="s"> NAME World</span>
+
+<span class="c"># Run app.py when the container launches</span>
+<span class="k">CMD</span><span class="s"> ["python", "app.py"]</span>
+</code></pre></div></div>
+
+<p>You would create a <code class="language-plaintext highlighter-rouge">requirements.txt</code> file in the same directory as your <code class="language-plaintext highlighter-rouge">Dockerfile</code> and <code class="language-plaintext highlighter-rouge">app.py</code>. For this project, it would look like this:</p>
+
+<pre><code class="language-txt">flask
+tensorflow
+pillow
+numpy
+</code></pre>
+
+<p>This <code class="language-plaintext highlighter-rouge">Dockerfile</code> defines the steps to build a Docker image. It starts from a base Python image, copies the application code (including <code class="language-plaintext highlighter-rouge">app.py</code>, the <code class="language-plaintext highlighter-rouge">image_classifier_model</code> directory, and a <code class="language-plaintext highlighter-rouge">requirements.txt</code> file), installs dependencies, exposes the port Flask is running on, and specifies the command to run the application. This container can then be deployed on any system with Docker installed, resolving the “it works on my machine” problem.</p>
+
+<h2 id="the-complete-workflow">The complete workflow</h2>
+
+<p>The overall workflow, from a user or system providing an image to receiving a classification, can be summarized with the following diagram:</p>
+
+<p><strong>Figure 4: Complete image classification and serving workflow</strong></p>
+<pre><code class="language-mermaid">flowchart TD
+    A["User Uploads Image / Image from System"] --&gt; B["Flask API (via HTTP)"]
+    B --&gt; C["Docker Container hosting Flask App &amp; TensorFlow Model"]
+    C -- Preprocesses Image --&gt; D[TensorFlow Model Inference]
+    D -- Returns Prediction --&gt; C
+    C -- Sends JSON Response --&gt; A["Prediction (Category) returned to User/System"]
+</code></pre>
+
+<p>A user or an automated system sends an image to the Flask API. The API, running inside a Docker container, receives the image. The Flask application preprocesses the image and feeds it to the TensorFlow model for inference. The model returns a prediction, which the Flask app then formats as a JSON response and sends back to the requester.</p>
+
+<h2 id="conclusion-and-key-takeaways">Conclusion and key takeaways</h2>
+
+<p>This post highlighted a common and effective machine learning workflow for image classification. The key stages include:</p>
+
+<ol>
+  <li><strong>Problem definition</strong>: Clearly understanding the classification task.</li>
+  <li><strong>Data management</strong>: Collecting, labeling, splitting, and augmenting image data.</li>
+  <li><strong>Model development</strong>: Choosing an appropriate architecture (like a CNN), training it with frameworks such as TensorFlow, and saving the trained model.</li>
+  <li><strong>Deployment</strong>: Serving the model via a web API using Flask.</li>
+  <li><strong>Packaging</strong>: Containerizing the application with Docker for portability and scalability.</li>
+</ol>
+
+<p>This structured approach can be adapted for a wide array of applications, from identifying different types of flora and fauna to detecting defects in manufacturing or recognizing landmarks in photographs. By following these steps and leveraging the right tools, you can build AI systems capable of understanding and interpreting visual information.</p>
+
+    </div>
+  </article>
+  <!-- end post -->
+</div>
+
+
+
+<div class="container">
+  <div class="card-author">
+    <div class="card-author__media">
+      
+      <a class="card-author__image" href="/hidde">
+        <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
+      </a>
+      
+    </div>
+
+    <div class="card-author__content">
+      <div class="card-author__role">Written by</div>
+        
+        <h3 class="card-author__name"><a href="/hidde" class="card-author__link">Hidde de Smet</a></h3>
+        
+        
+        <p class="card-author__description">As a certified Azure Solution Architect, I specialize in designing, implementing, and managing cloud-based solutions using Scrum and DevOps methodologies. 
+</p>
+        
+    </div>
+  </div>
+</div>
+
+
+
+  <!-- begin comments -->
+<div class="container">
+  <div class="row">
+    <div class="col col-12">
+      <div class="show-comments">
+        <h3 class="show-comments__title">Start the conversation</h3>
+        <button class="button button--big disqus-button" id="show-comments-button" onclick="disqus();return false;">Show Comments</button>
+      </div>
+
+      <div id="disqus_thread" class="post__comments">
+        <div id="disqus_empty"></div>
+      </div>
+
+      <script>
+        var disqus_loaded = false;
+        var disqus_shortname = 'anvod-studio-test';
+        var disqus_container = document.getElementById("disqus_thread");
+        function disqus() {
+          if (!disqus_loaded) {
+            disqus_loaded = true;
+            var e = document.createElement("script");
+            e.type = "text/javascript";
+            e.async = true;
+            e.src = "//" + disqus_shortname + ".disqus.com/embed.js";
+            (document.getElementsByTagName("head")[0] ||
+              document.getElementsByTagName("body")[0])
+              .appendChild(e);
+            // Hide the button after opening
+            document.getElementById("show-comments-button").style.display = "none";
+            // Show disqus comments
+            disqus_container.classList.add("is-open");
+          }
+        }
+      </script>
+
+      <noscript>Please enable JavaScript to view the
+        <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+      </noscript>
+    </div>
+  </div>
+</div>
+<!-- end comments -->
+
+
+
+
+
+
+
+
+<!-- begin related posts -->
+<section class="section related-posts is-related">
   <div class="container">
     <div class="row">
+
       <div class="col col-12">
-        <div class="hero__inner">
-          
-          <h1 class="hero__title">Explore topics</h1>
-          
-          
-          <p class="hero__description">Explore this topics page to easily navigate the wide range of content available on this blog. This is your gateway to discovering the diverse conversations and ideas that this blog covers.</p>
-          
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- end hero -->
+        <div class="section__inner">
 
-<!-- begin tags -->
-<section class="tags">
+          <div class="section__info">
+            <div class="section__head">
+              <h2 class="section__title">Related</h2>
+              
+              
+                
+                  <a href="/tags#AI" class="section__link">See all<span> AI</span></a>
+                
+              
+                
+              
+                
+              
+                
+              
+            
+            </div>
+          </div>
 
-  <div class="tag__head">
-    <div class="container">
-      <div class="row">
-      
-        
+          <div class="row">
           
-          <div class="col col-4 col-d-6 col-t-12">
-            <a href="#AI" class="tag__link">AI (4)</a>
-          </div>
-        
-      
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <a href="#Decision Making" class="tag__link">Decision Making (1)</a>
-          </div>
-        
-      
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <a href="#Development" class="tag__link">Development (1)</a>
-          </div>
-        
-      
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <a href="#IASA" class="tag__link">IASA (2)</a>
-          </div>
-        
-      
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <a href="#Image Classification" class="tag__link">Image Classification (1)</a>
-          </div>
-        
-      
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <a href="#MCP" class="tag__link">MCP (1)</a>
-          </div>
-        
-      
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <a href="#Machine Learning" class="tag__link">Machine Learning (1)</a>
-          </div>
-        
-      
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <a href="#Project Validation" class="tag__link">Project Validation (1)</a>
-          </div>
-        
-      
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <a href="#ROI" class="tag__link">ROI (1)</a>
-          </div>
-        
-      
-        
-      
-      </div>
-    </div>
-  </div>
+            
+            
 
-  
-  
-  <div class="tags__inner">
+            
 
-    <div class="container">
-      <div class="section__info">
-        <div class="section__head">
-          <h2 class="section__title" id="AI">AI</h2>
-          <a class="section__link top__link" href="#top">Return to top</a>
-        </div>
-      </div>
-    </div>
+            
 
-    <div class="container">
-      <div class="section__inner">
-        <div class="row">
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
+            <div class="col col-4 col-d-6 col-t-12">
+              <div class="article">
   <div class="article__inner">
 
     <div class="article__head">
@@ -376,71 +797,28 @@
     </div>
   </div>
 </div>
-          </div>
+            </div>
+
+            
+            
+            
           
-        
+            
+            
+
+            
+
+            
           
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
+            
+            
 
-    <div class="article__head">
-      
+            
 
-      
-      <a href="/iasa-ai-course" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/machinelearning.png" alt="A practical guide to Machine Learning for image classification">
-      </a>
-      
-    </div>
+            
 
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#AI" class="article__tag">AI</a>
-        
-          <a href="/tags#Machine Learning" class="article__tag">Machine Learning</a>
-        
-          <a href="/tags#Image Classification" class="article__tag">Image Classification</a>
-        
-          <a href="/tags#IASA" class="article__tag">IASA</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-05-21T09:00:00+02:00">May 21, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/iasa-ai-course">A practical guide to Machine Learning for image classification</a>
-      </h2>
-
-      <p class="article__excerpt">An overview of a typical machine learning workflow for image classification, covering problem definition, ML type, tooling, data preparation, model training, and deployment using TensorFlow, Flask, and Docker.</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
+            <div class="col col-4 col-d-6 col-t-12">
+              <div class="article">
   <div class="article__inner">
 
     <div class="article__head">
@@ -490,12 +868,21 @@
     </div>
   </div>
 </div>
-          </div>
+            </div>
+
+            
+            
+            
           
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
+            
+            
+
+            
+
+            
+
+            <div class="col col-4 col-d-6 col-t-12">
+              <div class="article">
   <div class="article__inner">
 
     <div class="article__head">
@@ -545,744 +932,19 @@
     </div>
   </div>
 </div>
+            </div>
+
+            
+            
+                
           </div>
-          
-        
+
         </div>
       </div>
-    </div>
-
-  </div>
-
-
-
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="section__info">
-        <div class="section__head">
-          <h2 class="section__title" id="Decision Making">Decision Making</h2>
-          <a class="section__link top__link" href="#top">Return to top</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="section__inner">
-        <div class="row">
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/is-ai-the-right-solution-a-guide-to-validating-ai-projects" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/ai_validation.png" alt="Is AI the right solution? A guide to validating AI projects">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#AI" class="article__tag">AI</a>
-        
-          <a href="/tags#IASA" class="article__tag">IASA</a>
-        
-          <a href="/tags#Decision Making" class="article__tag">Decision Making</a>
-        
-          <a href="/tags#Project Validation" class="article__tag">Project Validation</a>
-        
-          <a href="/tags#ROI" class="article__tag">ROI</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-05-25T09:00:00+02:00">May 25, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/is-ai-the-right-solution-a-guide-to-validating-ai-projects">Is AI the right solution? A guide to validating AI projects</a>
-      </h2>
-
-      <p class="article__excerpt">A guide to help you decide if implementing an AI solution is the right choice for your project, based on the IASA AI Architecture course.</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
     </div>
   </div>
-</div>
-          </div>
-          
-        
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="section__info">
-        <div class="section__head">
-          <h2 class="section__title" id="Development">Development</h2>
-          <a class="section__link top__link" href="#top">Return to top</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="section__inner">
-        <div class="row">
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/github-copilot-agent-mode" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/githubcopilotagentmode.jpg" alt="GitHub Copilot Agent Mode - Transforming your development workflow">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#AI" class="article__tag">AI</a>
-        
-          <a href="/tags#Development" class="article__tag">Development</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-05-07T09:00:00+02:00">May 07, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/github-copilot-agent-mode">GitHub Copilot Agent Mode - Transforming your development workflow</a>
-      </h2>
-
-      <p class="article__excerpt">Discover how GitHub Copilot's Agent Mode enhances your development experience with natural language interactions and context-aware assistance throughout your coding journey.</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="section__info">
-        <div class="section__head">
-          <h2 class="section__title" id="IASA">IASA</h2>
-          <a class="section__link top__link" href="#top">Return to top</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="section__inner">
-        <div class="row">
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/is-ai-the-right-solution-a-guide-to-validating-ai-projects" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/ai_validation.png" alt="Is AI the right solution? A guide to validating AI projects">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#AI" class="article__tag">AI</a>
-        
-          <a href="/tags#IASA" class="article__tag">IASA</a>
-        
-          <a href="/tags#Decision Making" class="article__tag">Decision Making</a>
-        
-          <a href="/tags#Project Validation" class="article__tag">Project Validation</a>
-        
-          <a href="/tags#ROI" class="article__tag">ROI</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-05-25T09:00:00+02:00">May 25, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/is-ai-the-right-solution-a-guide-to-validating-ai-projects">Is AI the right solution? A guide to validating AI projects</a>
-      </h2>
-
-      <p class="article__excerpt">A guide to help you decide if implementing an AI solution is the right choice for your project, based on the IASA AI Architecture course.</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/iasa-ai-course" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/machinelearning.png" alt="A practical guide to Machine Learning for image classification">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#AI" class="article__tag">AI</a>
-        
-          <a href="/tags#Machine Learning" class="article__tag">Machine Learning</a>
-        
-          <a href="/tags#Image Classification" class="article__tag">Image Classification</a>
-        
-          <a href="/tags#IASA" class="article__tag">IASA</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-05-21T09:00:00+02:00">May 21, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/iasa-ai-course">A practical guide to Machine Learning for image classification</a>
-      </h2>
-
-      <p class="article__excerpt">An overview of a typical machine learning workflow for image classification, covering problem definition, ML type, tooling, data preparation, model training, and deployment using TensorFlow, Flask, and Docker.</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="section__info">
-        <div class="section__head">
-          <h2 class="section__title" id="Image Classification">Image Classification</h2>
-          <a class="section__link top__link" href="#top">Return to top</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="section__inner">
-        <div class="row">
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/iasa-ai-course" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/machinelearning.png" alt="A practical guide to Machine Learning for image classification">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#AI" class="article__tag">AI</a>
-        
-          <a href="/tags#Machine Learning" class="article__tag">Machine Learning</a>
-        
-          <a href="/tags#Image Classification" class="article__tag">Image Classification</a>
-        
-          <a href="/tags#IASA" class="article__tag">IASA</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-05-21T09:00:00+02:00">May 21, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/iasa-ai-course">A practical guide to Machine Learning for image classification</a>
-      </h2>
-
-      <p class="article__excerpt">An overview of a typical machine learning workflow for image classification, covering problem definition, ML type, tooling, data preparation, model training, and deployment using TensorFlow, Flask, and Docker.</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="section__info">
-        <div class="section__head">
-          <h2 class="section__title" id="MCP">MCP</h2>
-          <a class="section__link top__link" href="#top">Return to top</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="section__inner">
-        <div class="row">
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/model-context-protocol-mcp" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/mcp1.jpg" alt="Understanding the Model Context Protocol (MCP)">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#AI" class="article__tag">AI</a>
-        
-          <a href="/tags#MCP" class="article__tag">MCP</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-05-08T09:00:00+02:00">May 08, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/model-context-protocol-mcp">Understanding the Model Context Protocol (MCP)</a>
-      </h2>
-
-      <p class="article__excerpt">Explore the Model Context Protocol (MCP), a groundbreaking standard for AI integration, enabling seamless interaction between AI models and external data sources.</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="section__info">
-        <div class="section__head">
-          <h2 class="section__title" id="Machine Learning">Machine Learning</h2>
-          <a class="section__link top__link" href="#top">Return to top</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="section__inner">
-        <div class="row">
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/iasa-ai-course" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/machinelearning.png" alt="A practical guide to Machine Learning for image classification">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#AI" class="article__tag">AI</a>
-        
-          <a href="/tags#Machine Learning" class="article__tag">Machine Learning</a>
-        
-          <a href="/tags#Image Classification" class="article__tag">Image Classification</a>
-        
-          <a href="/tags#IASA" class="article__tag">IASA</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-05-21T09:00:00+02:00">May 21, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/iasa-ai-course">A practical guide to Machine Learning for image classification</a>
-      </h2>
-
-      <p class="article__excerpt">An overview of a typical machine learning workflow for image classification, covering problem definition, ML type, tooling, data preparation, model training, and deployment using TensorFlow, Flask, and Docker.</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="section__info">
-        <div class="section__head">
-          <h2 class="section__title" id="Project Validation">Project Validation</h2>
-          <a class="section__link top__link" href="#top">Return to top</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="section__inner">
-        <div class="row">
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/is-ai-the-right-solution-a-guide-to-validating-ai-projects" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/ai_validation.png" alt="Is AI the right solution? A guide to validating AI projects">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#AI" class="article__tag">AI</a>
-        
-          <a href="/tags#IASA" class="article__tag">IASA</a>
-        
-          <a href="/tags#Decision Making" class="article__tag">Decision Making</a>
-        
-          <a href="/tags#Project Validation" class="article__tag">Project Validation</a>
-        
-          <a href="/tags#ROI" class="article__tag">ROI</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-05-25T09:00:00+02:00">May 25, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/is-ai-the-right-solution-a-guide-to-validating-ai-projects">Is AI the right solution? A guide to validating AI projects</a>
-      </h2>
-
-      <p class="article__excerpt">A guide to help you decide if implementing an AI solution is the right choice for your project, based on the IASA AI Architecture course.</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="section__info">
-        <div class="section__head">
-          <h2 class="section__title" id="ROI">ROI</h2>
-          <a class="section__link top__link" href="#top">Return to top</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="section__inner">
-        <div class="row">
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/is-ai-the-right-solution-a-guide-to-validating-ai-projects" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/ai_validation.png" alt="Is AI the right solution? A guide to validating AI projects">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#AI" class="article__tag">AI</a>
-        
-          <a href="/tags#IASA" class="article__tag">IASA</a>
-        
-          <a href="/tags#Decision Making" class="article__tag">Decision Making</a>
-        
-          <a href="/tags#Project Validation" class="article__tag">Project Validation</a>
-        
-          <a href="/tags#ROI" class="article__tag">ROI</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-05-25T09:00:00+02:00">May 25, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/is-ai-the-right-solution-a-guide-to-validating-ai-projects">Is AI the right solution? A guide to validating AI projects</a>
-      </h2>
-
-      <p class="article__excerpt">A guide to help you decide if implementing an AI solution is the right choice for your project, based on the IASA AI Architecture course.</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-
-
-
 </section>
-<!-- end tags -->
+<!-- end related posts -->
     </main>
     <!-- end content -->
 

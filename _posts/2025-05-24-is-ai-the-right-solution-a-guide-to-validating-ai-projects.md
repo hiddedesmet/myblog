@@ -2,7 +2,7 @@
 layout: post
 title: Is AI the right solution? A guide to validating AI projects
 description: A guide to help you decide if implementing an AI solution is the right choice for your project, based on the IASA AI Architecture course.
-date: 2025-05-26 10:00:00 +0300
+date: 2025-05-25 10:00:00 +0300
 author: hidde
 image: '/images/ai_validation.png' # Placeholder image, please update
 tags: [AI, IASA, Decision Making, Project Validation, ROI]
@@ -135,7 +135,7 @@ graph LR
 
 Here’s how this decision tree framework can be applied to common types of AI projects:
 
-### Example 1: AI for Process Optimization (e.g., Manufacturing, Logistics, Back-office)
+### Example 1: AI for process optimization (e.g., Manufacturing, Logistics, Back-office)
 
 *   **Strategic alignment:** Does optimizing a specific business process (e.g., reducing production defects, streamlining supply chain logistics, automating data entry) align with strategic goals like cost reduction, improved quality, or operational efficiency?
 *   **Pillars evaluation:**
@@ -194,7 +194,7 @@ AI systems learn from data, and if that data reflects existing societal biases, 
     *   **Biometrics and facial recognition:** The ease with which AI can process biometrics and perform facial recognition necessitates stringent safeguards and clear policies to prevent misuse.
     *   **Data repurposing:** When data collected for one specific purpose is stored and later reused for AI training or other applications without explicit, informed consent for these new uses, it erodes trust and can violate privacy rights.
     *   **Data longevity:** How long should data be stored, especially sensitive data? What happens when data is stored longer than an individual is alive? Are there clear data disposal policies?
-    *   **"Click-through" Consent:** Does a user genuinely provide informed consent for their data to be used in AI training if they simply "click through" a generic "I agree" checkbox, often without fully understanding the implications? The validity and ethics of such consent mechanisms are highly debatable.
+    *   **"Click-through" consent:** Does a user genuinely provide informed consent for their data to be used in AI training if they simply "click through" a generic "I agree" checkbox, often without fully understanding the implications? The validity and ethics of such consent mechanisms are highly debatable.
 
 *   **Automation and workforce impact:** The drive to automate tasks using AI has profound implications for the workforce.
     *   **Cost of replacement vs. augmentation:** While AI can automate, the cost to develop, fit, and run models that *completely* replace a human worker can be substantial. Often, AI is better suited to augment human capabilities.
@@ -211,7 +211,7 @@ AI systems learn from data, and if that data reflects existing societal biases, 
     *   **Regulatory moves (EU AI Act):** Recognizing these challenges, regulations like the EU AI Act are emerging. This act will mandate a degree of transparency for AI systems classified as "high-risk." For such systems, users (and regulators) must be provided with clear instructions on the system's capabilities, limitations, and potential risks.
     *   **Scope of regulation:** It's important to note, however, that most AI applications will likely not fall under the "high-risk" category as defined by the EU AI Act. The majority will be considered "low-risk" or "minimal risk," and thus, the regulatory requirements will be less stringent. However, adhering to ethical guidelines and ensuring transparency will remain best practices regardless of regulatory classification.
 
-    ![EU ACT](/images/eu_act.png)
+    ![EU ACT](/images/eu-act.png)
     *Caption: The EU AI Act aims to regulate high-risk AI systems, emphasizing transparency and user awareness.*
    
 ## Defining success metrics
@@ -287,7 +287,7 @@ Validating an AI project is not just a preliminary step; it's an ongoing process
 *   **Data is the foundation:** The quality, availability, and ethical sourcing of data are critical success factors for any AI initiative.
 *   **Human oversight remains crucial:** AI should augment human capabilities, not replace human accountability. Ensure mechanisms for human review and intervention.
 
-![Decision tree](/images/decision_tree.png)
+![Decision tree](/images/ai_validation.png)
 *Caption: Validating AI projects thoroughly leads to more impactful and responsible innovation.*
 
 Determining the viability and potential ROI of AI projects requires a nuanced understanding of both the technology and the specific business context. By following a structured framework like the one outlined above, and by giving due consideration to the ethical implications, organizations can make more informed, strategic decisions about AI investments.
