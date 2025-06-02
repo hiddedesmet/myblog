@@ -2,7 +2,7 @@
 layout: post
 title: "Is AI the right solution? Part 2: Examples and ethical risks"
 description: "Part 2 of our AI project validation series. See the decision framework in action with examples and explore key ethical risks like bias, privacy, and workforce impact."
-date: 2025-06-02 10:00:00 +0300
+date: 2025-06-02 07:00:00 +0300
 author: hidde
 image: '/images/ai-ethics.png' # Consider a different image for visual variety, e.g., related to ethics or examples
 tags: [AI, IASA, Ethics, Series]
