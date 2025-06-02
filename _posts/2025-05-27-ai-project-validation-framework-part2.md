@@ -10,7 +10,7 @@ featured: true
 toc: true
 ---
 
-Welcome to Part 2 of our series on validating AI projects! In [Part 1: The Decision Framework]({{ site.baseurl }}/ai-project-validation-framework-part1), we introduced a structured decision tree to help assess the viability of AI initiatives. Now, let's explore practical applications of this framework and dive into the crucial ethical considerations that every AI project must address.
+Welcome to Part 2 of our series on validating AI projects! In [Part 1: The decision Framework]({{ site.baseurl }}/ai-project-validation-framework-part1), we introduced a structured decision tree to help assess the viability of AI initiatives. Now, let's explore practical applications of this framework and dive into the crucial ethical considerations that every AI project must address.
 
 ## Applying the Framework: Generic examples
 
@@ -27,7 +27,7 @@ Here’s how this decision tree framework can be applied to common types of AI p
 *   **Business impact:** Primarily cost reduction or efficiency improvement. Could also lead to improved quality or compliance.
 *   **Impact quantification:** Estimated annual savings of [$Amount] due to reduced labor, fewer errors, less material waste, or faster throughput.
 *   **Feasibility & effort:** Assessed as [Low/Medium/High] effort based on data complexity, model requirements, integration with existing systems, and change management needs.
-*   **ROI assessment:** If high impact (significant savings/efficiency gains) and manageable effort, it could be a "Quick Win" or "Strategic Bet."
+*   **ROI assessment:** If high impact (significant savings/efficiency gains) and manageable effort, it could be a "Quick win" or "Strategic bet."
 
 ### Example 2: AI for enhanced customer experience (e.g., Personalization, support chatbots)
 
@@ -40,7 +40,7 @@ Here’s how this decision tree framework can be applied to common types of AI p
 *   **Business impact:** Primarily revenue increase (through retention, upselling, new customer acquisition) or improved customer satisfaction and loyalty.
 *   **Impact quantification:** Estimated annual revenue increase of [$Amount] from improved metrics, or the financial value of reduced churn / increased customer lifetime value.
 *   **Feasibility & effort:** Assessed as [Low/Medium/High] effort, considering data integration, model sophistication, UI/UX development, and ethical AI considerations.
-*   **ROI assessment:** If high impact (significant revenue uplift or satisfaction boost) and the effort is proportionate, it could be a "Strategic Bet." Ensure ethical implications are thoroughly reviewed.
+*   **ROI assessment:** If high impact (significant revenue uplift or satisfaction boost) and the effort is proportionate, it could be a "Strategic bet." Ensure ethical implications are thoroughly reviewed.
 
 ## Ethical considerations and risks
 
