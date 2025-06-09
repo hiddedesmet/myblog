@@ -10,7 +10,7 @@ featured: true
 toc: true
 ---
 
-Welcome to the final installment, Part 3, of our comprehensive guide to validating AI projects! In [Part 1: The Decision Framework]({{ site.baseurl }}/ai-project-validation-framework-part1), we laid out a structured approach for assessing AI initiatives. In [Part 2: Examples and Ethical Risks]({{ site.baseurl }}/ai-project-validation-framework-part2), we explored practical applications and critical ethical considerations. Now, we'll focus on defining what success looks like, the importance of pilot projects, and wrap up with key takeaways for your AI journey.
+Welcome to the final installment, Part 3, of our comprehensive guide to validating AI projects! In [Part 1: The decision framework]({{ site.baseurl }}/ai-project-validation-framework-part1), we laid out a structured approach for assessing AI initiatives. In [Part 2: Examples and ethical risks]({{ site.baseurl }}/ai-project-validation-framework-part2), we explored practical applications and critical ethical considerations. Now, we'll focus on defining what success looks like, the importance of pilot projects, and wrap up with key takeaways for your AI journey.
 
 ## Defining success metrics
 
