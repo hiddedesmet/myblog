@@ -2,7 +2,7 @@
 layout: post
 title: "Is AI the right solution? Part 3: Metrics, piloting, and key takeaways"
 description: "Final part of our AI project validation series. Learn how to define success metrics, run effective pilot projects, and review key takeaways for successful AI implementation."
-date: 2025-06-09 10:00:00 +0300
+date: 2025-06-09 11:00:00 +0300
 author: hidde
 image: '/images/ai-the-right-decision.png' # Consider a different image, e.g., a graph showing improvement or a team collaborating
 tags: [AI, IASA, ROI, Metrics, Piloting, Series]

@@ -253,48 +253,6 @@ environments/
 - More complex maintenance
 - Requires discipline to keep environments in sync
 
-### Strategy 3: Hybrid approach (what I settled on)
-
-I combined the best of both approaches:
-
-```
-# Shared modules (DRY principle)
-modules/
-├── network/
-├── storage/
-└── webapp/
-
-# Environment-specific configuration
-environments/
-├── dev.tfvars      # Development variables
-└── prod.tfvars     # Production variables
-
-# Single main configuration
-main.tf             # References modules with environment variables
-```
-
-**Configuration example:**
-```hcl
-# main.tf
-module "network" {
-  source = "./modules/network"
-  
-  environment = var.environment
-  location    = var.location
-  # ... other variables
-}
-
-# Usage with different backends per environment
-terraform init -backend-config="environments/dev-backend.conf"
-terraform apply -var-file="environments/dev.tfvars"
-```
-
-**Benefits of the hybrid approach:**
-- Shared modules prevent code duplication
-- Separate backends provide state isolation  
-- Environment-specific variable files allow customization
-- Single CI/CD pipeline can handle all environments
-
 **Key lesson:** Start with workspaces for simplicity, but plan migration to separate backends as security and compliance requirements grow.
 
 ## Evolution phase 3: automation and CI/CD
