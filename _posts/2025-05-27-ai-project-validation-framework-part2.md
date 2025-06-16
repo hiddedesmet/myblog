@@ -6,7 +6,7 @@ date: 2025-06-02 07:00:00 +0300
 author: hidde
 image: '/images/ai-ethics.png' # Consider a different image for visual variety, e.g., related to ethics or examples
 tags: [AI, IASA, Ethics, Series]
-featured: true
+featured: false
 toc: true
 ---
 

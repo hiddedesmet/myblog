@@ -6,7 +6,7 @@ date: 2025-05-26 10:00:00 +0300
 author: hidde
 image: '/images/ai_validation.png'
 tags: [AI, IASA, Project validation, Series]
-featured: true
+featured: false
 toc: true
 ---
 

@@ -6,7 +6,7 @@ date: 2025-06-09 11:00:00 +0300
 author: hidde
 image: '/images/ai-the-right-decision.png' # Consider a different image, e.g., a graph showing improvement or a team collaborating
 tags: [AI, IASA, ROI, Metrics, Piloting, Series]
-featured: true
+featured: false
 toc: true
 ---
 
