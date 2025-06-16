@@ -10,7 +10,7 @@ featured: true
 toc: true
 ---
 
-When preparing samples for a Terraform training I was giving, I wanted to demonstrate how infrastructure code can evolve from simple beginnings through incremental improvements. Rather than starting with a complex example, I decided to build a project that shows the natural progression most teams experience—beginning with basic functionality and gradually adding sophisticated features like testing, automation, and governance.
+When preparing samples for a Terraform training I was giving, I wanted to demonstrate how infrastructure code can evolve from simple beginnings through incremental improvements. Rather than starting with a complex example, I decided to build a project that shows the natural progression most teams experience, beginning with basic functionality and gradually adding sophisticated features like testing, automation, and governance.
 
 This post shares the insights and lessons learned from creating those training samples. It's designed to help teams understand not just the "what" but the "why" behind each improvement, providing a roadmap for elevating your own Terraform practices. Whether you're just starting with Infrastructure as Code or looking to mature your existing setup, this evolution demonstrates practical steps you can take to build more reliable, maintainable infrastructure.
 
