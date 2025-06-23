@@ -8,6 +8,7 @@ image: '/images/bicep-vs-terraform.png'
 video_embed: 
 tags: [infrastructure, azure, terraform, bicep, opentofu, iac, devops, cloud, ibm]
 featured: true
+toc: true
 ---
 
 The Infrastructure as Code (IaC) landscape has evolved dramatically over the past few years, with organizations increasingly adopting declarative approaches to manage their cloud resources. Two prominent players have emerged as frontrunners in this space: **Azure Bicep** and **HashiCorp Terraform**. Recently, **OpenTofu** has joined as a community-driven fork of Terraform, offering the same capabilities under open-source governance. While all these tools aim to solve the same fundamental problem (provisioning and managing infrastructure through code), they take different approaches to governance and platform focus.
