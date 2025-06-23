@@ -6,7 +6,7 @@ date: 2025-06-16 08:00:00 +0300
 author: hidde
 image: '/images/terraform-evolution.png'
 tags: [Terraform, GitHub, CI/CD, Azure, IaC]
-featured: true
+featured: false
 toc: true
 ---
 
