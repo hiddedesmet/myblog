@@ -141,7 +141,6 @@ One of Bicep's most compelling features is **no local state files**. Azure Resou
 | Natural team collaboration without state locking | Less flexibility for complex deployment scenarios |
 | Automatic cleanup of orphaned resources | Harder to manage resources across multiple Azure tenants |
 | Built-in what-if operations for change preview | Limited to Azure Resource Manager capabilities |
-- Harder to manage resources across multiple Azure tenants
 
 ### Terraform: Explicit state control
 
