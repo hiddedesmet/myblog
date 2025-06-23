@@ -2,10 +2,9 @@
 layout: post
 title: "Bicep vs Terraform vs OpenTofu: Your Infrastructure as Code options in 2025"
 description: "A comprehensive comparison of three leading IaC tools - Azure Bicep, Terraform, and OpenTofu. With IBM's acquisition of HashiCorp, which tool should you choose for your cloud infrastructure needs?"
-date: 2025-06-23 09:00:00 +0000
+date: 2025-06-23 07:00:00 +0300
 author: hidde
 image: '/images/bicep-vs-terraform.png'
-video_embed: 
 tags: [infrastructure, azure, terraform, bicep, opentofu, iac, devops, cloud, ibm]
 featured: true
 toc: true
