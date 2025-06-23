@@ -6,22 +6,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Authors</title>
-  <meta name='description' content='Welcome to our Authors page, where you can get to know the individual behind the words and ideas that shape our blog.'>
+  <title>Bicep vs Terraform vs OpenTofu: Your Infrastructure as Code options in 2025</title>
+  <meta name='description' content='A comprehensive comparison of three leading IaC tools - Azure Bicep, Terraform, and OpenTofu. With IBM's acquisition of HashiCorp, which tool should you choo...'>
 
-  <link rel="canonical" href="https://hiddedesmet.com/authors/">
+  <link rel="canonical" href="https://hiddedesmet.com/bicep-vs-terraform-the-iac-showdown">
   <link rel="alternate" type="application/rss+xml" title="" href="/feed.xml">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Authors – Hidde de Smet">
-  <meta name="twitter:description" content="Welcome to our Authors page, where you can get to know the individual behind the words and ideas that shape our blog.">
-  <meta name="twitter:image:src" content="https://hiddedesmet.com/images/01.jpg">
+  <meta name="twitter:title" content="Bicep vs Terraform vs OpenTofu: Your Infrastructure as Code options in 2025 – Hidde de Smet">
+  <meta name="twitter:description" content="A comprehensive comparison of three leading IaC tools - Azure Bicep, Terraform, and OpenTofu. With IBM&apos;s acquisition of HashiCorp, which tool should you choose for your cloud infrastructure needs?">
+  <meta name="twitter:image:src" content="https://hiddedesmet.com/images/bicep-vs-terraform.png">
 
   <!-- Facebook OpenGraph -->
-  <meta property="og:title" content="Authors – Hidde de Smet">
-  <meta property="og:description" content="Welcome to our Authors page, where you can get to know the individual behind the words and ideas that shape our blog.">
-  <meta property="og:image" content="https://hiddedesmet.com/images/01.jpg">
+  <meta property="og:title" content="Bicep vs Terraform vs OpenTofu: Your Infrastructure as Code options in 2025 – Hidde de Smet">
+  <meta property="og:description" content="A comprehensive comparison of three leading IaC tools - Azure Bicep, Terraform, and OpenTofu. With IBM&apos;s acquisition of HashiCorp, which tool should you choose for your cloud infrastructure needs?">
+  <meta property="og:image" content="https://hiddedesmet.com/images/bicep-vs-terraform.png">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -203,53 +203,981 @@
 
     <!-- begin content -->
     <main class="content" aria-label="Content">
-      <!-- begin hero -->
-<section class="hero">
+      <div class="container">
+  <div class="post__head">
+    <div class="post__info">
+
+      <div class="post__head__inner">
+        
+        <div class="post__tags">
+        
+          <a href="/tags#infrastructure" class="post__tag">infrastructure</a>
+        
+          <a href="/tags#azure" class="post__tag">azure</a>
+        
+          <a href="/tags#terraform" class="post__tag">terraform</a>
+        
+          <a href="/tags#bicep" class="post__tag">bicep</a>
+        
+          <a href="/tags#opentofu" class="post__tag">opentofu</a>
+        
+          <a href="/tags#iac" class="post__tag">iac</a>
+        
+          <a href="/tags#devops" class="post__tag">devops</a>
+        
+          <a href="/tags#cloud" class="post__tag">cloud</a>
+        
+          <a href="/tags#ibm" class="post__tag">ibm</a>
+        
+        </div>
+        
+        <div class="post__date">•
+          <time datetime="2025-06-22T11:00:00+02:00">Jun 22, 2025</time>
+        </div>
+        <div class="post__minutes">•
+          <span>
+            
+            
+              17 min read
+            
+          </span>
+        </div>
+      </div>
+
+      <h1 class="post__title">Bicep vs Terraform vs OpenTofu: Your Infrastructure as Code options in 2025</h1>
+
+      
+      <div class="post__description">A comprehensive comparison of three leading IaC tools - Azure Bicep, Terraform, and OpenTofu. With IBM's acquisition of HashiCorp, which tool should you choose for your cloud infrastructure needs?</div>
+      
+
+      <div class="post__meta">
+        <div class="post__author">
+          
+          
+          <a href="/hidde" class="post__author__image">
+            <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
+          </a>
+          <div class="post__author__bottom">
+            <span>Written by</span>
+            <a class="post__author__name" href="/hidde">Hidde de Smet</a>
+          </div>
+          
+        </div>
+
+        <div class="post__share">
+          <div class="post__share">
+  <ul class="share__list list-reset">
+    <li class="share__item">
+      <a class="share__link share__twitter"
+        href="https://twitter.com/intent/tweet?text=Bicep%20vs%20Terraform%20vs%20OpenTofu:%20Your%20Infrastructure%20as%20Code%20options%20in%202025&url=https://hiddedesmet.com/bicep-vs-terraform-the-iac-showdown"
+        onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+        title="Share on Twitter" rel="nofollow"><i class="fa-brands fa-x-twitter"></i></a>
+    </li>
+    <li class="share__item">
+      <a class="share__link share__facebook"
+        href="https://www.facebook.com/sharer/sharer.php?u=https://hiddedesmet.com/bicep-vs-terraform-the-iac-showdown"
+        onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+        title="Share on Facebook" rel="nofollow"><i class="fa-brands fa-facebook-f"></i></a>
+    </li>
+    <li class="share__item">
+      <a class="share__link share__pinterest"
+        href="http://pinterest.com/pin/create/button/?url=https://hiddedesmet.com/bicep-vs-terraform-the-iac-showdown&amp;media=https://hiddedesmet.com/images/bicep-vs-terraform.png&amp;description=Bicep%20vs%20Terraform%20vs%20OpenTofu:%20Your%20Infrastructure%20as%20Code%20options%20in%202025"
+        onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"
+        title="Share on Pinterest" rel="nofollow"><i class="fa-brands fa-pinterest"></i></a>
+    </li>
+    <li class="share__item">
+      <a class="share__link share__linkedin"
+        href="https://www.linkedin.com/shareArticle?mini=true&url=https://hiddedesmet.com/bicep-vs-terraform-the-iac-showdown&title=Bicep%20vs%20Terraform%20vs%20OpenTofu:%20Your%20Infrastructure%20as%20Code%20options%20in%202025&summary=A%20comprehensive%20comparison%20of%20three%20leading%20IaC%20tools%20-%20Azure%20Bicep,%20Terraform,%20and%20OpenTofu.%20With%20IBM's%20acquisition%20of%20HashiCorp,%20which%20tool%20should%20you%20choose%20for%20your%20cloud%20infrastructure%20needs?&source="
+        onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+        title="Share on LinkedIn" rel="nofollow"><i class="fa-brands fa-linkedin"></i></a>
+    </li>
+  </ul>
+</div>
+        </div>
+      </div>
+
+    </div>
+
+    
+
+    
+    <div class="post__image">
+      <img class="lazy" data-src="/images/bicep-vs-terraform.png" alt="Bicep vs Terraform vs OpenTofu: Your Infrastructure as Code options in 2025">
+    </div>
+    
+    
+
+    
+  </div>
+
+  <!-- begin post -->
+  <article class="post">
+    <div class="post__content">
+      
+      <div class="post__toc">
+        <h2 class="post__toc__title">Table of Contents</h2>
+        <ol class="post__toc__list"><li><a href="#quick-comparison-overview">Quick comparison overview</a></li><li><a href="#understanding-the-fundamental-differences">Understanding the fundamental differences</a></li><li><a href="#syntax-and-developer-experience-first-impressions-matter">Syntax and developer experience: First impressions matter</a><ol><li><a href="#bicep-clarity-through-simplicity">Bicep: Clarity through simplicity</a></li><li><a href="#terraform-consistency-across-clouds">Terraform: Consistency across clouds</a></li></ol></li><li><a href="#cloud-coverage-scope-vs-depth">Cloud coverage: Scope vs. depth</a><ol><li><a href="#bicep-azure-excellence">Bicep: Azure excellence</a></li><li><a href="#terraform-multi-cloud-mastery">Terraform: Multi-cloud mastery</a></li></ol></li><li><a href="#state-management-different-approaches-different-trade-offs">State management: Different approaches, different trade-offs</a><ol><li><a href="#bicep-azure-managed-state">Bicep: Azure-managed state</a></li><li><a href="#terraform-explicit-state-control">Terraform: Explicit state control</a></li></ol></li><li><a href="#real-world-performance-and-reliability">Real-world performance and reliability</a><ol><li><a href="#deployment-speed">Deployment speed</a></li><li><a href="#error-handling-and-debugging">Error handling and debugging</a></li></ol></li><li><a href="#best-practices-ive-learned">Best practices I’ve learned</a><ol><li><a href="#when-to-choose-bicep">When to choose Bicep</a></li><li><a href="#when-to-choose-terraform">When to choose Terraform</a></li></ol></li><li><a href="#learning-curve-considerations">Learning curve considerations</a><ol><li><a href="#bicep-easier-for-azure-developers">Bicep: Easier for Azure developers</a></li><li><a href="#terraform-more-complex-but-worthwhile">Terraform: More complex but worthwhile</a></li></ol></li><li><a href="#cost-considerations-beyond-licensing">Cost considerations beyond licensing</a><ol><li><a href="#bicep-tco">Bicep TCO</a></li><li><a href="#terraform-tco">Terraform TCO</a></li></ol></li><li><a href="#team-and-organizational-factors">Team and organizational factors</a><ol><li><a href="#bicep-good-for-azure-focused-teams">Bicep: Good for Azure-focused teams</a></li><li><a href="#terraform-better-for-multi-cloud-scenarios">Terraform: Better for multi-cloud scenarios</a></li></ol></li><li><a href="#advanced-use-cases">Advanced use cases</a><ol><li><a href="#large-scale-deployments">Large-scale deployments</a></li><li><a href="#gitops-and-cicd-integration">GitOps and CI/CD integration</a></li></ol></li><li><a href="#my-recommendation-framework">My recommendation framework</a><ol><li><a href="#choose-bicep-if">Choose Bicep if:</a></li><li><a href="#choose-terraform-if">Choose Terraform if:</a></li><li><a href="#choose-opentofu-if">Choose OpenTofu if:</a></li></ol></li><li><a href="#decision-flowchart">Decision flowchart</a><ol><li><a href="#a-practical-hybrid-approach">A practical hybrid approach</a></li></ol></li><li><a href="#future-developments">Future developments</a><ol><li><a href="#whats-next-for-bicep">What’s next for Bicep</a></li><li><a href="#whats-next-for-terraform">What’s next for Terraform</a></li></ol></li><li><a href="#the-ibm-acquisition-factor">The IBM acquisition factor</a><ol><li><a href="#potential-benefits">Potential benefits</a></li><li><a href="#potential-concerns">Potential concerns</a></li><li><a href="#what-this-means-for-your-decision">What this means for your decision</a></li><li><a href="#the-opentofu-alternative">The OpenTofu alternative</a></li></ol></li><li><a href="#what-about-other-iac-tools">What about other IaC tools?</a></li><li><a href="#final-thoughts">Final thoughts</a></li><li><a href="#-key-takeaways">📋 Key takeaways</a></li></ol>
+      </div>
+      
+
+      <p>The Infrastructure as Code (IaC) landscape has evolved dramatically over the past few years, with organizations increasingly adopting declarative approaches to manage their cloud resources. Two prominent players have emerged as frontrunners in this space: <strong>Azure Bicep</strong> and <strong>HashiCorp Terraform</strong>. Recently, <strong>OpenTofu</strong> has joined as a community-driven fork of Terraform, offering the same capabilities under open-source governance. While all these tools aim to solve the same fundamental problem (provisioning and managing infrastructure through code), they take different approaches to governance and platform focus.</p>
+
+<p>After working extensively with both Bicep and Terraform across various projects and cloud environments, I’ve developed strong opinions about when to use each. This isn’t just another feature comparison; it’s a practical guide based on real-world experience, complete with examples, best practices, and honest assessments of each tool’s strengths and weaknesses, plus insights on when OpenTofu might be the right choice.</p>
+
+<h2 id="quick-comparison-overview">Quick comparison overview</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Aspect</th>
+      <th>Bicep</th>
+      <th>Terraform</th>
+      <th>OpenTofu</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Cloud Support</strong></td>
+      <td>Azure only</td>
+      <td>Multi-cloud</td>
+      <td>Multi-cloud (same as Terraform)</td>
+    </tr>
+    <tr>
+      <td><strong>Learning Curve</strong></td>
+      <td>Gentle (for Azure devs)</td>
+      <td>Moderate</td>
+      <td>Identical to Terraform</td>
+    </tr>
+    <tr>
+      <td><strong>State Management</strong></td>
+      <td>Azure-managed</td>
+      <td>Manual/Remote</td>
+      <td>Manual/Remote (same as Terraform)</td>
+    </tr>
+    <tr>
+      <td><strong>Syntax</strong></td>
+      <td>Clean, intuitive</td>
+      <td>Verbose but consistent</td>
+      <td>Identical to Terraform</td>
+    </tr>
+    <tr>
+      <td><strong>Features</strong></td>
+      <td>Azure-focused</td>
+      <td>Full multi-cloud</td>
+      <td>Same feature set as Terraform</td>
+    </tr>
+    <tr>
+      <td><strong>Community</strong></td>
+      <td>Growing</td>
+      <td>Large</td>
+      <td>Emerging (Terraform-compatible)</td>
+    </tr>
+    <tr>
+      <td><strong>Vendor</strong></td>
+      <td>Microsoft</td>
+      <td>IBM (HashiCorp)</td>
+      <td>Linux Foundation</td>
+    </tr>
+    <tr>
+      <td><strong>License</strong></td>
+      <td>MIT</td>
+      <td>MPL 2.0</td>
+      <td>MPL 2.0</td>
+    </tr>
+    <tr>
+      <td><strong>Best For</strong></td>
+      <td>Azure-first teams</td>
+      <td>Multi-cloud environments</td>
+      <td>Open-source advocates who want Terraform</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="understanding-the-fundamental-differences">Understanding the fundamental differences</h2>
+
+<p>Before diving into technical details, it’s important to understand the core philosophical differences between these tools:</p>
+
+<p><strong>Bicep</strong> represents Microsoft’s vision of Azure-native infrastructure management. It’s designed specifically for Azure, embracing the platform’s unique characteristics and providing deep integration with Azure Resource Manager (ARM). Think of it as the “native son” approach: built by Azure, for Azure.</p>
+
+<p><strong>Terraform</strong> embodies HashiCorp’s multi-cloud philosophy. It’s designed to be cloud-agnostic, treating all cloud providers as equals through its provider ecosystem. This is the “universal translator” approach: one language to rule them all.</p>
+
+<p><strong>OpenTofu</strong> is essentially Terraform with different governance. Since it’s a fork of Terraform, it shares identical syntax, features, and capabilities. The key difference is organizational: OpenTofu is managed by the Linux Foundation as a truly open-source project, while Terraform is now owned by IBM. From a technical standpoint, they’re virtually identical.</p>
+
+<h2 id="syntax-and-developer-experience-first-impressions-matter">Syntax and developer experience: First impressions matter</h2>
+
+<h3 id="bicep-clarity-through-simplicity">Bicep: Clarity through simplicity</h3>
+
+<p>Bicep’s syntax feels refreshingly clean, especially if you’re coming from ARM templates. Here’s a simple storage account example:</p>
+
+<pre><code class="language-bicep">param location string = resourceGroup().location
+param storageAccountName string = 'mystorageacct${uniqueString(resourceGroup().id)}'
+
+resource storageAccount 'Microsoft.Storage/storageAccounts@2024-01-01' = {
+  name: storageAccountName
+  location: location
+  sku: {
+    name: 'Standard_LRS'
+  }
+  kind: 'StorageV2'
+  properties: {
+    accessTier: 'Hot'
+  }
+}
+
+output storageAccountKey string = storageAccount.listKeys().keys[0].value
+</code></pre>
+
+<p><strong>What I love about Bicep syntax:</strong></p>
+<ul>
+  <li>Resource definitions feel natural and intuitive</li>
+  <li>Strong typing with excellent IntelliSense support</li>
+  <li>Direct function calls without complex expression syntax</li>
+  <li>Automatic dependency management through symbolic references</li>
+</ul>
+
+<h3 id="terraform-consistency-across-clouds">Terraform: Consistency across clouds</h3>
+
+<p>Terraform’s HCL (HashiCorp Configuration Language) syntax is more verbose but consistent across all providers:</p>
+
+<div class="language-hcl highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">variable</span> <span class="s2">"location"</span> <span class="p">{</span>
+  <span class="nx">description</span> <span class="o">=</span> <span class="s2">"Azure region for resources"</span>
+  <span class="nx">type</span>        <span class="o">=</span> <span class="nx">string</span>
+  <span class="nx">default</span>     <span class="o">=</span> <span class="s2">"West Europe"</span>
+<span class="p">}</span>
+
+<span class="nx">variable</span> <span class="s2">"resource_group_name"</span> <span class="p">{</span>
+  <span class="nx">description</span> <span class="o">=</span> <span class="s2">"Name of the resource group"</span>
+  <span class="nx">type</span>        <span class="o">=</span> <span class="nx">string</span>
+<span class="p">}</span>
+
+<span class="nx">resource</span> <span class="s2">"azurerm_storage_account"</span> <span class="s2">"example"</span> <span class="p">{</span>
+  <span class="nx">name</span>                     <span class="o">=</span> <span class="s2">"mystorageacct${random_string.suffix.result}"</span>
+  <span class="nx">resource_group_name</span>      <span class="o">=</span> <span class="nx">var</span><span class="p">.</span><span class="nx">resource_group_name</span>
+  <span class="nx">location</span>                 <span class="o">=</span> <span class="nx">var</span><span class="p">.</span><span class="nx">location</span>
+  <span class="nx">account_tier</span>             <span class="o">=</span> <span class="s2">"Standard"</span>
+  <span class="nx">account_replication_type</span> <span class="o">=</span> <span class="s2">"LRS"</span>
+  <span class="nx">account_kind</span>             <span class="o">=</span> <span class="s2">"StorageV2"</span>
+  
+  <span class="nx">access_tier</span> <span class="o">=</span> <span class="s2">"Hot"</span>
+<span class="p">}</span>
+
+<span class="nx">resource</span> <span class="s2">"random_string"</span> <span class="s2">"suffix"</span> <span class="p">{</span>
+  <span class="nx">length</span>  <span class="o">=</span> <span class="mi">8</span>
+  <span class="nx">special</span> <span class="o">=</span> <span class="kc">false</span>
+  <span class="nx">upper</span>   <span class="o">=</span> <span class="kc">false</span>
+<span class="p">}</span>
+
+<span class="nx">output</span> <span class="s2">"storage_account_key"</span> <span class="p">{</span>
+  <span class="nx">value</span>     <span class="o">=</span> <span class="nx">azurerm_storage_account</span><span class="p">.</span><span class="nx">example</span><span class="p">.</span><span class="nx">primary_access_key</span>
+  <span class="nx">sensitive</span> <span class="o">=</span> <span class="kc">true</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>What I appreciate about Terraform syntax:</strong></p>
+<ul>
+  <li>Consistent patterns across all cloud providers</li>
+  <li>Rich variable and output system</li>
+  <li>Powerful built-in functions</li>
+  <li>Mature ecosystem of modules and best practices</li>
+</ul>
+
+<h2 id="cloud-coverage-scope-vs-depth">Cloud coverage: Scope vs. depth</h2>
+
+<h3 id="bicep-azure-excellence">Bicep: Azure excellence</h3>
+
+<p>Bicep shines when you’re all-in on Azure. It supports:</p>
+<ul>
+  <li><strong>Every Azure service</strong> from day one of public preview</li>
+  <li><strong>Latest API versions</strong> immediately available</li>
+  <li><strong>Azure-specific features</strong> like managed identities, KeyVault integration</li>
+  <li><strong>Native ARM template compatibility</strong></li>
+</ul>
+
+<p>This tight integration means you’ll never wait for a provider update to use the latest Azure features. When Azure releases a new service, Bicep can use it immediately.</p>
+
+<h3 id="terraform-multi-cloud-mastery">Terraform: Multi-cloud mastery</h3>
+
+<p>Terraform’s strength lies in its breadth:</p>
+<ul>
+  <li><strong>3,000+ providers</strong> covering virtually every cloud and service</li>
+  <li><strong>Consistent workflows</strong> across AWS, Azure, GCP, and others</li>
+  <li><strong>Hybrid deployments</strong> managing on-premises and cloud resources together</li>
+  <li><strong>Third-party services</strong> like DataDog, GitHub, Kubernetes resources</li>
+</ul>
+
+<p>If you’re working in a multi-cloud environment or need to manage resources beyond pure cloud infrastructure, Terraform’s ecosystem is unmatched.</p>
+
+<h2 id="state-management-different-approaches-different-trade-offs">State management: Different approaches, different trade-offs</h2>
+
+<h3 id="bicep-azure-managed-state">Bicep: Azure-managed state</h3>
+
+<p>One of Bicep’s most compelling features is <strong>no local state files</strong>. Azure Resource Manager handles all state management:</p>
+
+<p>| ✅ <strong>Advantages</strong> | ❌ <strong>Limitations</strong> |
+|——————-|——————-|
+| No state file corruption or conflicts | Tied to Azure’s deployment model |
+| Natural team collaboration without state locking | Less flexibility for complex deployment scenarios |
+| Automatic cleanup of orphaned resources | Harder to manage resources across multiple Azure tenants |
+| Built-in what-if operations for change preview | Limited to Azure Resource Manager capabilities |</p>
+<ul>
+  <li>Harder to manage resources across multiple Azure tenants</li>
+</ul>
+
+<h3 id="terraform-explicit-state-control">Terraform: Explicit state control</h3>
+
+<p>Terraform’s state file approach provides fine-grained control:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>✅ <strong>Advantages</strong></th>
+      <th>⚠️ <strong>Challenges</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Complete visibility into managed resources</td>
+      <td>State file management complexity</td>
+    </tr>
+    <tr>
+      <td>Support for import operations</td>
+      <td>Potential for state corruption</td>
+    </tr>
+    <tr>
+      <td>Flexible backend options (S3, Azure Storage, Terraform Cloud)</td>
+      <td>Team collaboration requires careful state locking</td>
+    </tr>
+    <tr>
+      <td>Powerful state manipulation commands</td>
+      <td>Manual cleanup of orphaned resources</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="real-world-performance-and-reliability">Real-world performance and reliability</h2>
+
+<h3 id="deployment-speed">Deployment speed</h3>
+
+<blockquote>
+  <p>💡 <strong>Key insight</strong>: Bicep deployments are generally faster for Azure resources, particularly for complex scenarios involving multiple interdependent resources.</p>
+</blockquote>
+
+<p><strong>Why Bicep is faster:</strong></p>
+<ul>
+  <li>Direct ARM template compilation</li>
+  <li>Azure’s native orchestration</li>
+  <li>Optimized dependency resolution</li>
+</ul>
+
+<p>Terraform deployments can be slower, especially when managing large numbers of resources, but the gap has narrowed significantly with recent performance improvements.</p>
+
+<h3 id="error-handling-and-debugging">Error handling and debugging</h3>
+
+<blockquote>
+  <p>🔍 <strong>Pro tip</strong>: Bicep provides superior error messages for Azure-specific issues. When something goes wrong, you get clear, actionable error messages that directly relate to Azure concepts.</p>
+</blockquote>
+
+<p>Terraform’s error messages can be more cryptic, particularly when dealing with provider-specific issues. However, Terraform’s plan output is generally more detailed for understanding what changes will be applied.</p>
+
+<h2 id="best-practices-ive-learned">Best practices I’ve learned</h2>
+
+<h3 id="when-to-choose-bicep">When to choose Bicep</h3>
+
+<p><strong>Choose Bicep when:</strong></p>
+<ul>
+  <li>You’re committed to Azure as your primary cloud platform</li>
+  <li>Your team is already familiar with ARM templates</li>
+  <li>You want the latest Azure features immediately</li>
+  <li>You prefer not to manage state files</li>
+  <li>You’re building Azure-native solutions</li>
+</ul>
+
+<p><strong>Bicep best practices:</strong></p>
+<ul>
+  <li>Use modules extensively for reusability</li>
+  <li>Leverage parameter files for environment-specific configurations</li>
+  <li>Take advantage of the what-if operation before deployments</li>
+  <li>Use symbolic names for clear resource references</li>
+  <li>Implement proper tagging strategies from the start</li>
+</ul>
+
+<pre><code class="language-bicep">// Example of a well-structured Bicep module
+param environmentName string
+param location string = resourceGroup().location
+
+var tags = {
+  Environment: environmentName
+  ManagedBy: 'Bicep'
+  CreatedDate: utcNow('yyyy-MM-dd')
+}
+
+module networking 'modules/networking.bicep' = {
+  name: 'networking-deployment'
+  params: {
+    environmentName: environmentName
+    location: location
+    tags: tags
+  }
+}
+
+module compute 'modules/compute.bicep' = {
+  name: 'compute-deployment'
+  params: {
+    environmentName: environmentName
+    location: location
+    subnetId: networking.outputs.subnetId
+    tags: tags
+  }
+}
+</code></pre>
+
+<h3 id="when-to-choose-terraform">When to choose Terraform</h3>
+
+<p><strong>Choose Terraform when:</strong></p>
+<ul>
+  <li>You’re working with multiple cloud providers</li>
+  <li>You need to manage hybrid cloud/on-premises resources</li>
+  <li>Your team values the large community and module ecosystem</li>
+  <li>You require advanced state management capabilities</li>
+  <li>You’re building complex, multi-tier applications across various services</li>
+</ul>
+
+<p><strong>Terraform best practices:</strong></p>
+<ul>
+  <li>Use remote state backends with proper locking</li>
+  <li>Implement proper workspace strategies for environments</li>
+  <li>Leverage data sources for existing infrastructure</li>
+  <li>Use modules from the registry but validate them thoroughly</li>
+  <li>Implement proper variable validation and descriptions</li>
+</ul>
+
+<div class="language-hcl highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Example of a well-structured Terraform configuration</span>
+<span class="nx">terraform</span> <span class="p">{</span>
+  <span class="nx">required_version</span> <span class="o">=</span> <span class="s2">"&gt;= 1.12.2"</span>
+  <span class="nx">required_providers</span> <span class="p">{</span>
+    <span class="nx">azurerm</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">source</span>  <span class="o">=</span> <span class="s2">"hashicorp/azurerm"</span>
+      <span class="nx">version</span> <span class="o">=</span> <span class="s2">"~&gt; 4.34.0"</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  
+  <span class="nx">backend</span> <span class="s2">"azurerm"</span> <span class="p">{</span>
+    <span class="nx">resource_group_name</span>  <span class="o">=</span> <span class="s2">"terraform-state-rg"</span>
+    <span class="nx">storage_account_name</span> <span class="o">=</span> <span class="s2">"terraformstatestorage"</span>
+    <span class="nx">container_name</span>       <span class="o">=</span> <span class="s2">"tfstate"</span>
+    <span class="nx">key</span>                  <span class="o">=</span> <span class="s2">"prod.terraform.tfstate"</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">variable</span> <span class="s2">"environment"</span> <span class="p">{</span>
+  <span class="nx">description</span> <span class="o">=</span> <span class="s2">"The deployment environment"</span>
+  <span class="nx">type</span>        <span class="o">=</span> <span class="nx">string</span>
+  <span class="nx">validation</span> <span class="p">{</span>
+    <span class="nx">condition</span>     <span class="o">=</span> <span class="nx">contains</span><span class="p">([</span><span class="s2">"dev"</span><span class="p">,</span> <span class="s2">"staging"</span><span class="p">,</span> <span class="s2">"prod"</span><span class="p">],</span> <span class="nx">var</span><span class="p">.</span><span class="nx">environment</span><span class="p">)</span>
+    <span class="nx">error_message</span> <span class="o">=</span> <span class="s2">"Environment must be dev, staging, or prod."</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">locals</span> <span class="p">{</span>
+  <span class="nx">common_tags</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">Environment</span> <span class="o">=</span> <span class="nx">var</span><span class="p">.</span><span class="nx">environment</span>
+    <span class="nx">ManagedBy</span>   <span class="o">=</span> <span class="s2">"Terraform"</span>
+    <span class="nx">Project</span>     <span class="o">=</span> <span class="s2">"MyProject"</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">module</span> <span class="s2">"networking"</span> <span class="p">{</span>
+  <span class="nx">source</span> <span class="o">=</span> <span class="s2">"./modules/networking"</span>
+  
+  <span class="nx">environment</span> <span class="o">=</span> <span class="nx">var</span><span class="p">.</span><span class="nx">environment</span>
+  <span class="nx">tags</span>        <span class="o">=</span> <span class="nx">local</span><span class="p">.</span><span class="nx">common_tags</span>
+<span class="p">}</span>
+
+<span class="nx">module</span> <span class="s2">"compute"</span> <span class="p">{</span>
+  <span class="nx">source</span> <span class="o">=</span> <span class="s2">"./modules/compute"</span>
+  
+  <span class="nx">environment</span> <span class="o">=</span> <span class="nx">var</span><span class="p">.</span><span class="nx">environment</span>
+  <span class="nx">subnet_id</span>   <span class="o">=</span> <span class="nx">module</span><span class="p">.</span><span class="nx">networking</span><span class="p">.</span><span class="nx">subnet_id</span>
+  <span class="nx">tags</span>        <span class="o">=</span> <span class="nx">local</span><span class="p">.</span><span class="nx">common_tags</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="learning-curve-considerations">Learning curve considerations</h2>
+
+<h3 id="bicep-easier-for-azure-developers">Bicep: Easier for Azure developers</h3>
+
+<p>If you’re already working with Azure, <strong>Bicep has a remarkably gentle learning curve</strong>. The syntax is intuitive, the tooling is excellent, and the concepts map directly to Azure resources you already understand.</p>
+
+<p><strong>Time to productivity:</strong> 1-2 weeks for basic competency, 1-2 months for advanced scenarios.</p>
+
+<h3 id="terraform-more-complex-but-worthwhile">Terraform: More complex but worthwhile</h3>
+
+<p>Terraform requires more upfront investment to understand concepts like providers, state, workspaces, and the HCL language itself. However, this investment pays dividends if you’re working across multiple platforms.</p>
+
+<p><strong>Time to productivity:</strong> 2-4 weeks for basic competency, 2-3 months for advanced multi-cloud scenarios.</p>
+
+<h2 id="cost-considerations-beyond-licensing">Cost considerations beyond licensing</h2>
+
+<p>Both tools are free to use, but the total cost of ownership differs:</p>
+
+<h3 id="bicep-tco">Bicep TCO</h3>
+<ul>
+  <li><strong>Lower learning costs</strong> for Azure-focused teams</li>
+  <li><strong>Faster development cycles</strong> for Azure-specific features</li>
+  <li><strong>No additional tooling costs</strong> (integrated with Azure tooling)</li>
+  <li><strong>Reduced operational overhead</strong> (no state management)</li>
+</ul>
+
+<h3 id="terraform-tco">Terraform TCO</h3>
+<ul>
+  <li><strong>Higher initial learning investment</strong></li>
+  <li><strong>Potential tooling costs</strong> (Terraform Cloud, enterprise features)</li>
+  <li><strong>State management infrastructure</strong> costs</li>
+  <li><strong>Multi-cloud expertise benefits</strong> that can reduce vendor lock-in costs</li>
+</ul>
+
+<h2 id="team-and-organizational-factors">Team and organizational factors</h2>
+
+<h3 id="bicep-good-for-azure-focused-teams">Bicep: Good for Azure-focused teams</h3>
+
+<p>Bicep makes sense when:</p>
+<ul>
+  <li>Your organization is committed to Azure</li>
+  <li>You have existing ARM template expertise</li>
+  <li>You want to minimize tooling complexity</li>
+  <li>Your team prefers Microsoft-supported solutions</li>
+</ul>
+
+<h3 id="terraform-better-for-multi-cloud-scenarios">Terraform: Better for multi-cloud scenarios</h3>
+
+<p>Terraform is the better choice when:</p>
+<ul>
+  <li>You’re building cloud-agnostic solutions</li>
+  <li>You need to manage resources across multiple providers</li>
+  <li>Your organization values open-source tooling</li>
+  <li>You’re planning for potential multi-cloud scenarios</li>
+</ul>
+
+<h2 id="advanced-use-cases">Advanced use cases</h2>
+
+<h3 id="large-scale-deployments">Large-scale deployments</h3>
+
+<p>For large-scale Azure deployments, both tools handle complexity well, but differently:</p>
+
+<p><strong>Bicep excels at:</strong></p>
+<ul>
+  <li>Azure-specific resource relationships</li>
+  <li>Native ARM template integration</li>
+  <li>Immediate access to new Azure features</li>
+</ul>
+
+<p><strong>Terraform excels at:</strong></p>
+<ul>
+  <li>Cross-provider resource management</li>
+  <li>Complex data transformations</li>
+  <li>Advanced provisioning logic</li>
+</ul>
+
+<h3 id="gitops-and-cicd-integration">GitOps and CI/CD integration</h3>
+
+<p>Both tools integrate well with modern DevOps practices:</p>
+
+<p><strong>Bicep CI/CD strengths:</strong></p>
+<ul>
+  <li>Native GitHub Actions integration</li>
+  <li>Azure DevOps built-in tasks</li>
+  <li>Simple artifact management (no state files)</li>
+</ul>
+
+<p><strong>Terraform CI/CD strengths:</strong></p>
+<ul>
+  <li>Mature ecosystem of CI/CD integrations</li>
+  <li>Terraform Cloud native workflows</li>
+  <li>Advanced plan and apply automation</li>
+</ul>
+
+<h2 id="my-recommendation-framework">My recommendation framework</h2>
+
+<p>After years of working with both tools, here’s my decision framework:</p>
+
+<h3 id="choose-bicep-if">Choose Bicep if:</h3>
+<ol>
+  <li><strong>You’re Azure-first</strong>: 80%+ of your infrastructure is on Azure</li>
+  <li><strong>You want simplicity</strong>: Prefer fewer moving parts and concepts</li>
+  <li><strong>You’re migrating from ARM</strong>: Natural evolution path</li>
+  <li><strong>You value immediate feature access</strong>: Need latest Azure features ASAP</li>
+</ol>
+
+<h3 id="choose-terraform-if">Choose Terraform if:</h3>
+<ol>
+  <li><strong>You’re multi-cloud</strong>: Managing resources across multiple providers</li>
+  <li><strong>You’re hybrid</strong>: Mix of cloud and on-premises resources</li>
+  <li><strong>You value ecosystem</strong>: Want access to community modules and providers</li>
+  <li><strong>You need flexibility</strong>: Require advanced state management and automation</li>
+</ol>
+
+<h3 id="choose-opentofu-if">Choose OpenTofu if:</h3>
+<ol>
+  <li><strong>Open-source priority</strong>: Community governance is important to you</li>
+  <li><strong>Vendor independence</strong>: Want to avoid corporate control</li>
+  <li><strong>Terraform compatibility</strong>: Need existing Terraform code to work</li>
+  <li><strong>Long-term stability</strong>: Prefer predictable licensing</li>
+</ol>
+
+<h2 id="decision-flowchart">Decision flowchart</h2>
+
+<pre><code class="language-mermaid">flowchart TD
+    A[Starting IaC Journey] --&gt; B{Azure Only?}
+    B --&gt;|Yes| C{Team familiar with ARM?}
+    B --&gt;|No| D{Open Source Priority?}
+    
+    C --&gt;|Yes| E[Choose Bicep]
+    C --&gt;|No| F{Want simplicity?}
+    F --&gt;|Yes| E
+    F --&gt;|No| G[Consider Terraform]
+    
+    D --&gt;|Yes| H[Choose OpenTofu]
+    D --&gt;|No| I{IBM concerns?}
+    I --&gt;|Yes| H
+    I --&gt;|No| J[Choose Terraform]
+    
+    style E fill:#0078d4,color:#fff
+    style H fill:#ff6b35,color:#fff  
+    style J fill:#623ce4,color:#fff
+</code></pre>
+
+<h3 id="a-practical-hybrid-approach">A practical hybrid approach</h3>
+
+<p>In larger organizations, I’ve seen successful implementations using <strong>both tools</strong>:</p>
+<ul>
+  <li><strong>Terraform for foundational infrastructure</strong>: Networking, security, shared services</li>
+  <li><strong>Bicep for application-specific resources</strong>: App Services, Functions, databases</li>
+</ul>
+
+<p>This approach leverages each tool’s strengths while minimizing their weaknesses.</p>
+
+<h2 id="future-developments">Future developments</h2>
+
+<p>Both tools are rapidly evolving:</p>
+
+<h3 id="whats-next-for-bicep">What’s next for Bicep</h3>
+<ul>
+  <li>Enhanced module ecosystem</li>
+  <li>Better multi-subscription deployment support</li>
+  <li>Improved testing and validation tools</li>
+  <li>Potential expansion beyond Azure (though unlikely)</li>
+</ul>
+
+<h3 id="whats-next-for-terraform">What’s next for Terraform</h3>
+<ul>
+  <li>Continued performance improvements</li>
+  <li>Enhanced cloud provider integrations</li>
+  <li>Better developer experience tools</li>
+  <li>Terraform Cloud feature expansion</li>
+</ul>
+
+<h2 id="the-ibm-acquisition-factor">The IBM acquisition factor</h2>
+
+<p>It’s impossible to discuss Terraform’s future without addressing the elephant in the room: IBM’s acquisition of HashiCorp in 2024. This major change brings both opportunities and concerns that organizations need to consider when making long-term IaC decisions.</p>
+
+<h3 id="potential-benefits">Potential benefits</h3>
+<ul>
+  <li><strong>Enterprise integration</strong>: IBM’s enterprise focus could lead to better integration with existing enterprise tools and workflows</li>
+  <li><strong>Increased investment</strong>: More resources for development and support</li>
+  <li><strong>Hybrid cloud expertise</strong>: IBM’s hybrid cloud experience could enhance Terraform’s multi-cloud capabilities</li>
+</ul>
+
+<h3 id="potential-concerns">Potential concerns</h3>
+<ul>
+  <li><strong>Licensing changes</strong>: History shows that acquisitions often lead to licensing model changes that could affect cost</li>
+  <li><strong>Product direction shifts</strong>: IBM’s strategic priorities might influence Terraform’s roadmap in unexpected ways</li>
+  <li><strong>Community impact</strong>: The open-source community’s relationship with the project could change under corporate ownership</li>
+  <li><strong>Vendor lock-in risks</strong>: What was once a vendor-neutral tool is now owned by a cloud provider competitor</li>
+</ul>
+
+<h3 id="what-this-means-for-your-decision">What this means for your decision</h3>
+<p>If you’re choosing between Bicep and Terraform today, the IBM acquisition adds a new variable to consider:</p>
+
+<ul>
+  <li><strong>For risk-averse organizations</strong>: The uncertainty around Terraform’s future under IBM might make Bicep’s Microsoft backing more appealing for Azure-focused teams</li>
+  <li><strong>For multi-cloud strategies</strong>: You’ll want to monitor how IBM’s ownership affects Terraform’s neutrality across cloud providers</li>
+  <li><strong>For existing Terraform users</strong>: Consider diversification strategies or at minimum, stay informed about licensing and product direction changes</li>
+</ul>
+
+<p>The acquisition is still relatively recent, and its full implications won’t be clear for some time. However, it’s a reminder that no tool exists in a vacuum, and vendor relationships matter when making infrastructure decisions.</p>
+
+<h3 id="the-opentofu-alternative">The OpenTofu alternative</h3>
+
+<p>Speaking of vendor concerns, it’s worth mentioning <strong>OpenTofu</strong>, the open-source fork of Terraform that emerged in response to HashiCorp’s licensing changes. Maintained by the Linux Foundation, OpenTofu is essentially Terraform with different governance - it shares the same syntax, features, and capabilities.</p>
+
+<p><strong>Why consider OpenTofu:</strong></p>
+<ul>
+  <li><strong>Identical to Terraform</strong>: Same syntax, same providers, same state files - it’s a drop-in replacement</li>
+  <li><strong>True open source</strong>: No vendor lock-in or licensing restrictions</li>
+  <li><strong>Community governance</strong>: Managed by the Linux Foundation rather than a single company</li>
+  <li><strong>100% Terraform compatibility</strong>: Existing Terraform configurations work without changes</li>
+  <li><strong>Active development</strong>: Growing community and regular releases</li>
+</ul>
+
+<p><strong>Current considerations:</strong></p>
+<ul>
+  <li><strong>Smaller ecosystem</strong>: Fewer third-party tools and resources compared to Terraform</li>
+  <li><strong>Provider timing</strong>: Some providers may release updates for Terraform first, then OpenTofu</li>
+  <li><strong>Enterprise tooling</strong>: Terraform Cloud ecosystem is more mature than OpenTofu alternatives</li>
+</ul>
+
+<p>For organizations concerned about vendor control or licensing costs, OpenTofu adds a third path to consider alongside Bicep and Terraform. It’s particularly appealing if you value open-source principles and want to avoid potential future licensing surprises.</p>
+
+<h2 id="what-about-other-iac-tools">What about other IaC tools?</h2>
+
+<p>While this post focuses on the declarative configuration language approach (Bicep, Terraform, OpenTofu), it’s worth acknowledging that other IaC paradigms exist:</p>
+
+<p><strong>Pulumi</strong> takes a different approach entirely, using general-purpose programming languages (TypeScript, Python, Go, C#) instead of domain-specific languages. This appeals to developers who prefer familiar programming constructs like loops, conditionals, and functions over declarative configurations.</p>
+
+<p><strong>AWS CDK, Azure CDK for Terraform, and similar tools</strong> also use programming languages but compile to other IaC formats (CloudFormation, Terraform) rather than running directly.</p>
+
+<p>These imperative approaches have their own trade-offs around testability, debugging, and team collaboration that deserve a dedicated comparison. For this post, I’ve focused on the declarative DSL ecosystem since that’s where most organizations start their IaC journey.</p>
+
+<h2 id="final-thoughts">Final thoughts</h2>
+
+<p>Choosing between Bicep, Terraform, and OpenTofu isn’t just a technical decision. It’s a strategic one that affects your team’s productivity, your organization’s flexibility, and your long-term infrastructure management approach.</p>
+
+<p><strong>Bicep represents focused specialization</strong>: deep, native integration with Azure that provides excellent developer experience and immediate access to Azure innovations. If you’re building on Azure and plan to stay there, Bicep’s focused approach pays dividends in team productivity and reduced complexity.</p>
+
+<p><strong>Terraform embodies flexible standardization</strong>: one tool, one workflow, across all your infrastructure needs. If you’re in a multi-cloud world or value the flexibility to change direction, Terraform’s ecosystem and proven track record make it a reliable choice, though the IBM acquisition adds uncertainty.</p>
+
+<p><strong>OpenTofu offers open-source assurance</strong>: for teams that prioritize community governance and want to avoid vendor dependencies, it provides Terraform compatibility without the corporate overhead.</p>
+
+<p>The reality is that all these tools are excellent at what they do. The choice comes down to understanding your organization’s needs, constraints, risk tolerance, and long-term strategy. There’s no wrong choice here, only choices that are more or less aligned with your specific context.</p>
+
+<p>What matters most is picking one, learning it well, and building great infrastructure with it. The best IaC tool is the one your team actually uses effectively, not the one with the most features on paper.</p>
+
+<h2 id="-key-takeaways">📋 Key takeaways</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tool</th>
+      <th>Best for</th>
+      <th>Key advantage</th>
+      <th>Main concern</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>🔵 Bicep</strong></td>
+      <td>Azure-focused teams</td>
+      <td>Native integration, no state files</td>
+      <td>Limited to Azure only</td>
+    </tr>
+    <tr>
+      <td><strong>🟣 Terraform</strong></td>
+      <td>Multi-cloud environments</td>
+      <td>Mature ecosystem, broad provider support</td>
+      <td>IBM acquisition uncertainty</td>
+    </tr>
+    <tr>
+      <td><strong>🟠 OpenTofu</strong></td>
+      <td>Open-source advocates</td>
+      <td>Community governance, vendor independence</td>
+      <td>Smaller ecosystem</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>🎯 <strong>Bottom line</strong>: Choose Bicep for Azure simplicity, Terraform for multi-cloud maturity, or OpenTofu for open-source peace of mind. All are solid choices when used appropriately.</p>
+</blockquote>
+
+<hr />
+
+<p><em>What’s been your experience with Bicep and Terraform? I’d love to hear about your real-world usage patterns and any challenges you’ve encountered. Share your thoughts in the comments below or reach out to me directly.</em></p>
+
+    </div>
+  </article>
+  <!-- end post -->
+</div>
+
+
+
+<div class="container">
+  <div class="card-author">
+    <div class="card-author__media">
+      
+      <a class="card-author__image" href="/hidde">
+        <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
+      </a>
+      
+    </div>
+
+    <div class="card-author__content">
+      <div class="card-author__role">Written by</div>
+        
+        <h3 class="card-author__name"><a href="/hidde" class="card-author__link">Hidde de Smet</a></h3>
+        
+        
+        <p class="card-author__description">As a certified Azure Solution Architect, I specialize in designing, implementing, and managing cloud-based solutions using Scrum and DevOps methodologies. 
+</p>
+        
+    </div>
+  </div>
+</div>
+
+
+
+  <!-- begin comments -->
+<div class="container">
+  <div class="row">
+    <div class="col col-12">
+      <div class="show-comments">
+        <h3 class="show-comments__title">Start the conversation</h3>
+        <button class="button button--big disqus-button" id="show-comments-button" onclick="disqus();return false;">Show Comments</button>
+      </div>
+
+      <div id="disqus_thread" class="post__comments">
+        <div id="disqus_empty"></div>
+      </div>
+
+      <script>
+        var disqus_loaded = false;
+        var disqus_shortname = 'anvod-studio-test';
+        var disqus_container = document.getElementById("disqus_thread");
+        function disqus() {
+          if (!disqus_loaded) {
+            disqus_loaded = true;
+            var e = document.createElement("script");
+            e.type = "text/javascript";
+            e.async = true;
+            e.src = "//" + disqus_shortname + ".disqus.com/embed.js";
+            (document.getElementsByTagName("head")[0] ||
+              document.getElementsByTagName("body")[0])
+              .appendChild(e);
+            // Hide the button after opening
+            document.getElementById("show-comments-button").style.display = "none";
+            // Show disqus comments
+            disqus_container.classList.add("is-open");
+          }
+        }
+      </script>
+
+      <noscript>Please enable JavaScript to view the
+        <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+      </noscript>
+    </div>
+  </div>
+</div>
+<!-- end comments -->
+
+
+
+
+
+
+
+
+<!-- begin related posts -->
+<section class="section related-posts ">
   <div class="container">
     <div class="row">
-      <div class="col col-12">
-        <div class="hero__inner">
-          
-          <h1 class="hero__title">Authors</h1>
-          
-          
-          <p class="hero__description">Welcome to our Authors page, where you can get to know the individual behind the words and ideas that shape our blog.</p>
-          
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- end hero -->
 
-<!-- begin authors -->
-<section class="section authors animate">
-  <div class="container">
-    <div class="section__inner">
-      <div class="row">
-        
-        
-        <div class="col col-4 col-w-6 col-t-12">
-          <div class="authors__info">
-            <a class="authors__image" href="/hidde"><img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet"></a>
-            <div class="authors__meta">
-              <h2 class="authors__name"><a class="authors__link" href="/hidde">Hidde de Smet</a></h2>
+      <div class="col col-12">
+        <div class="section__inner">
+
+          <div class="section__info">
+            <div class="section__head">
+              <h2 class="section__title">Related</h2>
               
-              <span class="authors__posts__count">(8)</span>
               
+                
+                  <a href="/tags#infrastructure" class="section__link">See all<span> infrastructure</span></a>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            
             </div>
-            
-            <div class="authors__description">As a certified Azure Solution Architect, I specialize in designing, implementing, and managing cloud-based solutions using Scrum and DevOps methodologies. 
-</div>
-            
           </div>
+
+          <div class="row">
+          
+            
+            
+
+            
+
+            
+          
+            
+            
+
+            
+
+            
+          
+            
+            
+
+            
+
+            
+          
+            
+            
+
+            
+
+            
+          
+            
+            
+
+            
+
+            
+          
+            
+            
+
+            
+
+            
+          
+            
+            
+
+            
+
+            
+          
+            
+            
+
+            
+
+            
+          
+          </div>
+
         </div>
-        
       </div>
     </div>
   </div>
 </section>
-<!-- end authors -->
+<!-- end related posts -->
     </main>
     <!-- end content -->
 
