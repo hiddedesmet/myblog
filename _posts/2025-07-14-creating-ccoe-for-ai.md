@@ -15,7 +15,7 @@ As organizations across industries rush to adopt artificial intelligence, many s
 
 ## What is an AI Center of Excellence?
 
-An AI Center of Excellence is a cross-functional team or organizational unit that serves as the central hub for AI strategy, governance, and enablement within an enterprise. Think of it as the central command for your organization's AI initiatives—providing direction, standards, and support while avoiding the chaos of uncoordinated AI experiments across different departments.
+An AI Center of Excellence is a cross-functional team or organizational unit that serves as the central hub for AI strategy, governance, and enablement within an enterprise. Think of it as the central command for your organization's AI initiatives, providing direction, standards, and support while avoiding the chaos of uncoordinated AI experiments across different departments.
 
 The AI CCoE serves multiple important functions:
 
