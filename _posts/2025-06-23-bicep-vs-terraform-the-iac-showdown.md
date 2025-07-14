@@ -7,7 +7,7 @@ author: hidde
 image: '/images/bicep-vs-terraform.png'
 video_embed: 
 tags: [infrastructure, azure, terraform, bicep, opentofu, iac, devops, cloud, ibm]
-featured: true
+featured: false
 toc: true
 ---
 

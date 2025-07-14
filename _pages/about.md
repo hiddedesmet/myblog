@@ -40,6 +40,7 @@ As a certified Azure Solution Architect, I specialize in designing, implementing
   <img src="/images/Picture15.png" alt="Microsoft Fabric Analytics Engineer Associate">
   <img src="/images/Picture16.png" alt="GitHub Copilot">
   <img src="/images/Picture17.png" alt="IASA CITA Foundation">
+  <img src="/images/Picture18.png" alt="HashiCorp Certified: Terraform Associate (003)">
 </div>
 
 ## Competences
