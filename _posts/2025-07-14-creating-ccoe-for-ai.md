@@ -13,6 +13,8 @@ toc: true
 
 As organizations across industries rush to adopt artificial intelligence, many struggle with fragmented AI initiatives, inconsistent governance, and duplicated efforts across different departments. The answer? A well-structured **Center of Excellence (CCoE) for AI** that provides centralized guidance, governance, and support for enterprise-wide AI adoption.
 
+> **Disclaimer**: The metrics, percentages, and numerical examples used throughout this post are illustrative benchmarks based on industry observations and best practices. They serve as guidance for establishing realistic targets and expectations, but actual results will vary depending on organizational context, industry, and implementation approach.
+
 ## What is an AI Center of Excellence?
 
 An AI Center of Excellence is a cross-functional team or organizational unit that serves as the central hub for AI strategy, governance, and enablement within an enterprise. Think of it as the central command for your organization's AI initiatives, providing direction, standards, and support while avoiding the chaos of uncoordinated AI experiments across different departments.
