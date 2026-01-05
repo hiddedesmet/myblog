@@ -7,7 +7,7 @@ author: hidde
 image: '/images/aiccoe.png'
 video_embed: 
 tags: [ai, governance, ccoe]
-featured: true
+featured: false
 toc: true
 ---
 
