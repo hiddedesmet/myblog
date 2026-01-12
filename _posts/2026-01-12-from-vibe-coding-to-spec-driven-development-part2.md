@@ -967,7 +967,6 @@ dotnet run --seed
 ```
 
 **Production**: Always backup before applying migrations
-```
 
 ### Why these generated plans work
 
