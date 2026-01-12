@@ -4,7 +4,7 @@ title: "From Vibe Coding to Spec-Driven Development: Part 1 - The problem and th
 date: 2026-01-05
 categories: [AI, Development, DevOps]
 tags: [ai-assisted-development, spec-kit, github, claude, copilot, vibe-coding, specification-driven-development, series]
-author: Hidde de Smet
+author: hidde
 description: "Part 1 of our series on mastering AI-assisted development. Discover why 'vibe coding' gets you only 70% there, and why spec-driven development is the answer. This is your roadmap to production-ready AI-generated code."
 image: /images/spec-kit/image-01.png
 series: "Mastering Spec-Driven Development"
