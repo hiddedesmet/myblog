@@ -3,7 +3,7 @@ layout: post
 title: "From Vibe Coding to Spec-Driven Development: Part 2 - The Spec-Kit Workflow"
 date: 2026-01-12
 categories: [AI, Development, DevOps]
-tags: [ai-assisted-development, spec-kit, github, claude, copilot, vibe-coding, specification-driven-development, series]
+tags: [ai-assisted-development, spec-kit, github, copilot, vibe-coding, specification-driven-development, series]
 author: hidde
 description: "Part 2 of our series on mastering AI-assisted development. A hands-on walkthrough of the complete Spec-Kit workflow: creating constitutions, writing specs, generating plans, and implementing production-ready code."
 image: /images/spec-kit/image-02.png
