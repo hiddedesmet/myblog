@@ -6,22 +6,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Explore topics</title>
-  <meta name='description' content='Explore this topics page to easily navigate the wide range of content available on this blog. This is your gateway to discovering the diverse conversations a...'>
+  <title>From Vibe Coding to Spec-Driven Development: Part 1 - The problem and the solution</title>
+  <meta name='description' content='Part 1 of our series on mastering AI-assisted development. Discover why 'vibe coding' gets you only 70% there, and why spec-driven development is the answer....'>
 
-  <link rel="canonical" href="http://localhost:4000/tags/">
+  <link rel="canonical" href="http://localhost:4000/from-vibe-coding-to-spec-driven-development">
   <link rel="alternate" type="application/rss+xml" title="" href="/feed.xml">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Explore topics – Hidde de Smet">
-  <meta name="twitter:description" content="Explore this topics page to easily navigate the wide range of content available on this blog. This is your gateway to discovering the diverse conversations and ideas that this blog covers.">
-  <meta name="twitter:image:src" content="">
+  <meta name="twitter:title" content="From Vibe Coding to Spec-Driven Development: Part 1 - The problem and the solution – Hidde de Smet">
+  <meta name="twitter:description" content="Part 1 of our series on mastering AI-assisted development. Discover why &apos;vibe coding&apos; gets you only 70% there, and why spec-driven development is the answer. This is your roadmap to production-ready AI-generated code.">
+  <meta name="twitter:image:src" content="http://localhost:4000/images/spec-kit/image-01.png">
 
   <!-- Facebook OpenGraph -->
-  <meta property="og:title" content="Explore topics – Hidde de Smet">
-  <meta property="og:description" content="Explore this topics page to easily navigate the wide range of content available on this blog. This is your gateway to discovering the diverse conversations and ideas that this blog covers.">
-  <meta property="og:image" content="">
+  <meta property="og:title" content="From Vibe Coding to Spec-Driven Development: Part 1 - The problem and the solution – Hidde de Smet">
+  <meta property="og:description" content="Part 1 of our series on mastering AI-assisted development. Discover why &apos;vibe coding&apos; gets you only 70% there, and why spec-driven development is the answer. This is your roadmap to production-ready AI-generated code.">
+  <meta property="og:image" content="http://localhost:4000/images/spec-kit/image-01.png">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -150,7 +150,7 @@
                 
                   <a href="/featured/" class="nav__link">Featured</a>
                 
-                  <a href="/tags/" class="nav__link active-link">Topics</a>
+                  <a href="/tags/" class="nav__link">Topics</a>
                 
                 </div>
               </li>
@@ -203,4540 +203,1105 @@
 
     <!-- begin content -->
     <main class="content" aria-label="Content">
+      <div class="container">
+  <div class="post__head">
+    <div class="post__info">
+
+      <div class="post__head__inner">
+        
+        <div class="post__tags">
+        
+          <a href="/tags#ai-assisted-development" class="post__tag">ai-assisted-development</a>
+        
+          <a href="/tags#spec-kit" class="post__tag">spec-kit</a>
+        
+          <a href="/tags#github" class="post__tag">github</a>
+        
+          <a href="/tags#claude" class="post__tag">claude</a>
+        
+          <a href="/tags#copilot" class="post__tag">copilot</a>
+        
+          <a href="/tags#vibe-coding" class="post__tag">vibe-coding</a>
+        
+          <a href="/tags#specification-driven-development" class="post__tag">specification-driven-development</a>
+        
+          <a href="/tags#series" class="post__tag">series</a>
+        
+        </div>
+        
+        <div class="post__date">•
+          <time datetime="2026-01-05T00:00:00+01:00">Jan 05, 2026</time>
+        </div>
+        <div class="post__minutes">•
+          <span>
+            
+            
+              16 min read
+            
+          </span>
+        </div>
+      </div>
+
+      <h1 class="post__title">From Vibe Coding to Spec-Driven Development: Part 1 - The problem and the solution</h1>
+
+      
+      <div class="post__description">Part 1 of our series on mastering AI-assisted development. Discover why 'vibe coding' gets you only 70% there, and why spec-driven development is the answer. This is your roadmap to production-ready AI-generated code.</div>
       
 
+      <div class="post__meta">
+        <div class="post__author">
+          
+          
+        </div>
 
-<!-- begin hero -->
-<section class="hero">
+        <div class="post__share">
+          <div class="post__share">
+  <ul class="share__list list-reset">
+    <li class="share__item">
+      <a class="share__link share__twitter"
+        href="https://twitter.com/intent/tweet?text=From%20Vibe%20Coding%20to%20Spec-Driven%20Development:%20Part%201%20-%20The%20problem%20and%20the%20solution&url=http://localhost:4000/from-vibe-coding-to-spec-driven-development"
+        onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+        title="Share on Twitter" rel="nofollow"><i class="fa-brands fa-x-twitter"></i></a>
+    </li>
+    <li class="share__item">
+      <a class="share__link share__facebook"
+        href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/from-vibe-coding-to-spec-driven-development"
+        onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+        title="Share on Facebook" rel="nofollow"><i class="fa-brands fa-facebook-f"></i></a>
+    </li>
+    <li class="share__item">
+      <a class="share__link share__pinterest"
+        href="http://pinterest.com/pin/create/button/?url=http://localhost:4000/from-vibe-coding-to-spec-driven-development&amp;media=http://localhost:4000/images/spec-kit/image-01.png&amp;description=From%20Vibe%20Coding%20to%20Spec-Driven%20Development:%20Part%201%20-%20The%20problem%20and%20the%20solution"
+        onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"
+        title="Share on Pinterest" rel="nofollow"><i class="fa-brands fa-pinterest"></i></a>
+    </li>
+    <li class="share__item">
+      <a class="share__link share__linkedin"
+        href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/from-vibe-coding-to-spec-driven-development&title=From%20Vibe%20Coding%20to%20Spec-Driven%20Development:%20Part%201%20-%20The%20problem%20and%20the%20solution&summary=Part%201%20of%20our%20series%20on%20mastering%20AI-assisted%20development.%20Discover%20why%20'vibe%20coding'%20gets%20you%20only%2070%25%20there,%20and%20why%20spec-driven%20development%20is%20the%20answer.%20This%20is%20your%20roadmap%20to%20production-ready%20AI-generated%20code.&source="
+        onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+        title="Share on LinkedIn" rel="nofollow"><i class="fa-brands fa-linkedin"></i></a>
+    </li>
+  </ul>
+</div>
+        </div>
+      </div>
+
+    </div>
+
+    
+
+    
+    <div class="post__image">
+      <img class="lazy" data-src="/images/spec-kit/image-01.png" alt="From Vibe Coding to Spec-Driven Development: Part 1 - The problem and the solution">
+    </div>
+    
+    
+
+    
+  </div>
+
+  <!-- begin post -->
+  <article class="post">
+    <div class="post__content">
+      
+      <div class="post__toc">
+        <h2 class="post__toc__title">Table of Contents</h2>
+        <ol class="post__toc__list"><li><a href="#series-overview">Series overview</a></li><li><a href="#the-ai-shift-in-software-development">The AI shift in software development</a></li><li><a href="#what-is-vibe-coding">What is “Vibe Coding”?</a></li><li><a href="#the-70-problem">The 70% Problem</a><ol><li><a href="#four-main-issues">Four main issues:</a></li></ol></li><li><a href="#the-spectrum-of-ai-assisted-development">The spectrum of AI-assisted development</a></li><li><a href="#what-is-ai-assisted-engineering">What is AI-assisted engineering?</a><ol><li><a href="#three-pillars">Three pillars:</a></li></ol></li><li><a href="#the-paradigm-shift">The paradigm shift</a></li><li><a href="#the-evolution-three-levels-of-spec-driven-development">The evolution: three levels of spec-driven development</a><ol><li><a href="#level-1-spec-first-throwaway-scaffolding">Level 1: Spec-first (throwaway scaffolding)</a></li><li><a href="#level-2-spec-anchored-documentation-trail">Level 2: Spec-anchored (documentation trail)</a></li><li><a href="#level-3-spec-as-source-single-source-of-truth">Level 3: Spec-as-source (single source of truth)</a></li><li><a href="#why-this-matters">Why this matters</a></li></ol></li><li><a href="#enter-spec-kit">Enter Spec-Kit</a><ol><li><a href="#key-stats">Key stats:</a></li><li><a href="#quick-start">Quick start:</a></li></ol></li><li><a href="#core-principles">Core principles</a></li><li><a href="#the-accountability-chain">The accountability chain</a></li><li><a href="#constitution-vs-custom-instructions">Constitution vs custom instructions</a><ol><li><a href="#the-real-difference-workflow-integration">The real difference: workflow integration</a></li><li><a href="#the-analogy">The analogy</a></li></ol></li><li><a href="#step-1-create-your-constitution">Step 1: Create your constitution</a><ol><li><a href="#include-things-like">Include things like:</a></li></ol></li><li><a href="#step-2-write-the-specification">Step 2: Write the specification</a><ol><li><a href="#-dont">❌ Don’t:</a></li><li><a href="#-do">✅ Do:</a></li></ol></li><li><a href="#step-3-create-the-technical-plan">Step 3: Create the technical plan</a><ol><li><a href="#the-ai-generates">The AI generates:</a></li></ol></li><li><a href="#step-4-break-down-into-tasks">Step 4: Break down into tasks</a><ol><li><a href="#each-task-includes">Each task includes:</a></li></ol></li><li><a href="#step-5-implement">Step 5: Implement</a><ol><li><a href="#the-execution-flow">The execution flow:</a></li></ol></li><li><a href="#handling-changes-after-implementation">Handling changes after implementation</a><ol><li><a href="#before-implementation">Before implementation:</a></li><li><a href="#runtime-bugs">Runtime bugs:</a></li><li><a href="#spec-changes">Spec changes:</a></li></ol></li><li><a href="#why-this-approach-works">Why this approach works</a></li><li><a href="#best-practice-1-context-is-everything">Best practice #1: Context is everything</a><ol><li><a href="#-poor-context">❌ Poor context:</a></li><li><a href="#-rich-context">✅ Rich context:</a></li></ol></li><li><a href="#best-practice-2-plan-first-code-later">Best practice #2: Plan first, code later</a><ol><li><a href="#the-magic-words">The magic words:</a></li></ol></li><li><a href="#best-practice-3-test-ruthlessly">Best practice #3: Test ruthlessly</a><ol><li><a href="#the-rule">The rule:</a></li><li><a href="#when-debugging-be-specific">When debugging, be specific:</a></li></ol></li><li><a href="#when-to-use-what">When to use what</a><ol><li><a href="#vibe-coding-is-fine-for">Vibe coding is fine for:</a></li><li><a href="#spec-driven-is-essential-for">Spec-driven is essential for:</a></li></ol></li><li><a href="#whats-next-in-this-series">What’s next in this series</a><ol><li><a href="#coming-next-week-part-2-the-spec-kit-workflow">Coming next week (Part 2): The Spec-Kit workflow</a></li><li><a href="#get-ready">Get ready</a></li></ol></li><li><a href="#key-takeaways-from-part-1">Key takeaways from part 1</a></li><li><a href="#resources">Resources</a></li><li><a href="#series-navigation">Series navigation</a></li></ol>
+      </div>
+      
+
+      <blockquote>
+  <p><strong>This is Part 1 of a 5-part series on mastering AI-assisted development.</strong> Each week, we’ll dive deeper into practical techniques for building production-ready applications with AI coding assistants.</p>
+</blockquote>
+
+<h2 id="series-overview">Series overview</h2>
+
+<ol>
+  <li><strong>Part 1 (This post)</strong>: The problem and the solution - Why vibe coding fails and what spec-driven development offers</li>
+  <li><strong>Part 2 (Jan 12)</strong>: Deep dive into the Spec-Kit workflow - Constitution, specs, plans, and tasks</li>
+  <li><strong>Part 3 (Jan 19)</strong>: Best practices and troubleshooting - Real-world debugging and iteration patterns</li>
+  <li><strong>Part 4 (Jan 26)</strong>: Team collaboration and advanced patterns - Using Spec-Kit in production environments</li>
+  <li><strong>Part 5 (Feb 2)</strong>: Case studies and lessons learned - Real projects, real results, real lessons</li>
+</ol>
+
+<hr />
+
+<p>A few weeks ago, I presented at a Xebia .NET synergy event on moving from ad-hoc “vibe coding” to structured, spec-driven development. The questions and discussions afterward showed that developers are wrestling with these same issues, so I decided to expand the content into this blog series.</p>
+
+<p>This blog series is the result of that presentation, expanded and refined based on the feedback and discussions with fellow developers. Whether you attended the event or are discovering this topic for the first time, my goal is to give you practical, actionable guidance for building production-ready AI-assisted applications.</p>
+
+<p>AI coding assistants have changed how we write software. The code they generate often works well enough to ship, but falls apart when you need to maintain or extend it. This guide shows you how to get from code that works to code that’s production-ready using specification-driven development.</p>
+
+<p>Based on <a href="https://github.com/github/spec-kit">GitHub’s Spec-Kit</a> and <a href="https://addyosmani.com/blog/vibe-coding/">Addy Osmani’s “Beyond Vibe Coding”</a> guide, this series walks you through a structured approach to AI-assisted development that actually works for real-world applications.</p>
+
+<p>In this first post, we’ll explore the fundamental problem with unstructured AI coding and introduce you to the spec-driven approach. Next week, we’ll get hands-on with the actual workflow.</p>
+
+<hr />
+
+<h2 id="the-ai-shift-in-software-development">The AI shift in software development</h2>
+
+<p>Software development has changed significantly in the past few years:</p>
+
+<ul>
+  <li><strong>Yesterday</strong>: Simple autocomplete finishing variable names and common patterns</li>
+  <li><strong>Today</strong>: AI agents that write entire features, debug complex issues, and refactor codebases</li>
+  <li><strong>Tomorrow</strong>: Autonomous systems handling full development cycles</li>
+</ul>
+
+<p>The question is how to use AI effectively while maintaining code quality.</p>
+
+<hr />
+
+<h2 id="what-is-vibe-coding">What is “Vibe Coding”?</h2>
+
+<p><img src="/images/spec-kit/slide-03.png" alt="What is vibe coding?" /></p>
+
+<p>The term “vibe coding” comes from Andrej Karpathy (former head of AI at Tesla). It describes an approach where you:</p>
+
+<blockquote>
+  <p>Accept AI suggestions without critical review, trusting the output completely</p>
+</blockquote>
+
+<p>For prototypes and experiments? Maybe fine. For production code? We need something more structured.</p>
+
+<p>Key insight: Vibe coding isn’t inherently bad code—it’s a specific approach where you trust the AI completely and don’t review what it produces.</p>
+
+<hr />
+
+<h2 id="the-70-problem">The 70% Problem</h2>
+
+<p><img src="/images/spec-kit/slide-04.png" alt="The 70% problem" /></p>
+
+<p>Here’s the core problem with vibe coding: AI can get you 70% of the way incredibly fast. But that last 30%? That’s where things get difficult.</p>
+
+<h3 id="four-main-issues">Four main issues:</h3>
+
+<ol>
+  <li><strong>Two steps back pattern</strong>: Fixing bugs creates new bugs</li>
+  <li><strong>Hidden technical debt</strong>: Code works but isn’t maintainable</li>
+  <li><strong>Diminishing returns</strong>: AI helps experts more than beginners</li>
+  <li><strong>Security vulnerabilities</strong>: Database credentials leak into client-side code</li>
+</ol>
+
+<blockquote>
+  <p>“We’ve seen apps leak database credentials because the AI ‘helpfully’ included them in client-side code.”</p>
+</blockquote>
+
+<p>That’s not hypothetical—it happens.</p>
+
+<hr />
+
+<h2 id="the-spectrum-of-ai-assisted-development">The spectrum of AI-assisted development</h2>
+
+<p><img src="/images/spec-kit/slide-05.png" alt="The spectrum" /></p>
+
+<p>AI-assisted development exists on a spectrum:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Approach</th>
+      <th>Risk</th>
+      <th>Reward</th>
+      <th>Control</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Autocomplete</strong></td>
+      <td>Low</td>
+      <td>Low</td>
+      <td>High</td>
+    </tr>
+    <tr>
+      <td><strong>Chatbot assistance</strong></td>
+      <td>Medium</td>
+      <td>Medium</td>
+      <td>Medium</td>
+    </tr>
+    <tr>
+      <td><strong>Agentic coding</strong></td>
+      <td>High</td>
+      <td>High</td>
+      <td>Lower</td>
+    </tr>
+    <tr>
+      <td><strong>Spec-driven development</strong></td>
+      <td>Managed</td>
+      <td>High</td>
+      <td>High</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The key insight: As AI gets more capable, we need more structure, not less.</p>
+
+<hr />
+
+<h2 id="what-is-ai-assisted-engineering">What is AI-assisted engineering?</h2>
+
+<p><img src="/images/spec-kit/slide-06.png" alt="AI-Assisted Engineering" /></p>
+
+<p>AI-assisted engineering is not about letting AI do whatever it wants. It’s about maintaining human oversight while leveraging AI capabilities.</p>
+
+<h3 id="three-pillars">Three pillars:</h3>
+
+<ol>
+  <li><strong>Human-in-the-loop</strong>: You stay in control of decisions</li>
+  <li><strong>Structured methodology</strong>: Clear processes and checkpoints</li>
+  <li><strong>Quality guardrails</strong>: Automated checks and balances</li>
+</ol>
+
+<p>Think of it like being the architect while AI is the contractor. You design, they build, but you review everything.</p>
+
+<hr />
+
+<h2 id="the-paradigm-shift">The paradigm shift</h2>
+
+<p><img src="/images/spec-kit/slide-07.png" alt="The paradigm shift" /></p>
+
+<p>This is where the paradigm shift happens:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>OLD WAY</th>
+      <th>NEW WAY</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Write code first</td>
+      <td>Write specifications first</td>
+    </tr>
+    <tr>
+      <td>Document later (maybe)</td>
+      <td>Code follows from specs</td>
+    </tr>
+    <tr>
+      <td>Specs are scaffolding</td>
+      <td>Specs are source of truth</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>For decades, we treated specifications as scaffolding—useful during construction but discarded afterward. Now, specifications become the <strong>source of truth</strong> that generates the implementation.</p>
+
+<hr />
+
+<h2 id="the-evolution-three-levels-of-spec-driven-development">The evolution: three levels of spec-driven development</h2>
+
+<p>As Martin Fowler explores in his article on <a href="https://martinfowler.com/articles/exploring-gen-ai.html">exploring generative AI</a>, spec-driven development exists on a maturity spectrum. Understanding these levels helps clarify where Spec-Kit fits.</p>
+
+<pre><code class="language-mermaid">%%{init: {'theme':'base', 'themeVariables': { 'fontSize':'18px'}}}%%
+graph TB
+    subgraph Level1["&lt;b&gt;Level 1: Spec-First (Throwaway)&lt;/b&gt;"]
+        direction TB
+        A1["📄 Write spec.md&lt;br/&gt;for feature"] 
+        B1["⚙️ Generate&lt;br/&gt;code"]
+        C1["🗑️ Delete&lt;br/&gt;spec.md"]
+        D1[" "]
+        E1["📄 Write new&lt;br/&gt;spec.md"]
+        F1["⚙️ Update&lt;br/&gt;code"]
+        
+        A1 --&gt; B1
+        B1 --&gt; C1
+        C1 -.-&gt;|New feature needed| D1
+        D1 -.-&gt; E1
+        E1 --&gt; F1
+    end
+    
+    subgraph Level2["&lt;b&gt;Level 2: Spec-Anchored (Multiple Files)&lt;/b&gt;"]
+        direction TB
+        A2["📄 Original&lt;br/&gt;spec.md"] 
+        B2["⚙️ Generate&lt;br/&gt;code"]
+        D2[" "]
+        E2["📝 Write&lt;br/&gt;change-spec.md"]
+        F2["⚙️ Update&lt;br/&gt;code"]
+        G2["📄 spec.md stays&lt;br/&gt;but outdated"]
+        
+        A2 --&gt; B2
+        B2 -.-&gt;|Change needed| D2
+        D2 -.-&gt; E2
+        E2 --&gt; F2
+        F2 --&gt; G2
+    end
+    
+    subgraph Level3["&lt;b&gt;Level 3: Spec-as-Source (Single Truth)&lt;/b&gt;"]
+        direction TB
+        A3["📄 spec.md&lt;br/&gt;is truth"] 
+        B3["⚙️ Generate&lt;br/&gt;code"]
+        D3[" "]
+        E3["✏️ Edit&lt;br/&gt;spec.md"]
+        F3["♻️ Regenerate&lt;br/&gt;code"]
+        
+        A3 --&gt; B3
+        B3 -.-&gt;|Change needed| D3
+        D3 -.-&gt; E3
+        E3 --&gt; F3
+        F3 -.-&gt; A3
+    end
+    
+    style C1 fill:#ffdddd,stroke:#cc0000,stroke-width:3px
+    style E2 fill:#fff4cc,stroke:#cc9900,stroke-width:3px
+    style E3 fill:#ddffdd,stroke:#00cc00,stroke-width:3px
+    style F3 fill:#ddffdd,stroke:#00cc00,stroke-width:3px
+    style A3 fill:#ddffdd,stroke:#00cc00,stroke-width:3px
+    
+    style Level1 fill:#f9f9f9,stroke:#666,stroke-width:2px
+    style Level2 fill:#f9f9f9,stroke:#666,stroke-width:2px
+    style Level3 fill:#f9f9f9,stroke:#666,stroke-width:2px
+</code></pre>
+
+<h3 id="level-1-spec-first-throwaway-scaffolding">Level 1: Spec-first (throwaway scaffolding)</h3>
+
+<p>You write a spec to help the AI understand what to build, then delete it once the code is generated. The spec was just scaffolding—useful temporarily, then discarded.</p>
+
+<p><strong>Problem</strong>: When you need to change the feature, you start from scratch with a new spec. No continuity, no history.</p>
+
+<h3 id="level-2-spec-anchored-documentation-trail">Level 2: Spec-anchored (documentation trail)</h3>
+
+<p>The original spec persists, but changes are documented in separate files. You’re building a paper trail of evolution, but the original spec becomes outdated.</p>
+
+<p><strong>Problem</strong>: You end up with <code class="language-plaintext highlighter-rouge">spec.md</code>, <code class="language-plaintext highlighter-rouge">new-feature-spec.md</code>, <code class="language-plaintext highlighter-rouge">bug-fix-spec.md</code>, etc. Which one is the source of truth? You have to read them all in order.</p>
+
+<h3 id="level-3-spec-as-source-single-source-of-truth">Level 3: Spec-as-source (single source of truth)</h3>
+
+<p>The spec is the source of truth. When you need changes, you edit the spec and regenerate the code. The spec stays current because it’s the authoritative definition of what the system should do.</p>
+
+<p><strong>This is where Spec-Kit lives.</strong> The specification isn’t documentation of the code—the code is an implementation of the specification.</p>
+
+<h3 id="why-this-matters">Why this matters</h3>
+
+<p>In traditional development, we wrote code and maybe documented it later. The code was the truth.</p>
+
+<p>In spec-as-source development, we write specifications and generate code from them. The spec is the truth.</p>
+
+<p>This isn’t just a philosophical shift—it’s practical. When bugs appear or requirements change, you update the spec and regenerate. The spec never drifts out of sync with reality.</p>
+
+<hr />
+
+<h2 id="enter-spec-kit">Enter Spec-Kit</h2>
+
+<p><img src="/images/spec-kit/slide-10.png" alt="Introducing Spec-Kit" /></p>
+
+<p><a href="https://github.com/github/spec-kit">Spec-Kit</a> is GitHub’s open-source framework for spec-driven development.</p>
+
+<h3 id="key-stats">Key stats:</h3>
+<ul>
+  <li><strong>54k+ GitHub stars</strong> — Battle-tested, not experimental</li>
+  <li><strong>18+ AI agents supported</strong> — Claude, Copilot, Cursor, Windsurf, Gemini, and more</li>
+  <li><strong>MIT licensed</strong> — Free to use</li>
+</ul>
+
+<h3 id="quick-start">Quick start:</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>uv tool <span class="nb">install </span>specify-cli <span class="nt">--from</span> git+https://github.com/github/spec-kit.git
+specify init my-project
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="core-principles">Core principles</h2>
+
+<p><img src="/images/spec-kit/slide-11.png" alt="Core principles" /></p>
+
+<p>Four core principles guide Spec-Kit:</p>
+
+<ol>
+  <li><strong>Intent-driven</strong>: Focus on what and why, not how</li>
+  <li><strong>Rich specifications</strong>: Detailed context beats vague prompts</li>
+  <li><strong>Multi-step refinement</strong>: Review and iterate at each phase</li>
+  <li><strong>AI-native design</strong>: Built specifically for how LLMs think</li>
+</ol>
+
+<p>These aren’t arbitrary—they’re based on what actually works in practice.</p>
+
+<hr />
+
+<h2 id="the-accountability-chain">The accountability chain</h2>
+
+<p><img src="/images/spec-kit/slide-12.png" alt="The accountability chain" /></p>
+
+<p>Here’s the complete Spec-Kit workflow:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Constitution → Specification → Plan → Tasks → Implementation
+</code></pre></div></div>
+
+<p>Each step has a slash command. Each step produces artifacts for the next step. This chain creates <strong>accountability</strong>—you can trace any decision back to its source.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Step</th>
+      <th>Command</th>
+      <th>Output</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Constitution</td>
+      <td><code class="language-plaintext highlighter-rouge">/speckit.constitution</code></td>
+      <td><code class="language-plaintext highlighter-rouge">constitution.md</code></td>
+    </tr>
+    <tr>
+      <td>Specify</td>
+      <td><code class="language-plaintext highlighter-rouge">/speckit.specify</code></td>
+      <td><code class="language-plaintext highlighter-rouge">spec.md</code></td>
+    </tr>
+    <tr>
+      <td>Plan</td>
+      <td><code class="language-plaintext highlighter-rouge">/speckit.plan</code></td>
+      <td><code class="language-plaintext highlighter-rouge">plan.md</code>, <code class="language-plaintext highlighter-rouge">data-model.md</code>, <code class="language-plaintext highlighter-rouge">api-spec.json</code></td>
+    </tr>
+    <tr>
+      <td>Tasks</td>
+      <td><code class="language-plaintext highlighter-rouge">/speckit.tasks</code></td>
+      <td><code class="language-plaintext highlighter-rouge">tasks.md</code></td>
+    </tr>
+    <tr>
+      <td>Implement</td>
+      <td><code class="language-plaintext highlighter-rouge">/speckit.implement</code></td>
+      <td>Working code</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="constitution-vs-custom-instructions">Constitution vs custom instructions</h2>
+
+<p><img src="/images/spec-kit/slide-15.png" alt="Constitution vs custom instructions" /></p>
+
+<p>You might be thinking: <em>“Wait, I already have custom instructions for Copilot or Claude Code. Isn’t this the same thing?”</em></p>
+
+<p>Great question—and this is the heart of the confusion.</p>
+
+<p>Both files are just Markdown. An LLM can read both the same way. So why does one work better?</p>
+
+<h3 id="the-real-difference-workflow-integration">The real difference: workflow integration</h3>
+
+<p><strong>Spec-Kit’s constitution</strong> is part of a multi-step enforced workflow:</p>
+
+<ol>
+  <li>Reads <code class="language-plaintext highlighter-rouge">constitution.md</code> first</li>
+  <li>Injects it into every step: spec, plan, tasks, implementation</li>
+  <li>Each artifact is validated against the constitution</li>
+  <li>Creates an accountability chain</li>
+</ol>
+
+<p><strong>Custom instructions</strong> (like Copilot’s <code class="language-plaintext highlighter-rouge">copilot-instructions.md</code>):</p>
+
+<ol>
+  <li>Added to prompt context</li>
+  <li>Respected during that interaction</li>
+  <li>But no formal spec → plan → tasks chain</li>
+  <li>No artifact accountability</li>
+</ol>
+
+<h3 id="the-analogy">The analogy</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Spec-Kit</th>
+      <th>Custom instructions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Architect’s blueprint + construction plan + building permits checked at every phase</td>
+      <td>Style guide for a contractor + final inspection</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Both are valuable! You can even use both together—Copilot’s instructions for coding style, Spec-Kit’s workflow for complex features.</p>
+
+<hr />
+
+<h2 id="step-1-create-your-constitution">Step 1: Create your constitution</h2>
+
+<p><img src="/images/spec-kit/slide-14.png" alt="Create constitution" /></p>
+
+<p>Think of this as your project’s “bill of rights”—the principles that guide all decisions.</p>
+
+<h3 id="include-things-like">Include things like:</h3>
+
+<ul>
+  <li>Code quality standards</li>
+  <li>Testing requirements</li>
+  <li>Performance targets</li>
+  <li>Security guidelines</li>
+  <li>Technology constraints</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/speckit.constitution
+</code></pre></div></div>
+
+<p>The AI references this during all phases. It’s your guardrail against scope creep and over-engineering.</p>
+
+<hr />
+
+<h2 id="step-2-write-the-specification">Step 2: Write the specification</h2>
+
+<p><img src="/images/spec-kit/slide-16.png" alt="Write specification" /></p>
+
+<p>Focus on what and why—not how.</p>
+
+<h3 id="-dont">❌ Don’t:</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Build me a todo app
+</code></pre></div></div>
+
+<h3 id="-do">✅ Do:</h3>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gu">## User Stories</span>
+
+As a busy professional, I want to:
+<span class="p">-</span> Quickly capture tasks with minimal friction
+<span class="p">-</span> See my tasks organized by priority
+<span class="p">-</span> Mark tasks complete with a single tap
+
+<span class="gu">## Acceptance Criteria</span>
+<span class="p">-</span> Task creation takes &lt; 2 seconds
+<span class="p">-</span> Tasks persist across browser sessions
+<span class="p">-</span> Works offline with sync when online
+</code></pre></div></div>
+
+<p>The more context you provide here, the better your results throughout the entire process.</p>
+
+<hr />
+
+<h2 id="step-3-create-the-technical-plan">Step 3: Create the technical plan</h2>
+
+<p><img src="/images/spec-kit/slide-18.png" alt="Technical plan" /></p>
+
+<p>Now you specify the tech stack. Not before.</p>
+
+<p>Why wait? Because understanding what you’re building should drive how you build it.</p>
+
+<h3 id="the-ai-generates">The AI generates:</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">plan.md</code>: Overall architecture</li>
+  <li><code class="language-plaintext highlighter-rouge">data-model.md</code>: Your data structures</li>
+  <li><code class="language-plaintext highlighter-rouge">api-spec.json</code>: API contracts</li>
+  <li><code class="language-plaintext highlighter-rouge">research.md</code>: Framework recommendations</li>
+</ul>
+
+<p><strong>Pro tip</strong>: Ask the AI to research rapidly-changing frameworks. Its training data might be outdated on specific library versions.</p>
+
+<hr />
+
+<h2 id="step-4-break-down-into-tasks">Step 4: Break down into tasks</h2>
+
+<p><img src="/images/spec-kit/slide-19.png" alt="Generate tasks" /></p>
+
+<p>This takes your plan and breaks it into actionable, implementable chunks.</p>
+
+<h3 id="each-task-includes">Each task includes:</h3>
+
+<ul>
+  <li>Clear description</li>
+  <li>Dependencies on other tasks</li>
+  <li>Acceptance criteria</li>
+  <li>Estimated complexity</li>
+</ul>
+
+<p>The key is <strong>ordered execution</strong>—dependencies are respected automatically.</p>
+
+<p><strong>Review these tasks!</strong> This is your last chance to adjust scope before implementation begins.</p>
+
+<hr />
+
+<h2 id="step-5-implement">Step 5: Implement</h2>
+
+<p><img src="/images/spec-kit/slide-20.png" alt="Implementation" /></p>
+
+<p>The <code class="language-plaintext highlighter-rouge">/speckit.implement</code> command:</p>
+
+<ol>
+  <li>Validates all prerequisites exist</li>
+  <li>Parses the task breakdown</li>
+  <li>Executes in correct order</li>
+  <li>Handles errors gracefully</li>
+</ol>
+
+<h3 id="the-execution-flow">The execution flow:</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Load Constitution → Validate Spec → Review Plan → Execute Tasks → Run Tests
+</code></pre></div></div>
+
+<p>Critical: Test the application after completion. Feed runtime errors back to the AI.</p>
+
+<hr />
+
+<h2 id="handling-changes-after-implementation">Handling changes after implementation</h2>
+
+<p><img src="/images/spec-kit/slide-21.png" alt="Validation and debugging" /></p>
+
+<p>What happens when specs change or bugs appear? This is frontier territory, but here’s the workflow:</p>
+
+<h3 id="before-implementation">Before implementation:</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">/speckit.analyze</code> — Cross-artifact consistency check</li>
+  <li>Audit the plan</li>
+  <li><code class="language-plaintext highlighter-rouge">/speckit.checklist</code> — Verify readiness</li>
+</ul>
+
+<h3 id="runtime-bugs">Runtime bugs:</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/implement fix bug: <span class="o">[</span>description with full context]
+</code></pre></div></div>
+
+<h3 id="spec-changes">Spec changes:</h3>
+<ol>
+  <li>Update <code class="language-plaintext highlighter-rouge">spec.md</code></li>
+  <li>Re-run <code class="language-plaintext highlighter-rouge">/speckit.plan</code></li>
+  <li>Re-run <code class="language-plaintext highlighter-rouge">/speckit.tasks</code></li>
+  <li>Continue <code class="language-plaintext highlighter-rouge">/implement</code></li>
+</ol>
+
+<p>Key principle: “Specification is durable, plan/tasks are flexible”</p>
+
+<p>After any fix, ask AI to: “Update plan, tasks, data-model to reflect this change”</p>
+
+<hr />
+
+<h2 id="why-this-approach-works">Why this approach works</h2>
+
+<p><img src="/images/spec-kit/slide-23.png" alt="Why it works" /></p>
+
+<p>Four reasons:</p>
+
+<ol>
+  <li><strong>Context is king</strong> — AI output quality is proportional to context quality</li>
+  <li><strong>Audit trail</strong> — Every decision is documented and traceable</li>
+  <li><strong>Iterative refinement</strong> — Catch mistakes early, not in production</li>
+  <li><strong>Safety rails</strong> — The constitution prevents over-engineering</li>
+</ol>
+
+<p>Result: You get the full 100%, not just the easy 70%.</p>
+
+<hr />
+
+<h2 id="best-practice-1-context-is-everything">Best practice #1: Context is everything</h2>
+
+<p><img src="/images/spec-kit/slide-24.png" alt="Context best practice" /></p>
+
+<h3 id="-poor-context">❌ Poor context:</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Why is my code not working?
+</code></pre></div></div>
+
+<h3 id="-rich-context">✅ Rich context:</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The handleSubmit function in UserForm.tsx throws 
+"Cannot read property 'email' of undefined" on line 47 
+when the form is submitted with empty fields.
+
+Stack trace:
+[full trace here]
+
+Expected: Form validation should prevent submission
+Actual: Error thrown before validation runs
+</code></pre></div></div>
+
+<p>The quality of AI output is directly proportional to the context you provide.</p>
+
+<hr />
+
+<h2 id="best-practice-2-plan-first-code-later">Best practice #2: Plan first, code later</h2>
+
+<p><img src="/images/spec-kit/slide-25.png" alt="Plan first" /></p>
+
+<p>This is exactly what happens when you say “build me a todo app” without planning:</p>
+
+<p>You ask for a bicycle. The AI proudly presents… a massive over-engineered robot spaceship.</p>
+
+<h3 id="the-magic-words">The magic words:</h3>
+
+<blockquote>
+  <p>“Give me options, starting with the simplest. Don’t code yet.”</p>
+</blockquote>
+
+<p>Ask for architecture OPTIONS first. Start with the simplest viable solution.</p>
+
+<hr />
+
+<h2 id="best-practice-3-test-ruthlessly">Best practice #3: Test ruthlessly</h2>
+
+<p><img src="/images/spec-kit/slide-26.png" alt="Test ruthlessly" /></p>
+
+<h3 id="the-rule">The rule:</h3>
+
+<p>After every AI update:</p>
+<ol>
+  <li>Test in localhost immediately</li>
+  <li>Open browser console</li>
+  <li>Check for errors</li>
+</ol>
+
+<h3 id="when-debugging-be-specific">When debugging, be specific:</h3>
+
+<p>❌ <em>“It’s broken”</em></p>
+
+<p>✅ <em>“The submit button should save the form data, but instead it shows ‘TypeError: Cannot read property map of undefined’ in the console”</em></p>
+
+<p>Small, incremental testing prevents nightmare debugging sessions.</p>
+
+<hr />
+
+<h2 id="when-to-use-what">When to use what</h2>
+
+<p><img src="/images/spec-kit/slide-28.png" alt="When to use what" /></p>
+
+<h3 id="vibe-coding-is-fine-for">Vibe coding is fine for:</h3>
+<ul>
+  <li>Quick prototypes and experiments</li>
+  <li>Learning new technologies</li>
+  <li>One-off scripts you’ll throw away</li>
+</ul>
+
+<h3 id="spec-driven-is-essential-for">Spec-driven is essential for:</h3>
+<ul>
+  <li>Production applications</li>
+  <li>Team projects</li>
+  <li>Anything with users</li>
+  <li>Code that needs to be maintained</li>
+</ul>
+
+<p><strong>The key question</strong>: Will someone (including future you) need to understand this code later?</p>
+
+<hr />
+
+<h2 id="whats-next-in-this-series">What’s next in this series</h2>
+
+<p><img src="/images/spec-kit/slide-31.png" alt="Getting started" /></p>
+
+<p>Now that you understand the <em>why</em> behind spec-driven development, you’re ready for the <em>how</em>.</p>
+
+<h3 id="coming-next-week-part-2-the-spec-kit-workflow">Coming next week (Part 2): The Spec-Kit workflow</h3>
+
+<p>We’ll do a hands-on walkthrough of the complete workflow:</p>
+
+<ul>
+  <li><strong>Creating your constitution</strong> - What to include and what to skip</li>
+  <li><strong>Writing effective specifications</strong> - Real examples from production projects</li>
+  <li><strong>Generating plans and tasks</strong> - How AI breaks down your spec into implementable chunks</li>
+  <li><strong>The implementation phase</strong> - What happens when you hit <code class="language-plaintext highlighter-rouge">/speckit.implement</code></li>
+  <li><strong>Dealing with AI hallucinations</strong> - Practical recovery strategies</li>
+</ul>
+
+<p>Each step will include real code examples, common mistakes, and troubleshooting tips.</p>
+
+<h3 id="get-ready">Get ready</h3>
+
+<p>Before next week’s post, you can:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Install Spec-Kit CLI</span>
+uv tool <span class="nb">install </span>specify-cli <span class="nt">--from</span> git+https://github.com/github/spec-kit.git
+
+<span class="c"># Verify installation</span>
+specify <span class="nt">--version</span>
+</code></pre></div></div>
+
+<p>We’ll use this in Part 2 to build a real application together.</p>
+
+<hr />
+
+<h2 id="key-takeaways-from-part-1">Key takeaways from part 1</h2>
+
+<p><img src="/images/spec-kit/slide-32.png" alt="Key takeaways" /></p>
+
+<ol>
+  <li>
+    <p><strong>Vibe coding gets you 70%</strong>: The last 30% is where real engineering happens</p>
+  </li>
+  <li>
+    <p><strong>Specifications are the new source code</strong>: Write them first, code follows</p>
+  </li>
+  <li>
+    <p><strong>Structure enables speed</strong>: More guardrails means less debugging</p>
+  </li>
+  <li>
+    <p><strong>Three levels of spec-driven development</strong>: Spec-Kit operates at Level 3 (spec-as-source)</p>
+  </li>
+  <li>
+    <p><strong>You’re the architect</strong>: AI is a tool, but you make the decisions</p>
+  </li>
+</ol>
+
+<p>Next week in Part 2, we’ll put these concepts into practice with a complete walkthrough of the Spec-Kit workflow.</p>
+
+<hr />
+
+<h2 id="resources">Resources</h2>
+
+<ul>
+  <li><strong>Spec-Kit</strong>: <a href="https://github.com/github/spec-kit">github.com/github/spec-kit</a></li>
+  <li><strong>Beyond Vibe Coding</strong>: <a href="https://addyosmani.com/blog/vibe-coding/">addyosmani.com/blog/vibe-coding</a></li>
+  <li><strong>GitHub Copilot Custom Instructions</strong>: <a href="https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions">docs.github.com</a></li>
+</ul>
+
+<hr />
+
+<h2 id="series-navigation">Series navigation</h2>
+
+<p><strong>📍 You are here: Part 1 - The problem and the solution</strong></p>
+
+<ul>
+  <li><strong>Next</strong>: Part 2 - Deep dive into the Spec-Kit workflow (Coming January 12, 2026)</li>
+  <li>Part 3 - Best practices and troubleshooting (Coming January 19, 2026)</li>
+  <li>Part 4 - Team collaboration and advanced patterns (Coming January 26, 2026)</li>
+  <li>Part 5 - Case studies and lessons learned (Coming February 2, 2026)</li>
+</ul>
+
+<hr />
+
+<p><em>This series is based on a presentation I gave about moving from ad-hoc AI-assisted coding to structured, specification-driven development. The full presentation slides are available for download.</em></p>
+
+<p><strong>Questions or feedback?</strong> Connect with me on <a href="https://linkedin.com/in/hiddedesmet">LinkedIn</a> or check out more posts at <a href="https://hiddedesmet.com">hiddedesmet.com</a>.</p>
+
+<p><strong>Want to get notified when Part 2 drops?</strong> Follow me on <a href="https://linkedin.com/in/hiddedesmet">LinkedIn</a> for updates.</p>
+
+    </div>
+  </article>
+  <!-- end post -->
+</div>
+
+
+
+
+
+  <!-- begin comments -->
+<div class="container">
+  <div class="row">
+    <div class="col col-12">
+      <div class="show-comments">
+        <h3 class="show-comments__title">Start the conversation</h3>
+        <button class="button button--big disqus-button" id="show-comments-button" onclick="disqus();return false;">Show Comments</button>
+      </div>
+
+      <div id="disqus_thread" class="post__comments">
+        <div id="disqus_empty"></div>
+      </div>
+
+      <script>
+        var disqus_loaded = false;
+        var disqus_shortname = 'anvod-studio-test';
+        var disqus_container = document.getElementById("disqus_thread");
+        function disqus() {
+          if (!disqus_loaded) {
+            disqus_loaded = true;
+            var e = document.createElement("script");
+            e.type = "text/javascript";
+            e.async = true;
+            e.src = "//" + disqus_shortname + ".disqus.com/embed.js";
+            (document.getElementsByTagName("head")[0] ||
+              document.getElementsByTagName("body")[0])
+              .appendChild(e);
+            // Hide the button after opening
+            document.getElementById("show-comments-button").style.display = "none";
+            // Show disqus comments
+            disqus_container.classList.add("is-open");
+          }
+        }
+      </script>
+
+      <noscript>Please enable JavaScript to view the
+        <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+      </noscript>
+    </div>
+  </div>
+</div>
+<!-- end comments -->
+
+
+
+
+
+
+
+
+<!-- begin related posts -->
+<section class="section related-posts is-related">
   <div class="container">
     <div class="row">
+
       <div class="col col-12">
-        <div class="hero__inner">
+        <div class="section__inner">
+
+          <div class="section__info">
+            <div class="section__head">
+              <h2 class="section__title">Related</h2>
+              
+              
+                
+                  <a href="/tags#ai-assisted-development" class="section__link">See all<span> ai-assisted-development</span></a>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            
+            </div>
+          </div>
+
+          <div class="row">
           
-          <h1 class="hero__title">Explore topics</h1>
+            
+            
+
+            
+
+            
+
+            <div class="col col-4 col-d-6 col-t-12">
+              <div class="article">
+  <div class="article__inner">
+
+    <div class="article__head">
+      
+
+      
+      <a href="/from-vibe-coding-to-spec-driven-development-part2" class="article__image" aria-hidden="true" tabindex="-1">
+        <img class="lazy" data-src="/images/spec-kit/image-02.png" alt="From Vibe Coding to Spec-Driven Development: Part 2 - The Spec-Kit Workflow">
+      </a>
+      
+    </div>
+
+    <div class="article__content">
+
+      <div class="article__meta">
+        
+        <div class="article__tags">
+        
+          <a href="/tags#ai-assisted-development" class="article__tag">ai-assisted-development</a>
+        
+          <a href="/tags#spec-kit" class="article__tag">spec-kit</a>
+        
+          <a href="/tags#github" class="article__tag">github</a>
+        
+          <a href="/tags#claude" class="article__tag">claude</a>
+        
+          <a href="/tags#copilot" class="article__tag">copilot</a>
+        
+          <a href="/tags#vibe-coding" class="article__tag">vibe-coding</a>
+        
+          <a href="/tags#specification-driven-development" class="article__tag">specification-driven-development</a>
+        
+          <a href="/tags#series" class="article__tag">series</a>
+        
+        </div>
+        
+        <span class="article__date">•<time datetime="2026-01-12T00:00:00+01:00">Jan 12, 2026</time></span>
+      </div>
+
+      <h2 class="article__title">
+        <a href="/from-vibe-coding-to-spec-driven-development-part2">From Vibe Coding to Spec-Driven Development: Part 2 - The Spec-Kit Workflow</a>
+      </h2>
+
+      <p class="article__excerpt">Part 2 of our series on mastering AI-assisted development. A hands-on walkthrough of the complete Spec-Kit workflow: creating constitutions, writing specs, generating plans, and implementing production-ready code.</p>
+
+      <div class="article__info">
+        
+        
+      </div>
+
+    </div>
+  </div>
+</div>
+            </div>
+
+            
+            
+            
           
+            
+            
+
+            
+
+            
           
-          <p class="hero__description">Explore this topics page to easily navigate the wide range of content available on this blog. This is your gateway to discovering the diverse conversations and ideas that this blog covers.</p>
+            
+            
+
+            
+
+            
           
+            
+            
+
+            
+
+            
+          
+            
+            
+
+            
+
+            
+          
+            
+            
+
+            
+
+            
+          
+            
+            
+
+            
+
+            
+          
+            
+            
+
+            
+
+            
+          
+            
+            
+
+            
+
+            
+          
+            
+            
+
+            
+
+            
+          
+            
+            
+
+            
+
+            
+          
+          </div>
+
         </div>
       </div>
     </div>
   </div>
 </section>
-<!-- end hero -->
-
-<!-- begin tags -->
-<section class="tags">
-
-  <div class="tag__head">
-    <div class="container">
-      <div class="row">
-      
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <a href="#AI" class="tag__link">AI (6)</a>
-          </div>
-        
-      
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <a href="#Azure" class="tag__link">Azure (1)</a>
-          </div>
-        
-      
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <a href="#CI/CD" class="tag__link">CI/CD (1)</a>
-          </div>
-        
-      
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <a href="#Development" class="tag__link">Development (1)</a>
-          </div>
-        
-      
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <a href="#Ethics" class="tag__link">Ethics (1)</a>
-          </div>
-        
-      
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <a href="#GitHub" class="tag__link">GitHub (1)</a>
-          </div>
-        
-      
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <a href="#IASA" class="tag__link">IASA (4)</a>
-          </div>
-        
-      
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <a href="#IaC" class="tag__link">IaC (1)</a>
-          </div>
-        
-      
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <a href="#Image Classification" class="tag__link">Image Classification (1)</a>
-          </div>
-        
-      
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <a href="#MCP" class="tag__link">MCP (1)</a>
-          </div>
-        
-      
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <a href="#Machine Learning" class="tag__link">Machine Learning (1)</a>
-          </div>
-        
-      
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <a href="#Metrics" class="tag__link">Metrics (1)</a>
-          </div>
-        
-      
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <a href="#Piloting" class="tag__link">Piloting (1)</a>
-          </div>
-        
-      
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <a href="#Project validation" class="tag__link">Project validation (1)</a>
-          </div>
-        
-      
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <a href="#ROI" class="tag__link">ROI (1)</a>
-          </div>
-        
-      
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <a href="#Series" class="tag__link">Series (3)</a>
-          </div>
-        
-      
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <a href="#Terraform" class="tag__link">Terraform (1)</a>
-          </div>
-        
-      
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <a href="#ai" class="tag__link">ai (1)</a>
-          </div>
-        
-      
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <a href="#ai-assisted-development" class="tag__link">ai-assisted-development (2)</a>
-          </div>
-        
-      
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <a href="#azure" class="tag__link">azure (1)</a>
-          </div>
-        
-      
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <a href="#bicep" class="tag__link">bicep (1)</a>
-          </div>
-        
-      
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <a href="#ccoe" class="tag__link">ccoe (1)</a>
-          </div>
-        
-      
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <a href="#claude" class="tag__link">claude (2)</a>
-          </div>
-        
-      
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <a href="#cloud" class="tag__link">cloud (1)</a>
-          </div>
-        
-      
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <a href="#copilot" class="tag__link">copilot (2)</a>
-          </div>
-        
-      
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <a href="#devops" class="tag__link">devops (1)</a>
-          </div>
-        
-      
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <a href="#github" class="tag__link">github (2)</a>
-          </div>
-        
-      
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <a href="#governance" class="tag__link">governance (1)</a>
-          </div>
-        
-      
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <a href="#iac" class="tag__link">iac (1)</a>
-          </div>
-        
-      
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <a href="#ibm" class="tag__link">ibm (1)</a>
-          </div>
-        
-      
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <a href="#infrastructure" class="tag__link">infrastructure (1)</a>
-          </div>
-        
-      
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <a href="#opentofu" class="tag__link">opentofu (1)</a>
-          </div>
-        
-      
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <a href="#series" class="tag__link">series (2)</a>
-          </div>
-        
-      
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <a href="#spec-kit" class="tag__link">spec-kit (2)</a>
-          </div>
-        
-      
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <a href="#specification-driven-development" class="tag__link">specification-driven-development (2)</a>
-          </div>
-        
-      
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <a href="#terraform" class="tag__link">terraform (1)</a>
-          </div>
-        
-      
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <a href="#vibe-coding" class="tag__link">vibe-coding (2)</a>
-          </div>
-        
-      
-        
-      
-      </div>
-    </div>
-  </div>
-
-  
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="section__info">
-        <div class="section__head">
-          <h2 class="section__title" id="AI">AI</h2>
-          <a class="section__link top__link" href="#top">Return to top</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="section__inner">
-        <div class="row">
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/ai-project-validation-framework-part3" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/ai-the-right-decision.png" alt="Is AI the right solution? Part 3: Metrics, piloting, and key takeaways">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#AI" class="article__tag">AI</a>
-        
-          <a href="/tags#IASA" class="article__tag">IASA</a>
-        
-          <a href="/tags#ROI" class="article__tag">ROI</a>
-        
-          <a href="/tags#Metrics" class="article__tag">Metrics</a>
-        
-          <a href="/tags#Piloting" class="article__tag">Piloting</a>
-        
-          <a href="/tags#Series" class="article__tag">Series</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-06-09T10:00:00+02:00">Jun 09, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/ai-project-validation-framework-part3">Is AI the right solution? Part 3: Metrics, piloting, and key takeaways</a>
-      </h2>
-
-      <p class="article__excerpt">Final part of our AI project validation series. Learn how to define success metrics, run effective pilot projects, and review key takeaways for successful AI implementation.</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/ai-project-validation-framework-part2" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/ai-ethics.png" alt="Is AI the right solution? Part 2: Examples and ethical risks">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#AI" class="article__tag">AI</a>
-        
-          <a href="/tags#IASA" class="article__tag">IASA</a>
-        
-          <a href="/tags#Ethics" class="article__tag">Ethics</a>
-        
-          <a href="/tags#Series" class="article__tag">Series</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-06-02T06:00:00+02:00">Jun 02, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/ai-project-validation-framework-part2">Is AI the right solution? Part 2: Examples and ethical risks</a>
-      </h2>
-
-      <p class="article__excerpt">Part 2 of our AI project validation series. See the decision framework in action with examples and explore key ethical risks like bias, privacy, and workforce impact.</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/ai-project-validation-framework-part1" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/ai_validation.png" alt="Is AI the right solution? Part 1: The decision framework">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#AI" class="article__tag">AI</a>
-        
-          <a href="/tags#IASA" class="article__tag">IASA</a>
-        
-          <a href="/tags#Project validation" class="article__tag">Project validation</a>
-        
-          <a href="/tags#Series" class="article__tag">Series</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-05-26T09:00:00+02:00">May 26, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/ai-project-validation-framework-part1">Is AI the right solution? Part 1: The decision framework</a>
-      </h2>
-
-      <p class="article__excerpt">Part 1 of our series on validating AI projects. Learn a structured decision tree framework to assess strategic alignment, business impact, and ROI.</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/iasa-ai-course" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/machinelearning.png" alt="A practical guide to Machine Learning for image classification">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#AI" class="article__tag">AI</a>
-        
-          <a href="/tags#Machine Learning" class="article__tag">Machine Learning</a>
-        
-          <a href="/tags#Image Classification" class="article__tag">Image Classification</a>
-        
-          <a href="/tags#IASA" class="article__tag">IASA</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-05-21T09:00:00+02:00">May 21, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/iasa-ai-course">A practical guide to Machine Learning for image classification</a>
-      </h2>
-
-      <p class="article__excerpt">An overview of a typical machine learning workflow for image classification, covering problem definition, ML type, tooling, data preparation, model training, and deployment using TensorFlow, Flask, and Docker.</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/model-context-protocol-mcp" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/mcp1.jpg" alt="Understanding the Model Context Protocol (MCP)">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#AI" class="article__tag">AI</a>
-        
-          <a href="/tags#MCP" class="article__tag">MCP</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-05-08T09:00:00+02:00">May 08, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/model-context-protocol-mcp">Understanding the Model Context Protocol (MCP)</a>
-      </h2>
-
-      <p class="article__excerpt">Explore the Model Context Protocol (MCP), a groundbreaking standard for AI integration, enabling seamless interaction between AI models and external data sources.</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/github-copilot-agent-mode" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/githubcopilotagentmode.jpg" alt="GitHub Copilot Agent Mode - Transforming your development workflow">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#AI" class="article__tag">AI</a>
-        
-          <a href="/tags#Development" class="article__tag">Development</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-05-07T09:00:00+02:00">May 07, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/github-copilot-agent-mode">GitHub Copilot Agent Mode - Transforming your development workflow</a>
-      </h2>
-
-      <p class="article__excerpt">Discover how GitHub Copilot's Agent Mode enhances your development experience with natural language interactions and context-aware assistance throughout your coding journey.</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="section__info">
-        <div class="section__head">
-          <h2 class="section__title" id="Azure">Azure</h2>
-          <a class="section__link top__link" href="#top">Return to top</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="section__inner">
-        <div class="row">
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/terraform-evolution" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/terraform-evolution.png" alt="From simple to sophisticated: Terraform infrastructure evolution">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#Terraform" class="article__tag">Terraform</a>
-        
-          <a href="/tags#GitHub" class="article__tag">GitHub</a>
-        
-          <a href="/tags#CI/CD" class="article__tag">CI/CD</a>
-        
-          <a href="/tags#Azure" class="article__tag">Azure</a>
-        
-          <a href="/tags#IaC" class="article__tag">IaC</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-06-16T07:00:00+02:00">Jun 16, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/terraform-evolution">From simple to sophisticated: Terraform infrastructure evolution</a>
-      </h2>
-
-      <p class="article__excerpt">How I transformed a basic Terraform configuration into a sophisticated infrastructure-as-code solution with modules, testing, CI/CD, and governance.</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="section__info">
-        <div class="section__head">
-          <h2 class="section__title" id="CI/CD">CI/CD</h2>
-          <a class="section__link top__link" href="#top">Return to top</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="section__inner">
-        <div class="row">
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/terraform-evolution" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/terraform-evolution.png" alt="From simple to sophisticated: Terraform infrastructure evolution">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#Terraform" class="article__tag">Terraform</a>
-        
-          <a href="/tags#GitHub" class="article__tag">GitHub</a>
-        
-          <a href="/tags#CI/CD" class="article__tag">CI/CD</a>
-        
-          <a href="/tags#Azure" class="article__tag">Azure</a>
-        
-          <a href="/tags#IaC" class="article__tag">IaC</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-06-16T07:00:00+02:00">Jun 16, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/terraform-evolution">From simple to sophisticated: Terraform infrastructure evolution</a>
-      </h2>
-
-      <p class="article__excerpt">How I transformed a basic Terraform configuration into a sophisticated infrastructure-as-code solution with modules, testing, CI/CD, and governance.</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="section__info">
-        <div class="section__head">
-          <h2 class="section__title" id="Development">Development</h2>
-          <a class="section__link top__link" href="#top">Return to top</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="section__inner">
-        <div class="row">
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/github-copilot-agent-mode" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/githubcopilotagentmode.jpg" alt="GitHub Copilot Agent Mode - Transforming your development workflow">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#AI" class="article__tag">AI</a>
-        
-          <a href="/tags#Development" class="article__tag">Development</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-05-07T09:00:00+02:00">May 07, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/github-copilot-agent-mode">GitHub Copilot Agent Mode - Transforming your development workflow</a>
-      </h2>
-
-      <p class="article__excerpt">Discover how GitHub Copilot's Agent Mode enhances your development experience with natural language interactions and context-aware assistance throughout your coding journey.</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="section__info">
-        <div class="section__head">
-          <h2 class="section__title" id="Ethics">Ethics</h2>
-          <a class="section__link top__link" href="#top">Return to top</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="section__inner">
-        <div class="row">
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/ai-project-validation-framework-part2" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/ai-ethics.png" alt="Is AI the right solution? Part 2: Examples and ethical risks">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#AI" class="article__tag">AI</a>
-        
-          <a href="/tags#IASA" class="article__tag">IASA</a>
-        
-          <a href="/tags#Ethics" class="article__tag">Ethics</a>
-        
-          <a href="/tags#Series" class="article__tag">Series</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-06-02T06:00:00+02:00">Jun 02, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/ai-project-validation-framework-part2">Is AI the right solution? Part 2: Examples and ethical risks</a>
-      </h2>
-
-      <p class="article__excerpt">Part 2 of our AI project validation series. See the decision framework in action with examples and explore key ethical risks like bias, privacy, and workforce impact.</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="section__info">
-        <div class="section__head">
-          <h2 class="section__title" id="GitHub">GitHub</h2>
-          <a class="section__link top__link" href="#top">Return to top</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="section__inner">
-        <div class="row">
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/terraform-evolution" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/terraform-evolution.png" alt="From simple to sophisticated: Terraform infrastructure evolution">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#Terraform" class="article__tag">Terraform</a>
-        
-          <a href="/tags#GitHub" class="article__tag">GitHub</a>
-        
-          <a href="/tags#CI/CD" class="article__tag">CI/CD</a>
-        
-          <a href="/tags#Azure" class="article__tag">Azure</a>
-        
-          <a href="/tags#IaC" class="article__tag">IaC</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-06-16T07:00:00+02:00">Jun 16, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/terraform-evolution">From simple to sophisticated: Terraform infrastructure evolution</a>
-      </h2>
-
-      <p class="article__excerpt">How I transformed a basic Terraform configuration into a sophisticated infrastructure-as-code solution with modules, testing, CI/CD, and governance.</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="section__info">
-        <div class="section__head">
-          <h2 class="section__title" id="IASA">IASA</h2>
-          <a class="section__link top__link" href="#top">Return to top</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="section__inner">
-        <div class="row">
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/ai-project-validation-framework-part3" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/ai-the-right-decision.png" alt="Is AI the right solution? Part 3: Metrics, piloting, and key takeaways">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#AI" class="article__tag">AI</a>
-        
-          <a href="/tags#IASA" class="article__tag">IASA</a>
-        
-          <a href="/tags#ROI" class="article__tag">ROI</a>
-        
-          <a href="/tags#Metrics" class="article__tag">Metrics</a>
-        
-          <a href="/tags#Piloting" class="article__tag">Piloting</a>
-        
-          <a href="/tags#Series" class="article__tag">Series</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-06-09T10:00:00+02:00">Jun 09, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/ai-project-validation-framework-part3">Is AI the right solution? Part 3: Metrics, piloting, and key takeaways</a>
-      </h2>
-
-      <p class="article__excerpt">Final part of our AI project validation series. Learn how to define success metrics, run effective pilot projects, and review key takeaways for successful AI implementation.</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/ai-project-validation-framework-part2" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/ai-ethics.png" alt="Is AI the right solution? Part 2: Examples and ethical risks">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#AI" class="article__tag">AI</a>
-        
-          <a href="/tags#IASA" class="article__tag">IASA</a>
-        
-          <a href="/tags#Ethics" class="article__tag">Ethics</a>
-        
-          <a href="/tags#Series" class="article__tag">Series</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-06-02T06:00:00+02:00">Jun 02, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/ai-project-validation-framework-part2">Is AI the right solution? Part 2: Examples and ethical risks</a>
-      </h2>
-
-      <p class="article__excerpt">Part 2 of our AI project validation series. See the decision framework in action with examples and explore key ethical risks like bias, privacy, and workforce impact.</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/ai-project-validation-framework-part1" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/ai_validation.png" alt="Is AI the right solution? Part 1: The decision framework">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#AI" class="article__tag">AI</a>
-        
-          <a href="/tags#IASA" class="article__tag">IASA</a>
-        
-          <a href="/tags#Project validation" class="article__tag">Project validation</a>
-        
-          <a href="/tags#Series" class="article__tag">Series</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-05-26T09:00:00+02:00">May 26, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/ai-project-validation-framework-part1">Is AI the right solution? Part 1: The decision framework</a>
-      </h2>
-
-      <p class="article__excerpt">Part 1 of our series on validating AI projects. Learn a structured decision tree framework to assess strategic alignment, business impact, and ROI.</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/iasa-ai-course" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/machinelearning.png" alt="A practical guide to Machine Learning for image classification">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#AI" class="article__tag">AI</a>
-        
-          <a href="/tags#Machine Learning" class="article__tag">Machine Learning</a>
-        
-          <a href="/tags#Image Classification" class="article__tag">Image Classification</a>
-        
-          <a href="/tags#IASA" class="article__tag">IASA</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-05-21T09:00:00+02:00">May 21, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/iasa-ai-course">A practical guide to Machine Learning for image classification</a>
-      </h2>
-
-      <p class="article__excerpt">An overview of a typical machine learning workflow for image classification, covering problem definition, ML type, tooling, data preparation, model training, and deployment using TensorFlow, Flask, and Docker.</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="section__info">
-        <div class="section__head">
-          <h2 class="section__title" id="IaC">IaC</h2>
-          <a class="section__link top__link" href="#top">Return to top</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="section__inner">
-        <div class="row">
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/terraform-evolution" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/terraform-evolution.png" alt="From simple to sophisticated: Terraform infrastructure evolution">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#Terraform" class="article__tag">Terraform</a>
-        
-          <a href="/tags#GitHub" class="article__tag">GitHub</a>
-        
-          <a href="/tags#CI/CD" class="article__tag">CI/CD</a>
-        
-          <a href="/tags#Azure" class="article__tag">Azure</a>
-        
-          <a href="/tags#IaC" class="article__tag">IaC</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-06-16T07:00:00+02:00">Jun 16, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/terraform-evolution">From simple to sophisticated: Terraform infrastructure evolution</a>
-      </h2>
-
-      <p class="article__excerpt">How I transformed a basic Terraform configuration into a sophisticated infrastructure-as-code solution with modules, testing, CI/CD, and governance.</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="section__info">
-        <div class="section__head">
-          <h2 class="section__title" id="Image Classification">Image Classification</h2>
-          <a class="section__link top__link" href="#top">Return to top</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="section__inner">
-        <div class="row">
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/iasa-ai-course" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/machinelearning.png" alt="A practical guide to Machine Learning for image classification">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#AI" class="article__tag">AI</a>
-        
-          <a href="/tags#Machine Learning" class="article__tag">Machine Learning</a>
-        
-          <a href="/tags#Image Classification" class="article__tag">Image Classification</a>
-        
-          <a href="/tags#IASA" class="article__tag">IASA</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-05-21T09:00:00+02:00">May 21, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/iasa-ai-course">A practical guide to Machine Learning for image classification</a>
-      </h2>
-
-      <p class="article__excerpt">An overview of a typical machine learning workflow for image classification, covering problem definition, ML type, tooling, data preparation, model training, and deployment using TensorFlow, Flask, and Docker.</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="section__info">
-        <div class="section__head">
-          <h2 class="section__title" id="MCP">MCP</h2>
-          <a class="section__link top__link" href="#top">Return to top</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="section__inner">
-        <div class="row">
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/model-context-protocol-mcp" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/mcp1.jpg" alt="Understanding the Model Context Protocol (MCP)">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#AI" class="article__tag">AI</a>
-        
-          <a href="/tags#MCP" class="article__tag">MCP</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-05-08T09:00:00+02:00">May 08, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/model-context-protocol-mcp">Understanding the Model Context Protocol (MCP)</a>
-      </h2>
-
-      <p class="article__excerpt">Explore the Model Context Protocol (MCP), a groundbreaking standard for AI integration, enabling seamless interaction between AI models and external data sources.</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="section__info">
-        <div class="section__head">
-          <h2 class="section__title" id="Machine Learning">Machine Learning</h2>
-          <a class="section__link top__link" href="#top">Return to top</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="section__inner">
-        <div class="row">
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/iasa-ai-course" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/machinelearning.png" alt="A practical guide to Machine Learning for image classification">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#AI" class="article__tag">AI</a>
-        
-          <a href="/tags#Machine Learning" class="article__tag">Machine Learning</a>
-        
-          <a href="/tags#Image Classification" class="article__tag">Image Classification</a>
-        
-          <a href="/tags#IASA" class="article__tag">IASA</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-05-21T09:00:00+02:00">May 21, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/iasa-ai-course">A practical guide to Machine Learning for image classification</a>
-      </h2>
-
-      <p class="article__excerpt">An overview of a typical machine learning workflow for image classification, covering problem definition, ML type, tooling, data preparation, model training, and deployment using TensorFlow, Flask, and Docker.</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="section__info">
-        <div class="section__head">
-          <h2 class="section__title" id="Metrics">Metrics</h2>
-          <a class="section__link top__link" href="#top">Return to top</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="section__inner">
-        <div class="row">
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/ai-project-validation-framework-part3" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/ai-the-right-decision.png" alt="Is AI the right solution? Part 3: Metrics, piloting, and key takeaways">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#AI" class="article__tag">AI</a>
-        
-          <a href="/tags#IASA" class="article__tag">IASA</a>
-        
-          <a href="/tags#ROI" class="article__tag">ROI</a>
-        
-          <a href="/tags#Metrics" class="article__tag">Metrics</a>
-        
-          <a href="/tags#Piloting" class="article__tag">Piloting</a>
-        
-          <a href="/tags#Series" class="article__tag">Series</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-06-09T10:00:00+02:00">Jun 09, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/ai-project-validation-framework-part3">Is AI the right solution? Part 3: Metrics, piloting, and key takeaways</a>
-      </h2>
-
-      <p class="article__excerpt">Final part of our AI project validation series. Learn how to define success metrics, run effective pilot projects, and review key takeaways for successful AI implementation.</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="section__info">
-        <div class="section__head">
-          <h2 class="section__title" id="Piloting">Piloting</h2>
-          <a class="section__link top__link" href="#top">Return to top</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="section__inner">
-        <div class="row">
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/ai-project-validation-framework-part3" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/ai-the-right-decision.png" alt="Is AI the right solution? Part 3: Metrics, piloting, and key takeaways">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#AI" class="article__tag">AI</a>
-        
-          <a href="/tags#IASA" class="article__tag">IASA</a>
-        
-          <a href="/tags#ROI" class="article__tag">ROI</a>
-        
-          <a href="/tags#Metrics" class="article__tag">Metrics</a>
-        
-          <a href="/tags#Piloting" class="article__tag">Piloting</a>
-        
-          <a href="/tags#Series" class="article__tag">Series</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-06-09T10:00:00+02:00">Jun 09, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/ai-project-validation-framework-part3">Is AI the right solution? Part 3: Metrics, piloting, and key takeaways</a>
-      </h2>
-
-      <p class="article__excerpt">Final part of our AI project validation series. Learn how to define success metrics, run effective pilot projects, and review key takeaways for successful AI implementation.</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="section__info">
-        <div class="section__head">
-          <h2 class="section__title" id="Project validation">Project validation</h2>
-          <a class="section__link top__link" href="#top">Return to top</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="section__inner">
-        <div class="row">
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/ai-project-validation-framework-part1" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/ai_validation.png" alt="Is AI the right solution? Part 1: The decision framework">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#AI" class="article__tag">AI</a>
-        
-          <a href="/tags#IASA" class="article__tag">IASA</a>
-        
-          <a href="/tags#Project validation" class="article__tag">Project validation</a>
-        
-          <a href="/tags#Series" class="article__tag">Series</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-05-26T09:00:00+02:00">May 26, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/ai-project-validation-framework-part1">Is AI the right solution? Part 1: The decision framework</a>
-      </h2>
-
-      <p class="article__excerpt">Part 1 of our series on validating AI projects. Learn a structured decision tree framework to assess strategic alignment, business impact, and ROI.</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="section__info">
-        <div class="section__head">
-          <h2 class="section__title" id="ROI">ROI</h2>
-          <a class="section__link top__link" href="#top">Return to top</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="section__inner">
-        <div class="row">
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/ai-project-validation-framework-part3" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/ai-the-right-decision.png" alt="Is AI the right solution? Part 3: Metrics, piloting, and key takeaways">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#AI" class="article__tag">AI</a>
-        
-          <a href="/tags#IASA" class="article__tag">IASA</a>
-        
-          <a href="/tags#ROI" class="article__tag">ROI</a>
-        
-          <a href="/tags#Metrics" class="article__tag">Metrics</a>
-        
-          <a href="/tags#Piloting" class="article__tag">Piloting</a>
-        
-          <a href="/tags#Series" class="article__tag">Series</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-06-09T10:00:00+02:00">Jun 09, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/ai-project-validation-framework-part3">Is AI the right solution? Part 3: Metrics, piloting, and key takeaways</a>
-      </h2>
-
-      <p class="article__excerpt">Final part of our AI project validation series. Learn how to define success metrics, run effective pilot projects, and review key takeaways for successful AI implementation.</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="section__info">
-        <div class="section__head">
-          <h2 class="section__title" id="Series">Series</h2>
-          <a class="section__link top__link" href="#top">Return to top</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="section__inner">
-        <div class="row">
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/ai-project-validation-framework-part3" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/ai-the-right-decision.png" alt="Is AI the right solution? Part 3: Metrics, piloting, and key takeaways">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#AI" class="article__tag">AI</a>
-        
-          <a href="/tags#IASA" class="article__tag">IASA</a>
-        
-          <a href="/tags#ROI" class="article__tag">ROI</a>
-        
-          <a href="/tags#Metrics" class="article__tag">Metrics</a>
-        
-          <a href="/tags#Piloting" class="article__tag">Piloting</a>
-        
-          <a href="/tags#Series" class="article__tag">Series</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-06-09T10:00:00+02:00">Jun 09, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/ai-project-validation-framework-part3">Is AI the right solution? Part 3: Metrics, piloting, and key takeaways</a>
-      </h2>
-
-      <p class="article__excerpt">Final part of our AI project validation series. Learn how to define success metrics, run effective pilot projects, and review key takeaways for successful AI implementation.</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/ai-project-validation-framework-part2" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/ai-ethics.png" alt="Is AI the right solution? Part 2: Examples and ethical risks">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#AI" class="article__tag">AI</a>
-        
-          <a href="/tags#IASA" class="article__tag">IASA</a>
-        
-          <a href="/tags#Ethics" class="article__tag">Ethics</a>
-        
-          <a href="/tags#Series" class="article__tag">Series</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-06-02T06:00:00+02:00">Jun 02, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/ai-project-validation-framework-part2">Is AI the right solution? Part 2: Examples and ethical risks</a>
-      </h2>
-
-      <p class="article__excerpt">Part 2 of our AI project validation series. See the decision framework in action with examples and explore key ethical risks like bias, privacy, and workforce impact.</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/ai-project-validation-framework-part1" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/ai_validation.png" alt="Is AI the right solution? Part 1: The decision framework">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#AI" class="article__tag">AI</a>
-        
-          <a href="/tags#IASA" class="article__tag">IASA</a>
-        
-          <a href="/tags#Project validation" class="article__tag">Project validation</a>
-        
-          <a href="/tags#Series" class="article__tag">Series</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-05-26T09:00:00+02:00">May 26, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/ai-project-validation-framework-part1">Is AI the right solution? Part 1: The decision framework</a>
-      </h2>
-
-      <p class="article__excerpt">Part 1 of our series on validating AI projects. Learn a structured decision tree framework to assess strategic alignment, business impact, and ROI.</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="section__info">
-        <div class="section__head">
-          <h2 class="section__title" id="Terraform">Terraform</h2>
-          <a class="section__link top__link" href="#top">Return to top</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="section__inner">
-        <div class="row">
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/terraform-evolution" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/terraform-evolution.png" alt="From simple to sophisticated: Terraform infrastructure evolution">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#Terraform" class="article__tag">Terraform</a>
-        
-          <a href="/tags#GitHub" class="article__tag">GitHub</a>
-        
-          <a href="/tags#CI/CD" class="article__tag">CI/CD</a>
-        
-          <a href="/tags#Azure" class="article__tag">Azure</a>
-        
-          <a href="/tags#IaC" class="article__tag">IaC</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-06-16T07:00:00+02:00">Jun 16, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/terraform-evolution">From simple to sophisticated: Terraform infrastructure evolution</a>
-      </h2>
-
-      <p class="article__excerpt">How I transformed a basic Terraform configuration into a sophisticated infrastructure-as-code solution with modules, testing, CI/CD, and governance.</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="section__info">
-        <div class="section__head">
-          <h2 class="section__title" id="ai">ai</h2>
-          <a class="section__link top__link" href="#top">Return to top</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="section__inner">
-        <div class="row">
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/creating-ccoe-for-ai" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/aiccoe.png" alt="Building a Center of Excellence for AI: A strategic approach to enterprise AI adoption">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#ai" class="article__tag">ai</a>
-        
-          <a href="/tags#governance" class="article__tag">governance</a>
-        
-          <a href="/tags#ccoe" class="article__tag">ccoe</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-07-14T11:00:00+02:00">Jul 14, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/creating-ccoe-for-ai">Building a Center of Excellence for AI: A strategic approach to enterprise AI adoption</a>
-      </h2>
-
-      <p class="article__excerpt">A comprehensive guide to establishing and operating a successful Center of Excellence (CCoE) for Artificial Intelligence in enterprise organizations. Learn the key components, governance frameworks, and best practices for scaling AI initiatives across your organization.</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="section__info">
-        <div class="section__head">
-          <h2 class="section__title" id="ai-assisted-development">ai-assisted-development</h2>
-          <a class="section__link top__link" href="#top">Return to top</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="section__inner">
-        <div class="row">
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/from-vibe-coding-to-spec-driven-development-part2" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/spec-kit/image-02.png" alt="From Vibe Coding to Spec-Driven Development: Part 2 - The Spec-Kit Workflow">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#ai-assisted-development" class="article__tag">ai-assisted-development</a>
-        
-          <a href="/tags#spec-kit" class="article__tag">spec-kit</a>
-        
-          <a href="/tags#github" class="article__tag">github</a>
-        
-          <a href="/tags#claude" class="article__tag">claude</a>
-        
-          <a href="/tags#copilot" class="article__tag">copilot</a>
-        
-          <a href="/tags#vibe-coding" class="article__tag">vibe-coding</a>
-        
-          <a href="/tags#specification-driven-development" class="article__tag">specification-driven-development</a>
-        
-          <a href="/tags#series" class="article__tag">series</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2026-01-12T00:00:00+01:00">Jan 12, 2026</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/from-vibe-coding-to-spec-driven-development-part2">From Vibe Coding to Spec-Driven Development: Part 2 - The Spec-Kit Workflow</a>
-      </h2>
-
-      <p class="article__excerpt">Part 2 of our series on mastering AI-assisted development. A hands-on walkthrough of the complete Spec-Kit workflow: creating constitutions, writing specs, generating plans, and implementing production-ready code.</p>
-
-      <div class="article__info">
-        
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/from-vibe-coding-to-spec-driven-development" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/spec-kit/image-01.png" alt="From Vibe Coding to Spec-Driven Development: Part 1 - The problem and the solution">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#ai-assisted-development" class="article__tag">ai-assisted-development</a>
-        
-          <a href="/tags#spec-kit" class="article__tag">spec-kit</a>
-        
-          <a href="/tags#github" class="article__tag">github</a>
-        
-          <a href="/tags#claude" class="article__tag">claude</a>
-        
-          <a href="/tags#copilot" class="article__tag">copilot</a>
-        
-          <a href="/tags#vibe-coding" class="article__tag">vibe-coding</a>
-        
-          <a href="/tags#specification-driven-development" class="article__tag">specification-driven-development</a>
-        
-          <a href="/tags#series" class="article__tag">series</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2026-01-05T00:00:00+01:00">Jan 05, 2026</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/from-vibe-coding-to-spec-driven-development">From Vibe Coding to Spec-Driven Development: Part 1 - The problem and the solution</a>
-      </h2>
-
-      <p class="article__excerpt">Part 1 of our series on mastering AI-assisted development. Discover why 'vibe coding' gets you only 70% there, and why spec-driven development is the answer. This is your roadmap to production-ready AI-generated code.</p>
-
-      <div class="article__info">
-        
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="section__info">
-        <div class="section__head">
-          <h2 class="section__title" id="azure">azure</h2>
-          <a class="section__link top__link" href="#top">Return to top</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="section__inner">
-        <div class="row">
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/bicep-vs-terraform-the-iac-showdown" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/bicep-vs-terraform.png" alt="Bicep vs Terraform vs OpenTofu: Your Infrastructure as Code options in 2025">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#infrastructure" class="article__tag">infrastructure</a>
-        
-          <a href="/tags#azure" class="article__tag">azure</a>
-        
-          <a href="/tags#terraform" class="article__tag">terraform</a>
-        
-          <a href="/tags#bicep" class="article__tag">bicep</a>
-        
-          <a href="/tags#opentofu" class="article__tag">opentofu</a>
-        
-          <a href="/tags#iac" class="article__tag">iac</a>
-        
-          <a href="/tags#devops" class="article__tag">devops</a>
-        
-          <a href="/tags#cloud" class="article__tag">cloud</a>
-        
-          <a href="/tags#ibm" class="article__tag">ibm</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-06-22T11:00:00+02:00">Jun 22, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/bicep-vs-terraform-the-iac-showdown">Bicep vs Terraform vs OpenTofu: Your Infrastructure as Code options in 2025</a>
-      </h2>
-
-      <p class="article__excerpt">A comprehensive comparison of Azure Bicep and Terraform, plus OpenTofu as a community-driven open source alternative. With HashiCorp's license changes and IBM's acquisition, which tool should you choose for your cloud infrastructure needs?</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="section__info">
-        <div class="section__head">
-          <h2 class="section__title" id="bicep">bicep</h2>
-          <a class="section__link top__link" href="#top">Return to top</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="section__inner">
-        <div class="row">
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/bicep-vs-terraform-the-iac-showdown" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/bicep-vs-terraform.png" alt="Bicep vs Terraform vs OpenTofu: Your Infrastructure as Code options in 2025">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#infrastructure" class="article__tag">infrastructure</a>
-        
-          <a href="/tags#azure" class="article__tag">azure</a>
-        
-          <a href="/tags#terraform" class="article__tag">terraform</a>
-        
-          <a href="/tags#bicep" class="article__tag">bicep</a>
-        
-          <a href="/tags#opentofu" class="article__tag">opentofu</a>
-        
-          <a href="/tags#iac" class="article__tag">iac</a>
-        
-          <a href="/tags#devops" class="article__tag">devops</a>
-        
-          <a href="/tags#cloud" class="article__tag">cloud</a>
-        
-          <a href="/tags#ibm" class="article__tag">ibm</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-06-22T11:00:00+02:00">Jun 22, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/bicep-vs-terraform-the-iac-showdown">Bicep vs Terraform vs OpenTofu: Your Infrastructure as Code options in 2025</a>
-      </h2>
-
-      <p class="article__excerpt">A comprehensive comparison of Azure Bicep and Terraform, plus OpenTofu as a community-driven open source alternative. With HashiCorp's license changes and IBM's acquisition, which tool should you choose for your cloud infrastructure needs?</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="section__info">
-        <div class="section__head">
-          <h2 class="section__title" id="ccoe">ccoe</h2>
-          <a class="section__link top__link" href="#top">Return to top</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="section__inner">
-        <div class="row">
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/creating-ccoe-for-ai" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/aiccoe.png" alt="Building a Center of Excellence for AI: A strategic approach to enterprise AI adoption">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#ai" class="article__tag">ai</a>
-        
-          <a href="/tags#governance" class="article__tag">governance</a>
-        
-          <a href="/tags#ccoe" class="article__tag">ccoe</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-07-14T11:00:00+02:00">Jul 14, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/creating-ccoe-for-ai">Building a Center of Excellence for AI: A strategic approach to enterprise AI adoption</a>
-      </h2>
-
-      <p class="article__excerpt">A comprehensive guide to establishing and operating a successful Center of Excellence (CCoE) for Artificial Intelligence in enterprise organizations. Learn the key components, governance frameworks, and best practices for scaling AI initiatives across your organization.</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="section__info">
-        <div class="section__head">
-          <h2 class="section__title" id="claude">claude</h2>
-          <a class="section__link top__link" href="#top">Return to top</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="section__inner">
-        <div class="row">
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/from-vibe-coding-to-spec-driven-development-part2" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/spec-kit/image-02.png" alt="From Vibe Coding to Spec-Driven Development: Part 2 - The Spec-Kit Workflow">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#ai-assisted-development" class="article__tag">ai-assisted-development</a>
-        
-          <a href="/tags#spec-kit" class="article__tag">spec-kit</a>
-        
-          <a href="/tags#github" class="article__tag">github</a>
-        
-          <a href="/tags#claude" class="article__tag">claude</a>
-        
-          <a href="/tags#copilot" class="article__tag">copilot</a>
-        
-          <a href="/tags#vibe-coding" class="article__tag">vibe-coding</a>
-        
-          <a href="/tags#specification-driven-development" class="article__tag">specification-driven-development</a>
-        
-          <a href="/tags#series" class="article__tag">series</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2026-01-12T00:00:00+01:00">Jan 12, 2026</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/from-vibe-coding-to-spec-driven-development-part2">From Vibe Coding to Spec-Driven Development: Part 2 - The Spec-Kit Workflow</a>
-      </h2>
-
-      <p class="article__excerpt">Part 2 of our series on mastering AI-assisted development. A hands-on walkthrough of the complete Spec-Kit workflow: creating constitutions, writing specs, generating plans, and implementing production-ready code.</p>
-
-      <div class="article__info">
-        
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/from-vibe-coding-to-spec-driven-development" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/spec-kit/image-01.png" alt="From Vibe Coding to Spec-Driven Development: Part 1 - The problem and the solution">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#ai-assisted-development" class="article__tag">ai-assisted-development</a>
-        
-          <a href="/tags#spec-kit" class="article__tag">spec-kit</a>
-        
-          <a href="/tags#github" class="article__tag">github</a>
-        
-          <a href="/tags#claude" class="article__tag">claude</a>
-        
-          <a href="/tags#copilot" class="article__tag">copilot</a>
-        
-          <a href="/tags#vibe-coding" class="article__tag">vibe-coding</a>
-        
-          <a href="/tags#specification-driven-development" class="article__tag">specification-driven-development</a>
-        
-          <a href="/tags#series" class="article__tag">series</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2026-01-05T00:00:00+01:00">Jan 05, 2026</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/from-vibe-coding-to-spec-driven-development">From Vibe Coding to Spec-Driven Development: Part 1 - The problem and the solution</a>
-      </h2>
-
-      <p class="article__excerpt">Part 1 of our series on mastering AI-assisted development. Discover why 'vibe coding' gets you only 70% there, and why spec-driven development is the answer. This is your roadmap to production-ready AI-generated code.</p>
-
-      <div class="article__info">
-        
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="section__info">
-        <div class="section__head">
-          <h2 class="section__title" id="cloud">cloud</h2>
-          <a class="section__link top__link" href="#top">Return to top</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="section__inner">
-        <div class="row">
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/bicep-vs-terraform-the-iac-showdown" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/bicep-vs-terraform.png" alt="Bicep vs Terraform vs OpenTofu: Your Infrastructure as Code options in 2025">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#infrastructure" class="article__tag">infrastructure</a>
-        
-          <a href="/tags#azure" class="article__tag">azure</a>
-        
-          <a href="/tags#terraform" class="article__tag">terraform</a>
-        
-          <a href="/tags#bicep" class="article__tag">bicep</a>
-        
-          <a href="/tags#opentofu" class="article__tag">opentofu</a>
-        
-          <a href="/tags#iac" class="article__tag">iac</a>
-        
-          <a href="/tags#devops" class="article__tag">devops</a>
-        
-          <a href="/tags#cloud" class="article__tag">cloud</a>
-        
-          <a href="/tags#ibm" class="article__tag">ibm</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-06-22T11:00:00+02:00">Jun 22, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/bicep-vs-terraform-the-iac-showdown">Bicep vs Terraform vs OpenTofu: Your Infrastructure as Code options in 2025</a>
-      </h2>
-
-      <p class="article__excerpt">A comprehensive comparison of Azure Bicep and Terraform, plus OpenTofu as a community-driven open source alternative. With HashiCorp's license changes and IBM's acquisition, which tool should you choose for your cloud infrastructure needs?</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="section__info">
-        <div class="section__head">
-          <h2 class="section__title" id="copilot">copilot</h2>
-          <a class="section__link top__link" href="#top">Return to top</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="section__inner">
-        <div class="row">
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/from-vibe-coding-to-spec-driven-development-part2" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/spec-kit/image-02.png" alt="From Vibe Coding to Spec-Driven Development: Part 2 - The Spec-Kit Workflow">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#ai-assisted-development" class="article__tag">ai-assisted-development</a>
-        
-          <a href="/tags#spec-kit" class="article__tag">spec-kit</a>
-        
-          <a href="/tags#github" class="article__tag">github</a>
-        
-          <a href="/tags#claude" class="article__tag">claude</a>
-        
-          <a href="/tags#copilot" class="article__tag">copilot</a>
-        
-          <a href="/tags#vibe-coding" class="article__tag">vibe-coding</a>
-        
-          <a href="/tags#specification-driven-development" class="article__tag">specification-driven-development</a>
-        
-          <a href="/tags#series" class="article__tag">series</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2026-01-12T00:00:00+01:00">Jan 12, 2026</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/from-vibe-coding-to-spec-driven-development-part2">From Vibe Coding to Spec-Driven Development: Part 2 - The Spec-Kit Workflow</a>
-      </h2>
-
-      <p class="article__excerpt">Part 2 of our series on mastering AI-assisted development. A hands-on walkthrough of the complete Spec-Kit workflow: creating constitutions, writing specs, generating plans, and implementing production-ready code.</p>
-
-      <div class="article__info">
-        
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/from-vibe-coding-to-spec-driven-development" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/spec-kit/image-01.png" alt="From Vibe Coding to Spec-Driven Development: Part 1 - The problem and the solution">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#ai-assisted-development" class="article__tag">ai-assisted-development</a>
-        
-          <a href="/tags#spec-kit" class="article__tag">spec-kit</a>
-        
-          <a href="/tags#github" class="article__tag">github</a>
-        
-          <a href="/tags#claude" class="article__tag">claude</a>
-        
-          <a href="/tags#copilot" class="article__tag">copilot</a>
-        
-          <a href="/tags#vibe-coding" class="article__tag">vibe-coding</a>
-        
-          <a href="/tags#specification-driven-development" class="article__tag">specification-driven-development</a>
-        
-          <a href="/tags#series" class="article__tag">series</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2026-01-05T00:00:00+01:00">Jan 05, 2026</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/from-vibe-coding-to-spec-driven-development">From Vibe Coding to Spec-Driven Development: Part 1 - The problem and the solution</a>
-      </h2>
-
-      <p class="article__excerpt">Part 1 of our series on mastering AI-assisted development. Discover why 'vibe coding' gets you only 70% there, and why spec-driven development is the answer. This is your roadmap to production-ready AI-generated code.</p>
-
-      <div class="article__info">
-        
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="section__info">
-        <div class="section__head">
-          <h2 class="section__title" id="devops">devops</h2>
-          <a class="section__link top__link" href="#top">Return to top</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="section__inner">
-        <div class="row">
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/bicep-vs-terraform-the-iac-showdown" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/bicep-vs-terraform.png" alt="Bicep vs Terraform vs OpenTofu: Your Infrastructure as Code options in 2025">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#infrastructure" class="article__tag">infrastructure</a>
-        
-          <a href="/tags#azure" class="article__tag">azure</a>
-        
-          <a href="/tags#terraform" class="article__tag">terraform</a>
-        
-          <a href="/tags#bicep" class="article__tag">bicep</a>
-        
-          <a href="/tags#opentofu" class="article__tag">opentofu</a>
-        
-          <a href="/tags#iac" class="article__tag">iac</a>
-        
-          <a href="/tags#devops" class="article__tag">devops</a>
-        
-          <a href="/tags#cloud" class="article__tag">cloud</a>
-        
-          <a href="/tags#ibm" class="article__tag">ibm</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-06-22T11:00:00+02:00">Jun 22, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/bicep-vs-terraform-the-iac-showdown">Bicep vs Terraform vs OpenTofu: Your Infrastructure as Code options in 2025</a>
-      </h2>
-
-      <p class="article__excerpt">A comprehensive comparison of Azure Bicep and Terraform, plus OpenTofu as a community-driven open source alternative. With HashiCorp's license changes and IBM's acquisition, which tool should you choose for your cloud infrastructure needs?</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="section__info">
-        <div class="section__head">
-          <h2 class="section__title" id="github">github</h2>
-          <a class="section__link top__link" href="#top">Return to top</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="section__inner">
-        <div class="row">
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/from-vibe-coding-to-spec-driven-development-part2" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/spec-kit/image-02.png" alt="From Vibe Coding to Spec-Driven Development: Part 2 - The Spec-Kit Workflow">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#ai-assisted-development" class="article__tag">ai-assisted-development</a>
-        
-          <a href="/tags#spec-kit" class="article__tag">spec-kit</a>
-        
-          <a href="/tags#github" class="article__tag">github</a>
-        
-          <a href="/tags#claude" class="article__tag">claude</a>
-        
-          <a href="/tags#copilot" class="article__tag">copilot</a>
-        
-          <a href="/tags#vibe-coding" class="article__tag">vibe-coding</a>
-        
-          <a href="/tags#specification-driven-development" class="article__tag">specification-driven-development</a>
-        
-          <a href="/tags#series" class="article__tag">series</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2026-01-12T00:00:00+01:00">Jan 12, 2026</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/from-vibe-coding-to-spec-driven-development-part2">From Vibe Coding to Spec-Driven Development: Part 2 - The Spec-Kit Workflow</a>
-      </h2>
-
-      <p class="article__excerpt">Part 2 of our series on mastering AI-assisted development. A hands-on walkthrough of the complete Spec-Kit workflow: creating constitutions, writing specs, generating plans, and implementing production-ready code.</p>
-
-      <div class="article__info">
-        
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/from-vibe-coding-to-spec-driven-development" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/spec-kit/image-01.png" alt="From Vibe Coding to Spec-Driven Development: Part 1 - The problem and the solution">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#ai-assisted-development" class="article__tag">ai-assisted-development</a>
-        
-          <a href="/tags#spec-kit" class="article__tag">spec-kit</a>
-        
-          <a href="/tags#github" class="article__tag">github</a>
-        
-          <a href="/tags#claude" class="article__tag">claude</a>
-        
-          <a href="/tags#copilot" class="article__tag">copilot</a>
-        
-          <a href="/tags#vibe-coding" class="article__tag">vibe-coding</a>
-        
-          <a href="/tags#specification-driven-development" class="article__tag">specification-driven-development</a>
-        
-          <a href="/tags#series" class="article__tag">series</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2026-01-05T00:00:00+01:00">Jan 05, 2026</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/from-vibe-coding-to-spec-driven-development">From Vibe Coding to Spec-Driven Development: Part 1 - The problem and the solution</a>
-      </h2>
-
-      <p class="article__excerpt">Part 1 of our series on mastering AI-assisted development. Discover why 'vibe coding' gets you only 70% there, and why spec-driven development is the answer. This is your roadmap to production-ready AI-generated code.</p>
-
-      <div class="article__info">
-        
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="section__info">
-        <div class="section__head">
-          <h2 class="section__title" id="governance">governance</h2>
-          <a class="section__link top__link" href="#top">Return to top</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="section__inner">
-        <div class="row">
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/creating-ccoe-for-ai" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/aiccoe.png" alt="Building a Center of Excellence for AI: A strategic approach to enterprise AI adoption">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#ai" class="article__tag">ai</a>
-        
-          <a href="/tags#governance" class="article__tag">governance</a>
-        
-          <a href="/tags#ccoe" class="article__tag">ccoe</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-07-14T11:00:00+02:00">Jul 14, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/creating-ccoe-for-ai">Building a Center of Excellence for AI: A strategic approach to enterprise AI adoption</a>
-      </h2>
-
-      <p class="article__excerpt">A comprehensive guide to establishing and operating a successful Center of Excellence (CCoE) for Artificial Intelligence in enterprise organizations. Learn the key components, governance frameworks, and best practices for scaling AI initiatives across your organization.</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="section__info">
-        <div class="section__head">
-          <h2 class="section__title" id="iac">iac</h2>
-          <a class="section__link top__link" href="#top">Return to top</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="section__inner">
-        <div class="row">
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/bicep-vs-terraform-the-iac-showdown" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/bicep-vs-terraform.png" alt="Bicep vs Terraform vs OpenTofu: Your Infrastructure as Code options in 2025">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#infrastructure" class="article__tag">infrastructure</a>
-        
-          <a href="/tags#azure" class="article__tag">azure</a>
-        
-          <a href="/tags#terraform" class="article__tag">terraform</a>
-        
-          <a href="/tags#bicep" class="article__tag">bicep</a>
-        
-          <a href="/tags#opentofu" class="article__tag">opentofu</a>
-        
-          <a href="/tags#iac" class="article__tag">iac</a>
-        
-          <a href="/tags#devops" class="article__tag">devops</a>
-        
-          <a href="/tags#cloud" class="article__tag">cloud</a>
-        
-          <a href="/tags#ibm" class="article__tag">ibm</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-06-22T11:00:00+02:00">Jun 22, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/bicep-vs-terraform-the-iac-showdown">Bicep vs Terraform vs OpenTofu: Your Infrastructure as Code options in 2025</a>
-      </h2>
-
-      <p class="article__excerpt">A comprehensive comparison of Azure Bicep and Terraform, plus OpenTofu as a community-driven open source alternative. With HashiCorp's license changes and IBM's acquisition, which tool should you choose for your cloud infrastructure needs?</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="section__info">
-        <div class="section__head">
-          <h2 class="section__title" id="ibm">ibm</h2>
-          <a class="section__link top__link" href="#top">Return to top</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="section__inner">
-        <div class="row">
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/bicep-vs-terraform-the-iac-showdown" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/bicep-vs-terraform.png" alt="Bicep vs Terraform vs OpenTofu: Your Infrastructure as Code options in 2025">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#infrastructure" class="article__tag">infrastructure</a>
-        
-          <a href="/tags#azure" class="article__tag">azure</a>
-        
-          <a href="/tags#terraform" class="article__tag">terraform</a>
-        
-          <a href="/tags#bicep" class="article__tag">bicep</a>
-        
-          <a href="/tags#opentofu" class="article__tag">opentofu</a>
-        
-          <a href="/tags#iac" class="article__tag">iac</a>
-        
-          <a href="/tags#devops" class="article__tag">devops</a>
-        
-          <a href="/tags#cloud" class="article__tag">cloud</a>
-        
-          <a href="/tags#ibm" class="article__tag">ibm</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-06-22T11:00:00+02:00">Jun 22, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/bicep-vs-terraform-the-iac-showdown">Bicep vs Terraform vs OpenTofu: Your Infrastructure as Code options in 2025</a>
-      </h2>
-
-      <p class="article__excerpt">A comprehensive comparison of Azure Bicep and Terraform, plus OpenTofu as a community-driven open source alternative. With HashiCorp's license changes and IBM's acquisition, which tool should you choose for your cloud infrastructure needs?</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="section__info">
-        <div class="section__head">
-          <h2 class="section__title" id="infrastructure">infrastructure</h2>
-          <a class="section__link top__link" href="#top">Return to top</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="section__inner">
-        <div class="row">
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/bicep-vs-terraform-the-iac-showdown" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/bicep-vs-terraform.png" alt="Bicep vs Terraform vs OpenTofu: Your Infrastructure as Code options in 2025">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#infrastructure" class="article__tag">infrastructure</a>
-        
-          <a href="/tags#azure" class="article__tag">azure</a>
-        
-          <a href="/tags#terraform" class="article__tag">terraform</a>
-        
-          <a href="/tags#bicep" class="article__tag">bicep</a>
-        
-          <a href="/tags#opentofu" class="article__tag">opentofu</a>
-        
-          <a href="/tags#iac" class="article__tag">iac</a>
-        
-          <a href="/tags#devops" class="article__tag">devops</a>
-        
-          <a href="/tags#cloud" class="article__tag">cloud</a>
-        
-          <a href="/tags#ibm" class="article__tag">ibm</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-06-22T11:00:00+02:00">Jun 22, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/bicep-vs-terraform-the-iac-showdown">Bicep vs Terraform vs OpenTofu: Your Infrastructure as Code options in 2025</a>
-      </h2>
-
-      <p class="article__excerpt">A comprehensive comparison of Azure Bicep and Terraform, plus OpenTofu as a community-driven open source alternative. With HashiCorp's license changes and IBM's acquisition, which tool should you choose for your cloud infrastructure needs?</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="section__info">
-        <div class="section__head">
-          <h2 class="section__title" id="opentofu">opentofu</h2>
-          <a class="section__link top__link" href="#top">Return to top</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="section__inner">
-        <div class="row">
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/bicep-vs-terraform-the-iac-showdown" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/bicep-vs-terraform.png" alt="Bicep vs Terraform vs OpenTofu: Your Infrastructure as Code options in 2025">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#infrastructure" class="article__tag">infrastructure</a>
-        
-          <a href="/tags#azure" class="article__tag">azure</a>
-        
-          <a href="/tags#terraform" class="article__tag">terraform</a>
-        
-          <a href="/tags#bicep" class="article__tag">bicep</a>
-        
-          <a href="/tags#opentofu" class="article__tag">opentofu</a>
-        
-          <a href="/tags#iac" class="article__tag">iac</a>
-        
-          <a href="/tags#devops" class="article__tag">devops</a>
-        
-          <a href="/tags#cloud" class="article__tag">cloud</a>
-        
-          <a href="/tags#ibm" class="article__tag">ibm</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-06-22T11:00:00+02:00">Jun 22, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/bicep-vs-terraform-the-iac-showdown">Bicep vs Terraform vs OpenTofu: Your Infrastructure as Code options in 2025</a>
-      </h2>
-
-      <p class="article__excerpt">A comprehensive comparison of Azure Bicep and Terraform, plus OpenTofu as a community-driven open source alternative. With HashiCorp's license changes and IBM's acquisition, which tool should you choose for your cloud infrastructure needs?</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="section__info">
-        <div class="section__head">
-          <h2 class="section__title" id="series">series</h2>
-          <a class="section__link top__link" href="#top">Return to top</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="section__inner">
-        <div class="row">
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/from-vibe-coding-to-spec-driven-development-part2" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/spec-kit/image-02.png" alt="From Vibe Coding to Spec-Driven Development: Part 2 - The Spec-Kit Workflow">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#ai-assisted-development" class="article__tag">ai-assisted-development</a>
-        
-          <a href="/tags#spec-kit" class="article__tag">spec-kit</a>
-        
-          <a href="/tags#github" class="article__tag">github</a>
-        
-          <a href="/tags#claude" class="article__tag">claude</a>
-        
-          <a href="/tags#copilot" class="article__tag">copilot</a>
-        
-          <a href="/tags#vibe-coding" class="article__tag">vibe-coding</a>
-        
-          <a href="/tags#specification-driven-development" class="article__tag">specification-driven-development</a>
-        
-          <a href="/tags#series" class="article__tag">series</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2026-01-12T00:00:00+01:00">Jan 12, 2026</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/from-vibe-coding-to-spec-driven-development-part2">From Vibe Coding to Spec-Driven Development: Part 2 - The Spec-Kit Workflow</a>
-      </h2>
-
-      <p class="article__excerpt">Part 2 of our series on mastering AI-assisted development. A hands-on walkthrough of the complete Spec-Kit workflow: creating constitutions, writing specs, generating plans, and implementing production-ready code.</p>
-
-      <div class="article__info">
-        
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/from-vibe-coding-to-spec-driven-development" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/spec-kit/image-01.png" alt="From Vibe Coding to Spec-Driven Development: Part 1 - The problem and the solution">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#ai-assisted-development" class="article__tag">ai-assisted-development</a>
-        
-          <a href="/tags#spec-kit" class="article__tag">spec-kit</a>
-        
-          <a href="/tags#github" class="article__tag">github</a>
-        
-          <a href="/tags#claude" class="article__tag">claude</a>
-        
-          <a href="/tags#copilot" class="article__tag">copilot</a>
-        
-          <a href="/tags#vibe-coding" class="article__tag">vibe-coding</a>
-        
-          <a href="/tags#specification-driven-development" class="article__tag">specification-driven-development</a>
-        
-          <a href="/tags#series" class="article__tag">series</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2026-01-05T00:00:00+01:00">Jan 05, 2026</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/from-vibe-coding-to-spec-driven-development">From Vibe Coding to Spec-Driven Development: Part 1 - The problem and the solution</a>
-      </h2>
-
-      <p class="article__excerpt">Part 1 of our series on mastering AI-assisted development. Discover why 'vibe coding' gets you only 70% there, and why spec-driven development is the answer. This is your roadmap to production-ready AI-generated code.</p>
-
-      <div class="article__info">
-        
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="section__info">
-        <div class="section__head">
-          <h2 class="section__title" id="spec-kit">spec-kit</h2>
-          <a class="section__link top__link" href="#top">Return to top</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="section__inner">
-        <div class="row">
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/from-vibe-coding-to-spec-driven-development-part2" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/spec-kit/image-02.png" alt="From Vibe Coding to Spec-Driven Development: Part 2 - The Spec-Kit Workflow">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#ai-assisted-development" class="article__tag">ai-assisted-development</a>
-        
-          <a href="/tags#spec-kit" class="article__tag">spec-kit</a>
-        
-          <a href="/tags#github" class="article__tag">github</a>
-        
-          <a href="/tags#claude" class="article__tag">claude</a>
-        
-          <a href="/tags#copilot" class="article__tag">copilot</a>
-        
-          <a href="/tags#vibe-coding" class="article__tag">vibe-coding</a>
-        
-          <a href="/tags#specification-driven-development" class="article__tag">specification-driven-development</a>
-        
-          <a href="/tags#series" class="article__tag">series</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2026-01-12T00:00:00+01:00">Jan 12, 2026</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/from-vibe-coding-to-spec-driven-development-part2">From Vibe Coding to Spec-Driven Development: Part 2 - The Spec-Kit Workflow</a>
-      </h2>
-
-      <p class="article__excerpt">Part 2 of our series on mastering AI-assisted development. A hands-on walkthrough of the complete Spec-Kit workflow: creating constitutions, writing specs, generating plans, and implementing production-ready code.</p>
-
-      <div class="article__info">
-        
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/from-vibe-coding-to-spec-driven-development" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/spec-kit/image-01.png" alt="From Vibe Coding to Spec-Driven Development: Part 1 - The problem and the solution">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#ai-assisted-development" class="article__tag">ai-assisted-development</a>
-        
-          <a href="/tags#spec-kit" class="article__tag">spec-kit</a>
-        
-          <a href="/tags#github" class="article__tag">github</a>
-        
-          <a href="/tags#claude" class="article__tag">claude</a>
-        
-          <a href="/tags#copilot" class="article__tag">copilot</a>
-        
-          <a href="/tags#vibe-coding" class="article__tag">vibe-coding</a>
-        
-          <a href="/tags#specification-driven-development" class="article__tag">specification-driven-development</a>
-        
-          <a href="/tags#series" class="article__tag">series</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2026-01-05T00:00:00+01:00">Jan 05, 2026</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/from-vibe-coding-to-spec-driven-development">From Vibe Coding to Spec-Driven Development: Part 1 - The problem and the solution</a>
-      </h2>
-
-      <p class="article__excerpt">Part 1 of our series on mastering AI-assisted development. Discover why 'vibe coding' gets you only 70% there, and why spec-driven development is the answer. This is your roadmap to production-ready AI-generated code.</p>
-
-      <div class="article__info">
-        
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="section__info">
-        <div class="section__head">
-          <h2 class="section__title" id="specification-driven-development">specification-driven-development</h2>
-          <a class="section__link top__link" href="#top">Return to top</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="section__inner">
-        <div class="row">
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/from-vibe-coding-to-spec-driven-development-part2" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/spec-kit/image-02.png" alt="From Vibe Coding to Spec-Driven Development: Part 2 - The Spec-Kit Workflow">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#ai-assisted-development" class="article__tag">ai-assisted-development</a>
-        
-          <a href="/tags#spec-kit" class="article__tag">spec-kit</a>
-        
-          <a href="/tags#github" class="article__tag">github</a>
-        
-          <a href="/tags#claude" class="article__tag">claude</a>
-        
-          <a href="/tags#copilot" class="article__tag">copilot</a>
-        
-          <a href="/tags#vibe-coding" class="article__tag">vibe-coding</a>
-        
-          <a href="/tags#specification-driven-development" class="article__tag">specification-driven-development</a>
-        
-          <a href="/tags#series" class="article__tag">series</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2026-01-12T00:00:00+01:00">Jan 12, 2026</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/from-vibe-coding-to-spec-driven-development-part2">From Vibe Coding to Spec-Driven Development: Part 2 - The Spec-Kit Workflow</a>
-      </h2>
-
-      <p class="article__excerpt">Part 2 of our series on mastering AI-assisted development. A hands-on walkthrough of the complete Spec-Kit workflow: creating constitutions, writing specs, generating plans, and implementing production-ready code.</p>
-
-      <div class="article__info">
-        
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/from-vibe-coding-to-spec-driven-development" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/spec-kit/image-01.png" alt="From Vibe Coding to Spec-Driven Development: Part 1 - The problem and the solution">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#ai-assisted-development" class="article__tag">ai-assisted-development</a>
-        
-          <a href="/tags#spec-kit" class="article__tag">spec-kit</a>
-        
-          <a href="/tags#github" class="article__tag">github</a>
-        
-          <a href="/tags#claude" class="article__tag">claude</a>
-        
-          <a href="/tags#copilot" class="article__tag">copilot</a>
-        
-          <a href="/tags#vibe-coding" class="article__tag">vibe-coding</a>
-        
-          <a href="/tags#specification-driven-development" class="article__tag">specification-driven-development</a>
-        
-          <a href="/tags#series" class="article__tag">series</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2026-01-05T00:00:00+01:00">Jan 05, 2026</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/from-vibe-coding-to-spec-driven-development">From Vibe Coding to Spec-Driven Development: Part 1 - The problem and the solution</a>
-      </h2>
-
-      <p class="article__excerpt">Part 1 of our series on mastering AI-assisted development. Discover why 'vibe coding' gets you only 70% there, and why spec-driven development is the answer. This is your roadmap to production-ready AI-generated code.</p>
-
-      <div class="article__info">
-        
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="section__info">
-        <div class="section__head">
-          <h2 class="section__title" id="terraform">terraform</h2>
-          <a class="section__link top__link" href="#top">Return to top</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="section__inner">
-        <div class="row">
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/bicep-vs-terraform-the-iac-showdown" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/bicep-vs-terraform.png" alt="Bicep vs Terraform vs OpenTofu: Your Infrastructure as Code options in 2025">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#infrastructure" class="article__tag">infrastructure</a>
-        
-          <a href="/tags#azure" class="article__tag">azure</a>
-        
-          <a href="/tags#terraform" class="article__tag">terraform</a>
-        
-          <a href="/tags#bicep" class="article__tag">bicep</a>
-        
-          <a href="/tags#opentofu" class="article__tag">opentofu</a>
-        
-          <a href="/tags#iac" class="article__tag">iac</a>
-        
-          <a href="/tags#devops" class="article__tag">devops</a>
-        
-          <a href="/tags#cloud" class="article__tag">cloud</a>
-        
-          <a href="/tags#ibm" class="article__tag">ibm</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2025-06-22T11:00:00+02:00">Jun 22, 2025</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/bicep-vs-terraform-the-iac-showdown">Bicep vs Terraform vs OpenTofu: Your Infrastructure as Code options in 2025</a>
-      </h2>
-
-      <p class="article__excerpt">A comprehensive comparison of Azure Bicep and Terraform, plus OpenTofu as a community-driven open source alternative. With HashiCorp's license changes and IBM's acquisition, which tool should you choose for your cloud infrastructure needs?</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="section__info">
-        <div class="section__head">
-          <h2 class="section__title" id="vibe-coding">vibe-coding</h2>
-          <a class="section__link top__link" href="#top">Return to top</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="section__inner">
-        <div class="row">
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/from-vibe-coding-to-spec-driven-development-part2" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/spec-kit/image-02.png" alt="From Vibe Coding to Spec-Driven Development: Part 2 - The Spec-Kit Workflow">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#ai-assisted-development" class="article__tag">ai-assisted-development</a>
-        
-          <a href="/tags#spec-kit" class="article__tag">spec-kit</a>
-        
-          <a href="/tags#github" class="article__tag">github</a>
-        
-          <a href="/tags#claude" class="article__tag">claude</a>
-        
-          <a href="/tags#copilot" class="article__tag">copilot</a>
-        
-          <a href="/tags#vibe-coding" class="article__tag">vibe-coding</a>
-        
-          <a href="/tags#specification-driven-development" class="article__tag">specification-driven-development</a>
-        
-          <a href="/tags#series" class="article__tag">series</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2026-01-12T00:00:00+01:00">Jan 12, 2026</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/from-vibe-coding-to-spec-driven-development-part2">From Vibe Coding to Spec-Driven Development: Part 2 - The Spec-Kit Workflow</a>
-      </h2>
-
-      <p class="article__excerpt">Part 2 of our series on mastering AI-assisted development. A hands-on walkthrough of the complete Spec-Kit workflow: creating constitutions, writing specs, generating plans, and implementing production-ready code.</p>
-
-      <div class="article__info">
-        
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-          
-          <div class="col col-4 col-d-6 col-t-12">
-            <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/from-vibe-coding-to-spec-driven-development" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/spec-kit/image-01.png" alt="From Vibe Coding to Spec-Driven Development: Part 1 - The problem and the solution">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#ai-assisted-development" class="article__tag">ai-assisted-development</a>
-        
-          <a href="/tags#spec-kit" class="article__tag">spec-kit</a>
-        
-          <a href="/tags#github" class="article__tag">github</a>
-        
-          <a href="/tags#claude" class="article__tag">claude</a>
-        
-          <a href="/tags#copilot" class="article__tag">copilot</a>
-        
-          <a href="/tags#vibe-coding" class="article__tag">vibe-coding</a>
-        
-          <a href="/tags#specification-driven-development" class="article__tag">specification-driven-development</a>
-        
-          <a href="/tags#series" class="article__tag">series</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2026-01-05T00:00:00+01:00">Jan 05, 2026</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/from-vibe-coding-to-spec-driven-development">From Vibe Coding to Spec-Driven Development: Part 1 - The problem and the solution</a>
-      </h2>
-
-      <p class="article__excerpt">Part 1 of our series on mastering AI-assisted development. Discover why 'vibe coding' gets you only 70% there, and why spec-driven development is the answer. This is your roadmap to production-ready AI-generated code.</p>
-
-      <div class="article__info">
-        
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-          </div>
-          
-        
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-
-
-
-</section>
-<!-- end tags -->
+<!-- end related posts -->
     </main>
     <!-- end content -->
 
