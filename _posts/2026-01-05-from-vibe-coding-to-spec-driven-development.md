@@ -8,7 +8,7 @@ author: Hidde de Smet
 description: "Part 1 of our series on mastering AI-assisted development. Discover why 'vibe coding' gets you only 70% there, and why spec-driven development is the answer. This is your roadmap to production-ready AI-generated code."
 image: /images/spec-kit/image-01.png
 series: "Mastering Spec-Driven Development"
-featured: true
+featured: false
 toc: true
 ---
 
