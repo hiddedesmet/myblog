@@ -634,7 +634,7 @@ The AI will generate several artifacts in the `/specs/001-team-task-manager/` di
 2. `checklist.md` - Quality validation checklist
 3. `plan.md` - Overall technical architecture  
 4. `data-model.md` - Database schema design
-5. `contracts.md` - API contracts and endpoint specifications
+5. `api-specification.md` - API contracts and endpoint specifications
 
 ![Generated plan files](/images/spec-kit/workflow-07-plan-files.png)
 *All generated planning artifacts shown in the VS Code file explorer*
