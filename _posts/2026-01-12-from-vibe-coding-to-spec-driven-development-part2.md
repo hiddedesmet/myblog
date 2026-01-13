@@ -639,7 +639,7 @@ The AI will generate several artifacts in the `/specs/001-team-task-manager/` di
 ![Generated plan files](/images/spec-kit/workflow-07-plan-files.png)
 *All generated planning artifacts shown in the VS Code file explorer*
 
-The requirements.md contains the complete breakdown of functional requirements with Given-When-Then scenarios, while the checklist validates specification quality. The contracts.md defines all API endpoints, request/response schemas, and integration points before moving forward with implementation.
+The requirements.md contains the complete breakdown of functional requirements with Given-When-Then scenarios, while the checklist validates specification quality. The api-specification.md defines all API endpoints, request/response schemas, and integration points before moving forward with implementation.
 
 ### Real example: Generated plan.md
 
