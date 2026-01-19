@@ -30,7 +30,7 @@ This blog series is the result of that presentation, expanded and refined based 
 
 AI coding assistants have changed how we write software. The code they generate often works well enough to ship, but falls apart when you need to maintain or extend it. This guide shows you how to get from code that works to code that's production-ready using specification-driven development.
 
-Based on [GitHub's Spec-Kit](https://github.com/github/spec-kit) and [Addy Osmani's "Beyond Vibe Coding"](https://addyosmani.com/blog/vibe-coding/) guide, this series walks you through a structured approach to AI-assisted development that actually works for real-world applications.
+Based on [GitHub's Spec-Kit](https://github.com/github/spec-kit) and [Addy Osmani's "Beyond Vibe Coding"](https://beyond.addy.ie/) guide, this series walks you through a structured approach to AI-assisted development that actually works for real-world applications.
 
 In this first post, we'll explore the fundamental problem with unstructured AI coding and introduce you to the spec-driven approach. Next week, we'll get hands-on with the actual workflow.
 
@@ -606,7 +606,7 @@ Next week in Part 2, we'll put these concepts into practice with a complete walk
 ## Resources
 
 - **Spec-Kit**: [github.com/github/spec-kit](https://github.com/github/spec-kit)
-- **Beyond Vibe Coding**: [addyosmani.com/blog/vibe-coding](https://addyosmani.com/blog/vibe-coding/)
+- **Beyond Vibe Coding**: [beyond.addy.ie](https://beyond.addy.ie/)
 - **GitHub Copilot Custom Instructions**: [docs.github.com](https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions)
 
 ---

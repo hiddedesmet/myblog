@@ -5,9 +5,1529 @@
         <description>My blog is a collection of stories, journeys, and ideas for the creatively curious. I share my thoughts on design, technology, with a focus on creativity and innovation.</description>
         <link>http://localhost:4000/</link>
         <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Mon, 12 Jan 2026 12:40:58 +0100</pubDate>
-        <lastBuildDate>Mon, 12 Jan 2026 12:40:58 +0100</lastBuildDate>
+        <pubDate>Mon, 19 Jan 2026 09:48:11 +0100</pubDate>
+        <lastBuildDate>Mon, 19 Jan 2026 09:48:11 +0100</lastBuildDate>
         <generator>Jekyll v4.4.1</generator>
+        
+            <item>
+                <title>From Vibe Coding to Spec-Driven Development: Part 3 - Best Practices and Troubleshooting</title>
+                <description>&lt;blockquote&gt;
+  &lt;p&gt;🎯 &lt;strong&gt;This is Part 3 of a 5-part series on mastering AI-assisted development.&lt;/strong&gt;&lt;/p&gt;
+
+  &lt;p&gt;We’ve covered the why and the how. Now let’s tackle the messy reality: debugging, iteration, and real-world troubleshooting.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;series-overview&quot;&gt;Series overview&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Part&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Topic&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Status&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;/from-vibe-coding-to-spec-driven-development&quot;&gt;Part 1&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;The problem and the solution&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;✓&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;/from-vibe-coding-to-spec-driven-development-part2&quot;&gt;Part 2&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Deep dive into the Spec-Kit workflow&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;✓&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Part 3&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Best practices and troubleshooting&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;📍&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Part 4&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Team collaboration and advanced patterns&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Jan 26&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Part 5&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Case studies and lessons learned&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Feb 2&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;the-reality-of-spec-driven-development&quot;&gt;The reality of spec-driven development&lt;/h2&gt;
+
+&lt;p&gt;Last week, I was helping a team at a European airline build a proof-of-concept for managing contractors. Everything was going smoothly until the AI started generating code that referenced a workflow library that simply didn’t exist. Once we’d untangled the hallucination, it got me thinking: &lt;strong&gt;we need a field guide for when things go wrong.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;In Part 2, we walked through a clean, linear workflow: constitution → spec → plan → tasks → implementation. In reality, development is rarely that smooth.&lt;/p&gt;
+
+&lt;p&gt;You’ll encounter:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Challenge&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;What happens&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;AI hallucinations&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;The AI invents APIs that don’t exist&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Spec ambiguities&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Unclear requirements lead to wrong implementations&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Performance issues&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Code works but doesn’t scale&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Integration failures&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Components don’t play well together&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Requirement changes&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;What you built isn’t what users need&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;This post is about handling those messy situations. &lt;strong&gt;Think of it as your field guide for when things go wrong.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;section-1-advanced-specification-techniques&quot;&gt;Section 1: Advanced specification techniques&lt;/h2&gt;
+
+&lt;h3 id=&quot;writing-specs-that-survive-reality&quot;&gt;Writing specs that survive reality&lt;/h3&gt;
+
+&lt;p&gt;The quality of your specification directly determines the quality of your output. Here’s how to write specs that work in practice.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;💡 &lt;strong&gt;Quick win&lt;/strong&gt;&lt;/p&gt;
+
+  &lt;p&gt;Start with Technique #1 (Given-When-Then). It alone will significantly improve your AI output quality.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;technique-1-use-given-when-then-scenarios&quot;&gt;Technique #1: Use Given-When-Then scenarios&lt;/h4&gt;
+
+&lt;p&gt;Instead of vague descriptions, use structured scenarios:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;DON’T&lt;/strong&gt; (Vague):&lt;/p&gt;
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Users should be able to filter tasks
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;DO&lt;/strong&gt; (Structured):&lt;/p&gt;
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gs&quot;&gt;**Scenario: Filter tasks by assignee**&lt;/span&gt;
+
+&lt;span class=&quot;gs&quot;&gt;**Given**&lt;/span&gt; I&apos;m viewing the team dashboard
+&lt;span class=&quot;gs&quot;&gt;**And**&lt;/span&gt; there are 50 tasks assigned to various team members
+&lt;span class=&quot;gs&quot;&gt;**When**&lt;/span&gt; I select &quot;John Smith&quot; from the assignee filter
+&lt;span class=&quot;gs&quot;&gt;**Then**&lt;/span&gt; I see only tasks assigned to John Smith (expected: 12 tasks)
+&lt;span class=&quot;gs&quot;&gt;**And**&lt;/span&gt; the count updates to show &quot;Showing 12 of 50 tasks&quot;
+&lt;span class=&quot;gs&quot;&gt;**And**&lt;/span&gt; the filter persists when I navigate away and return
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Why this works&lt;/strong&gt;: The AI has concrete inputs, actions, and expected outputs. No room for interpretation.&lt;/p&gt;
+
+&lt;h4 id=&quot;technique-2-specify-error-messages-exactly&quot;&gt;Technique #2: Specify error messages exactly&lt;/h4&gt;
+
+&lt;p&gt;Don’t say “show an error.” Say exactly what the error should say.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;DON’T&lt;/strong&gt; (Vague):&lt;/p&gt;
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;If the user enters an invalid email, show an error
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;DO&lt;/strong&gt; (Specific):&lt;/p&gt;
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gs&quot;&gt;**Validation: Email format**&lt;/span&gt;
+
+&lt;span class=&quot;gs&quot;&gt;**Invalid inputs:**&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Empty string → &quot;Email is required&quot;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &quot;notanemail&quot; → &quot;Please enter a valid email address&quot;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &quot;test@&quot; → &quot;Please enter a valid email address&quot;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &quot;test@domain&quot; → &quot;Please enter a valid email address&quot;
+
+&lt;span class=&quot;gs&quot;&gt;**Valid inputs:**&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &quot;user@example.com&quot; → Validation passes
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &quot;user+tag@example.co.uk&quot; → Validation passes
+
+&lt;span class=&quot;gs&quot;&gt;**Display:**&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Error appears below input field
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Input border turns red (#dc3545)
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Error icon displayed to the left of message
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Error clears immediately when user starts typing
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;technique-3-mock-the-ui-with-ascii-art&quot;&gt;Technique #3: Mock the UI with ASCII art&lt;/h4&gt;
+
+&lt;p&gt;Don’t assume the AI knows what you want visually.&lt;/p&gt;
+
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gu&quot;&gt;## Task Card Layout&lt;/span&gt;
+
+┌─────────────────────────────────────────┐
+│ [✓] Task title goes here        [Edit]  │
+│                                          │
+│ Brief description preview shown here,    │
+│ truncated at 100 characters...          │
+│                                          │
+│ 👤 Assigned to: John Smith              │
+│ 📅 Due: Jan 25, 2026                    │
+│ 🏷️  Status: In Progress                 │
+└─────────────────────────────────────────┘
+
+&lt;span class=&quot;gs&quot;&gt;**Interactions:**&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Checkbox: Click to toggle complete/incomplete
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Card body: Click to open detail view
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Edit button: Click to enter edit mode
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Hover: Box shadow elevation (0.5rem)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;technique-4-define-the-negative-space&quot;&gt;Technique #4: Define the negative space&lt;/h4&gt;
+
+&lt;p&gt;Explicitly state what you’re NOT building.&lt;/p&gt;
+
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gu&quot;&gt;## Out of Scope (Explicitly NOT Implementing)&lt;/span&gt;
+
+&lt;span class=&quot;gu&quot;&gt;### Comments on tasks&lt;/span&gt;
+&lt;span class=&quot;gs&quot;&gt;**Why**&lt;/span&gt;: Adds complexity without MVP validation
+&lt;span class=&quot;gs&quot;&gt;**Future consideration**&lt;/span&gt;: Phase 2 after user feedback
+
+&lt;span class=&quot;gu&quot;&gt;### File attachments&lt;/span&gt;
+&lt;span class=&quot;gs&quot;&gt;**Why**&lt;/span&gt;: Requires file storage infrastructure
+&lt;span class=&quot;gs&quot;&gt;**Alternative**&lt;/span&gt;: Use task description to link to external files
+
+&lt;span class=&quot;gu&quot;&gt;### Recurring tasks&lt;/span&gt;
+&lt;span class=&quot;gs&quot;&gt;**Why**&lt;/span&gt;: Complex scheduling logic
+&lt;span class=&quot;gs&quot;&gt;**Alternative**&lt;/span&gt;: Manual task duplication for now
+
+&lt;span class=&quot;gu&quot;&gt;### Subtasks/nested tasks&lt;/span&gt;
+&lt;span class=&quot;gs&quot;&gt;**Why**&lt;/span&gt;: Violates &quot;Simplicity First&quot; principle
+&lt;span class=&quot;gs&quot;&gt;**Alternative**&lt;/span&gt;: Use task dependencies in future phase
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Why this matters&lt;/strong&gt;: Prevents the AI from “helpfully” adding features you didn’t ask for.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;section-2-debugging-strategies&quot;&gt;Section 2: Debugging strategies&lt;/h2&gt;
+
+&lt;h3 id=&quot;when-the-ai-goes-off-track&quot;&gt;When the AI goes off track&lt;/h3&gt;
+
+&lt;p&gt;AI hallucinations are real. Here’s how to diagnose and fix them.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;📋 &lt;strong&gt;TL;DR: The 5-step debug checklist&lt;/strong&gt;&lt;/p&gt;
+
+  &lt;ol&gt;
+    &lt;li&gt;Validate dependencies exist&lt;/li&gt;
+    &lt;li&gt;Check for hallucinated APIs&lt;/li&gt;
+    &lt;li&gt;Reset context if issues repeat&lt;/li&gt;
+    &lt;li&gt;Provide minimal reproductions&lt;/li&gt;
+    &lt;li&gt;Audit dependencies after updates&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;strategy-1-the-validation-loop&quot;&gt;Strategy #1: The validation loop&lt;/h3&gt;
+
+&lt;p&gt;After implementation, run this three-step validation:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# Step 1: Verify dependencies exist&lt;/span&gt;
+npm list  &lt;span class=&quot;c&quot;&gt;# Check all packages are installed&lt;/span&gt;
+dotnet list package  &lt;span class=&quot;c&quot;&gt;# For .NET projects&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Step 2: Check for type errors&lt;/span&gt;
+npm run typecheck  &lt;span class=&quot;c&quot;&gt;# TypeScript&lt;/span&gt;
+dotnet build  &lt;span class=&quot;c&quot;&gt;# C#&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Step 3: Run tests&lt;/span&gt;
+npm &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt;  &lt;span class=&quot;c&quot;&gt;# Run test suite&lt;/span&gt;
+dotnet &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt;  &lt;span class=&quot;c&quot;&gt;# Run unit tests&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Common issues caught:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;AI referenced packages that don’t exist&lt;/li&gt;
+  &lt;li&gt;API endpoints that were never implemented&lt;/li&gt;
+  &lt;li&gt;Type mismatches between frontend and backend&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;strategy-2-the-hallucination-detector&quot;&gt;Strategy #2: The hallucination detector&lt;/h3&gt;
+
+&lt;p&gt;AI models sometimes invent plausible-sounding but non-existent APIs.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Example hallucination:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// AI-generated code&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;usePrismaQuery&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;@prisma/react&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// This hook doesn&apos;t exist!&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;usePrismaQuery&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;users&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;where&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;email&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;How to catch it:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Check official documentation&lt;/li&gt;
+  &lt;li&gt;Search GitHub for the import&lt;/li&gt;
+  &lt;li&gt;Test in isolation&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Fix:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// Correct approach&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;prisma&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;@/lib/prisma&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Manual query in server component&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;prisma&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;users&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;findUnique&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;where&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;email&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;strategy-3-the-context-refresh&quot;&gt;Strategy #3: The context refresh&lt;/h3&gt;
+
+&lt;p&gt;When the AI keeps making the same mistake, it’s context-poisoned.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Symptom&lt;/strong&gt;: You fix a bug, the AI reintroduces it in the next iteration.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Solution&lt;/strong&gt;: Reset context with explicit correction:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/implement fix and memorize: The TaskService uses async/await, NOT promises with .then()
+
+INCORRECT PATTERN (never use):
+```typescript
+taskService.createTask(data).then(result =&amp;gt; { ... })
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;CORRECT PATTERN (always use):&lt;/p&gt;
+&lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;taskService&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;createTask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Update all existing code that uses .then() to use async/await.
+Update the plan to reflect this as a coding standard.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+The AI will:
+1. Fix all instances
+2. Update the plan to document the pattern
+3. Remember the pattern for future tasks
+
+### Strategy #4: The minimal reproduction
+
+When something breaks, isolate it.
+
+**INEFFECTIVE bug report**:
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;The app crashes when I try to create a task&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+**EFFECTIVE bug report**:
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;/implement fix bug: Creating a task with empty title crashes the application&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Steps to reproduce:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Log in as user test@example.com&lt;/li&gt;
+  &lt;li&gt;Navigate to /dashboard&lt;/li&gt;
+  &lt;li&gt;Click “New Task” button&lt;/li&gt;
+  &lt;li&gt;Leave title field empty&lt;/li&gt;
+  &lt;li&gt;Enter description: “Test description”&lt;/li&gt;
+  &lt;li&gt;Click “Create Task”&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Expected&lt;/strong&gt;: Validation error “Title is required”
+&lt;strong&gt;Actual&lt;/strong&gt;: Server crashes with 500 error&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Error log:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;TypeError: Cannot read property &apos;trim&apos; of undefined
+  at TaskService.createTask (services/TaskService.cs:47)
+  at TaskController.Create (controllers/TaskController.cs:23)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Hypothesis&lt;/strong&gt;: Title validation happens after attempting to trim, should happen before.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+### Strategy #5: The dependency audit
+
+When things mysteriously break after an update, check dependencies.
+
+```bash
+# Check for breaking changes
+npm outdated  # Shows available updates
+npm audit  # Security vulnerabilities
+
+# Lock down working versions
+npm ci  # Install exact versions from lockfile
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Real example&lt;/strong&gt;: Express 5.0 (released late 2024) changed middleware signatures. Code using Express 4.x patterns breaks silently.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Solution&lt;/strong&gt;: Pin major versions in constitution:&lt;/p&gt;
+
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gu&quot;&gt;## Technical Constraints&lt;/span&gt;
+
+&lt;span class=&quot;gu&quot;&gt;### Dependency Versions (Pinned for Stability)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; express: ^4.18.0 (NOT 5.x until migration planned)
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; react: ^18.2.0
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; typescript: ^5.0.0
+
+&lt;span class=&quot;gs&quot;&gt;**Rationale**&lt;/span&gt;: Avoid breaking changes mid-development
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;section-3-iteration-patterns&quot;&gt;Section 3: Iteration patterns&lt;/h2&gt;
+
+&lt;h3 id=&quot;evolving-specs-without-chaos&quot;&gt;Evolving specs without chaos&lt;/h3&gt;
+
+&lt;p&gt;Requirements change. Your spec needs to evolve. Here’s how to do it systematically.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;📐 &lt;strong&gt;Rule of thumb&lt;/strong&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;strong&gt;Add&lt;/strong&gt; → Do it freely (safe)
+&lt;strong&gt;Modify&lt;/strong&gt; → Document everything (risky)
+&lt;strong&gt;Remove&lt;/strong&gt; → Phase it out gradually (dangerous)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;pattern-1-additive-changes-safe&quot;&gt;Pattern #1: Additive changes (safe)&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Scenario&lt;/strong&gt;: Add a new feature without modifying existing behavior.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;: Add task comments to existing task system.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Process:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Update spec with new section:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gu&quot;&gt;## Feature: Task Comments (Added 2026-01-19)&lt;/span&gt;
+
+&lt;span class=&quot;gs&quot;&gt;**As a team member**&lt;/span&gt;, I want to add comments to tasks to discuss details with my team.
+
+&lt;span class=&quot;gu&quot;&gt;### User Stories&lt;/span&gt;
+[... detailed scenarios ...]
+
+&lt;span class=&quot;gu&quot;&gt;### Acceptance Criteria&lt;/span&gt;
+[... specific criteria ...]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/speckit.plan&lt;/code&gt; → Generates updated plan&lt;/li&gt;
+  &lt;li&gt;Run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/speckit.tasks&lt;/code&gt; → Adds new tasks (existing tasks unchanged)&lt;/li&gt;
+  &lt;li&gt;Run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/speckit.implement&lt;/code&gt; → Implements only new tasks&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Result&lt;/strong&gt;: Clean addition, no regression risk.&lt;/p&gt;
+
+&lt;h3 id=&quot;pattern-2-modificative-changes-risky&quot;&gt;Pattern #2: Modificative changes (risky)&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Scenario&lt;/strong&gt;: Change existing behavior.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;: Change task status from boolean (complete/incomplete) to enum (open/in-progress/completed).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Process:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Document the change explicitly:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gu&quot;&gt;## Breaking Change: Task Status Model (Changed 2026-01-19)&lt;/span&gt;
+
+&lt;span class=&quot;gs&quot;&gt;**Previous behavior:**&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Task.complete: boolean (true/false)
+
+&lt;span class=&quot;gs&quot;&gt;**New behavior:**&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Task.status: enum (open | in_progress | completed)
+
+&lt;span class=&quot;gs&quot;&gt;**Migration plan:**&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;1.&lt;/span&gt; Add new status column
+&lt;span class=&quot;p&quot;&gt;2.&lt;/span&gt; Migrate data: false → open, true → completed
+&lt;span class=&quot;p&quot;&gt;3.&lt;/span&gt; Update API to accept status enum
+&lt;span class=&quot;p&quot;&gt;4.&lt;/span&gt; Update UI to show three states
+&lt;span class=&quot;p&quot;&gt;5.&lt;/span&gt; Remove old complete column
+
+&lt;span class=&quot;gs&quot;&gt;**Affected components:**&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Database schema (tasks table)
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; TaskService.createTask, updateTask
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; TaskCard component
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; TaskDetailModal component
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; API endpoints: PUT /api/tasks/:id
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/speckit.analyze&lt;/code&gt; to find all affected artifacts&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Update each artifact explicitly:&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/implement migration: Task.complete (boolean) → Task.status (enum)
+
+Follow the migration plan in spec.md exactly:
+1. Add status column to database
+2. Run data migration script
+3. Update TypeScript types
+4. Update API validation
+5. Update UI components
+6. Remove complete column
+
+Test each step before proceeding to next.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Result&lt;/strong&gt;: Controlled migration, clear rollback path.&lt;/p&gt;
+
+&lt;h3 id=&quot;pattern-3-subtractive-changes-dangerous&quot;&gt;Pattern #3: Subtractive changes (dangerous)&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Scenario&lt;/strong&gt;: Remove a feature.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;: Remove task due dates (users don’t use them).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Process:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Document removal and rationale:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gu&quot;&gt;## Feature Removal: Task Due Dates (Removed 2026-01-19)&lt;/span&gt;
+
+&lt;span class=&quot;gs&quot;&gt;**Rationale**&lt;/span&gt;: Usage analytics show only 3% of tasks have due dates.
+Feature adds UI complexity without user value.
+
+&lt;span class=&quot;gs&quot;&gt;**Affected components:**&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Database: tasks.due_date column (keep for rollback, but don&apos;t display)
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; API: Remove dueDate from POST/PUT payloads
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; UI: Remove date picker from TaskDetailModal
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; UI: Remove date display from TaskCard
+
+&lt;span class=&quot;gs&quot;&gt;**Rollback plan**&lt;/span&gt;: Set UI flag to re-enable if users complain.
+
+&lt;span class=&quot;gs&quot;&gt;**Migration:**&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;1.&lt;/span&gt; Hide UI controls (don&apos;t delete database column yet)
+&lt;span class=&quot;p&quot;&gt;2.&lt;/span&gt; Monitor for 2 weeks
+&lt;span class=&quot;p&quot;&gt;3.&lt;/span&gt; If no complaints, remove database column
+&lt;span class=&quot;p&quot;&gt;4.&lt;/span&gt; If complaints, re-enable UI controls
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Implement in phases:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Phase 1: Hide UI
+/implement: Remove due date UI controls but keep database column
+
+Phase 2: Monitor (2 weeks wait)
+
+Phase 3: Remove infrastructure
+/implement: Remove due_date column and API support
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Result&lt;/strong&gt;: Safe removal with rollback option.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;section-4-performance-optimization&quot;&gt;Section 4: Performance optimization&lt;/h2&gt;
+
+&lt;h3 id=&quot;keeping-the-ai-focused-and-fast&quot;&gt;Keeping the AI focused and fast&lt;/h3&gt;
+
+&lt;p&gt;Large projects can overwhelm the AI’s context window. Here’s how to maintain performance.&lt;/p&gt;
+
+&lt;h3 id=&quot;optimization-1-scope-reduction&quot;&gt;Optimization #1: Scope reduction&lt;/h3&gt;
+
+&lt;p&gt;Don’t send everything to the AI at once.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;SLOW&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/implement entire application from spec
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;FAST&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/implement phase 3: User authentication only
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Why&lt;/strong&gt;: Smaller context = faster responses = fewer errors.&lt;/p&gt;
+
+&lt;h3 id=&quot;optimization-2-reference-by-location&quot;&gt;Optimization #2: Reference by location&lt;/h3&gt;
+
+&lt;p&gt;Instead of pasting entire files, reference them:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;BLOATED context&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Here&apos;s my entire spec.md (5000 lines) ...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;EFFICIENT reference&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/implement task 4.3 from tasks.md: Create TaskCard component
+
+Refer to spec.md section &quot;Task Card Layout&quot; for requirements.
+Refer to plan.md section &quot;Component Architecture&quot; for structure.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;optimization-3-checkpoint-saves&quot;&gt;Optimization #3: Checkpoint saves&lt;/h3&gt;
+
+&lt;p&gt;Save progress frequently to avoid re-generation.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# After each phase&lt;/span&gt;
+git add &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+git commit &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Phase 3 complete: Authentication working&quot;&lt;/span&gt;
+git tag phase-3-complete
+
+&lt;span class=&quot;c&quot;&gt;# If AI goes off track, reset to checkpoint&lt;/span&gt;
+git reset &lt;span class=&quot;nt&quot;&gt;--hard&lt;/span&gt; phase-3-complete
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;optimization-4-parallel-work-streams&quot;&gt;Optimization #4: Parallel work streams&lt;/h3&gt;
+
+&lt;p&gt;Split independent features across multiple AI sessions.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;: Task management and user authentication are independent.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Session 1&lt;/strong&gt; (AI Agent A):&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/implement phase 3: User authentication
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Session 2&lt;/strong&gt; (AI Agent B):&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/implement phase 4: Task CRUD operations
+(stub out authentication checks for now)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Integration step&lt;/strong&gt; (merge):&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/implement integration: Connect task CRUD to authentication
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Result&lt;/strong&gt;: 2x faster implementation, no conflicts.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;section-5-real-world-edge-cases&quot;&gt;Section 5: Real-world edge cases&lt;/h2&gt;
+
+&lt;h3 id=&quot;lessons-from-production-deployments&quot;&gt;Lessons from production deployments&lt;/h3&gt;
+
+&lt;p&gt;These are real issues encountered in production spec-driven projects.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;⚠️ &lt;strong&gt;Warning&lt;/strong&gt;&lt;/p&gt;
+
+  &lt;p&gt;These aren’t hypothetical. Each of these cost real teams real time. Learn from their mistakes.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;edge-case-1-concurrent-updates-conflict&quot;&gt;Edge Case #1: Concurrent updates conflict&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Scenario&lt;/strong&gt;: Two users edit the same task simultaneously. Last write should win with conflict notification.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Spec requirement&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gs&quot;&gt;**Scenario: Concurrent task editing**&lt;/span&gt;
+
+&lt;span class=&quot;gs&quot;&gt;**Given**&lt;/span&gt; User A and User B both open Task #42 for editing
+&lt;span class=&quot;gs&quot;&gt;**When**&lt;/span&gt; User A changes title to &quot;Updated Title A&quot; and saves
+&lt;span class=&quot;gs&quot;&gt;**And**&lt;/span&gt; User B changes title to &quot;Updated Title B&quot; and saves
+&lt;span class=&quot;gs&quot;&gt;**Then**&lt;/span&gt; User B sees notification: &quot;This task was updated by User A. Your changes may conflict. Reload to see latest version?&quot;
+&lt;span class=&quot;gs&quot;&gt;**And**&lt;/span&gt; Latest saved version (User B&apos;s) is stored
+&lt;span class=&quot;gs&quot;&gt;**And**&lt;/span&gt; User B can choose to reload or force save
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Implementation challenge&lt;/strong&gt;: AI initially used naive timestamp comparison. Under load, race conditions caused data loss.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Solution&lt;/strong&gt;: Implement optimistic concurrency with version tokens:&lt;/p&gt;
+
+&lt;div class=&quot;language-csharp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Task&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Id&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Timestamp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// EF Core concurrency token&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;byte&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RowVersion&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// In TaskService&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Task&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Task&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;UpdateTaskAsync&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Task&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;_context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Tasks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Update&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;SaveChangesAsync&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DbUpdateConcurrencyException&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// Conflict detected&lt;/span&gt;
+        &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;entry&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Entries&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Single&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;databaseValues&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;entry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;GetDatabaseValuesAsync&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;databaseTask&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Task&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;databaseValues&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ToObject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        
+        &lt;span class=&quot;k&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;ConcurrencyException&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+            &lt;span class=&quot;s&quot;&gt;$&quot;Task was modified by &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;databaseTask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LastModifiedBy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;. Reload to see latest version.&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;databaseTask&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Lesson&lt;/strong&gt;: Specify concurrency handling explicitly in spec. Don’t assume AI will get it right.&lt;/p&gt;
+
+&lt;h3 id=&quot;edge-case-2-n1-query-problem&quot;&gt;Edge Case #2: N+1 query problem&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Scenario&lt;/strong&gt;: Loading 100 tasks takes 5 seconds. Performance requirement: &amp;lt; 500ms.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Root cause&lt;/strong&gt;: AI generated naive queries:&lt;/p&gt;
+
+&lt;div class=&quot;language-csharp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// AI-generated (slow)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Task&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Task&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;GetTeamTasksAsync&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;teamId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tasks&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Tasks&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Where&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TeamId&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;teamId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ToListAsync&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    
+    &lt;span class=&quot;c1&quot;&gt;// Loops for each task - N+1 queries!&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;task&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tasks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Creator&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Users&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;FindAsync&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CreatorId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Assignee&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Users&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;FindAsync&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;AssigneeId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tasks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Problem&lt;/strong&gt;: 100 tasks = 1 query + 100 queries for creators + 100 queries for assignees = 201 queries.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Solution&lt;/strong&gt;: Use eager loading:&lt;/p&gt;
+
+&lt;div class=&quot;language-csharp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// Optimized&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Task&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Task&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;GetTeamTasksAsync&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;teamId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Tasks&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Include&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Creator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Include&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Assignee&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Where&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TeamId&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;teamId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ToListAsync&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Result&lt;/strong&gt;: 100 tasks = 1 query. Performance improved from 5s to 120ms.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Lesson&lt;/strong&gt;: Add performance requirements to constitution:&lt;/p&gt;
+
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gu&quot;&gt;## Quality Standards&lt;/span&gt;
+
+&lt;span class=&quot;gu&quot;&gt;### Database Query Performance&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; All list queries MUST use eager loading (.Include())
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Queries returning &amp;gt; 10 rows MUST include execution plan review
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; N+1 queries are PROHIBITED - PR will be rejected
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;edge-case-3-memory-leak-in-real-time-connections&quot;&gt;Edge Case #3: Memory leak in real-time connections&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Scenario&lt;/strong&gt;: Application memory grows unbounded. After 2 hours, server crashes.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Root cause&lt;/strong&gt;: SignalR connections not cleaned up:&lt;/p&gt;
+
+&lt;div class=&quot;language-csharp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// AI-generated (leaky)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;TaskHub&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Hub&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;readonly&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_connections&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;();&lt;/span&gt;
+    
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Task&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;OnConnectedAsync&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;_connections&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ConnectionId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// Added but never removed!&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;base&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;OnConnectedAsync&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Problem&lt;/strong&gt;: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_connections&lt;/code&gt; list grows forever. Disconnected clients never removed.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Solution&lt;/strong&gt;: Use proper cleanup:&lt;/p&gt;
+
+&lt;div class=&quot;language-csharp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// Fixed&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;TaskHub&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Hub&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// Use ConcurrentDictionary for thread-safe operations&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;readonly&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ConcurrentDictionary&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_connections&lt;/span&gt; 
+        &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ConcurrentDictionary&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;();&lt;/span&gt;
+    
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Task&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;OnConnectedAsync&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;_connections&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;TryAdd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ConnectionId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UserIdentifier&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;base&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;OnConnectedAsync&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Task&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;OnDisconnectedAsync&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;exception&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;_connections&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;TryRemove&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ConnectionId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// Cleanup!&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;base&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;OnDisconnectedAsync&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;exception&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Lesson&lt;/strong&gt;: Specify cleanup explicitly in spec:&lt;/p&gt;
+
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gu&quot;&gt;## Real-Time Requirements&lt;/span&gt;
+
+&lt;span class=&quot;gu&quot;&gt;### WebSocket Connection Management&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Connections MUST be tracked in thread-safe collection
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Disconnections MUST remove connection from tracking
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Server MUST handle abrupt disconnections (network failures)
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Connection cleanup MUST complete within 30 seconds
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;edge-case-4-xss-vulnerability-in-task-descriptions&quot;&gt;Edge Case #4: XSS vulnerability in task descriptions&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Scenario&lt;/strong&gt;: User enters &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;script&amp;gt;alert(&apos;XSS&apos;)&amp;lt;/script&amp;gt;&lt;/code&gt; as task description. Alert executes when other users view the task.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Root cause&lt;/strong&gt;: AI didn’t sanitize user input:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-cshtml&quot;&gt;@* AI-generated (vulnerable) *@
+&amp;lt;div class=&quot;task-description&quot;&amp;gt;
+    @((MarkupString)Task.Description)  @* Renders raw HTML! *@
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Problem&lt;/strong&gt;: User-supplied HTML executed in other users’ browsers.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Solution&lt;/strong&gt;: Sanitize and escape:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-cshtml&quot;&gt;@* Fixed - Razor automatically escapes *@
+&amp;lt;div class=&quot;task-description&quot;&amp;gt;
+    @Task.Description  @* Escaped by Blazor automatically *@
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Or if Markdown support is needed:&lt;/p&gt;
+
+&lt;div class=&quot;language-csharp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Markdig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Ganss.Xss&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;SanitizeMarkdown&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;markdown&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// Convert Markdown to HTML&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;html&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Markdown&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ToHtml&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;markdown&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    
+    &lt;span class=&quot;c1&quot;&gt;// Sanitize HTML (HtmlSanitizer uses whitelist approach by default)&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// Safe tags like p, strong, em, ul, ol, li are allowed by default&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// Dangerous tags like script, iframe are NOT in the default allowlist&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sanitizer&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;HtmlSanitizer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    
+    &lt;span class=&quot;c1&quot;&gt;// Optionally restrict to only specific tags if needed:&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// sanitizer.AllowedTags.Clear();&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// sanitizer.AllowedTags.Add(&quot;p&quot;);&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// sanitizer.AllowedTags.Add(&quot;strong&quot;);&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// etc.&lt;/span&gt;
+    
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sanitizer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Sanitize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;html&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Lesson&lt;/strong&gt;: Add security requirements to constitution:&lt;/p&gt;
+
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gu&quot;&gt;## Security Standards&lt;/span&gt;
+
+&lt;span class=&quot;gu&quot;&gt;### Input Validation and Sanitization&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; ALL user input MUST be sanitized before display
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; HTML rendering MUST use whitelist approach (never blacklist)
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Markdown MUST be sanitized before rendering
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; SQL queries MUST use parameterized queries (no string concatenation)
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; OWASP Top 10 MUST be addressed for all features
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;section-6-common-gotchas-and-fixes&quot;&gt;Section 6: Common gotchas and fixes&lt;/h2&gt;
+
+&lt;h3 id=&quot;quick-reference-guide&quot;&gt;Quick reference guide&lt;/h3&gt;
+
+&lt;h4 id=&quot;gotcha-1-ai-forgets-the-constitution-mid-implementation&quot;&gt;Gotcha #1: AI forgets the constitution mid-implementation&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Symptom&lt;/strong&gt;: Early tasks follow standards, later tasks deviate.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Fix&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/implement reminder: Review constitution.md before each task
+Verify compliance before proceeding.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;gotcha-2-generated-tests-dont-run&quot;&gt;Gotcha #2: Generated tests don’t run&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Symptom&lt;/strong&gt;: Tests pass when AI runs them, fail when you run them.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Cause&lt;/strong&gt;: AI assumes mocked data, you have real database.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Fix&lt;/strong&gt;: Add test data setup to tasks:&lt;/p&gt;
+
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] 5.1 Write unit test for TaskService.createTask
+&lt;span class=&quot;p&quot;&gt;  -&lt;/span&gt; &lt;span class=&quot;gs&quot;&gt;**Setup**&lt;/span&gt;: Seed test database with team and user
+&lt;span class=&quot;p&quot;&gt;  -&lt;/span&gt; &lt;span class=&quot;gs&quot;&gt;**Test**&lt;/span&gt;: Call createTask with valid data
+&lt;span class=&quot;p&quot;&gt;  -&lt;/span&gt; &lt;span class=&quot;gs&quot;&gt;**Assert**&lt;/span&gt;: Task created with correct properties
+&lt;span class=&quot;p&quot;&gt;  -&lt;/span&gt; &lt;span class=&quot;gs&quot;&gt;**Teardown**&lt;/span&gt;: Clean up test data
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;gotcha-3-environment-variables-missing-in-production&quot;&gt;Gotcha #3: Environment variables missing in production&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Symptom&lt;/strong&gt;: Works locally, crashes in production with “undefined environment variable.”&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Cause&lt;/strong&gt;: AI hard-coded localhost values.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Fix&lt;/strong&gt;: Add environment configuration to constitution:&lt;/p&gt;
+
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gu&quot;&gt;## Deployment Requirements&lt;/span&gt;
+
+&lt;span class=&quot;gu&quot;&gt;### Environment Variables (REQUIRED in production)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; DATABASE_URL: PostgreSQL connection string
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; JWT_SECRET: Random 32-character string
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; SENDGRID_API_KEY: Email service API key
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; NODE_ENV: &quot;production&quot;
+
+&lt;span class=&quot;gs&quot;&gt;**Validation**&lt;/span&gt;: Application MUST fail to start if required env vars are missing.
+Show error: &quot;Missing required environment variable: DATABASE_URL&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;gotcha-4-api-versioning-not-considered&quot;&gt;Gotcha #4: API versioning not considered&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Symptom&lt;/strong&gt;: Breaking API changes force mobile app update.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Cause&lt;/strong&gt;: Spec didn’t mention API versioning.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Fix&lt;/strong&gt;: Add to constitution:&lt;/p&gt;
+
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gu&quot;&gt;## API Design Principles&lt;/span&gt;
+
+&lt;span class=&quot;gu&quot;&gt;### Versioning Strategy&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; All API endpoints MUST include version: /api/v1/tasks
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Breaking changes require new version: /api/v2/tasks
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Previous version MUST be supported for 6 months minimum
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Deprecation warnings in headers: &lt;span class=&quot;sb&quot;&gt;`X-API-Deprecated: v1 will be removed on 2026-07-01`&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;gotcha-5-ai-uses-deprecated-patterns&quot;&gt;Gotcha #5: AI uses deprecated patterns&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Symptom&lt;/strong&gt;: Code works but uses old syntax (e.g., &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;var&lt;/code&gt; instead of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;let/const&lt;/code&gt;, callback-style instead of async/await).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Cause&lt;/strong&gt;: AI trained on older codebases.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Fix&lt;/strong&gt;: Add coding style requirements to constitution:&lt;/p&gt;
+
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gu&quot;&gt;## Code Style Requirements&lt;/span&gt;
+
+&lt;span class=&quot;gu&quot;&gt;### Modern Patterns (REQUIRED)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Use async/await, NOT .then() callbacks
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Use const by default, let when reassignment needed, NEVER var
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Use arrow functions for callbacks
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Use template literals, NOT string concatenation
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;gotcha-6-ai-generates-over-engineered-solutions&quot;&gt;Gotcha #6: AI generates over-engineered solutions&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Symptom&lt;/strong&gt;: Simple feature implemented with 5 classes, 3 interfaces, and a factory pattern.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Cause&lt;/strong&gt;: AI saw enterprise patterns in training data.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Fix&lt;/strong&gt;: Add simplicity constraints to constitution:&lt;/p&gt;
+
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gu&quot;&gt;## Simplicity Constraints&lt;/span&gt;
+
+&lt;span class=&quot;gu&quot;&gt;### YAGNI Principle&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; No interfaces with single implementations
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; No factory patterns unless 3+ concrete types exist
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; No dependency injection for classes with no dependencies
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Maximum 3 levels of class inheritance
+
+Before adding abstraction, AI MUST justify with: &quot;This abstraction is needed because...&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;section-7-measuring-success&quot;&gt;Section 7: Measuring success&lt;/h2&gt;
+
+&lt;h3 id=&quot;how-do-you-know-if-spec-driven-development-is-working&quot;&gt;How do you know if spec-driven development is working?&lt;/h3&gt;
+
+&lt;p&gt;Track these five key metrics:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Metric&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;What to Measure&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;🟢 Good&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;🟡 Warning&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Velocity&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Tasks completed per day&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;5-10/day&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&amp;lt; 3/day&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Regression&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Bugs reintroduced after fix&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&amp;lt; 5%&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&amp;gt; 20%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Stability&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Spec changes per week&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&amp;lt; 2 major&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&amp;gt; 5 major&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Coverage&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Test coverage %&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&amp;gt; 80%&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&amp;lt; 50%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Recovery&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Bug report → fix deployed&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&amp;lt; 30 min&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&amp;gt; 4 hours&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&quot;fixing-slow-velocity&quot;&gt;Fixing slow velocity&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Break tasks smaller (2-4 hours each)&lt;/li&gt;
+  &lt;li&gt;Simplify constitution (too many constraints?)&lt;/li&gt;
+  &lt;li&gt;Provide more context in spec&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;fixing-high-regression&quot;&gt;Fixing high regression&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/implement fix and memorize&lt;/code&gt; instead of just &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/implement fix&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Update plan.md with lessons learned&lt;/li&gt;
+  &lt;li&gt;Add regression tests to tasks&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;fixing-high-spec-churn&quot;&gt;Fixing high spec churn&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Spend more time on spec before implementation&lt;/li&gt;
+  &lt;li&gt;Validate spec with stakeholders early&lt;/li&gt;
+  &lt;li&gt;Build MVP, then iterate based on feedback&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;fixing-low-coverage&quot;&gt;Fixing low coverage&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Add test requirements to tasks explicitly&lt;/li&gt;
+  &lt;li&gt;Require test task for each feature task&lt;/li&gt;
+  &lt;li&gt;Run coverage reports in CI/CD&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;fixing-slow-recovery&quot;&gt;Fixing slow recovery&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Improve bug report templates (see Strategy #4 above)&lt;/li&gt;
+  &lt;li&gt;Add health monitoring endpoints&lt;/li&gt;
+  &lt;li&gt;Implement feature flags for quick rollback&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;section-8-tools-and-automation&quot;&gt;Section 8: Tools and automation&lt;/h2&gt;
+
+&lt;h3 id=&quot;helpers-that-make-spec-driven-development-smoother&quot;&gt;Helpers that make spec-driven development smoother&lt;/h3&gt;
+
+&lt;h3 id=&quot;tool-1-specification-validator&quot;&gt;Tool #1: Specification validator&lt;/h3&gt;
+
+&lt;p&gt;Create a script to validate spec completeness:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# validate-spec.sh&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Validating specification...&quot;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Check for required sections&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;required_sections&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;User Stories&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Acceptance Criteria&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Data Requirements&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Edge Cases&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;section &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;required_sections&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[@]&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do
+    if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-q&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;## &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$section&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; .speckit/spec.md&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then
+        &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;[FAIL] Missing required section: &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$section&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;exit &lt;/span&gt;1
+    &lt;span class=&quot;k&quot;&gt;fi
+done&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Check for TODO markers&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-q&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;TODO&quot;&lt;/span&gt; .speckit/spec.md&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then
+    &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;[FAIL] Specification contains TODO markers&quot;&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;exit &lt;/span&gt;1
+&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Check for vague language&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;vague_terms&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;might&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;maybe&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;probably&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;hopefully&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;basically&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;term &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;vague_terms&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[@]&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do
+    if &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-q&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$term&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; .speckit/spec.md&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then
+        &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;[WARN] Spec contains vague term &apos;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$term&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&apos;&quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;fi
+done
+
+&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;[PASS] Specification validation passed&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Usage:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./validate-spec.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;tool-2-constitution-compliance-checker&quot;&gt;Tool #2: Constitution compliance checker&lt;/h3&gt;
+
+&lt;p&gt;Verify code follows constitution standards:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# check-compliance.sh&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Checking constitution compliance...&quot;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Check nullable reference types enabled&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-q&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&amp;lt;Nullable&amp;gt;enable&amp;lt;/Nullable&amp;gt;&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.csproj&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then
+    &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;[FAIL] Nullable reference types not enabled (constitution requirement)&quot;&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;exit &lt;/span&gt;1
+&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Check for raw SQL (prohibited)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;ExecuteSqlRaw&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\|&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;FromSqlRaw&quot;&lt;/span&gt; ./Services ./Controllers&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then
+    &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;[FAIL] Raw SQL detected (constitution prohibits)&quot;&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;exit &lt;/span&gt;1
+&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Check for console.log in production code (debugging leftovers)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Console.WriteLine&quot;&lt;/span&gt; ./Services ./Controllers | &lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;// DEBUG&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then
+    &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;[WARN] Console.WriteLine found in production code&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;fi
+
+&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;[PASS] Constitution compliance check passed&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;tool-3-performance-testing-automation&quot;&gt;Tool #3: Performance testing automation&lt;/h3&gt;
+
+&lt;p&gt;Add to CI/CD pipeline:&lt;/p&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# .github/workflows/performance.yml&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Performance Tests&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;pull_request&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;jobs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;performance&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;runs-on&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;ubuntu-latest&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;steps&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;actions/checkout@v3&lt;/span&gt;
+      
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Build application&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;dotnet build&lt;/span&gt;
+      
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Start application&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;dotnet run &amp;amp;&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;ASPNETCORE_ENVIRONMENT&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Development&lt;/span&gt;
+      
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Wait for startup&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;sleep &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;
+      
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Run performance tests&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;|&lt;/span&gt;
+          &lt;span class=&quot;s&quot;&gt;# Test API response times&lt;/span&gt;
+          &lt;span class=&quot;s&quot;&gt;response_time=$(curl -w &quot;%{time_total}&quot; -s -o /dev/null http://localhost:5000/api/health)&lt;/span&gt;
+          
+          &lt;span class=&quot;s&quot;&gt;if (( $(echo &quot;$response_time &amp;gt; 0.5&quot; | bc -l) )); then&lt;/span&gt;
+            &lt;span class=&quot;s&quot;&gt;echo &quot;[FAIL] Health check took ${response_time}s (requirement: &amp;lt; 500ms)&quot;&lt;/span&gt;
+            &lt;span class=&quot;s&quot;&gt;exit 1&lt;/span&gt;
+          &lt;span class=&quot;s&quot;&gt;fi&lt;/span&gt;
+          
+          &lt;span class=&quot;s&quot;&gt;echo &quot;[PASS] Health check took ${response_time}s&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;tool-4-spec-change-impact-analyzer&quot;&gt;Tool #4: Spec change impact analyzer&lt;/h3&gt;
+
+&lt;p&gt;When you change the spec, see what’s affected:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;#!/usr/bin/env python3
+# analyze-impact.py
+&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sys&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;analyze_spec_changes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;old_spec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;new_spec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;sh&quot;&gt;&quot;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Compare two spec versions and identify affected components&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&quot;&quot;&lt;/span&gt;
+    
+    &lt;span class=&quot;n&quot;&gt;changes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;added_sections&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[],&lt;/span&gt;
+        &lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;modified_sections&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[],&lt;/span&gt;
+        &lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;removed_sections&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[],&lt;/span&gt;
+        &lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;affected_tasks&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[],&lt;/span&gt;
+        &lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;affected_files&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    
+    &lt;span class=&quot;c1&quot;&gt;# Simple diff logic (extend as needed)
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;old_sections&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;findall&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sa&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;^## (.+)$&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;old_spec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MULTILINE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;new_sections&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;findall&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sa&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;^## (.+)$&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;new_spec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MULTILINE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    
+    &lt;span class=&quot;n&quot;&gt;changes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;added_sections&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;new_sections&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;old_sections&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;changes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;removed_sections&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;old_sections&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;new_sections&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    
+    &lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;=== Spec Change Impact Analysis ===&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;changes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;added_sections&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;[+] Added sections:&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;section&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;changes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;added_sections&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt;
+            &lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sa&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;    - &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;section&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;changes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;removed_sections&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;[-] Removed sections:&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;section&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;changes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;removed_sections&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt;
+            &lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sa&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;    - &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;section&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;changes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;added_sections&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;changes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;removed_sections&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;[OK] No structural changes detected&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;[!] Actions required:&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;    1. Run /speckit.plan to update technical plan&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;    2. Run /speckit.tasks to regenerate task breakdown&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;    3. Review affected files before re-implementation&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__name__&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;__main__&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;argv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Usage: ./analyze-impact.py old-spec.md new-spec.md&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;sys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;exit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    
+    &lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;argv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;old_spec&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    
+    &lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;argv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;new_spec&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    
+    &lt;span class=&quot;nf&quot;&gt;analyze_spec_changes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;old_spec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;new_spec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Usage:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cp&lt;/span&gt; .speckit/spec.md .speckit/spec-old.md
+&lt;span class=&quot;c&quot;&gt;# Make changes to spec.md&lt;/span&gt;
+./analyze-impact.py .speckit/spec-old.md .speckit/spec.md
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;section-9-when-to-abandon-spec-driven-development&quot;&gt;Section 9: When to abandon spec-driven development&lt;/h2&gt;
+
+&lt;h3 id=&quot;its-not-always-the-right-tool&quot;&gt;It’s not always the right tool&lt;/h3&gt;
+
+&lt;p&gt;As Addy Osmani notes in &lt;a href=&quot;https://beyond.addy.ie/&quot;&gt;Beyond Vibe Coding&lt;/a&gt;, the key is knowing when structure helps and when it hinders. Spec-driven development has overhead. Know when to use simpler approaches.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;❌ Don’t use spec-driven for&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;✅ Do use spec-driven for&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;One-off scripts&lt;/strong&gt;: vibe code is fine&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Production applications&lt;/strong&gt;: users depend on it&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Proof-of-concept demos&lt;/strong&gt;: iterate fast&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Team projects&lt;/strong&gt;: shared understanding needed&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Extremely simple apps&lt;/strong&gt;: 3 features max&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Regulated industries&lt;/strong&gt;: audit trails required&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Rapidly changing requirements&lt;/strong&gt;: daily pivots&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Long-lived systems&lt;/strong&gt;: years of maintenance&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Learning new tech&lt;/strong&gt;: experimentation first&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Complex domains&lt;/strong&gt;: intricate business logic&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;recap-best-practices-checklist&quot;&gt;Recap: Best practices checklist&lt;/h2&gt;
+
+&lt;p&gt;Use this before starting any spec-driven project:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Phase&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Checklist Item&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt; &lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;📜 Constitution&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Specific technology constraints listed&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;☐&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Performance targets are measurable numbers&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;☐&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Security requirements reference OWASP Top 10&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;☐&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Explicit non-goals prevent feature creep&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;☐&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Amendment process defined&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;☐&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;📝 Specification&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;User stories use Given-When-Then format&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;☐&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Error messages specified exactly&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;☐&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;UI mockups provided (ASCII art is fine)&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;☐&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Edge cases documented with expected behavior&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;☐&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Success metrics are measurable&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;☐&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;🗺️ Planning&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Technology choices align with constitution&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;☐&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Data model includes indexes for performance&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;☐&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;API design is RESTful and consistent&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;☐&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Security patterns specified&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;☐&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Open questions documented&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;☐&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;📋 Tasks&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Tasks are 2-4 hours each&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;☐&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Dependencies are explicit&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;☐&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Acceptance criteria per task&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;☐&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Parallel opportunities identified&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;☐&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Test tasks included for each feature&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;☐&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;🚀 Implementation&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Test after each phase&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;☐&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Rich context for bug reports&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;☐&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/implement fix and memorize&lt;/code&gt; for recurring issues&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;☐&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Checkpoint progress with git tags&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;☐&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Run automated compliance checks&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;☐&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;whats-next&quot;&gt;What’s next&lt;/h2&gt;
+
+&lt;p&gt;In &lt;strong&gt;Part 4&lt;/strong&gt; (next week), we’ll explore:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Team workflows&lt;/strong&gt;: How multiple developers use Spec-Kit together&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Review processes&lt;/strong&gt;: Code review checklist for spec-driven projects&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;CI/CD integration&lt;/strong&gt;: Automating validation and deployment&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Advanced patterns&lt;/strong&gt;: Microservices, event-driven architectures&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Scaling strategies&lt;/strong&gt;: When your application outgrows the initial architecture&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;key-takeaways-from-part-3&quot;&gt;Key takeaways from Part 3&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;#&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Takeaway&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Remember&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Specifications need precision&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Given-When-Then, exact error messages, UI mocks&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Debug systematically&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Validation loops, hallucination detection, context refresh&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;3&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Iterate carefully&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Add = safe, Modify = risky, Remove = dangerous&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;4&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Performance matters&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Watch for N+1 queries, memory leaks, concurrency&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;5&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Measure success&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Track velocity, regression rate, time to recovery&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Next week in Part 4&lt;/strong&gt;, we’ll tackle team collaboration and how Spec-Kit scales beyond solo developers.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;resources&quot;&gt;Resources&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Resource&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;https://github.com/github/spec-kit&quot;&gt;&lt;strong&gt;Spec-Kit GitHub&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Official toolkit repository&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;https://beyond.addy.ie/&quot;&gt;&lt;strong&gt;Beyond Vibe Coding&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Addy Osmani’s guide to AI-assisted development&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;https://owasp.org/www-project-top-ten/&quot;&gt;&lt;strong&gt;OWASP Top 10&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Security requirements reference&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;https://martinfowler.com/articles/exploring-gen-ai.html&quot;&gt;&lt;strong&gt;Exploring Gen AI&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Martin Fowler’s AI development series&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;https://martinfowler.com/bliki/GivenWhenThen.html&quot;&gt;&lt;strong&gt;Given-When-Then&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;BDD specification pattern&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;series-navigation&quot;&gt;Series navigation&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Previous&lt;/strong&gt;: &lt;a href=&quot;/from-vibe-coding-to-spec-driven-development-part2&quot;&gt;Part 2 - The Spec-Kit workflow&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;📍 You are here: Part 3 - Best practices and troubleshooting&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Next&lt;/strong&gt;: Part 4 - Team collaboration and advanced patterns (Coming January 26, 2026)&lt;/li&gt;
+  &lt;li&gt;Part 5 - Case studies and lessons learned (Coming February 2, 2026)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;💬 &lt;strong&gt;Found a gotcha not covered here?&lt;/strong&gt;&lt;/p&gt;
+
+  &lt;p&gt;Connect with me on &lt;a href=&quot;https://linkedin.com/in/hiddedesmet&quot;&gt;LinkedIn&lt;/a&gt; to share your experience.&lt;/p&gt;
+
+  &lt;p&gt;&lt;strong&gt;Want to get notified when Part 4 drops?&lt;/strong&gt; Follow me for updates!&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+                <pubDate>Mon, 19 Jan 2026 00:00:00 +0100</pubDate>
+                <link>http://localhost:4000/from-vibe-coding-to-spec-driven-development-part3</link>
+                <guid isPermaLink="true">http://localhost:4000/from-vibe-coding-to-spec-driven-development-part3</guid>
+                
+                <category>ai-assisted-development</category>
+                
+                <category>spec-kit</category>
+                
+                <category>github</category>
+                
+                <category>copilot</category>
+                
+                <category>vibe-coding</category>
+                
+                <category>specification-driven-development</category>
+                
+                <category>series</category>
+                
+                
+                <category>AI</category>
+                
+                <category>Development</category>
+                
+                <category>DevOps</category>
+                
+            </item>
         
             <item>
                 <title>From Vibe Coding to Spec-Driven Development: Part 2 - The Spec-Kit Workflow</title>
@@ -643,13 +2163,13 @@ This specification is ready for /speckit.plan
   &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;checklist.md&lt;/code&gt; - Quality validation checklist&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;plan.md&lt;/code&gt; - Overall technical architecture&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;data-model.md&lt;/code&gt; - Database schema design&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;contracts.md&lt;/code&gt; - API contracts and endpoint specifications&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;api-specification.md&lt;/code&gt; - API contracts and endpoint specifications&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/spec-kit/workflow-07-plan-files.png&quot; alt=&quot;Generated plan files&quot; /&gt;
 &lt;em&gt;All generated planning artifacts shown in the VS Code file explorer&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;The requirements.md contains the complete breakdown of functional requirements with Given-When-Then scenarios, while the checklist validates specification quality. The contracts.md defines all API endpoints, request/response schemas, and integration points before moving forward with implementation.&lt;/p&gt;
+&lt;p&gt;The requirements.md contains the complete breakdown of functional requirements with Given-When-Then scenarios, while the checklist validates specification quality. The api-specification.md defines all API endpoints, request/response schemas, and integration points before moving forward with implementation.&lt;/p&gt;
 
 &lt;h3 id=&quot;real-example-generated-planmd&quot;&gt;Real example: Generated plan.md&lt;/h3&gt;
 
@@ -995,242 +2515,243 @@ dotnet run &lt;span class=&quot;nt&quot;&gt;--seed&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;Production&lt;/strong&gt;: Always backup before applying migrations&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-### Why these generated plans work
 
-The AI has:
+&lt;h3 id=&quot;why-these-generated-plans-work&quot;&gt;Why these generated plans work&lt;/h3&gt;
 
-1. **Made concrete technology choices**: React, Express, PostgreSQL (aligned with constitution)
-2. **Designed the data model**: Prisma schema with relationships
-3. **Specified API contracts**: Every endpoint documented
-4. **Included security patterns**: Middleware examples
-5. **Identified open questions**: Decisions that need human input
+&lt;p&gt;The AI has:&lt;/p&gt;
 
-**This is where you review carefully.** Does the tech stack make sense? Are there better options? Now&apos;s the time to adjust.
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Made concrete technology choices&lt;/strong&gt;: React, Express, PostgreSQL (aligned with constitution)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Designed the data model&lt;/strong&gt;: Prisma schema with relationships&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Specified API contracts&lt;/strong&gt;: Every endpoint documented&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Included security patterns&lt;/strong&gt;: Middleware examples&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Identified open questions&lt;/strong&gt;: Decisions that need human input&lt;/li&gt;
+&lt;/ol&gt;
 
----
+&lt;p&gt;&lt;strong&gt;This is where you review carefully.&lt;/strong&gt; Does the tech stack make sense? Are there better options? Now’s the time to adjust.&lt;/p&gt;
 
-## Step 5: Break down into tasks
+&lt;hr /&gt;
 
-Now we convert the plan into implementable tasks.
+&lt;h2 id=&quot;step-5-break-down-into-tasks&quot;&gt;Step 5: Break down into tasks&lt;/h2&gt;
 
-### Running the tasks command
+&lt;p&gt;Now we convert the plan into implementable tasks.&lt;/p&gt;
 
+&lt;h3 id=&quot;running-the-tasks-command&quot;&gt;Running the tasks command&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/speckit.tasks
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;/speckit.tasks&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-The AI generates `tasks.md` with **137 ordered, actionable tasks** organized by user story.
 
-Here&apos;s how the AI structures the implementation:
+&lt;p&gt;The AI generates &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tasks.md&lt;/code&gt; with &lt;strong&gt;137 ordered, actionable tasks&lt;/strong&gt; organized by user story.&lt;/p&gt;
 
-```markdown
-# Tasks: Team Task Manager
+&lt;p&gt;Here’s how the AI structures the implementation:&lt;/p&gt;
 
-**Organization**: Tasks are grouped by user story to enable independent 
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gh&quot;&gt;# Tasks: Team Task Manager&lt;/span&gt;
+
+&lt;span class=&quot;gs&quot;&gt;**Organization**&lt;/span&gt;: Tasks are grouped by user story to enable independent 
 implementation and testing of each story.
 
-## Format: `- [ ] [ID] [P?] [Story?] Description`
-
-- **[P]**: Can run in parallel (different files, no dependencies)
-- **[Story]**: Which user story this task belongs to (e.g., US1, US2)
-
+&lt;span class=&quot;gu&quot;&gt;## Format: `- [ ] [ID] [P?] [Story?] Description`&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;
+-&lt;/span&gt; &lt;span class=&quot;gs&quot;&gt;**[P]**&lt;/span&gt;: Can run in parallel (different files, no dependencies)
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;gs&quot;&gt;**[Story]**&lt;/span&gt;: Which user story this task belongs to (e.g., US1, US2)
+&lt;span class=&quot;p&quot;&gt;
 ---
+&lt;/span&gt;
+&lt;span class=&quot;gu&quot;&gt;## Phase 1: Setup (Shared Infrastructure)&lt;/span&gt;
 
-## Phase 1: Setup (Shared Infrastructure)
-
-**Purpose**: Project initialization and basic structure
-
-- [ ] T001 Create .NET 9 solution with TeamTaskManager project and test project
-- [ ] T002 Configure project settings: enable nullable reference types
-- [ ] T003 [P] Add NuGet packages: EF Core, Npgsql, Identity
-- [ ] T004 [P] Create EditorConfig with StyleCop.Analyzers configuration
-- [ ] T005 [P] Create docker-compose.yml with PostgreSQL service
-- [ ] T006 [P] Create Dockerfile with multi-stage build
-- [ ] T007 Create directory structure: Components, Models, Data, Services, Auth
-- [ ] T008 Create appsettings.json with connection string placeholders
-- [ ] T009 Create .gitignore excluding appsettings.Development.json
-
+&lt;span class=&quot;gs&quot;&gt;**Purpose**&lt;/span&gt;: Project initialization and basic structure
+&lt;span class=&quot;p&quot;&gt;
+-&lt;/span&gt; [ ] T001 Create .NET 9 solution with TeamTaskManager project and test project
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T002 Configure project settings: enable nullable reference types
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T003 [P] Add NuGet packages: EF Core, Npgsql, Identity
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T004 [P] Create EditorConfig with StyleCop.Analyzers configuration
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T005 [P] Create docker-compose.yml with PostgreSQL service
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T006 [P] Create Dockerfile with multi-stage build
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T007 Create directory structure: Components, Models, Data, Services, Auth
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T008 Create appsettings.json with connection string placeholders
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T009 Create .gitignore excluding appsettings.Development.json
+&lt;span class=&quot;p&quot;&gt;
 ---
+&lt;/span&gt;
+&lt;span class=&quot;gu&quot;&gt;## Phase 2: Foundational (Blocking Prerequisites)&lt;/span&gt;
 
-## Phase 2: Foundational (Blocking Prerequisites)
+&lt;span class=&quot;gs&quot;&gt;**Purpose**&lt;/span&gt;: Core infrastructure that MUST be complete before ANY user story
 
-**Purpose**: Core infrastructure that MUST be complete before ANY user story
+⚠️ &lt;span class=&quot;gs&quot;&gt;**CRITICAL**&lt;/span&gt;: No user story work can begin until this phase is complete
+&lt;span class=&quot;p&quot;&gt;
+-&lt;/span&gt; [ ] T010 Create User entity model with all properties from data-model.md
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T011 Create Team entity model with all properties
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T012 [P] Create Task entity with Status enum and RowVersion for concurrency
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T013 [P] Create TeamMembership entity with Role enum
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T014 [P] Create TeamInvitation entity with Status enum
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T015 [P] Create AuditLog entity model
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T016 Create ApplicationDbContext extending IdentityDbContext&lt;span class=&quot;nt&quot;&gt;&amp;lt;User&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T017 Configure entity relationships using Fluent API per data-model.md
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T018 Create indexes: Task(TeamId,Status), TeamMembership(TeamId,UserId)
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T019 Create initial EF Core migration: dotnet ef migrations add InitialCreate
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T020 Configure ASP.NET Core Identity with password requirements
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T021 Configure authentication: AddIdentity, cookie settings (24hr expiration)
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T022 Create custom AuthenticationStateProvider for Blazor
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T023 [P] Create IRepository&lt;span class=&quot;nt&quot;&gt;&amp;lt;T&amp;gt;&lt;/span&gt; interface
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T024 [P] Create Repository&lt;span class=&quot;nt&quot;&gt;&amp;lt;T&amp;gt;&lt;/span&gt; implementation with async methods
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T025 Configure error handling middleware
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T026 Configure structured logging using ILogger&lt;span class=&quot;nt&quot;&gt;&amp;lt;T&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T027 Configure rate limiting middleware per API specification
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T028 Create MainLayout.razor with navigation and auth state
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T029 Create NavMenu.razor with conditional rendering
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T030 Configure SignalR hub with connection timeout and group support
 
-⚠️ **CRITICAL**: No user story work can begin until this phase is complete
-
-- [ ] T010 Create User entity model with all properties from data-model.md
-- [ ] T011 Create Team entity model with all properties
-- [ ] T012 [P] Create Task entity with Status enum and RowVersion for concurrency
-- [ ] T013 [P] Create TeamMembership entity with Role enum
-- [ ] T014 [P] Create TeamInvitation entity with Status enum
-- [ ] T015 [P] Create AuditLog entity model
-- [ ] T016 Create ApplicationDbContext extending IdentityDbContext&amp;lt;User&amp;gt;
-- [ ] T017 Configure entity relationships using Fluent API per data-model.md
-- [ ] T018 Create indexes: Task(TeamId,Status), TeamMembership(TeamId,UserId)
-- [ ] T019 Create initial EF Core migration: dotnet ef migrations add InitialCreate
-- [ ] T020 Configure ASP.NET Core Identity with password requirements
-- [ ] T021 Configure authentication: AddIdentity, cookie settings (24hr expiration)
-- [ ] T022 Create custom AuthenticationStateProvider for Blazor
-- [ ] T023 [P] Create IRepository&amp;lt;T&amp;gt; interface
-- [ ] T024 [P] Create Repository&amp;lt;T&amp;gt; implementation with async methods
-- [ ] T025 Configure error handling middleware
-- [ ] T026 Configure structured logging using ILogger&amp;lt;T&amp;gt;
-- [ ] T027 Configure rate limiting middleware per API specification
-- [ ] T028 Create MainLayout.razor with navigation and auth state
-- [ ] T029 Create NavMenu.razor with conditional rendering
-- [ ] T030 Configure SignalR hub with connection timeout and group support
-
-**Checkpoint**: Foundation ready - user story implementation can now begin in parallel
-
+&lt;span class=&quot;gs&quot;&gt;**Checkpoint**&lt;/span&gt;: Foundation ready - user story implementation can now begin in parallel
+&lt;span class=&quot;p&quot;&gt;
 ---
+&lt;/span&gt;
+&lt;span class=&quot;gu&quot;&gt;## Phase 3: User Story 2 - User Authentication (Priority: P1) 🎯 MVP Foundation&lt;/span&gt;
 
-## Phase 3: User Story 2 - User Authentication (Priority: P1) 🎯 MVP Foundation
+&lt;span class=&quot;gs&quot;&gt;**Goal**&lt;/span&gt;: Enable secure user sign-up, login, and password recovery
 
-**Goal**: Enable secure user sign-up, login, and password recovery
+&lt;span class=&quot;gs&quot;&gt;**Independent Test**&lt;/span&gt;: Sign up with email, log in, reset password, verify rate limiting
 
-**Independent Test**: Sign up with email, log in, reset password, verify rate limiting
+&lt;span class=&quot;gs&quot;&gt;**Why First**&lt;/span&gt;: Authentication is foundational - required before collaborative features
 
-**Why First**: Authentication is foundational - required before collaborative features
+&lt;span class=&quot;gu&quot;&gt;### Implementation for User Story 2&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;
+-&lt;/span&gt; [ ] T031 [P] [US2] Create Register.razor page with email/password form
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T032 [P] [US2] Create Login.razor page with email/password form
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T033 [P] [US2] Create ForgotPassword.razor page with email input
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T034 [P] [US2] Create ResetPassword.razor page with token validation
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T035 [US2] Create AuthService with RegisterAsync, LoginAsync, LogoutAsync
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T036 [US2] Implement email confirmation using ASP.NET Core Identity tokens
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T037 [US2] Implement password reset with 24-hour token expiration
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T038 [US2] Implement rate limiting: 5 attempts, 15-minute lockout
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T039 [US2] Add session expiration: 24-hour absolute expiration
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T040 [US2] Create AuditService with LogAsync method
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T041 [US2] Add audit logging for authentication events
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T042 [US2] Create IEmailService interface
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T043 [US2] Create SendGridEmailService implementation
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T044 [US2] Add email templates for confirmation and password reset
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T045 [US2] Wire up Register page to AuthService with validation
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T046 [US2] Wire up Login page with error handling
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T047 [US2] Wire up ForgotPassword and ResetPassword pages
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T048 [US2] Add redirect to preserved destination after login
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T049 [US2] Create API endpoints: POST /api/auth/register, /login, /logout
 
-### Implementation for User Story 2
-
-- [ ] T031 [P] [US2] Create Register.razor page with email/password form
-- [ ] T032 [P] [US2] Create Login.razor page with email/password form
-- [ ] T033 [P] [US2] Create ForgotPassword.razor page with email input
-- [ ] T034 [P] [US2] Create ResetPassword.razor page with token validation
-- [ ] T035 [US2] Create AuthService with RegisterAsync, LoginAsync, LogoutAsync
-- [ ] T036 [US2] Implement email confirmation using ASP.NET Core Identity tokens
-- [ ] T037 [US2] Implement password reset with 24-hour token expiration
-- [ ] T038 [US2] Implement rate limiting: 5 attempts, 15-minute lockout
-- [ ] T039 [US2] Add session expiration: 24-hour absolute expiration
-- [ ] T040 [US2] Create AuditService with LogAsync method
-- [ ] T041 [US2] Add audit logging for authentication events
-- [ ] T042 [US2] Create IEmailService interface
-- [ ] T043 [US2] Create SendGridEmailService implementation
-- [ ] T044 [US2] Add email templates for confirmation and password reset
-- [ ] T045 [US2] Wire up Register page to AuthService with validation
-- [ ] T046 [US2] Wire up Login page with error handling
-- [ ] T047 [US2] Wire up ForgotPassword and ResetPassword pages
-- [ ] T048 [US2] Add redirect to preserved destination after login
-- [ ] T049 [US2] Create API endpoints: POST /api/auth/register, /login, /logout
-
-**Checkpoint**: Users can sign up, log in, reset passwords securely
-
+&lt;span class=&quot;gs&quot;&gt;**Checkpoint**&lt;/span&gt;: Users can sign up, log in, reset passwords securely
+&lt;span class=&quot;p&quot;&gt;
 ---
+&lt;/span&gt;
+&lt;span class=&quot;gu&quot;&gt;## Phase 4: User Story 1 - Task Management Core (Priority: P1) 🎯 MVP&lt;/span&gt;
 
-## Phase 4: User Story 1 - Task Management Core (Priority: P1) 🎯 MVP
+&lt;span class=&quot;gs&quot;&gt;**Goal**&lt;/span&gt;: Enable task creation, assignment, editing, and completion
 
-**Goal**: Enable task creation, assignment, editing, and completion
+&lt;span class=&quot;gs&quot;&gt;**Independent Test**&lt;/span&gt;: Create task, edit description, mark complete, verify timestamp
 
-**Independent Test**: Create task, edit description, mark complete, verify timestamp
+&lt;span class=&quot;gs&quot;&gt;**Why Second**&lt;/span&gt;: Core value proposition - delivers immediate task tracking
 
-**Why Second**: Core value proposition - delivers immediate task tracking
+&lt;span class=&quot;gu&quot;&gt;### Implementation for User Story 1&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;
+-&lt;/span&gt; [ ] T050 [P] [US1] Create TaskCard.razor component
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T051 [P] [US1] Create TaskDetailModal.razor for editing
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T052 [P] [US1] Create NewTaskModal.razor for creating tasks
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T053 [US1] Create Tasks.razor page with task list view
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T054 [US1] Create TaskService with CRUD methods
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T055 [US1] Implement CreateTaskAsync with validation
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T056 [US1] Implement UpdateTaskAsync with optimistic concurrency using RowVersion
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T057 [US1] Implement CompleteTaskAsync setting CompletedAt timestamp
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T058 [US1] Implement DeleteTaskAsync with creator-only authorization
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T059 [US1] Add authorization: only creator/assignee can edit
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T060 [US1] Implement real-time task broadcast using SignalR (&amp;lt; 2 seconds)
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T061 [US1] Add audit logging for task operations
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T062 [US1] Wire up Tasks.razor to TaskService with data loading
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T063 [US1] Wire up NewTaskModal with form validation
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T064 [US1] Wire up TaskDetailModal with concurrency conflict handling
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T065 [US1] Add checkbox for marking complete
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T066 [US1] Implement SignalR hub subscription for real-time updates
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T067 [US1] Add &quot;New Task&quot; button opening NewTaskModal
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T068 [US1] Handle concurrent edit conflict: show notification with conflicting user
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] T069 [US1] Create API endpoints: GET/POST /api/teams/{teamId}/tasks, etc.
 
-### Implementation for User Story 1
-
-- [ ] T050 [P] [US1] Create TaskCard.razor component
-- [ ] T051 [P] [US1] Create TaskDetailModal.razor for editing
-- [ ] T052 [P] [US1] Create NewTaskModal.razor for creating tasks
-- [ ] T053 [US1] Create Tasks.razor page with task list view
-- [ ] T054 [US1] Create TaskService with CRUD methods
-- [ ] T055 [US1] Implement CreateTaskAsync with validation
-- [ ] T056 [US1] Implement UpdateTaskAsync with optimistic concurrency using RowVersion
-- [ ] T057 [US1] Implement CompleteTaskAsync setting CompletedAt timestamp
-- [ ] T058 [US1] Implement DeleteTaskAsync with creator-only authorization
-- [ ] T059 [US1] Add authorization: only creator/assignee can edit
-- [ ] T060 [US1] Implement real-time task broadcast using SignalR (&amp;lt; 2 seconds)
-- [ ] T061 [US1] Add audit logging for task operations
-- [ ] T062 [US1] Wire up Tasks.razor to TaskService with data loading
-- [ ] T063 [US1] Wire up NewTaskModal with form validation
-- [ ] T064 [US1] Wire up TaskDetailModal with concurrency conflict handling
-- [ ] T065 [US1] Add checkbox for marking complete
-- [ ] T066 [US1] Implement SignalR hub subscription for real-time updates
-- [ ] T067 [US1] Add &quot;New Task&quot; button opening NewTaskModal
-- [ ] T068 [US1] Handle concurrent edit conflict: show notification with conflicting user
-- [ ] T069 [US1] Create API endpoints: GET/POST /api/teams/{teamId}/tasks, etc.
-
-**Checkpoint**: Users can create, assign, edit, complete tasks with real-time updates
-
+&lt;span class=&quot;gs&quot;&gt;**Checkpoint**&lt;/span&gt;: Users can create, assign, edit, complete tasks with real-time updates
+&lt;span class=&quot;p&quot;&gt;
 ---
+&lt;/span&gt;
+&lt;span class=&quot;gu&quot;&gt;## Phase 5: User Story 3 - Team Collaboration (Priority: P2)&lt;/span&gt;
 
-## Phase 5: User Story 3 - Team Collaboration (Priority: P2)
+&lt;span class=&quot;gs&quot;&gt;**Goal**&lt;/span&gt;: Enable team creation, member invitations, and membership management
 
-**Goal**: Enable team creation, member invitations, and membership management
+&lt;span class=&quot;gs&quot;&gt;**Why Third**&lt;/span&gt;: Enables collaboration; builds on tasks and auth
+&lt;span class=&quot;p&quot;&gt;
+-&lt;/span&gt; [ ] T070-T094 [US3] Team management implementation (25 tasks)
+&lt;span class=&quot;p&quot;&gt;  -&lt;/span&gt; Create Teams.razor, TeamSettings.razor, invitation flows
+&lt;span class=&quot;p&quot;&gt;  -&lt;/span&gt; Implement TeamService and MembershipService
+&lt;span class=&quot;p&quot;&gt;  -&lt;/span&gt; Email invitations with 7-day expiration
+&lt;span class=&quot;p&quot;&gt;  -&lt;/span&gt; Auto-promote oldest member when last admin leaves
+&lt;span class=&quot;p&quot;&gt;  -&lt;/span&gt; Handle edge cases: duplicate invitations, expired tokens
 
-**Why Third**: Enables collaboration; builds on tasks and auth
-
-- [ ] T070-T094 [US3] Team management implementation (25 tasks)
-  - Create Teams.razor, TeamSettings.razor, invitation flows
-  - Implement TeamService and MembershipService
-  - Email invitations with 7-day expiration
-  - Auto-promote oldest member when last admin leaves
-  - Handle edge cases: duplicate invitations, expired tokens
-
-**Checkpoint**: Users can create teams, invite members, manage membership
-
+&lt;span class=&quot;gs&quot;&gt;**Checkpoint**&lt;/span&gt;: Users can create teams, invite members, manage membership
+&lt;span class=&quot;p&quot;&gt;
 ---
+&lt;/span&gt;
+&lt;span class=&quot;gu&quot;&gt;## Phase 6: User Story 4 - Task Filtering (Priority: P2)&lt;/span&gt;
 
-## Phase 6: User Story 4 - Task Filtering (Priority: P2)
+&lt;span class=&quot;gs&quot;&gt;**Goal**&lt;/span&gt;: Enable filtering by assignee, status, and creator
+&lt;span class=&quot;p&quot;&gt;
+-&lt;/span&gt; [ ] T095-T106 [US4] Filtering implementation (12 tasks)
+&lt;span class=&quot;p&quot;&gt;  -&lt;/span&gt; Create TaskFilters.razor component
+&lt;span class=&quot;p&quot;&gt;  -&lt;/span&gt; Implement instant filtering without page reload
+&lt;span class=&quot;p&quot;&gt;  -&lt;/span&gt; Add pagination for completed tasks (50 per page)
+&lt;span class=&quot;p&quot;&gt;  -&lt;/span&gt; Optimize queries using database indexes
 
-**Goal**: Enable filtering by assignee, status, and creator
-
-- [ ] T095-T106 [US4] Filtering implementation (12 tasks)
-  - Create TaskFilters.razor component
-  - Implement instant filtering without page reload
-  - Add pagination for completed tasks (50 per page)
-  - Optimize queries using database indexes
-
-**Checkpoint**: Users can filter tasks instantly by multiple criteria
-
+&lt;span class=&quot;gs&quot;&gt;**Checkpoint**&lt;/span&gt;: Users can filter tasks instantly by multiple criteria
+&lt;span class=&quot;p&quot;&gt;
 ---
+&lt;/span&gt;
+&lt;span class=&quot;gu&quot;&gt;## Phase 7: User Story 5 - Responsive Interface (Priority: P3)&lt;/span&gt;
 
-## Phase 7: User Story 5 - Responsive Interface (Priority: P3)
+&lt;span class=&quot;gs&quot;&gt;**Goal**&lt;/span&gt;: Ensure mobile, tablet, and desktop layouts work seamlessly
+&lt;span class=&quot;p&quot;&gt;
+-&lt;/span&gt; [ ] T107-T117 [US5] Responsive UI implementation (11 tasks)
+&lt;span class=&quot;p&quot;&gt;  -&lt;/span&gt; Mobile-first CSS with 768px and 1024px breakpoints
+&lt;span class=&quot;p&quot;&gt;  -&lt;/span&gt; Touch-optimized buttons (44px minimum)
+&lt;span class=&quot;p&quot;&gt;  -&lt;/span&gt; Hamburger menu for mobile navigation
+&lt;span class=&quot;p&quot;&gt;  -&lt;/span&gt; Test across device sizes
 
-**Goal**: Ensure mobile, tablet, and desktop layouts work seamlessly
-
-- [ ] T107-T117 [US5] Responsive UI implementation (11 tasks)
-  - Mobile-first CSS with 768px and 1024px breakpoints
-  - Touch-optimized buttons (44px minimum)
-  - Hamburger menu for mobile navigation
-  - Test across device sizes
-
-**Checkpoint**: Application works on all device sizes
-
+&lt;span class=&quot;gs&quot;&gt;**Checkpoint**&lt;/span&gt;: Application works on all device sizes
+&lt;span class=&quot;p&quot;&gt;
 ---
+&lt;/span&gt;
+&lt;span class=&quot;gu&quot;&gt;## Phase 8: Polish &amp;amp; Cross-Cutting Concerns&lt;/span&gt;
 
-## Phase 8: Polish &amp;amp; Cross-Cutting Concerns
-
-**Purpose**: Final quality, security hardening, performance optimization
-
-- [ ] T118-T137 Polish tasks (20 tasks)
-  - Health check endpoint
-  - CORS, HTTPS, anti-forgery tokens
-  - Input sanitization for XSS prevention
-  - Database query optimization
-  - Caching with IMemoryCache
-  - Performance testing: &amp;lt; 2s page load, &amp;lt; 500ms API
-  - OWASP Top 10 security review
-
+&lt;span class=&quot;gs&quot;&gt;**Purpose**&lt;/span&gt;: Final quality, security hardening, performance optimization
+&lt;span class=&quot;p&quot;&gt;
+-&lt;/span&gt; [ ] T118-T137 Polish tasks (20 tasks)
+&lt;span class=&quot;p&quot;&gt;  -&lt;/span&gt; Health check endpoint
+&lt;span class=&quot;p&quot;&gt;  -&lt;/span&gt; CORS, HTTPS, anti-forgery tokens
+&lt;span class=&quot;p&quot;&gt;  -&lt;/span&gt; Input sanitization for XSS prevention
+&lt;span class=&quot;p&quot;&gt;  -&lt;/span&gt; Database query optimization
+&lt;span class=&quot;p&quot;&gt;  -&lt;/span&gt; Caching with IMemoryCache
+&lt;span class=&quot;p&quot;&gt;  -&lt;/span&gt; Performance testing: &amp;lt; 2s page load, &amp;lt; 500ms API
+&lt;span class=&quot;p&quot;&gt;  -&lt;/span&gt; OWASP Top 10 security review
+&lt;span class=&quot;p&quot;&gt;
 ---
+&lt;/span&gt;
+&lt;span class=&quot;gu&quot;&gt;## Task count summary&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;
+-&lt;/span&gt; &lt;span class=&quot;gs&quot;&gt;**Phase 1 (Setup)**&lt;/span&gt;: 9 tasks
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;gs&quot;&gt;**Phase 2 (Foundational)**&lt;/span&gt;: 21 tasks ← Critical path
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;gs&quot;&gt;**Phase 3 (US2 - Auth)**&lt;/span&gt;: 19 tasks ← P1 (MVP Foundation)
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;gs&quot;&gt;**Phase 4 (US1 - Tasks)**&lt;/span&gt;: 20 tasks ← P1 (MVP Core)
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;gs&quot;&gt;**Phase 5 (US3 - Teams)**&lt;/span&gt;: 25 tasks ← P2
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;gs&quot;&gt;**Phase 6 (US4 - Filtering)**&lt;/span&gt;: 12 tasks ← P2
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;gs&quot;&gt;**Phase 7 (US5 - Responsive)**&lt;/span&gt;: 11 tasks ← P3
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;gs&quot;&gt;**Phase 8 (Polish)**&lt;/span&gt;: 20 tasks ← Cross-cutting
 
-## Task count summary
+&lt;span class=&quot;gs&quot;&gt;**Total**&lt;/span&gt;: 137 tasks
 
-- **Phase 1 (Setup)**: 9 tasks
-- **Phase 2 (Foundational)**: 21 tasks ← Critical path
-- **Phase 3 (US2 - Auth)**: 19 tasks ← P1 (MVP Foundation)
-- **Phase 4 (US1 - Tasks)**: 20 tasks ← P1 (MVP Core)
-- **Phase 5 (US3 - Teams)**: 25 tasks ← P2
-- **Phase 6 (US4 - Filtering)**: 12 tasks ← P2
-- **Phase 7 (US5 - Responsive)**: 11 tasks ← P3
-- **Phase 8 (Polish)**: 20 tasks ← Cross-cutting
-
-**Total**: 137 tasks
-
-**MVP Scope (Phases 1-5)**: 94 tasks (~69% of total)
-
+&lt;span class=&quot;gs&quot;&gt;**MVP Scope (Phases 1-5)**&lt;/span&gt;: 94 tasks (~69% of total)
+&lt;span class=&quot;p&quot;&gt;
 ---
-
-## Dependencies and execution order
+&lt;/span&gt;
+&lt;span class=&quot;gu&quot;&gt;## Dependencies and execution order&lt;/span&gt;
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;Foundational (Phase 2)
@@ -2047,8 +3568,6 @@ npm run &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;:all  &lt;span clas
                 
                 <category>github</category>
                 
-                <category>claude</category>
-                
                 <category>copilot</category>
                 
                 <category>vibe-coding</category>
@@ -2090,7 +3609,7 @@ npm run &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;:all  &lt;span clas
 
 &lt;p&gt;AI coding assistants have changed how we write software. The code they generate often works well enough to ship, but falls apart when you need to maintain or extend it. This guide shows you how to get from code that works to code that’s production-ready using specification-driven development.&lt;/p&gt;
 
-&lt;p&gt;Based on &lt;a href=&quot;https://github.com/github/spec-kit&quot;&gt;GitHub’s Spec-Kit&lt;/a&gt; and &lt;a href=&quot;https://addyosmani.com/blog/vibe-coding/&quot;&gt;Addy Osmani’s “Beyond Vibe Coding”&lt;/a&gt; guide, this series walks you through a structured approach to AI-assisted development that actually works for real-world applications.&lt;/p&gt;
+&lt;p&gt;Based on &lt;a href=&quot;https://github.com/github/spec-kit&quot;&gt;GitHub’s Spec-Kit&lt;/a&gt; and &lt;a href=&quot;https://beyond.addy.ie/&quot;&gt;Addy Osmani’s “Beyond Vibe Coding”&lt;/a&gt; guide, this series walks you through a structured approach to AI-assisted development that actually works for real-world applications.&lt;/p&gt;
 
 &lt;p&gt;In this first post, we’ll explore the fundamental problem with unstructured AI coding and introduce you to the spec-driven approach. Next week, we’ll get hands-on with the actual workflow.&lt;/p&gt;
 
@@ -2793,7 +4312,7 @@ specify &lt;span class=&quot;nt&quot;&gt;--version&lt;/span&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;Spec-Kit&lt;/strong&gt;: &lt;a href=&quot;https://github.com/github/spec-kit&quot;&gt;github.com/github/spec-kit&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Beyond Vibe Coding&lt;/strong&gt;: &lt;a href=&quot;https://addyosmani.com/blog/vibe-coding/&quot;&gt;addyosmani.com/blog/vibe-coding&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Beyond Vibe Coding&lt;/strong&gt;: &lt;a href=&quot;https://beyond.addy.ie/&quot;&gt;beyond.addy.ie&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;GitHub Copilot Custom Instructions&lt;/strong&gt;: &lt;a href=&quot;https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions&quot;&gt;docs.github.com&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -6116,59 +7635,6 @@ numpy
                 <category>Image Classification</category>
                 
                 <category>IASA</category>
-                
-                
-            </item>
-        
-            <item>
-                <title>Understanding the Model Context Protocol (MCP)</title>
-                <description>&lt;p&gt;The Model Context Protocol (MCP) is revolutionizing the way AI models interact with external data and tools. Developed as an open-source standard, MCP simplifies integration by providing a universal connector that eliminates the need for custom-built solutions. This protocol is not just a tool for developers but a gateway to unlocking the full potential of AI applications.&lt;/p&gt;
-
-&lt;h2 id=&quot;what-is-mcp&quot;&gt;What is MCP?&lt;/h2&gt;
-
-&lt;p&gt;MCP is a client-server architecture supported by JSON-RPC 2.0, ensuring secure and efficient communication. It allows AI models to connect to external systems like Google Drive, GitHub, or Slack, enabling them to read, process, and act on data in a context-aware manner. For example, the Claude desktop app acts as an MCP client, requesting data from an MCP server that provides the necessary context.&lt;/p&gt;
-
-&lt;h2 id=&quot;key-features-of-mcp&quot;&gt;Key features of MCP&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Standardization&lt;/strong&gt;: MCP offers a unified protocol for AI integration, reducing complexity.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Flexibility&lt;/strong&gt;: It supports diverse use cases, from database queries to API integrations.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Security&lt;/strong&gt;: Ensures secure data exchange between AI models and external systems.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Scalability&lt;/strong&gt;: Designed to handle growing demands in AI applications.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;how-mcp-works&quot;&gt;How MCP works&lt;/h2&gt;
-
-&lt;p&gt;MCP operates on a two-way connection:&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;MCP client&lt;/strong&gt;: Requests data or actions from the server.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;MCP server&lt;/strong&gt;: Provides the requested data or executes actions based on the client’s needs.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;This architecture enables seamless communication and enhances the responsiveness of AI models.&lt;/p&gt;
-
-&lt;h2 id=&quot;use-cases&quot;&gt;Use cases&lt;/h2&gt;
-
-&lt;p&gt;MCP is already being adopted by leading companies like Microsoft, Google, and OpenAI. Its applications include:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Knowledge graph management&lt;/strong&gt;: Streamlining data organization and retrieval.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;API integrations&lt;/strong&gt;: Simplifying connections between AI models and external APIs.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Tool interactions&lt;/strong&gt;: Enabling AI to interact with tools like Slack or GitHub.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;the-future-of-mcp&quot;&gt;The future of MCP&lt;/h2&gt;
-
-&lt;p&gt;As we move into an era of agentic AI, MCP is set to play a pivotal role in making AI assistants more versatile and powerful. By breaking down data silos and enhancing integration capabilities, MCP is paving the way for more intelligent and responsive AI systems.&lt;/p&gt;
-
-&lt;p&gt;Would you like to explore how MCP can transform your AI workflows? Let me know in the comments below!&lt;/p&gt;
-</description>
-                <pubDate>Thu, 08 May 2025 09:00:00 +0200</pubDate>
-                <link>http://localhost:4000/model-context-protocol-mcp</link>
-                <guid isPermaLink="true">http://localhost:4000/model-context-protocol-mcp</guid>
-                
-                <category>AI</category>
-                
-                <category>MCP</category>
                 
                 
             </item>

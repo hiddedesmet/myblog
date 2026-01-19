@@ -8,7 +8,7 @@ author: hidde
 description: "Part 2 of our series on mastering AI-assisted development. A hands-on walkthrough of the complete Spec-Kit workflow: creating constitutions, writing specs, generating plans, and implementing production-ready code."
 image: /images/spec-kit/image-02.png
 series: "Mastering Spec-Driven Development"
-featured: true
+featured: false
 toc: true
 ---
 

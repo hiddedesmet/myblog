@@ -217,8 +217,6 @@
         
           <a href="/tags#github" class="post__tag">github</a>
         
-          <a href="/tags#claude" class="post__tag">claude</a>
-        
           <a href="/tags#copilot" class="post__tag">copilot</a>
         
           <a href="/tags#vibe-coding" class="post__tag">vibe-coding</a>
@@ -236,7 +234,7 @@
           <span>
             
             
-              53 min read
+              55 min read
             
           </span>
         </div>
@@ -251,6 +249,14 @@
       <div class="post__meta">
         <div class="post__author">
           
+          
+          <a href="/hidde" class="post__author__image">
+            <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
+          </a>
+          <div class="post__author__bottom">
+            <span>Written by</span>
+            <a class="post__author__name" href="/hidde">Hidde de Smet</a>
+          </div>
           
         </div>
 
@@ -306,7 +312,7 @@
       
       <div class="post__toc">
         <h2 class="post__toc__title">Table of Contents</h2>
-        <ol class="post__toc__list"><li><a href="#series-overview">Series overview</a></li><li><a href="#what-were-building-today">What we’re building today</a></li><li><a href="#prerequisites">Prerequisites</a></li><li><a href="#the-complete-workflow">The complete workflow</a></li><li><a href="#step-1-initialize-your-project">Step 1: Initialize your project</a></li><li><a href="#step-2-create-your-constitution">Step 2: Create your constitution</a><ol><li><a href="#what-goes-in-a-constitution">What goes in a constitution?</a></li><li><a href="#real-example-our-team-task-manager-constitution">Real example: Our Team Task Manager constitution</a></li><li><a href="#why-this-works">Why this works</a></li><li><a href="#running-the-constitution-command">Running the constitution command</a></li></ol></li><li><a href="#step-3-write-the-specification">Step 3: Write the specification</a><ol><li><a href="#the-specification-structure">The specification structure</a></li><li><a href="#real-example-team-task-manager-spec">Real example: Team Task Manager spec</a></li><li><a href="#why-this-spec-works">Why this spec works</a></li><li><a href="#running-the-specify-command">Running the specify command</a></li><li><a href="#specification-quality-validation">Specification Quality Validation</a></li></ol></li><li><a href="#step-4-generate-the-technical-plan">Step 4: Generate the technical plan</a><ol><li><a href="#running-the-plan-command">Running the plan command</a></li><li><a href="#real-example-generated-planmd">Real example: Generated plan.md</a></li></ol></li><li><a href="#testing-strategy">Testing Strategy</a><ol><li><a href="#unit-tests">Unit Tests</a></li><li><a href="#integration-tests">Integration Tests</a></li><li><a href="#e2e-tests">E2E Tests</a></li><li><a href="#test-coverage-targets">Test Coverage Targets</a></li></ol></li><li><a href="#deployment-plan">Deployment Plan</a><ol><li><a href="#development">Development</a></li><li><a href="#production-considerations">Production Considerations</a></li></ol></li><li><a href="#open-questions">Open Questions</a></li><li><a href="#relationships">Relationships</a></li><li><a href="#indexes">Indexes</a><ol><li><a href="#performance-critical">Performance-critical</a></li><li><a href="#uniqueness-constraints">Uniqueness constraints</a></li></ol></li><li><a href="#migration-strategy">Migration strategy</a><ol><li><a href="#why-this-breakdown-works">Why this breakdown works</a></li></ol></li><li><a href="#step-6-implementation">Step 6: Implementation</a><ol><li><a href="#running-the-implement-command">Running the implement command</a></li><li><a href="#what-the-ai-generates">What the AI generates</a><ol><li><a href="#backend-task-creation-endpoint">Backend: Task creation endpoint</a></li><li><a href="#frontend-task-list-component">Frontend: Task list component</a></li></ol></li><li><a href="#the-ais-process">The AI’s process</a></li></ol></li><li><a href="#validation-and-testing">Validation and testing</a><ol><li><a href="#critical-testing-checklist">Critical testing checklist</a></li><li><a href="#if-you-find-bugs">If you find bugs</a></li></ol></li><li><a href="#handling-spec-changes">Handling spec changes</a><ol><li><a href="#the-workflow">The workflow</a></li><li><a href="#example-adding-task-comments">Example: Adding task comments</a><ol><li><a href="#step-1-update-spec">Step 1: Update spec</a></li><li><a href="#step-2-regenerate-plan">Step 2: Regenerate plan</a></li><li><a href="#step-3-regenerate-tasks">Step 3: Regenerate tasks</a></li><li><a href="#step-4-continue-implementation">Step 4: Continue implementation</a></li></ol></li></ol></li><li><a href="#best-practices-recap">Best practices recap</a><ol><li><a href="#1-constitution-start-strict-relax-later">1. Constitution: Start strict, relax later</a></li><li><a href="#2-spec-be-exhaustively-detailed">2. Spec: Be exhaustively detailed</a></li><li><a href="#3-plan-review-carefully">3. Plan: Review carefully</a></li><li><a href="#4-tasks-verify-dependencies">4. Tasks: Verify dependencies</a></li><li><a href="#5-implementation-test-ruthlessly">5. Implementation: Test ruthlessly</a></li></ol></li><li><a href="#common-pitfalls-and-how-to-avoid-them">Common pitfalls and how to avoid them</a><ol><li><a href="#pitfall-1-vague-specifications">Pitfall #1: Vague specifications</a></li><li><a href="#pitfall-2-over-engineering-early">Pitfall #2: Over-engineering early</a></li><li><a href="#pitfall-3-ignoring-ai-suggestions">Pitfall #3: Ignoring AI suggestions</a></li><li><a href="#pitfall-4-not-testing-increments">Pitfall #4: Not testing increments</a></li></ol></li><li><a href="#troubleshooting-common-issues">Troubleshooting common issues</a><ol><li><a href="#issue-ai-generates-outdated-code">Issue: AI generates outdated code</a></li><li><a href="#issue-ai-hallucinates-functionality">Issue: AI hallucinates functionality</a></li><li><a href="#issue-tests-fail-after-implementation">Issue: Tests fail after implementation</a></li><li><a href="#issue-real-time-updates-dont-work">Issue: Real-time updates don’t work</a></li></ol></li><li><a href="#what-weve-accomplished">What we’ve accomplished</a></li><li><a href="#next-week-best-practices-and-troubleshooting">Next week: Best practices and troubleshooting</a><ol><li><a href="#homework-before-part-3">Homework before Part 3</a></li></ol></li><li><a href="#key-takeaways-from-part-2">Key takeaways from part 2</a></li><li><a href="#resources">Resources</a></li><li><a href="#series-navigation">Series navigation</a></li></ol>
+        <ol class="post__toc__list"><li><a href="#series-overview">Series overview</a></li><li><a href="#what-were-building-today">What we’re building today</a></li><li><a href="#prerequisites">Prerequisites</a></li><li><a href="#the-complete-workflow">The complete workflow</a></li><li><a href="#step-1-initialize-your-project">Step 1: Initialize your project</a></li><li><a href="#step-2-create-your-constitution">Step 2: Create your constitution</a><ol><li><a href="#what-goes-in-a-constitution">What goes in a constitution?</a></li><li><a href="#real-example-our-team-task-manager-constitution">Real example: Our Team Task Manager constitution</a></li><li><a href="#why-this-works">Why this works</a></li><li><a href="#running-the-constitution-command">Running the constitution command</a></li></ol></li><li><a href="#step-3-write-the-specification">Step 3: Write the specification</a><ol><li><a href="#the-specification-structure">The specification structure</a></li><li><a href="#real-example-team-task-manager-spec">Real example: Team Task Manager spec</a></li><li><a href="#why-this-spec-works">Why this spec works</a></li><li><a href="#running-the-specify-command">Running the specify command</a></li><li><a href="#specification-quality-validation">Specification Quality Validation</a></li></ol></li><li><a href="#step-4-generate-the-technical-plan">Step 4: Generate the technical plan</a><ol><li><a href="#running-the-plan-command">Running the plan command</a></li><li><a href="#real-example-generated-planmd">Real example: Generated plan.md</a></li></ol></li><li><a href="#testing-strategy">Testing Strategy</a><ol><li><a href="#unit-tests">Unit Tests</a></li><li><a href="#integration-tests">Integration Tests</a></li><li><a href="#e2e-tests">E2E Tests</a></li><li><a href="#test-coverage-targets">Test Coverage Targets</a></li></ol></li><li><a href="#deployment-plan">Deployment Plan</a><ol><li><a href="#development">Development</a></li><li><a href="#production-considerations">Production Considerations</a></li></ol></li><li><a href="#open-questions">Open Questions</a></li><li><a href="#relationships">Relationships</a></li><li><a href="#indexes">Indexes</a><ol><li><a href="#performance-critical">Performance-critical</a></li><li><a href="#uniqueness-constraints">Uniqueness constraints</a></li></ol></li><li><a href="#migration-strategy">Migration strategy</a><ol><li><a href="#why-these-generated-plans-work">Why these generated plans work</a></li></ol></li><li><a href="#step-5-break-down-into-tasks">Step 5: Break down into tasks</a><ol><li><a href="#running-the-tasks-command">Running the tasks command</a></li><li><a href="#why-this-breakdown-works">Why this breakdown works</a></li></ol></li><li><a href="#step-6-implementation">Step 6: Implementation</a><ol><li><a href="#running-the-implement-command">Running the implement command</a></li><li><a href="#what-the-ai-generates">What the AI generates</a><ol><li><a href="#backend-task-creation-endpoint">Backend: Task creation endpoint</a></li><li><a href="#frontend-task-list-component">Frontend: Task list component</a></li></ol></li><li><a href="#the-ais-process">The AI’s process</a></li></ol></li><li><a href="#validation-and-testing">Validation and testing</a><ol><li><a href="#critical-testing-checklist">Critical testing checklist</a></li><li><a href="#if-you-find-bugs">If you find bugs</a></li></ol></li><li><a href="#handling-spec-changes">Handling spec changes</a><ol><li><a href="#the-workflow">The workflow</a></li><li><a href="#example-adding-task-comments">Example: Adding task comments</a><ol><li><a href="#step-1-update-spec">Step 1: Update spec</a></li><li><a href="#step-2-regenerate-plan">Step 2: Regenerate plan</a></li><li><a href="#step-3-regenerate-tasks">Step 3: Regenerate tasks</a></li><li><a href="#step-4-continue-implementation">Step 4: Continue implementation</a></li></ol></li></ol></li><li><a href="#best-practices-recap">Best practices recap</a><ol><li><a href="#1-constitution-start-strict-relax-later">1. Constitution: Start strict, relax later</a></li><li><a href="#2-spec-be-exhaustively-detailed">2. Spec: Be exhaustively detailed</a></li><li><a href="#3-plan-review-carefully">3. Plan: Review carefully</a></li><li><a href="#4-tasks-verify-dependencies">4. Tasks: Verify dependencies</a></li><li><a href="#5-implementation-test-ruthlessly">5. Implementation: Test ruthlessly</a></li></ol></li><li><a href="#common-pitfalls-and-how-to-avoid-them">Common pitfalls and how to avoid them</a><ol><li><a href="#pitfall-1-vague-specifications">Pitfall #1: Vague specifications</a></li><li><a href="#pitfall-2-over-engineering-early">Pitfall #2: Over-engineering early</a></li><li><a href="#pitfall-3-ignoring-ai-suggestions">Pitfall #3: Ignoring AI suggestions</a></li><li><a href="#pitfall-4-not-testing-increments">Pitfall #4: Not testing increments</a></li></ol></li><li><a href="#troubleshooting-common-issues">Troubleshooting common issues</a><ol><li><a href="#issue-ai-generates-outdated-code">Issue: AI generates outdated code</a></li><li><a href="#issue-ai-hallucinates-functionality">Issue: AI hallucinates functionality</a></li><li><a href="#issue-tests-fail-after-implementation">Issue: Tests fail after implementation</a></li><li><a href="#issue-real-time-updates-dont-work">Issue: Real-time updates don’t work</a></li></ol></li><li><a href="#what-weve-accomplished">What we’ve accomplished</a></li><li><a href="#next-week-best-practices-and-troubleshooting">Next week: Best practices and troubleshooting</a><ol><li><a href="#homework-before-part-3">Homework before Part 3</a></li></ol></li><li><a href="#key-takeaways-from-part-2">Key takeaways from part 2</a></li><li><a href="#resources">Resources</a></li><li><a href="#series-navigation">Series navigation</a></li></ol>
       </div>
       
 
@@ -942,13 +948,13 @@ This specification is ready for /speckit.plan
   <li><code class="language-plaintext highlighter-rouge">checklist.md</code> - Quality validation checklist</li>
   <li><code class="language-plaintext highlighter-rouge">plan.md</code> - Overall technical architecture</li>
   <li><code class="language-plaintext highlighter-rouge">data-model.md</code> - Database schema design</li>
-  <li><code class="language-plaintext highlighter-rouge">contracts.md</code> - API contracts and endpoint specifications</li>
+  <li><code class="language-plaintext highlighter-rouge">api-specification.md</code> - API contracts and endpoint specifications</li>
 </ol>
 
 <p><img src="/images/spec-kit/workflow-07-plan-files.png" alt="Generated plan files" />
 <em>All generated planning artifacts shown in the VS Code file explorer</em></p>
 
-<p>The requirements.md contains the complete breakdown of functional requirements with Given-When-Then scenarios, while the checklist validates specification quality. The contracts.md defines all API endpoints, request/response schemas, and integration points before moving forward with implementation.</p>
+<p>The requirements.md contains the complete breakdown of functional requirements with Given-When-Then scenarios, while the checklist validates specification quality. The api-specification.md defines all API endpoints, request/response schemas, and integration points before moving forward with implementation.</p>
 
 <h3 id="real-example-generated-planmd">Real example: Generated plan.md</h3>
 
@@ -1294,242 +1300,243 @@ dotnet run <span class="nt">--seed</span>
 </code></pre></div></div>
 
 <p><strong>Production</strong>: Always backup before applying migrations</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-### Why these generated plans work
 
-The AI has:
+<h3 id="why-these-generated-plans-work">Why these generated plans work</h3>
 
-1. **Made concrete technology choices**: React, Express, PostgreSQL (aligned with constitution)
-2. **Designed the data model**: Prisma schema with relationships
-3. **Specified API contracts**: Every endpoint documented
-4. **Included security patterns**: Middleware examples
-5. **Identified open questions**: Decisions that need human input
+<p>The AI has:</p>
 
-**This is where you review carefully.** Does the tech stack make sense? Are there better options? Now's the time to adjust.
+<ol>
+  <li><strong>Made concrete technology choices</strong>: React, Express, PostgreSQL (aligned with constitution)</li>
+  <li><strong>Designed the data model</strong>: Prisma schema with relationships</li>
+  <li><strong>Specified API contracts</strong>: Every endpoint documented</li>
+  <li><strong>Included security patterns</strong>: Middleware examples</li>
+  <li><strong>Identified open questions</strong>: Decisions that need human input</li>
+</ol>
 
----
+<p><strong>This is where you review carefully.</strong> Does the tech stack make sense? Are there better options? Now’s the time to adjust.</p>
 
-## Step 5: Break down into tasks
+<hr />
 
-Now we convert the plan into implementable tasks.
+<h2 id="step-5-break-down-into-tasks">Step 5: Break down into tasks</h2>
 
-### Running the tasks command
+<p>Now we convert the plan into implementable tasks.</p>
 
+<h3 id="running-the-tasks-command">Running the tasks command</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/speckit.tasks
 </code></pre></div></div>
-<p>/speckit.tasks</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-The AI generates `tasks.md` with **137 ordered, actionable tasks** organized by user story.
 
-Here's how the AI structures the implementation:
+<p>The AI generates <code class="language-plaintext highlighter-rouge">tasks.md</code> with <strong>137 ordered, actionable tasks</strong> organized by user story.</p>
 
-```markdown
-# Tasks: Team Task Manager
+<p>Here’s how the AI structures the implementation:</p>
 
-**Organization**: Tasks are grouped by user story to enable independent 
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gh"># Tasks: Team Task Manager</span>
+
+<span class="gs">**Organization**</span>: Tasks are grouped by user story to enable independent 
 implementation and testing of each story.
 
-## Format: `- [ ] [ID] [P?] [Story?] Description`
-
-- **[P]**: Can run in parallel (different files, no dependencies)
-- **[Story]**: Which user story this task belongs to (e.g., US1, US2)
-
+<span class="gu">## Format: `- [ ] [ID] [P?] [Story?] Description`</span>
+<span class="p">
+-</span> <span class="gs">**[P]**</span>: Can run in parallel (different files, no dependencies)
+<span class="p">-</span> <span class="gs">**[Story]**</span>: Which user story this task belongs to (e.g., US1, US2)
+<span class="p">
 ---
+</span>
+<span class="gu">## Phase 1: Setup (Shared Infrastructure)</span>
 
-## Phase 1: Setup (Shared Infrastructure)
-
-**Purpose**: Project initialization and basic structure
-
-- [ ] T001 Create .NET 9 solution with TeamTaskManager project and test project
-- [ ] T002 Configure project settings: enable nullable reference types
-- [ ] T003 [P] Add NuGet packages: EF Core, Npgsql, Identity
-- [ ] T004 [P] Create EditorConfig with StyleCop.Analyzers configuration
-- [ ] T005 [P] Create docker-compose.yml with PostgreSQL service
-- [ ] T006 [P] Create Dockerfile with multi-stage build
-- [ ] T007 Create directory structure: Components, Models, Data, Services, Auth
-- [ ] T008 Create appsettings.json with connection string placeholders
-- [ ] T009 Create .gitignore excluding appsettings.Development.json
-
+<span class="gs">**Purpose**</span>: Project initialization and basic structure
+<span class="p">
+-</span> [ ] T001 Create .NET 9 solution with TeamTaskManager project and test project
+<span class="p">-</span> [ ] T002 Configure project settings: enable nullable reference types
+<span class="p">-</span> [ ] T003 [P] Add NuGet packages: EF Core, Npgsql, Identity
+<span class="p">-</span> [ ] T004 [P] Create EditorConfig with StyleCop.Analyzers configuration
+<span class="p">-</span> [ ] T005 [P] Create docker-compose.yml with PostgreSQL service
+<span class="p">-</span> [ ] T006 [P] Create Dockerfile with multi-stage build
+<span class="p">-</span> [ ] T007 Create directory structure: Components, Models, Data, Services, Auth
+<span class="p">-</span> [ ] T008 Create appsettings.json with connection string placeholders
+<span class="p">-</span> [ ] T009 Create .gitignore excluding appsettings.Development.json
+<span class="p">
 ---
+</span>
+<span class="gu">## Phase 2: Foundational (Blocking Prerequisites)</span>
 
-## Phase 2: Foundational (Blocking Prerequisites)
+<span class="gs">**Purpose**</span>: Core infrastructure that MUST be complete before ANY user story
 
-**Purpose**: Core infrastructure that MUST be complete before ANY user story
+⚠️ <span class="gs">**CRITICAL**</span>: No user story work can begin until this phase is complete
+<span class="p">
+-</span> [ ] T010 Create User entity model with all properties from data-model.md
+<span class="p">-</span> [ ] T011 Create Team entity model with all properties
+<span class="p">-</span> [ ] T012 [P] Create Task entity with Status enum and RowVersion for concurrency
+<span class="p">-</span> [ ] T013 [P] Create TeamMembership entity with Role enum
+<span class="p">-</span> [ ] T014 [P] Create TeamInvitation entity with Status enum
+<span class="p">-</span> [ ] T015 [P] Create AuditLog entity model
+<span class="p">-</span> [ ] T016 Create ApplicationDbContext extending IdentityDbContext<span class="nt">&lt;User&gt;</span>
+<span class="p">-</span> [ ] T017 Configure entity relationships using Fluent API per data-model.md
+<span class="p">-</span> [ ] T018 Create indexes: Task(TeamId,Status), TeamMembership(TeamId,UserId)
+<span class="p">-</span> [ ] T019 Create initial EF Core migration: dotnet ef migrations add InitialCreate
+<span class="p">-</span> [ ] T020 Configure ASP.NET Core Identity with password requirements
+<span class="p">-</span> [ ] T021 Configure authentication: AddIdentity, cookie settings (24hr expiration)
+<span class="p">-</span> [ ] T022 Create custom AuthenticationStateProvider for Blazor
+<span class="p">-</span> [ ] T023 [P] Create IRepository<span class="nt">&lt;T&gt;</span> interface
+<span class="p">-</span> [ ] T024 [P] Create Repository<span class="nt">&lt;T&gt;</span> implementation with async methods
+<span class="p">-</span> [ ] T025 Configure error handling middleware
+<span class="p">-</span> [ ] T026 Configure structured logging using ILogger<span class="nt">&lt;T&gt;</span>
+<span class="p">-</span> [ ] T027 Configure rate limiting middleware per API specification
+<span class="p">-</span> [ ] T028 Create MainLayout.razor with navigation and auth state
+<span class="p">-</span> [ ] T029 Create NavMenu.razor with conditional rendering
+<span class="p">-</span> [ ] T030 Configure SignalR hub with connection timeout and group support
 
-⚠️ **CRITICAL**: No user story work can begin until this phase is complete
-
-- [ ] T010 Create User entity model with all properties from data-model.md
-- [ ] T011 Create Team entity model with all properties
-- [ ] T012 [P] Create Task entity with Status enum and RowVersion for concurrency
-- [ ] T013 [P] Create TeamMembership entity with Role enum
-- [ ] T014 [P] Create TeamInvitation entity with Status enum
-- [ ] T015 [P] Create AuditLog entity model
-- [ ] T016 Create ApplicationDbContext extending IdentityDbContext&lt;User&gt;
-- [ ] T017 Configure entity relationships using Fluent API per data-model.md
-- [ ] T018 Create indexes: Task(TeamId,Status), TeamMembership(TeamId,UserId)
-- [ ] T019 Create initial EF Core migration: dotnet ef migrations add InitialCreate
-- [ ] T020 Configure ASP.NET Core Identity with password requirements
-- [ ] T021 Configure authentication: AddIdentity, cookie settings (24hr expiration)
-- [ ] T022 Create custom AuthenticationStateProvider for Blazor
-- [ ] T023 [P] Create IRepository&lt;T&gt; interface
-- [ ] T024 [P] Create Repository&lt;T&gt; implementation with async methods
-- [ ] T025 Configure error handling middleware
-- [ ] T026 Configure structured logging using ILogger&lt;T&gt;
-- [ ] T027 Configure rate limiting middleware per API specification
-- [ ] T028 Create MainLayout.razor with navigation and auth state
-- [ ] T029 Create NavMenu.razor with conditional rendering
-- [ ] T030 Configure SignalR hub with connection timeout and group support
-
-**Checkpoint**: Foundation ready - user story implementation can now begin in parallel
-
+<span class="gs">**Checkpoint**</span>: Foundation ready - user story implementation can now begin in parallel
+<span class="p">
 ---
+</span>
+<span class="gu">## Phase 3: User Story 2 - User Authentication (Priority: P1) 🎯 MVP Foundation</span>
 
-## Phase 3: User Story 2 - User Authentication (Priority: P1) 🎯 MVP Foundation
+<span class="gs">**Goal**</span>: Enable secure user sign-up, login, and password recovery
 
-**Goal**: Enable secure user sign-up, login, and password recovery
+<span class="gs">**Independent Test**</span>: Sign up with email, log in, reset password, verify rate limiting
 
-**Independent Test**: Sign up with email, log in, reset password, verify rate limiting
+<span class="gs">**Why First**</span>: Authentication is foundational - required before collaborative features
 
-**Why First**: Authentication is foundational - required before collaborative features
+<span class="gu">### Implementation for User Story 2</span>
+<span class="p">
+-</span> [ ] T031 [P] [US2] Create Register.razor page with email/password form
+<span class="p">-</span> [ ] T032 [P] [US2] Create Login.razor page with email/password form
+<span class="p">-</span> [ ] T033 [P] [US2] Create ForgotPassword.razor page with email input
+<span class="p">-</span> [ ] T034 [P] [US2] Create ResetPassword.razor page with token validation
+<span class="p">-</span> [ ] T035 [US2] Create AuthService with RegisterAsync, LoginAsync, LogoutAsync
+<span class="p">-</span> [ ] T036 [US2] Implement email confirmation using ASP.NET Core Identity tokens
+<span class="p">-</span> [ ] T037 [US2] Implement password reset with 24-hour token expiration
+<span class="p">-</span> [ ] T038 [US2] Implement rate limiting: 5 attempts, 15-minute lockout
+<span class="p">-</span> [ ] T039 [US2] Add session expiration: 24-hour absolute expiration
+<span class="p">-</span> [ ] T040 [US2] Create AuditService with LogAsync method
+<span class="p">-</span> [ ] T041 [US2] Add audit logging for authentication events
+<span class="p">-</span> [ ] T042 [US2] Create IEmailService interface
+<span class="p">-</span> [ ] T043 [US2] Create SendGridEmailService implementation
+<span class="p">-</span> [ ] T044 [US2] Add email templates for confirmation and password reset
+<span class="p">-</span> [ ] T045 [US2] Wire up Register page to AuthService with validation
+<span class="p">-</span> [ ] T046 [US2] Wire up Login page with error handling
+<span class="p">-</span> [ ] T047 [US2] Wire up ForgotPassword and ResetPassword pages
+<span class="p">-</span> [ ] T048 [US2] Add redirect to preserved destination after login
+<span class="p">-</span> [ ] T049 [US2] Create API endpoints: POST /api/auth/register, /login, /logout
 
-### Implementation for User Story 2
-
-- [ ] T031 [P] [US2] Create Register.razor page with email/password form
-- [ ] T032 [P] [US2] Create Login.razor page with email/password form
-- [ ] T033 [P] [US2] Create ForgotPassword.razor page with email input
-- [ ] T034 [P] [US2] Create ResetPassword.razor page with token validation
-- [ ] T035 [US2] Create AuthService with RegisterAsync, LoginAsync, LogoutAsync
-- [ ] T036 [US2] Implement email confirmation using ASP.NET Core Identity tokens
-- [ ] T037 [US2] Implement password reset with 24-hour token expiration
-- [ ] T038 [US2] Implement rate limiting: 5 attempts, 15-minute lockout
-- [ ] T039 [US2] Add session expiration: 24-hour absolute expiration
-- [ ] T040 [US2] Create AuditService with LogAsync method
-- [ ] T041 [US2] Add audit logging for authentication events
-- [ ] T042 [US2] Create IEmailService interface
-- [ ] T043 [US2] Create SendGridEmailService implementation
-- [ ] T044 [US2] Add email templates for confirmation and password reset
-- [ ] T045 [US2] Wire up Register page to AuthService with validation
-- [ ] T046 [US2] Wire up Login page with error handling
-- [ ] T047 [US2] Wire up ForgotPassword and ResetPassword pages
-- [ ] T048 [US2] Add redirect to preserved destination after login
-- [ ] T049 [US2] Create API endpoints: POST /api/auth/register, /login, /logout
-
-**Checkpoint**: Users can sign up, log in, reset passwords securely
-
+<span class="gs">**Checkpoint**</span>: Users can sign up, log in, reset passwords securely
+<span class="p">
 ---
+</span>
+<span class="gu">## Phase 4: User Story 1 - Task Management Core (Priority: P1) 🎯 MVP</span>
 
-## Phase 4: User Story 1 - Task Management Core (Priority: P1) 🎯 MVP
+<span class="gs">**Goal**</span>: Enable task creation, assignment, editing, and completion
 
-**Goal**: Enable task creation, assignment, editing, and completion
+<span class="gs">**Independent Test**</span>: Create task, edit description, mark complete, verify timestamp
 
-**Independent Test**: Create task, edit description, mark complete, verify timestamp
+<span class="gs">**Why Second**</span>: Core value proposition - delivers immediate task tracking
 
-**Why Second**: Core value proposition - delivers immediate task tracking
+<span class="gu">### Implementation for User Story 1</span>
+<span class="p">
+-</span> [ ] T050 [P] [US1] Create TaskCard.razor component
+<span class="p">-</span> [ ] T051 [P] [US1] Create TaskDetailModal.razor for editing
+<span class="p">-</span> [ ] T052 [P] [US1] Create NewTaskModal.razor for creating tasks
+<span class="p">-</span> [ ] T053 [US1] Create Tasks.razor page with task list view
+<span class="p">-</span> [ ] T054 [US1] Create TaskService with CRUD methods
+<span class="p">-</span> [ ] T055 [US1] Implement CreateTaskAsync with validation
+<span class="p">-</span> [ ] T056 [US1] Implement UpdateTaskAsync with optimistic concurrency using RowVersion
+<span class="p">-</span> [ ] T057 [US1] Implement CompleteTaskAsync setting CompletedAt timestamp
+<span class="p">-</span> [ ] T058 [US1] Implement DeleteTaskAsync with creator-only authorization
+<span class="p">-</span> [ ] T059 [US1] Add authorization: only creator/assignee can edit
+<span class="p">-</span> [ ] T060 [US1] Implement real-time task broadcast using SignalR (&lt; 2 seconds)
+<span class="p">-</span> [ ] T061 [US1] Add audit logging for task operations
+<span class="p">-</span> [ ] T062 [US1] Wire up Tasks.razor to TaskService with data loading
+<span class="p">-</span> [ ] T063 [US1] Wire up NewTaskModal with form validation
+<span class="p">-</span> [ ] T064 [US1] Wire up TaskDetailModal with concurrency conflict handling
+<span class="p">-</span> [ ] T065 [US1] Add checkbox for marking complete
+<span class="p">-</span> [ ] T066 [US1] Implement SignalR hub subscription for real-time updates
+<span class="p">-</span> [ ] T067 [US1] Add "New Task" button opening NewTaskModal
+<span class="p">-</span> [ ] T068 [US1] Handle concurrent edit conflict: show notification with conflicting user
+<span class="p">-</span> [ ] T069 [US1] Create API endpoints: GET/POST /api/teams/{teamId}/tasks, etc.
 
-### Implementation for User Story 1
-
-- [ ] T050 [P] [US1] Create TaskCard.razor component
-- [ ] T051 [P] [US1] Create TaskDetailModal.razor for editing
-- [ ] T052 [P] [US1] Create NewTaskModal.razor for creating tasks
-- [ ] T053 [US1] Create Tasks.razor page with task list view
-- [ ] T054 [US1] Create TaskService with CRUD methods
-- [ ] T055 [US1] Implement CreateTaskAsync with validation
-- [ ] T056 [US1] Implement UpdateTaskAsync with optimistic concurrency using RowVersion
-- [ ] T057 [US1] Implement CompleteTaskAsync setting CompletedAt timestamp
-- [ ] T058 [US1] Implement DeleteTaskAsync with creator-only authorization
-- [ ] T059 [US1] Add authorization: only creator/assignee can edit
-- [ ] T060 [US1] Implement real-time task broadcast using SignalR (&lt; 2 seconds)
-- [ ] T061 [US1] Add audit logging for task operations
-- [ ] T062 [US1] Wire up Tasks.razor to TaskService with data loading
-- [ ] T063 [US1] Wire up NewTaskModal with form validation
-- [ ] T064 [US1] Wire up TaskDetailModal with concurrency conflict handling
-- [ ] T065 [US1] Add checkbox for marking complete
-- [ ] T066 [US1] Implement SignalR hub subscription for real-time updates
-- [ ] T067 [US1] Add "New Task" button opening NewTaskModal
-- [ ] T068 [US1] Handle concurrent edit conflict: show notification with conflicting user
-- [ ] T069 [US1] Create API endpoints: GET/POST /api/teams/{teamId}/tasks, etc.
-
-**Checkpoint**: Users can create, assign, edit, complete tasks with real-time updates
-
+<span class="gs">**Checkpoint**</span>: Users can create, assign, edit, complete tasks with real-time updates
+<span class="p">
 ---
+</span>
+<span class="gu">## Phase 5: User Story 3 - Team Collaboration (Priority: P2)</span>
 
-## Phase 5: User Story 3 - Team Collaboration (Priority: P2)
+<span class="gs">**Goal**</span>: Enable team creation, member invitations, and membership management
 
-**Goal**: Enable team creation, member invitations, and membership management
+<span class="gs">**Why Third**</span>: Enables collaboration; builds on tasks and auth
+<span class="p">
+-</span> [ ] T070-T094 [US3] Team management implementation (25 tasks)
+<span class="p">  -</span> Create Teams.razor, TeamSettings.razor, invitation flows
+<span class="p">  -</span> Implement TeamService and MembershipService
+<span class="p">  -</span> Email invitations with 7-day expiration
+<span class="p">  -</span> Auto-promote oldest member when last admin leaves
+<span class="p">  -</span> Handle edge cases: duplicate invitations, expired tokens
 
-**Why Third**: Enables collaboration; builds on tasks and auth
-
-- [ ] T070-T094 [US3] Team management implementation (25 tasks)
-  - Create Teams.razor, TeamSettings.razor, invitation flows
-  - Implement TeamService and MembershipService
-  - Email invitations with 7-day expiration
-  - Auto-promote oldest member when last admin leaves
-  - Handle edge cases: duplicate invitations, expired tokens
-
-**Checkpoint**: Users can create teams, invite members, manage membership
-
+<span class="gs">**Checkpoint**</span>: Users can create teams, invite members, manage membership
+<span class="p">
 ---
+</span>
+<span class="gu">## Phase 6: User Story 4 - Task Filtering (Priority: P2)</span>
 
-## Phase 6: User Story 4 - Task Filtering (Priority: P2)
+<span class="gs">**Goal**</span>: Enable filtering by assignee, status, and creator
+<span class="p">
+-</span> [ ] T095-T106 [US4] Filtering implementation (12 tasks)
+<span class="p">  -</span> Create TaskFilters.razor component
+<span class="p">  -</span> Implement instant filtering without page reload
+<span class="p">  -</span> Add pagination for completed tasks (50 per page)
+<span class="p">  -</span> Optimize queries using database indexes
 
-**Goal**: Enable filtering by assignee, status, and creator
-
-- [ ] T095-T106 [US4] Filtering implementation (12 tasks)
-  - Create TaskFilters.razor component
-  - Implement instant filtering without page reload
-  - Add pagination for completed tasks (50 per page)
-  - Optimize queries using database indexes
-
-**Checkpoint**: Users can filter tasks instantly by multiple criteria
-
+<span class="gs">**Checkpoint**</span>: Users can filter tasks instantly by multiple criteria
+<span class="p">
 ---
+</span>
+<span class="gu">## Phase 7: User Story 5 - Responsive Interface (Priority: P3)</span>
 
-## Phase 7: User Story 5 - Responsive Interface (Priority: P3)
+<span class="gs">**Goal**</span>: Ensure mobile, tablet, and desktop layouts work seamlessly
+<span class="p">
+-</span> [ ] T107-T117 [US5] Responsive UI implementation (11 tasks)
+<span class="p">  -</span> Mobile-first CSS with 768px and 1024px breakpoints
+<span class="p">  -</span> Touch-optimized buttons (44px minimum)
+<span class="p">  -</span> Hamburger menu for mobile navigation
+<span class="p">  -</span> Test across device sizes
 
-**Goal**: Ensure mobile, tablet, and desktop layouts work seamlessly
-
-- [ ] T107-T117 [US5] Responsive UI implementation (11 tasks)
-  - Mobile-first CSS with 768px and 1024px breakpoints
-  - Touch-optimized buttons (44px minimum)
-  - Hamburger menu for mobile navigation
-  - Test across device sizes
-
-**Checkpoint**: Application works on all device sizes
-
+<span class="gs">**Checkpoint**</span>: Application works on all device sizes
+<span class="p">
 ---
+</span>
+<span class="gu">## Phase 8: Polish &amp; Cross-Cutting Concerns</span>
 
-## Phase 8: Polish &amp; Cross-Cutting Concerns
-
-**Purpose**: Final quality, security hardening, performance optimization
-
-- [ ] T118-T137 Polish tasks (20 tasks)
-  - Health check endpoint
-  - CORS, HTTPS, anti-forgery tokens
-  - Input sanitization for XSS prevention
-  - Database query optimization
-  - Caching with IMemoryCache
-  - Performance testing: &lt; 2s page load, &lt; 500ms API
-  - OWASP Top 10 security review
-
+<span class="gs">**Purpose**</span>: Final quality, security hardening, performance optimization
+<span class="p">
+-</span> [ ] T118-T137 Polish tasks (20 tasks)
+<span class="p">  -</span> Health check endpoint
+<span class="p">  -</span> CORS, HTTPS, anti-forgery tokens
+<span class="p">  -</span> Input sanitization for XSS prevention
+<span class="p">  -</span> Database query optimization
+<span class="p">  -</span> Caching with IMemoryCache
+<span class="p">  -</span> Performance testing: &lt; 2s page load, &lt; 500ms API
+<span class="p">  -</span> OWASP Top 10 security review
+<span class="p">
 ---
+</span>
+<span class="gu">## Task count summary</span>
+<span class="p">
+-</span> <span class="gs">**Phase 1 (Setup)**</span>: 9 tasks
+<span class="p">-</span> <span class="gs">**Phase 2 (Foundational)**</span>: 21 tasks ← Critical path
+<span class="p">-</span> <span class="gs">**Phase 3 (US2 - Auth)**</span>: 19 tasks ← P1 (MVP Foundation)
+<span class="p">-</span> <span class="gs">**Phase 4 (US1 - Tasks)**</span>: 20 tasks ← P1 (MVP Core)
+<span class="p">-</span> <span class="gs">**Phase 5 (US3 - Teams)**</span>: 25 tasks ← P2
+<span class="p">-</span> <span class="gs">**Phase 6 (US4 - Filtering)**</span>: 12 tasks ← P2
+<span class="p">-</span> <span class="gs">**Phase 7 (US5 - Responsive)**</span>: 11 tasks ← P3
+<span class="p">-</span> <span class="gs">**Phase 8 (Polish)**</span>: 20 tasks ← Cross-cutting
 
-## Task count summary
+<span class="gs">**Total**</span>: 137 tasks
 
-- **Phase 1 (Setup)**: 9 tasks
-- **Phase 2 (Foundational)**: 21 tasks ← Critical path
-- **Phase 3 (US2 - Auth)**: 19 tasks ← P1 (MVP Foundation)
-- **Phase 4 (US1 - Tasks)**: 20 tasks ← P1 (MVP Core)
-- **Phase 5 (US3 - Teams)**: 25 tasks ← P2
-- **Phase 6 (US4 - Filtering)**: 12 tasks ← P2
-- **Phase 7 (US5 - Responsive)**: 11 tasks ← P3
-- **Phase 8 (Polish)**: 20 tasks ← Cross-cutting
-
-**Total**: 137 tasks
-
-**MVP Scope (Phases 1-5)**: 94 tasks (~69% of total)
-
+<span class="gs">**MVP Scope (Phases 1-5)**</span>: 94 tasks (~69% of total)
+<span class="p">
 ---
-
-## Dependencies and execution order
+</span>
+<span class="gu">## Dependencies and execution order</span>
 
 </code></pre></div></div>
 <p>Foundational (Phase 2)
@@ -2343,6 +2350,29 @@ npm run <span class="nb">install</span>:all  <span class="c"># if monorepo</span
 
 
 
+<div class="container">
+  <div class="card-author">
+    <div class="card-author__media">
+      
+      <a class="card-author__image" href="/hidde">
+        <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
+      </a>
+      
+    </div>
+
+    <div class="card-author__content">
+      <div class="card-author__role">Written by</div>
+        
+        <h3 class="card-author__name"><a href="/hidde" class="card-author__link">Hidde de Smet</a></h3>
+        
+        
+        <p class="card-author__description">As a certified Azure Solution Architect, I specialize in designing, implementing, and managing cloud-based solutions using Scrum and DevOps methodologies. 
+</p>
+        
+    </div>
+  </div>
+</div>
+
 
 
   <!-- begin comments -->
@@ -2424,13 +2454,85 @@ npm run <span class="nb">install</span>:all  <span class="c"># if monorepo</span
               
                 
               
-                
-              
             
             </div>
           </div>
 
           <div class="row">
+          
+            
+            
+
+            
+
+            
+
+            <div class="col col-4 col-d-6 col-t-12">
+              <div class="article">
+  <div class="article__inner">
+
+    <div class="article__head">
+      
+
+      
+      <a href="/from-vibe-coding-to-spec-driven-development-part3" class="article__image" aria-hidden="true" tabindex="-1">
+        <img class="lazy" data-src="/images/spec-kit/image-03.png" alt="From Vibe Coding to Spec-Driven Development: Part 3 - Best Practices and Troubleshooting">
+      </a>
+      
+    </div>
+
+    <div class="article__content">
+
+      <div class="article__meta">
+        
+        <div class="article__tags">
+        
+          <a href="/tags#ai-assisted-development" class="article__tag">ai-assisted-development</a>
+        
+          <a href="/tags#spec-kit" class="article__tag">spec-kit</a>
+        
+          <a href="/tags#github" class="article__tag">github</a>
+        
+          <a href="/tags#copilot" class="article__tag">copilot</a>
+        
+          <a href="/tags#vibe-coding" class="article__tag">vibe-coding</a>
+        
+          <a href="/tags#specification-driven-development" class="article__tag">specification-driven-development</a>
+        
+          <a href="/tags#series" class="article__tag">series</a>
+        
+        </div>
+        
+        <span class="article__date">•<time datetime="2026-01-19T00:00:00+01:00">Jan 19, 2026</time></span>
+      </div>
+
+      <h2 class="article__title">
+        <a href="/from-vibe-coding-to-spec-driven-development-part3">From Vibe Coding to Spec-Driven Development: Part 3 - Best Practices and Troubleshooting</a>
+      </h2>
+
+      <p class="article__excerpt">Part 3 of our series on mastering AI-assisted development. Learn advanced specification techniques, debugging strategies, iteration patterns, and real-world troubleshooting for production-ready AI-generated code.</p>
+
+      <div class="article__info">
+        
+        
+        <a href="/hidde" class="article__author__image">
+          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
+        </a>
+        <div class="article__info__bottom">
+          <span>Written by</span>
+          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
+        </div>
+        
+      </div>
+
+    </div>
+  </div>
+</div>
+            </div>
+
+            
+            
+            
           
             
             
@@ -2495,6 +2597,14 @@ npm run <span class="nb">install</span>:all  <span class="c"># if monorepo</span
 
       <div class="article__info">
         
+        
+        <a href="/hidde" class="article__author__image">
+          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
+        </a>
+        <div class="article__info__bottom">
+          <span>Written by</span>
+          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
+        </div>
         
       </div>
 
