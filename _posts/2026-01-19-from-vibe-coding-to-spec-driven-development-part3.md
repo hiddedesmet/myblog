@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "From Vibe Coding to Spec-Driven Development: Part 3 - Best Practices and Troubleshooting"
+title: "From Vibe Coding to Spec-Driven Development: Part 3 - Best practices and troubleshooting"
 date: 2026-01-19
 categories: [AI, Development, DevOps]
 tags: [ai-assisted-development, spec-kit, github, copilot, vibe-coding, specification-driven-development, series]
