@@ -8,7 +8,7 @@ author: hidde
 description: "Part 3 of our series on mastering AI-assisted development. Learn advanced specification techniques, debugging strategies, iteration patterns, and real-world troubleshooting for production-ready AI-generated code."
 image: /images/spec-kit/image-03.png
 series: "Mastering Spec-Driven Development"
-featured: true
+featured: false
 toc: true
 ---
 

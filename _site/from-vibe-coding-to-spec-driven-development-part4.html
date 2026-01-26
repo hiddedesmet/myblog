@@ -6,22 +6,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Authors</title>
-  <meta name='description' content='Welcome to our Authors page, where you can get to know the individual behind the words and ideas that shape our blog.'>
+  <title>From Vibe Coding to Spec-Driven Development: Part 4 - Team collaboration and advanced patterns</title>
+  <meta name='description' content='Part 4 of our series on mastering AI-assisted development. Learn how teams collaborate with Spec-Kit, integrate with CI/CD pipelines (GitHub Actions & Azure ...'>
 
-  <link rel="canonical" href="http://localhost:4000/authors/">
+  <link rel="canonical" href="http://localhost:4000/from-vibe-coding-to-spec-driven-development-part4">
   <link rel="alternate" type="application/rss+xml" title="" href="/feed.xml">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Authors – Hidde de Smet">
-  <meta name="twitter:description" content="Welcome to our Authors page, where you can get to know the individual behind the words and ideas that shape our blog.">
-  <meta name="twitter:image:src" content="http://localhost:4000/images/01.jpg">
+  <meta name="twitter:title" content="From Vibe Coding to Spec-Driven Development: Part 4 - Team collaboration and advanced patterns – Hidde de Smet">
+  <meta name="twitter:description" content="Part 4 of our series on mastering AI-assisted development. Learn how teams collaborate with Spec-Kit, integrate with CI/CD pipelines (GitHub Actions &amp; Azure DevOps), and apply advanced architectural patterns.">
+  <meta name="twitter:image:src" content="http://localhost:4000/images/spec-kit/image-04.png">
 
   <!-- Facebook OpenGraph -->
-  <meta property="og:title" content="Authors – Hidde de Smet">
-  <meta property="og:description" content="Welcome to our Authors page, where you can get to know the individual behind the words and ideas that shape our blog.">
-  <meta property="og:image" content="http://localhost:4000/images/01.jpg">
+  <meta property="og:title" content="From Vibe Coding to Spec-Driven Development: Part 4 - Team collaboration and advanced patterns – Hidde de Smet">
+  <meta property="og:description" content="Part 4 of our series on mastering AI-assisted development. Learn how teams collaborate with Spec-Kit, integrate with CI/CD pipelines (GitHub Actions &amp; Azure DevOps), and apply advanced architectural patterns.">
+  <meta property="og:image" content="http://localhost:4000/images/spec-kit/image-04.png">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -203,53 +203,1606 @@
 
     <!-- begin content -->
     <main class="content" aria-label="Content">
-      <!-- begin hero -->
-<section class="hero">
+      <div class="container">
+  <div class="post__head">
+    <div class="post__info">
+
+      <div class="post__head__inner">
+        
+        <div class="post__tags">
+        
+          <a href="/tags#ai-assisted-development" class="post__tag">ai-assisted-development</a>
+        
+          <a href="/tags#spec-kit" class="post__tag">spec-kit</a>
+        
+          <a href="/tags#github" class="post__tag">github</a>
+        
+          <a href="/tags#copilot" class="post__tag">copilot</a>
+        
+          <a href="/tags#vibe-coding" class="post__tag">vibe-coding</a>
+        
+          <a href="/tags#specification-driven-development" class="post__tag">specification-driven-development</a>
+        
+          <a href="/tags#series" class="post__tag">series</a>
+        
+          <a href="/tags#team-collaboration" class="post__tag">team-collaboration</a>
+        
+          <a href="/tags#ci-cd" class="post__tag">ci-cd</a>
+        
+        </div>
+        
+        <div class="post__date">•
+          <time datetime="2026-01-26T00:00:00+01:00">Jan 26, 2026</time>
+        </div>
+        <div class="post__minutes">•
+          <span>
+            
+            
+              25 min read
+            
+          </span>
+        </div>
+      </div>
+
+      <h1 class="post__title">From Vibe Coding to Spec-Driven Development: Part 4 - Team collaboration and advanced patterns</h1>
+
+      
+      <div class="post__description">Part 4 of our series on mastering AI-assisted development. Learn how teams collaborate with Spec-Kit, integrate with CI/CD pipelines (GitHub Actions & Azure DevOps), and apply advanced architectural patterns.</div>
+      
+
+      <div class="post__meta">
+        <div class="post__author">
+          
+          
+          <a href="/hidde" class="post__author__image">
+            <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
+          </a>
+          <div class="post__author__bottom">
+            <span>Written by</span>
+            <a class="post__author__name" href="/hidde">Hidde de Smet</a>
+          </div>
+          
+        </div>
+
+        <div class="post__share">
+          <div class="post__share">
+  <ul class="share__list list-reset">
+    <li class="share__item">
+      <a class="share__link share__twitter"
+        href="https://twitter.com/intent/tweet?text=From%20Vibe%20Coding%20to%20Spec-Driven%20Development:%20Part%204%20-%20Team%20collaboration%20and%20advanced%20patterns&url=http://localhost:4000/from-vibe-coding-to-spec-driven-development-part4"
+        onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+        title="Share on Twitter" rel="nofollow"><i class="fa-brands fa-x-twitter"></i></a>
+    </li>
+    <li class="share__item">
+      <a class="share__link share__facebook"
+        href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/from-vibe-coding-to-spec-driven-development-part4"
+        onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+        title="Share on Facebook" rel="nofollow"><i class="fa-brands fa-facebook-f"></i></a>
+    </li>
+    <li class="share__item">
+      <a class="share__link share__pinterest"
+        href="http://pinterest.com/pin/create/button/?url=http://localhost:4000/from-vibe-coding-to-spec-driven-development-part4&amp;media=http://localhost:4000/images/spec-kit/image-04.png&amp;description=From%20Vibe%20Coding%20to%20Spec-Driven%20Development:%20Part%204%20-%20Team%20collaboration%20and%20advanced%20patterns"
+        onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"
+        title="Share on Pinterest" rel="nofollow"><i class="fa-brands fa-pinterest"></i></a>
+    </li>
+    <li class="share__item">
+      <a class="share__link share__linkedin"
+        href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/from-vibe-coding-to-spec-driven-development-part4&title=From%20Vibe%20Coding%20to%20Spec-Driven%20Development:%20Part%204%20-%20Team%20collaboration%20and%20advanced%20patterns&summary=Part%204%20of%20our%20series%20on%20mastering%20AI-assisted%20development.%20Learn%20how%20teams%20collaborate%20with%20Spec-Kit,%20integrate%20with%20CI/CD%20pipelines%20(GitHub%20Actions%20&%20Azure%20DevOps),%20and%20apply%20advanced%20architectural%20patterns.&source="
+        onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+        title="Share on LinkedIn" rel="nofollow"><i class="fa-brands fa-linkedin"></i></a>
+    </li>
+  </ul>
+</div>
+        </div>
+      </div>
+
+    </div>
+
+    
+
+    
+    <div class="post__image">
+      <img class="lazy" data-src="/images/spec-kit/image-04.png" alt="From Vibe Coding to Spec-Driven Development: Part 4 - Team collaboration and advanced patterns">
+    </div>
+    
+    
+
+    
+  </div>
+
+  <!-- begin post -->
+  <article class="post">
+    <div class="post__content">
+      
+      <div class="post__toc">
+        <h2 class="post__toc__title">Table of Contents</h2>
+        <ol class="post__toc__list"><li><a href="#series-overview">Series overview</a></li><li><a href="#from-solo-to-team">From solo to team</a></li><li><a href="#section-1-team-workflows">Section 1: Team workflows</a><ol><li><a href="#the-spec-driven-team-structure">The spec-driven team structure</a></li><li><a href="#workflow-1-feature-branch-per-user-story">Workflow #1: Feature branch per user story</a></li><li><a href="#workflow-2-trunk-based-with-feature-flags">Workflow #2: Trunk-based with feature flags</a></li><li><a href="#workflow-3-mob-programming-with-ai">Workflow #3: Mob programming with AI</a></li></ol></li><li><a href="#section-2-code-review-for-spec-driven-projects">Section 2: Code review for spec-driven projects</a><ol><li><a href="#the-spec-driven-pr-checklist">The spec-driven PR checklist</a></li><li><a href="#review-automation">Review automation</a></li></ol></li><li><a href="#section-3-cicd-integration">Section 3: CI/CD integration</a><ol><li><a href="#github-actions-pipeline">GitHub Actions pipeline</a></li><li><a href="#azure-devops-pipeline">Azure DevOps pipeline</a></li><li><a href="#key-differences-github-actions-vs-azure-devops">Key differences: GitHub Actions vs Azure DevOps</a></li></ol></li><li><a href="#section-4-advanced-architectural-patterns">Section 4: Advanced architectural patterns</a><ol><li><a href="#pattern-1-modular-monolith">Pattern #1: Modular monolith</a></li><li><a href="#pattern-2-backend-for-frontend-bff">Pattern #2: Backend for Frontend (BFF)</a></li><li><a href="#pattern-3-event-driven-architecture">Pattern #3: Event-driven architecture</a></li><li><a href="#pattern-4-microservices-proceed-with-caution">Pattern #4: Microservices (proceed with caution)</a></li><li><a href="#choosing-the-right-pattern">Choosing the right pattern</a></li></ol></li><li><a href="#section-5-scaling-strategies">Section 5: Scaling strategies</a><ol><li><a href="#when-your-application-outgrows-the-initial-architecture">When your application outgrows the initial architecture</a></li><li><a href="#strategy-1-horizontal-scaling">Strategy #1: Horizontal scaling</a></li><li><a href="#strategy-2-caching-layers">Strategy #2: Caching layers</a></li><li><a href="#strategy-3-background-processing">Strategy #3: Background processing</a></li></ol></li><li><a href="#section-6-team-communication-patterns">Section 6: Team communication patterns</a><ol><li><a href="#keeping-everyone-aligned">Keeping everyone aligned</a></li><li><a href="#pattern-1-spec-review-meetings">Pattern #1: Spec review meetings</a></li><li><a href="#pattern-2-async-spec-updates">Pattern #2: Async spec updates</a></li><li><a href="#pattern-3-decision-records">Pattern #3: Decision records</a></li></ol></li><li><a href="#key-takeaways-from-part-4">Key takeaways from Part 4</a></li><li><a href="#whats-next">What’s next</a></li><li><a href="#resources">Resources</a></li><li><a href="#series-navigation">Series navigation</a></li></ol>
+      </div>
+      
+
+      <blockquote>
+  <p>🎯 <strong>This is Part 4 of a 5-part series on mastering AI-assisted development.</strong></p>
+
+  <p>We’ve covered the individual workflow. Now let’s scale it to teams and production environments.</p>
+</blockquote>
+
+<h2 id="series-overview">Series overview</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Part</th>
+      <th style="text-align: left">Topic</th>
+      <th style="text-align: center">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="/from-vibe-coding-to-spec-driven-development">Part 1</a></td>
+      <td style="text-align: left">The problem and the solution</td>
+      <td style="text-align: center">✓</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="/from-vibe-coding-to-spec-driven-development-part2">Part 2</a></td>
+      <td style="text-align: left">Deep dive into the Spec-Kit workflow</td>
+      <td style="text-align: center">✓</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="/from-vibe-coding-to-spec-driven-development-part3">Part 3</a></td>
+      <td style="text-align: left">Best practices and troubleshooting</td>
+      <td style="text-align: center">✓</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Part 4</strong></td>
+      <td style="text-align: left"><strong>Team collaboration and advanced patterns</strong></td>
+      <td style="text-align: center">📍</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Part 5</td>
+      <td style="text-align: left">Case studies and lessons learned</td>
+      <td style="text-align: center">Feb 2</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="from-solo-to-team">From solo to team</h2>
+
+<p>Everything we’ve covered so far assumes a single developer working with AI. But real software is built by teams. How does spec-driven development scale?</p>
+
+<p><strong>The good news</strong>: Spec-Kit was designed with teams in mind. The artifacts (constitution, spec, plan, tasks) become shared contracts that align everyone—humans and AI agents alike.</p>
+
+<p><strong>The challenge</strong>: Multiple developers, multiple AI sessions, multiple opinions. Without coordination, you get chaos.</p>
+
+<p>This post covers three areas:</p>
+
+<ol>
+  <li><strong>Team workflows</strong> - How multiple developers collaborate</li>
+  <li><strong>CI/CD integration</strong> - Automating validation with GitHub Actions and Azure DevOps</li>
+  <li><strong>Advanced patterns</strong> - Scaling beyond the monolith</li>
+</ol>
+
+<hr />
+
+<h2 id="section-1-team-workflows">Section 1: Team workflows</h2>
+
+<h3 id="the-spec-driven-team-structure">The spec-driven team structure</h3>
+
+<p>In a spec-driven team, roles shift slightly:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Traditional Role</th>
+      <th style="text-align: left">Spec-Driven Role</th>
+      <th style="text-align: left">Primary Artifacts</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Tech Lead</td>
+      <td style="text-align: left"><strong>Constitution Guardian</strong></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">constitution.md</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Product Owner</td>
+      <td style="text-align: left"><strong>Spec Owner</strong></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">spec.md</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Architect</td>
+      <td style="text-align: left"><strong>Plan Reviewer</strong></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">plan.md</code>, <code class="language-plaintext highlighter-rouge">data-model.md</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Developer</td>
+      <td style="text-align: left"><strong>Task Implementer</strong></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">tasks.md</code>, code</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Key insight</strong>: The constitution becomes your architecture decision record. The spec becomes your product requirements document. These aren’t new artifacts—they’re familiar concepts in a format AI can consume.</p>
+
+<h3 id="workflow-1-feature-branch-per-user-story">Workflow #1: Feature branch per user story</h3>
+
+<p>The cleanest approach for teams of 3-8 developers. Each <strong>user story</strong> (US) gets its own feature branch.</p>
+
+<pre><code class="language-mermaid">%%{init: {
+  'theme': 'base',
+  'themeVariables': {
+    'primaryColor': '#e8f5e9',
+    'primaryTextColor': '#1b5e20',
+    'primaryBorderColor': '#4caf50',
+    'secondaryColor': '#e3f2fd',
+    'secondaryTextColor': '#0d47a1',
+    'secondaryBorderColor': '#2196f3',
+    'tertiaryColor': '#f3e5f5',
+    'tertiaryTextColor': '#4a148c',
+    'tertiaryBorderColor': '#9c27b0',
+    'lineColor': '#546e7a',
+    'fontSize': '14px'
+  }
+}}%%
+flowchart LR
+    subgraph main["🌳 main"]
+        direction TB
+        M1[v1.0.0]
+        M2[✨ Auth merged]
+        M3[✨ Tasks merged]
+        M1 --&gt; M2 --&gt; M3
+    end
+
+    subgraph us1["🔐 feature/user-authentication"]
+        direction TB
+        A1["📝 Update spec.md"]
+        A2["🗺️ Generate plan"]
+        A3["📋 Break into tasks"]
+        A4["⚙️ Implement"]
+        A5["✅ Tests pass"]
+        A6["🔍 PR review"]
+        A1 --&gt; A2 --&gt; A3 --&gt; A4 --&gt; A5 --&gt; A6
+    end
+
+    subgraph us2["📋 feature/task-management"]
+        direction TB
+        B1["📝 Update spec.md"]
+        B2["🗺️ Generate plan"]
+        B3["📋 Break into tasks"]
+        B4["⚙️ Implement"]
+        B5["✅ Tests pass"]
+        B6["🔍 PR review"]
+        B1 --&gt; B2 --&gt; B3 --&gt; B4 --&gt; B5 --&gt; B6
+    end
+
+    subgraph us3["👥 feature/team-collab"]
+        direction TB
+        C1["📝 Update spec.md"]
+        C2["🗺️ ...in progress"]
+        C1 --&gt; C2
+    end
+
+    M1 -.-&gt;|branch| A1
+    M1 -.-&gt;|branch| B1
+    A6 --&gt;|merge| M2
+    M2 -.-&gt;|branch| C1
+    B6 --&gt;|merge| M3
+
+    style main fill:#e8f5e9,stroke:#4caf50,stroke-width:3px
+    style us1 fill:#e3f2fd,stroke:#2196f3,stroke-width:2px
+    style us2 fill:#f3e5f5,stroke:#9c27b0,stroke-width:2px
+    style us3 fill:#fff3e0,stroke:#ff9800,stroke-width:2px
+</code></pre>
+
+<p><strong>Process:</strong></p>
+
+<ol>
+  <li><strong>Spec Owner</strong> creates feature branch with spec changes</li>
+  <li><strong>Plan Reviewer</strong> runs <code class="language-plaintext highlighter-rouge">/speckit.plan</code> and reviews architecture</li>
+  <li><strong>Task Implementer</strong> runs <code class="language-plaintext highlighter-rouge">/speckit.tasks</code> and implements</li>
+  <li><strong>PR review</strong> validates against constitution</li>
+  <li><strong>Merge</strong> to main with squash commit</li>
+</ol>
+
+<p><em>Each user story branch follows the same workflow: spec → plan → tasks → implement → review → merge</em></p>
+
+<h3 id="workflow-2-trunk-based-with-feature-flags">Workflow #2: Trunk-based with feature flags</h3>
+
+<p>For teams practicing continuous deployment (8+ developers).</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>main (always deployable)
+ │
+ ├── commit: Add user-auth spec (flag: OFF)
+ ├── commit: Implement auth backend (flag: OFF)
+ ├── commit: Implement auth frontend (flag: OFF)
+ ├── commit: Enable user-auth flag (flag: ON)
+ │
+ └── (features go live via flag toggles)
+</code></pre></div></div>
+
+<p><strong>Process:</strong></p>
+
+<ol>
+  <li>All spec changes go to main immediately</li>
+  <li>Implementation happens behind feature flags</li>
+  <li><code class="language-plaintext highlighter-rouge">/speckit.implement</code> generates flag-aware code</li>
+  <li>QA tests with flag enabled</li>
+  <li>Flag enabled for all users when ready</li>
+</ol>
+
+<p><strong>Constitution addition for feature flags:</strong></p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gu">## Feature Flag Requirements</span>
+
+<span class="gu">### Implementation</span>
+<span class="p">-</span> All new features MUST be behind feature flags
+<span class="p">-</span> Flag naming: <span class="sb">`feature_{story_id}_{short_name}`</span>
+<span class="p">-</span> Default state: OFF in production
+
+<span class="gu">### Flag Service</span>
+<span class="p">-</span> Use LaunchDarkly / Azure App Configuration / custom implementation
+<span class="p">-</span> Flags evaluated server-side (no client exposure of disabled features)
+</code></pre></div></div>
+
+<h3 id="workflow-3-mob-programming-with-ai">Workflow #3: Mob programming with AI</h3>
+
+<p>Surprisingly effective for complex features.</p>
+
+<p><strong>Setup:</strong></p>
+<ul>
+  <li>One screen shared (driver)</li>
+  <li>2-4 developers watching (navigators)</li>
+  <li>AI assistant running</li>
+</ul>
+
+<p><strong>Process:</strong></p>
+
+<ol>
+  <li><strong>Navigator 1</strong> dictates spec requirements</li>
+  <li><strong>Driver</strong> types into AI assistant</li>
+  <li><strong>Navigator 2</strong> reviews AI output in real-time</li>
+  <li><strong>All</strong> discuss and refine before accepting</li>
+  <li><strong>Rotate</strong> driver every 15 minutes</li>
+</ol>
+
+<p><strong>Why this works</strong>: Multiple humans catch AI hallucinations immediately. Knowledge transfers naturally. Everyone understands the codebase.</p>
+
+<hr />
+
+<h2 id="section-2-code-review-for-spec-driven-projects">Section 2: Code review for spec-driven projects</h2>
+
+<h3 id="the-spec-driven-pr-checklist">The spec-driven PR checklist</h3>
+
+<p>Standard code review isn’t enough. Add these checks:</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gu">## PR Review Checklist</span>
+
+<span class="gu">### Constitution Compliance</span>
+<span class="p">-</span> [ ] Code follows technical constraints
+<span class="p">-</span> [ ] Performance targets considered
+<span class="p">-</span> [ ] Security requirements addressed
+<span class="p">-</span> [ ] No prohibited patterns used
+
+<span class="gu">### Spec Alignment</span>
+<span class="p">-</span> [ ] Implementation matches user stories
+<span class="p">-</span> [ ] All acceptance criteria testable
+<span class="p">-</span> [ ] Edge cases from spec handled
+<span class="p">-</span> [ ] Error messages match spec exactly
+
+<span class="gu">### Plan Consistency</span>
+<span class="p">-</span> [ ] Architecture matches plan.md
+<span class="p">-</span> [ ] Data model matches data-model.md
+<span class="p">-</span> [ ] API contracts match api-spec
+<span class="p">-</span> [ ] No undocumented deviations
+
+<span class="gu">### AI-Specific Checks</span>
+<span class="p">-</span> [ ] No hallucinated dependencies
+<span class="p">-</span> [ ] No deprecated patterns
+<span class="p">-</span> [ ] Tests actually run (not just generated)
+<span class="p">-</span> [ ] No hardcoded localhost/dev values
+</code></pre></div></div>
+
+<h3 id="review-automation">Review automation</h3>
+
+<p>Add a PR template that enforces the checklist:</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- .github/PULL_REQUEST_TEMPLATE.md --&gt;</span>
+
+<span class="gu">## Summary</span>
+<span class="c">&lt;!-- What does this PR do? --&gt;</span>
+
+<span class="gu">## Related Spec Section</span>
+<span class="c">&lt;!-- Link to spec.md section this implements --&gt;</span>
+
+<span class="gu">## Constitution Compliance</span>
+<span class="p">-</span> [ ] Reviewed against constitution.md
+<span class="p">-</span> [ ] No violations or documented exceptions
+
+<span class="gu">## Testing</span>
+<span class="p">-</span> [ ] Unit tests added/updated
+<span class="p">-</span> [ ] Integration tests pass
+<span class="p">-</span> [ ] Manual testing completed
+
+<span class="gu">## AI Disclosure</span>
+<span class="p">-</span> [ ] AI-assisted code reviewed by human
+<span class="p">-</span> [ ] All dependencies verified to exist
+<span class="p">-</span> [ ] No TODO/FIXME markers from AI
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="section-3-cicd-integration">Section 3: CI/CD integration</h2>
+
+<h3 id="github-actions-pipeline">GitHub Actions pipeline</h3>
+
+<p>For teams using GitHub, here’s a complete pipeline:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># .github/workflows/spec-driven-ci.yml</span>
+<span class="na">name</span><span class="pi">:</span> <span class="s">Spec-Driven CI/CD</span>
+
+<span class="na">on</span><span class="pi">:</span>
+  <span class="na">push</span><span class="pi">:</span>
+    <span class="na">branches</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">main</span><span class="pi">]</span>
+  <span class="na">pull_request</span><span class="pi">:</span>
+    <span class="na">branches</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">main</span><span class="pi">]</span>
+
+<span class="na">env</span><span class="pi">:</span>
+  <span class="na">DOTNET_VERSION</span><span class="pi">:</span> <span class="s1">'</span><span class="s">9.0.x'</span>
+
+<span class="na">jobs</span><span class="pi">:</span>
+  <span class="na">validate-specs</span><span class="pi">:</span>
+    <span class="na">name</span><span class="pi">:</span> <span class="s">Validate Specifications</span>
+    <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
+    <span class="na">steps</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v4</span>
+      
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Check spec completeness</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
+          <span class="s"># Verify required sections exist</span>
+          <span class="s">for section in "User Stories" "Acceptance Criteria" "Edge Cases"; do</span>
+            <span class="s">if ! grep -q "## $section" .speckit/spec.md; then</span>
+              <span class="s">echo "::error::Missing required section: $section"</span>
+              <span class="s">exit 1</span>
+            <span class="s">fi</span>
+          <span class="s">done</span>
+          
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Check for TODO markers</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
+          <span class="s">if grep -r "TODO\|FIXME\|XXX" .speckit/*.md; then</span>
+            <span class="s">echo "::error::Unresolved TODO markers in specifications"</span>
+            <span class="s">exit 1</span>
+          <span class="s">fi</span>
+          
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Validate constitution compliance</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
+          <span class="s"># Check nullable reference types (from constitution)</span>
+          <span class="s">if ! grep -q "&lt;Nullable&gt;enable&lt;/Nullable&gt;" src/*.csproj; then</span>
+            <span class="s">echo "::error::Nullable reference types not enabled"</span>
+            <span class="s">exit 1</span>
+          <span class="s">fi</span>
+
+  <span class="na">build-and-test</span><span class="pi">:</span>
+    <span class="na">name</span><span class="pi">:</span> <span class="s">Build and Test</span>
+    <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
+    <span class="na">needs</span><span class="pi">:</span> <span class="s">validate-specs</span>
+    <span class="na">steps</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v4</span>
+      
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Setup .NET</span>
+        <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/setup-dotnet@v4</span>
+        <span class="na">with</span><span class="pi">:</span>
+          <span class="na">dotnet-version</span><span class="pi">:</span> <span class="s">$</span>
+          
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Restore dependencies</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="s">dotnet restore</span>
+        
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Build</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="s">dotnet build --no-restore --configuration Release</span>
+        
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Run tests</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="s">dotnet test --no-build --configuration Release --collect:"XPlat Code Coverage"</span>
+        
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Check coverage threshold</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
+          <span class="s"># Constitution requires 80% coverage</span>
+          <span class="s">coverage=$(cat TestResults/*/coverage.cobertura.xml | grep -oP 'line-rate="\K[^"]+')</span>
+          <span class="s">if (( $(echo "$coverage &lt; 0.80" | bc -l) )); then</span>
+            <span class="s">echo "::error::Coverage ${coverage} below 80% threshold"</span>
+            <span class="s">exit 1</span>
+          <span class="s">fi</span>
+
+  <span class="na">security-scan</span><span class="pi">:</span>
+    <span class="na">name</span><span class="pi">:</span> <span class="s">Security Scan</span>
+    <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
+    <span class="na">needs</span><span class="pi">:</span> <span class="s">build-and-test</span>
+    <span class="na">steps</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v4</span>
+      
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Run dependency audit</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="s">dotnet list package --vulnerable --include-transitive</span>
+        
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">OWASP dependency check</span>
+        <span class="na">uses</span><span class="pi">:</span> <span class="s">dependency-check/Dependency-Check_Action@main</span>
+        <span class="na">with</span><span class="pi">:</span>
+          <span class="na">project</span><span class="pi">:</span> <span class="s1">'</span><span class="s">TeamTaskManager'</span>
+          <span class="na">path</span><span class="pi">:</span> <span class="s1">'</span><span class="s">.'</span>
+          <span class="na">format</span><span class="pi">:</span> <span class="s1">'</span><span class="s">HTML'</span>
+
+  <span class="na">deploy-staging</span><span class="pi">:</span>
+    <span class="na">name</span><span class="pi">:</span> <span class="s">Deploy to Staging</span>
+    <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
+    <span class="na">needs</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">build-and-test</span><span class="pi">,</span> <span class="nv">security-scan</span><span class="pi">]</span>
+    <span class="na">if</span><span class="pi">:</span> <span class="s">github.ref == 'refs/heads/main'</span>
+    <span class="na">environment</span><span class="pi">:</span> <span class="s">staging</span>
+    <span class="na">steps</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v4</span>
+      
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Deploy to staging</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
+          <span class="s"># Your deployment script here</span>
+          <span class="s">echo "Deploying to staging..."</span>
+</code></pre></div></div>
+
+<h3 id="azure-devops-pipeline">Azure DevOps pipeline</h3>
+
+<p>Many enterprises in the Netherlands and Europe use Azure DevOps. Here’s the equivalent pipeline:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># azure-pipelines.yml</span>
+<span class="na">trigger</span><span class="pi">:</span>
+  <span class="na">branches</span><span class="pi">:</span>
+    <span class="na">include</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">main</span>
+  <span class="na">paths</span><span class="pi">:</span>
+    <span class="na">exclude</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">README.md</span>
+      <span class="pi">-</span> <span class="s">docs/*</span>
+
+<span class="na">pr</span><span class="pi">:</span>
+  <span class="na">branches</span><span class="pi">:</span>
+    <span class="na">include</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">main</span>
+
+<span class="na">pool</span><span class="pi">:</span>
+  <span class="na">vmImage</span><span class="pi">:</span> <span class="s1">'</span><span class="s">ubuntu-latest'</span>
+
+<span class="na">variables</span><span class="pi">:</span>
+  <span class="na">dotnetVersion</span><span class="pi">:</span> <span class="s1">'</span><span class="s">9.0.x'</span>
+  <span class="na">buildConfiguration</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Release'</span>
+
+<span class="na">stages</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">stage</span><span class="pi">:</span> <span class="s">Validate</span>
+    <span class="na">displayName</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Validate</span><span class="nv"> </span><span class="s">Specifications'</span>
+    <span class="na">jobs</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">job</span><span class="pi">:</span> <span class="s">ValidateSpecs</span>
+        <span class="na">displayName</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Spec</span><span class="nv"> </span><span class="s">Validation'</span>
+        <span class="na">steps</span><span class="pi">:</span>
+          <span class="pi">-</span> <span class="na">checkout</span><span class="pi">:</span> <span class="s">self</span>
+          
+          <span class="pi">-</span> <span class="na">task</span><span class="pi">:</span> <span class="s">Bash@3</span>
+            <span class="na">displayName</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Check</span><span class="nv"> </span><span class="s">spec</span><span class="nv"> </span><span class="s">completeness'</span>
+            <span class="na">inputs</span><span class="pi">:</span>
+              <span class="na">targetType</span><span class="pi">:</span> <span class="s1">'</span><span class="s">inline'</span>
+              <span class="na">script</span><span class="pi">:</span> <span class="pi">|</span>
+                <span class="s">echo "Checking specification completeness..."</span>
+                
+                <span class="s">required_sections=("User Stories" "Acceptance Criteria" "Edge Cases")</span>
+                <span class="s">for section in "${required_sections[@]}"; do</span>
+                  <span class="s">if ! grep -q "## $section" .speckit/spec.md; then</span>
+                    <span class="s">echo "##vso[task.logissue type=error]Missing required section: $section"</span>
+                    <span class="s">exit 1</span>
+                  <span class="s">fi</span>
+                <span class="s">done</span>
+                
+                <span class="s">echo "All required sections present"</span>
+                
+          <span class="pi">-</span> <span class="na">task</span><span class="pi">:</span> <span class="s">Bash@3</span>
+            <span class="na">displayName</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Check</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">unresolved</span><span class="nv"> </span><span class="s">TODOs'</span>
+            <span class="na">inputs</span><span class="pi">:</span>
+              <span class="na">targetType</span><span class="pi">:</span> <span class="s1">'</span><span class="s">inline'</span>
+              <span class="na">script</span><span class="pi">:</span> <span class="pi">|</span>
+                <span class="s">if grep -r "TODO\|FIXME" .speckit/*.md; then</span>
+                  <span class="s">echo "##vso[task.logissue type=error]Unresolved TODO markers found"</span>
+                  <span class="s">exit 1</span>
+                <span class="s">fi</span>
+                
+          <span class="pi">-</span> <span class="na">task</span><span class="pi">:</span> <span class="s">Bash@3</span>
+            <span class="na">displayName</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Validate</span><span class="nv"> </span><span class="s">constitution</span><span class="nv"> </span><span class="s">compliance'</span>
+            <span class="na">inputs</span><span class="pi">:</span>
+              <span class="na">targetType</span><span class="pi">:</span> <span class="s1">'</span><span class="s">inline'</span>
+              <span class="na">script</span><span class="pi">:</span> <span class="pi">|</span>
+                <span class="s"># Check nullable reference types enabled</span>
+                <span class="s">if ! grep -q "&lt;Nullable&gt;enable&lt;/Nullable&gt;" src/*.csproj; then</span>
+                  <span class="s">echo "##vso[task.logissue type=error]Nullable reference types not enabled (constitution violation)"</span>
+                  <span class="s">exit 1</span>
+                <span class="s">fi</span>
+                
+                <span class="s"># Check for raw SQL (prohibited by constitution)</span>
+                <span class="s">if grep -r "ExecuteSqlRaw\|FromSqlRaw" src/; then</span>
+                  <span class="s">echo "##vso[task.logissue type=error]Raw SQL detected (constitution violation)"</span>
+                  <span class="s">exit 1</span>
+                <span class="s">fi</span>
+
+  <span class="pi">-</span> <span class="na">stage</span><span class="pi">:</span> <span class="s">Build</span>
+    <span class="na">displayName</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Build</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">Test'</span>
+    <span class="na">dependsOn</span><span class="pi">:</span> <span class="s">Validate</span>
+    <span class="na">jobs</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">job</span><span class="pi">:</span> <span class="s">BuildAndTest</span>
+        <span class="na">displayName</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Build</span><span class="nv"> </span><span class="s">&amp;</span><span class="nv"> </span><span class="s">Test'</span>
+        <span class="na">steps</span><span class="pi">:</span>
+          <span class="pi">-</span> <span class="na">checkout</span><span class="pi">:</span> <span class="s">self</span>
+          
+          <span class="pi">-</span> <span class="na">task</span><span class="pi">:</span> <span class="s">UseDotNet@2</span>
+            <span class="na">displayName</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Setup</span><span class="nv"> </span><span class="s">.NET'</span>
+            <span class="na">inputs</span><span class="pi">:</span>
+              <span class="na">version</span><span class="pi">:</span> <span class="s">$(dotnetVersion)</span>
+              
+          <span class="pi">-</span> <span class="na">task</span><span class="pi">:</span> <span class="s">DotNetCoreCLI@2</span>
+            <span class="na">displayName</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Restore</span><span class="nv"> </span><span class="s">packages'</span>
+            <span class="na">inputs</span><span class="pi">:</span>
+              <span class="na">command</span><span class="pi">:</span> <span class="s1">'</span><span class="s">restore'</span>
+              <span class="na">projects</span><span class="pi">:</span> <span class="s1">'</span><span class="s">**/*.csproj'</span>
+              
+          <span class="pi">-</span> <span class="na">task</span><span class="pi">:</span> <span class="s">DotNetCoreCLI@2</span>
+            <span class="na">displayName</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Build</span><span class="nv"> </span><span class="s">solution'</span>
+            <span class="na">inputs</span><span class="pi">:</span>
+              <span class="na">command</span><span class="pi">:</span> <span class="s1">'</span><span class="s">build'</span>
+              <span class="na">projects</span><span class="pi">:</span> <span class="s1">'</span><span class="s">**/*.csproj'</span>
+              <span class="na">arguments</span><span class="pi">:</span> <span class="s1">'</span><span class="s">--configuration</span><span class="nv"> </span><span class="s">$(buildConfiguration)</span><span class="nv"> </span><span class="s">--no-restore'</span>
+              
+          <span class="pi">-</span> <span class="na">task</span><span class="pi">:</span> <span class="s">DotNetCoreCLI@2</span>
+            <span class="na">displayName</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Run</span><span class="nv"> </span><span class="s">tests</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">coverage'</span>
+            <span class="na">inputs</span><span class="pi">:</span>
+              <span class="na">command</span><span class="pi">:</span> <span class="s1">'</span><span class="s">test'</span>
+              <span class="na">projects</span><span class="pi">:</span> <span class="s1">'</span><span class="s">**/*Tests.csproj'</span>
+              <span class="na">arguments</span><span class="pi">:</span> <span class="s1">'</span><span class="s">--configuration</span><span class="nv"> </span><span class="s">$(buildConfiguration)</span><span class="nv"> </span><span class="s">--no-build</span><span class="nv"> </span><span class="s">--collect:"XPlat</span><span class="nv"> </span><span class="s">Code</span><span class="nv"> </span><span class="s">Coverage"</span><span class="nv"> </span><span class="s">--results-directory</span><span class="nv"> </span><span class="s">$(Build.SourcesDirectory)/TestResults'</span>
+              
+          <span class="pi">-</span> <span class="na">task</span><span class="pi">:</span> <span class="s">PublishCodeCoverageResults@2</span>
+            <span class="na">displayName</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Publish</span><span class="nv"> </span><span class="s">coverage</span><span class="nv"> </span><span class="s">report'</span>
+            <span class="na">inputs</span><span class="pi">:</span>
+              <span class="na">summaryFileLocation</span><span class="pi">:</span> <span class="s1">'</span><span class="s">$(Build.SourcesDirectory)/TestResults/**/coverage.cobertura.xml'</span>
+              
+          <span class="pi">-</span> <span class="na">task</span><span class="pi">:</span> <span class="s">Bash@3</span>
+            <span class="na">displayName</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Enforce</span><span class="nv"> </span><span class="s">coverage</span><span class="nv"> </span><span class="s">threshold'</span>
+            <span class="na">inputs</span><span class="pi">:</span>
+              <span class="na">targetType</span><span class="pi">:</span> <span class="s1">'</span><span class="s">inline'</span>
+              <span class="na">script</span><span class="pi">:</span> <span class="pi">|</span>
+                <span class="s"># Constitution requires 80% coverage</span>
+                <span class="s">coverage_file=$(find $(Build.SourcesDirectory)/TestResults -name "coverage.cobertura.xml" | head -1)</span>
+                <span class="s">if [ -f "$coverage_file" ]; then</span>
+                  <span class="s">coverage=$(grep -oP 'line-rate="\K[^"]+' "$coverage_file" | head -1)</span>
+                  <span class="s">threshold=0.80</span>
+                  <span class="s">if (( $(echo "$coverage &lt; $threshold" | bc -l) )); then</span>
+                    <span class="s">echo "##vso[task.logissue type=error]Coverage $coverage is below $threshold threshold"</span>
+                    <span class="s">exit 1</span>
+                  <span class="s">fi</span>
+                  <span class="s">echo "Coverage: $coverage (threshold: $threshold) ✓"</span>
+                <span class="s">fi</span>
+
+  <span class="pi">-</span> <span class="na">stage</span><span class="pi">:</span> <span class="s">Security</span>
+    <span class="na">displayName</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Security</span><span class="nv"> </span><span class="s">Scanning'</span>
+    <span class="na">dependsOn</span><span class="pi">:</span> <span class="s">Build</span>
+    <span class="na">jobs</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">job</span><span class="pi">:</span> <span class="s">SecurityScan</span>
+        <span class="na">displayName</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Dependency</span><span class="nv"> </span><span class="s">&amp;</span><span class="nv"> </span><span class="s">SAST</span><span class="nv"> </span><span class="s">Scan'</span>
+        <span class="na">steps</span><span class="pi">:</span>
+          <span class="pi">-</span> <span class="na">checkout</span><span class="pi">:</span> <span class="s">self</span>
+          
+          <span class="pi">-</span> <span class="na">task</span><span class="pi">:</span> <span class="s">UseDotNet@2</span>
+            <span class="na">inputs</span><span class="pi">:</span>
+              <span class="na">version</span><span class="pi">:</span> <span class="s">$(dotnetVersion)</span>
+              
+          <span class="pi">-</span> <span class="na">task</span><span class="pi">:</span> <span class="s">DotNetCoreCLI@2</span>
+            <span class="na">displayName</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Check</span><span class="nv"> </span><span class="s">vulnerable</span><span class="nv"> </span><span class="s">packages'</span>
+            <span class="na">inputs</span><span class="pi">:</span>
+              <span class="na">command</span><span class="pi">:</span> <span class="s1">'</span><span class="s">custom'</span>
+              <span class="na">custom</span><span class="pi">:</span> <span class="s1">'</span><span class="s">list'</span>
+              <span class="na">arguments</span><span class="pi">:</span> <span class="s1">'</span><span class="s">package</span><span class="nv"> </span><span class="s">--vulnerable</span><span class="nv"> </span><span class="s">--include-transitive'</span>
+              
+          <span class="c1"># If you have Microsoft Defender for DevOps or SonarCloud</span>
+          <span class="pi">-</span> <span class="na">task</span><span class="pi">:</span> <span class="s">MicrosoftSecurityDevOps@1</span>
+            <span class="na">displayName</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Microsoft</span><span class="nv"> </span><span class="s">Security</span><span class="nv"> </span><span class="s">DevOps'</span>
+            <span class="na">continueOnError</span><span class="pi">:</span> <span class="kc">true</span>
+
+  <span class="pi">-</span> <span class="na">stage</span><span class="pi">:</span> <span class="s">DeployStaging</span>
+    <span class="na">displayName</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Deploy</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">Staging'</span>
+    <span class="na">dependsOn</span><span class="pi">:</span> <span class="s">Security</span>
+    <span class="na">condition</span><span class="pi">:</span> <span class="s">and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))</span>
+    <span class="na">jobs</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">deployment</span><span class="pi">:</span> <span class="s">DeployStaging</span>
+        <span class="na">displayName</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Deploy</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">Staging'</span>
+        <span class="na">environment</span><span class="pi">:</span> <span class="s1">'</span><span class="s">staging'</span>
+        <span class="na">strategy</span><span class="pi">:</span>
+          <span class="na">runOnce</span><span class="pi">:</span>
+            <span class="na">deploy</span><span class="pi">:</span>
+              <span class="na">steps</span><span class="pi">:</span>
+                <span class="pi">-</span> <span class="na">task</span><span class="pi">:</span> <span class="s">AzureWebApp@1</span>
+                  <span class="na">displayName</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Deploy</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">Azure</span><span class="nv"> </span><span class="s">App</span><span class="nv"> </span><span class="s">Service'</span>
+                  <span class="na">inputs</span><span class="pi">:</span>
+                    <span class="na">azureSubscription</span><span class="pi">:</span> <span class="s1">'</span><span class="s">$(azureServiceConnection)'</span>
+                    <span class="na">appType</span><span class="pi">:</span> <span class="s1">'</span><span class="s">webApp'</span>
+                    <span class="na">appName</span><span class="pi">:</span> <span class="s1">'</span><span class="s">$(stagingAppName)'</span>
+                    <span class="na">package</span><span class="pi">:</span> <span class="s1">'</span><span class="s">$(Pipeline.Workspace)/**/*.zip'</span>
+</code></pre></div></div>
+
+<h3 id="key-differences-github-actions-vs-azure-devops">Key differences: GitHub Actions vs Azure DevOps</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Aspect</th>
+      <th style="text-align: left">GitHub Actions</th>
+      <th style="text-align: left">Azure DevOps</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Syntax</strong></td>
+      <td style="text-align: left">YAML with <code class="language-plaintext highlighter-rouge">jobs</code></td>
+      <td style="text-align: left">YAML with <code class="language-plaintext highlighter-rouge">stages</code> and <code class="language-plaintext highlighter-rouge">jobs</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Environments</strong></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">environment:</code> keyword</td>
+      <td style="text-align: left">Deployment jobs with <code class="language-plaintext highlighter-rouge">environment:</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Secrets</strong></td>
+      <td style="text-align: left">Repository/org secrets</td>
+      <td style="text-align: left">Variable groups, Key Vault</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Logging</strong></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">echo "::error::"</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">##vso[task.logissue]</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Artifacts</strong></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">actions/upload-artifact</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">PublishPipelineArtifact</code> task</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Approvals</strong></td>
+      <td style="text-align: left">Environment protection rules</td>
+      <td style="text-align: left">Stage gates and approvals</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Pro tip</strong>: Many Dutch enterprises use Azure DevOps for the tighter Azure integration, built-in boards, and compliance features. GitHub Actions is simpler for open-source or GitHub-native workflows.</p>
+
+<hr />
+
+<h2 id="section-4-advanced-architectural-patterns">Section 4: Advanced architectural patterns</h2>
+
+<p>As your application grows, the monolith from Part 2 may need to evolve. Here’s how spec-driven development adapts to advanced patterns.</p>
+
+<h3 id="pattern-1-modular-monolith">Pattern #1: Modular monolith</h3>
+
+<p><strong>When to use</strong>: Application growing, but not ready for microservices.</p>
+
+<p><strong>Constitution update:</strong></p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gu">## Architecture: Modular Monolith</span>
+
+<span class="gu">### Module Boundaries</span>
+Each module is a separate project/assembly with:
+<span class="p">-</span> Own data access (no cross-module database queries)
+<span class="p">-</span> Public API via interfaces only
+<span class="p">-</span> Internal implementation hidden
+
+<span class="gu">### Modules</span>
+<span class="p">-</span> <span class="sb">`TeamTaskManager.Users`</span> - Authentication, profiles
+<span class="p">-</span> <span class="sb">`TeamTaskManager.Teams`</span> - Team management
+<span class="p">-</span> <span class="sb">`TeamTaskManager.Tasks`</span> - Task CRUD and workflows
+<span class="p">-</span> <span class="sb">`TeamTaskManager.Notifications`</span> - Email, push notifications
+
+<span class="gu">### Communication</span>
+<span class="p">-</span> Modules communicate via defined interfaces
+<span class="p">-</span> No direct database access across modules
+<span class="p">-</span> Events for async communication (MediatR)
+</code></pre></div></div>
+
+<p><strong>Spec pattern:</strong></p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gu">## Feature: Task Assignment Notification</span>
+
+<span class="gs">**Module**</span>: Tasks (primary), Notifications (consumer)
+
+<span class="gs">**Given**</span> a task is assigned to a user
+<span class="gs">**When**</span> the assignment is saved
+<span class="gs">**Then**</span> Tasks module publishes <span class="sb">`TaskAssignedEvent`</span>
+<span class="gs">**And**</span> Notifications module sends email to assignee
+</code></pre></div></div>
+
+<h3 id="pattern-2-backend-for-frontend-bff">Pattern #2: Backend for Frontend (BFF)</h3>
+
+<p><strong>When to use</strong>: Multiple clients (web, mobile, third-party) need different APIs.</p>
+
+<p><strong>Constitution update:</strong></p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gu">## Architecture: Backend for Frontend</span>
+
+<span class="gu">### BFF Services</span>
+<span class="p">-</span> <span class="sb">`TeamTaskManager.WebBFF`</span> - Optimized for Blazor web app
+<span class="p">-</span> <span class="sb">`TeamTaskManager.MobileBFF`</span> - Optimized for mobile (future)
+<span class="p">-</span> <span class="sb">`TeamTaskManager.PublicAPI`</span> - Third-party integrations
+
+<span class="gu">### Core Services</span>
+<span class="p">-</span> BFFs call shared core services
+<span class="p">-</span> Core services own business logic
+<span class="p">-</span> BFFs handle client-specific concerns (aggregation, formatting)
+</code></pre></div></div>
+
+<p><strong>Plan pattern:</strong></p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gu">## API Architecture</span>
+
+<span class="gu">### Web BFF Endpoints</span>
+Optimized for single-page load:
+<span class="p">-</span> <span class="sb">`GET /web/dashboard`</span> → Returns user, teams, tasks in one call
+<span class="p">-</span> <span class="sb">`GET /web/team/{id}`</span> → Returns team with members and recent tasks
+
+<span class="gu">### Mobile BFF Endpoints (Future)</span>
+Optimized for bandwidth:
+<span class="p">-</span> <span class="sb">`GET /mobile/sync`</span> → Delta sync since last update
+<span class="p">-</span> Compressed responses, minimal payload
+
+<span class="gu">### Public API</span>
+RESTful, versioned, rate-limited:
+<span class="p">-</span> <span class="sb">`GET /api/v1/tasks`</span> → Standard REST
+<span class="p">-</span> OAuth 2.0 authentication
+</code></pre></div></div>
+
+<h3 id="pattern-3-event-driven-architecture">Pattern #3: Event-driven architecture</h3>
+
+<p><strong>When to use</strong>: Need loose coupling, async processing, audit trails.</p>
+
+<p><strong>Constitution update:</strong></p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gu">## Architecture: Event-Driven</span>
+
+<span class="gu">### Event Bus</span>
+<span class="p">-</span> Use Azure Service Bus / RabbitMQ / MassTransit
+<span class="p">-</span> All state changes published as events
+<span class="p">-</span> Events are immutable facts
+
+<span class="gu">### Event Patterns</span>
+<span class="p">-</span> <span class="gs">**Domain Events**</span>: <span class="sb">`TaskCreated`</span>, <span class="sb">`TaskCompleted`</span>, <span class="sb">`MemberInvited`</span>
+<span class="p">-</span> <span class="gs">**Integration Events**</span>: Cross-service communication
+<span class="p">-</span> <span class="gs">**Event Sourcing**</span>: Optional, for audit-critical features
+
+<span class="gu">### Guarantees</span>
+<span class="p">-</span> At-least-once delivery (consumers must be idempotent)
+<span class="p">-</span> Events include correlation ID for tracing
+</code></pre></div></div>
+
+<p><strong>Spec pattern:</strong></p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gu">## Event: TaskCompleted</span>
+
+<span class="gs">**Published when**</span>: User marks task as complete
+
+<span class="gs">**Payload:**</span>
+<span class="p">```</span><span class="nl">json
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"eventId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"eventType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TaskCompleted"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-01-26T10:30:00Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"correlationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"taskId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"completedBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"userId"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"teamId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Consumers:</strong></p>
+<ul>
+  <li>Notifications: Send completion email to task creator</li>
+  <li>Analytics: Update team productivity metrics</li>
+  <li>Audit: Log completion event
+```</li>
+</ul>
+
+<h3 id="pattern-4-microservices-proceed-with-caution">Pattern #4: Microservices (proceed with caution)</h3>
+
+<p><strong>When to use</strong>: Large team (10+ developers), clear domain boundaries, need independent deployment.</p>
+
+<blockquote>
+  <p>⚠️ <strong>Warning</strong>: Don’t start with microservices. Extract them from a working monolith when you have clear reasons.</p>
+</blockquote>
+
+<p><strong>Constitution update:</strong></p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gu">## Architecture: Microservices</span>
+
+<span class="gu">### Services</span>
+<span class="p">-</span> <span class="sb">`users-service`</span> - Authentication, profiles (owns users DB)
+<span class="p">-</span> <span class="sb">`teams-service`</span> - Team management (owns teams DB)
+<span class="p">-</span> <span class="sb">`tasks-service`</span> - Task management (owns tasks DB)
+<span class="p">-</span> <span class="sb">`notifications-service`</span> - All notifications (stateless)
+
+<span class="gu">### Communication</span>
+<span class="p">-</span> Sync: gRPC for internal, REST for external
+<span class="p">-</span> Async: Azure Service Bus for events
+<span class="p">-</span> No shared databases (each service owns its data)
+
+<span class="gu">### Deployment</span>
+<span class="p">-</span> Each service independently deployable
+<span class="p">-</span> Kubernetes for orchestration
+<span class="p">-</span> Service mesh for observability (Istio/Linkerd)
+
+<span class="gu">### Data Consistency</span>
+<span class="p">-</span> Eventual consistency between services
+<span class="p">-</span> Saga pattern for distributed transactions
+<span class="p">-</span> Outbox pattern for reliable event publishing
+</code></pre></div></div>
+
+<h3 id="choosing-the-right-pattern">Choosing the right pattern</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Pattern</th>
+      <th style="text-align: left">Team Size</th>
+      <th style="text-align: left">Complexity</th>
+      <th style="text-align: left">When to Choose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Monolith</strong></td>
+      <td style="text-align: left">1-5</td>
+      <td style="text-align: left">Low</td>
+      <td style="text-align: left">Starting out, validating product</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Modular Monolith</strong></td>
+      <td style="text-align: left">3-10</td>
+      <td style="text-align: left">Medium</td>
+      <td style="text-align: left">Growing, need structure</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>BFF</strong></td>
+      <td style="text-align: left">5-15</td>
+      <td style="text-align: left">Medium</td>
+      <td style="text-align: left">Multiple client types</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Event-Driven</strong></td>
+      <td style="text-align: left">5-20</td>
+      <td style="text-align: left">High</td>
+      <td style="text-align: left">Async workflows, audit needs</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Microservices</strong></td>
+      <td style="text-align: left">10+</td>
+      <td style="text-align: left">Very High</td>
+      <td style="text-align: left">Clear domains, independent scaling</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>The spec-driven advantage</strong>: Your constitution documents architectural decisions. When you evolve from monolith to modular to microservices, the spec history shows why.</p>
+
+<hr />
+
+<h2 id="section-5-scaling-strategies">Section 5: Scaling strategies</h2>
+
+<h3 id="when-your-application-outgrows-the-initial-architecture">When your application outgrows the initial architecture</h3>
+
+<p>The Team Task Manager from Part 2 works great for 100 users. What about 10,000? 100,000?</p>
+
+<h3 id="strategy-1-horizontal-scaling">Strategy #1: Horizontal scaling</h3>
+
+<p><strong>Constitution update:</strong></p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gu">## Scaling Requirements</span>
+
+<span class="gu">### Stateless Application</span>
+<span class="p">-</span> No in-memory session state
+<span class="p">-</span> Use distributed cache (Redis) for session
+<span class="p">-</span> Any instance can handle any request
+
+<span class="gu">### Database Scaling</span>
+<span class="p">-</span> Read replicas for query-heavy operations
+<span class="p">-</span> Connection pooling required
+<span class="p">-</span> Consider read/write splitting at 10k users
+</code></pre></div></div>
+
+<h3 id="strategy-2-caching-layers">Strategy #2: Caching layers</h3>
+
+<p><strong>Spec pattern:</strong></p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gu">## Performance: Task List Caching</span>
+
+<span class="gs">**Given**</span> a user views their team's task list
+<span class="gs">**When**</span> the list was fetched &lt; 30 seconds ago
+<span class="gs">**Then**</span> return cached result (skip database)
+
+<span class="gs">**Cache invalidation:**</span>
+<span class="p">-</span> Task created → Invalidate team's task list cache
+<span class="p">-</span> Task updated → Invalidate specific task + team list cache
+<span class="p">-</span> Team membership changed → Invalidate all team caches
+
+<span class="gs">**Cache implementation:**</span>
+<span class="p">-</span> L1: In-memory (IMemoryCache), 10 second TTL
+<span class="p">-</span> L2: Distributed (Redis), 30 second TTL
+</code></pre></div></div>
+
+<h3 id="strategy-3-background-processing">Strategy #3: Background processing</h3>
+
+<p><strong>Constitution update:</strong></p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gu">## Background Jobs</span>
+
+<span class="gu">### Job Queue</span>
+<span class="p">-</span> Use Hangfire / Azure Functions / AWS Lambda
+<span class="p">-</span> Long-running operations MUST be async
+
+<span class="gu">### Job Types</span>
+<span class="p">-</span> Email sending (&lt; 1 minute)
+<span class="p">-</span> Report generation (&lt; 5 minutes)  
+<span class="p">-</span> Data export (&lt; 30 minutes)
+
+<span class="gu">### Retry Policy</span>
+<span class="p">-</span> 3 retries with exponential backoff
+<span class="p">-</span> Dead letter queue for failed jobs
+<span class="p">-</span> Alert on repeated failures
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="section-6-team-communication-patterns">Section 6: Team communication patterns</h2>
+
+<h3 id="keeping-everyone-aligned">Keeping everyone aligned</h3>
+
+<p>Spec-driven development generates artifacts. Those artifacts need to be communicated.</p>
+
+<h3 id="pattern-1-spec-review-meetings">Pattern #1: Spec review meetings</h3>
+
+<p><strong>Weekly, 30 minutes:</strong></p>
+
+<ol>
+  <li><strong>Spec changes this week</strong> (5 min)
+    <ul>
+      <li>What was added/modified/removed?</li>
+    </ul>
+  </li>
+  <li><strong>Plan deviations</strong> (10 min)
+    <ul>
+      <li>Any architectural decisions that deviated from plan?</li>
+      <li>Update plan.md to reflect reality</li>
+    </ul>
+  </li>
+  <li><strong>Constitution amendments</strong> (10 min)
+    <ul>
+      <li>Any new constraints discovered?</li>
+      <li>Any constraints that need relaxing?</li>
+    </ul>
+  </li>
+  <li><strong>Next week’s focus</strong> (5 min)
+    <ul>
+      <li>Which user stories are in flight?</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="pattern-2-async-spec-updates">Pattern #2: Async spec updates</h3>
+
+<p>For distributed teams:</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- In PR description --&gt;</span>
+
+<span class="gu">## Spec Changes</span>
+
+<span class="gu">### Added</span>
+<span class="p">-</span> User story: Password-less authentication (magic links)
+<span class="p">-</span> Edge case: Handle expired magic links gracefully
+
+<span class="gu">### Modified  </span>
+<span class="p">-</span> Authentication flow now supports both password and magic link
+
+<span class="gu">### Constitution Impact</span>
+<span class="p">-</span> None (existing security requirements cover magic links)
+
+<span class="gu">### Reviewers</span>
+<span class="p">-</span> @tech-lead - Constitution compliance
+<span class="p">-</span> @product-owner - Spec accuracy
+<span class="p">-</span> @security-team - Authentication changes
+</code></pre></div></div>
+
+<h3 id="pattern-3-decision-records">Pattern #3: Decision records</h3>
+
+<p>When specs change significantly, document why:</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- docs/decisions/004-magic-link-auth.md --&gt;</span>
+
+<span class="gh"># ADR-004: Add Magic Link Authentication</span>
+
+<span class="gu">## Status</span>
+Accepted
+
+<span class="gu">## Context</span>
+Users forget passwords. Password reset flow has 40% abandonment rate.
+
+<span class="gu">## Decision</span>
+Add magic link (email-based) authentication as alternative to passwords.
+
+<span class="gu">## Consequences</span>
+<span class="p">-</span> Positive: Reduced friction, fewer support tickets
+<span class="p">-</span> Negative: Email deliverability becomes critical path
+<span class="p">-</span> Neutral: Both auth methods coexist
+
+<span class="gu">## Spec Reference</span>
+<span class="p">-</span> spec.md: Section "Authentication" updated
+<span class="p">-</span> plan.md: Email service now critical infrastructure
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="key-takeaways-from-part-4">Key takeaways from Part 4</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">#</th>
+      <th style="text-align: left">Takeaway</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: left"><strong>Teams need workflows</strong> - Feature branches or trunk-based, pick one and commit</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td style="text-align: left"><strong>Automate validation</strong> - CI/CD should enforce constitution and spec compliance</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td style="text-align: left"><strong>Architecture evolves</strong> - Start simple, extract complexity when needed</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td style="text-align: left"><strong>Document decisions</strong> - Specs + ADRs = traceable architecture history</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td style="text-align: left"><strong>Communication matters</strong> - Artifacts are useless if the team doesn’t read them</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="whats-next">What’s next</h2>
+
+<p>In <strong>Part 5</strong> (next week), we’ll wrap up the series with:</p>
+
+<ul>
+  <li><strong>Real case studies</strong> - Actual projects built with spec-driven development</li>
+  <li><strong>Metrics and outcomes</strong> - What improved, what didn’t</li>
+  <li><strong>Lessons learned</strong> - Mistakes made, wisdom gained</li>
+  <li><strong>The future</strong> - Where AI-assisted development is heading</li>
+</ul>
+
+<hr />
+
+<h2 id="resources">Resources</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Resource</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="https://github.com/github/spec-kit"><strong>Spec-Kit GitHub</strong></a></td>
+      <td style="text-align: left">Official toolkit</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://docs.github.com/en/actions"><strong>GitHub Actions Docs</strong></a></td>
+      <td style="text-align: left">CI/CD for GitHub</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/"><strong>Azure Pipelines Docs</strong></a></td>
+      <td style="text-align: left">CI/CD for Azure DevOps</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://www.milanjovanovic.tech/blog/what-is-a-modular-monolith"><strong>Modular Monolith</strong></a></td>
+      <td style="text-align: left">Architecture pattern guide</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://adr.github.io/"><strong>ADR Templates</strong></a></td>
+      <td style="text-align: left">Architecture Decision Records</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="series-navigation">Series navigation</h2>
+
+<ul>
+  <li><strong>Previous</strong>: <a href="/from-vibe-coding-to-spec-driven-development-part3">Part 3 - Best practices and troubleshooting</a></li>
+  <li><strong>📍 You are here: Part 4 - Team collaboration and advanced patterns</strong></li>
+  <li><strong>Next</strong>: Part 5 - Case studies and lessons learned (Coming February 2, 2026)</li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>💬 <strong>Using spec-driven development with your team?</strong></p>
+
+  <p>I’d love to hear your experience. Connect with me on <a href="https://linkedin.com/in/hiddedesmet">LinkedIn</a>.</p>
+
+  <p><strong>Want to get notified when Part 5 drops?</strong> Follow me for the finale!</p>
+</blockquote>
+
+    </div>
+  </article>
+  <!-- end post -->
+</div>
+
+
+
+<div class="container">
+  <div class="card-author">
+    <div class="card-author__media">
+      
+      <a class="card-author__image" href="/hidde">
+        <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
+      </a>
+      
+    </div>
+
+    <div class="card-author__content">
+      <div class="card-author__role">Written by</div>
+        
+        <h3 class="card-author__name"><a href="/hidde" class="card-author__link">Hidde de Smet</a></h3>
+        
+        
+        <p class="card-author__description">As a certified Azure Solution Architect, I specialize in designing, implementing, and managing cloud-based solutions using Scrum and DevOps methodologies. 
+</p>
+        
+    </div>
+  </div>
+</div>
+
+
+
+  <!-- begin comments -->
+<div class="container">
+  <div class="row">
+    <div class="col col-12">
+      <div class="show-comments">
+        <h3 class="show-comments__title">Start the conversation</h3>
+        <button class="button button--big disqus-button" id="show-comments-button" onclick="disqus();return false;">Show Comments</button>
+      </div>
+
+      <div id="disqus_thread" class="post__comments">
+        <div id="disqus_empty"></div>
+      </div>
+
+      <script>
+        var disqus_loaded = false;
+        var disqus_shortname = 'anvod-studio-test';
+        var disqus_container = document.getElementById("disqus_thread");
+        function disqus() {
+          if (!disqus_loaded) {
+            disqus_loaded = true;
+            var e = document.createElement("script");
+            e.type = "text/javascript";
+            e.async = true;
+            e.src = "//" + disqus_shortname + ".disqus.com/embed.js";
+            (document.getElementsByTagName("head")[0] ||
+              document.getElementsByTagName("body")[0])
+              .appendChild(e);
+            // Hide the button after opening
+            document.getElementById("show-comments-button").style.display = "none";
+            // Show disqus comments
+            disqus_container.classList.add("is-open");
+          }
+        }
+      </script>
+
+      <noscript>Please enable JavaScript to view the
+        <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+      </noscript>
+    </div>
+  </div>
+</div>
+<!-- end comments -->
+
+
+
+
+
+
+
+
+<!-- begin related posts -->
+<section class="section related-posts is-related">
   <div class="container">
     <div class="row">
-      <div class="col col-12">
-        <div class="hero__inner">
-          
-          <h1 class="hero__title">Authors</h1>
-          
-          
-          <p class="hero__description">Welcome to our Authors page, where you can get to know the individual behind the words and ideas that shape our blog.</p>
-          
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- end hero -->
 
-<!-- begin authors -->
-<section class="section authors animate">
-  <div class="container">
-    <div class="section__inner">
-      <div class="row">
-        
-        
-        <div class="col col-4 col-w-6 col-t-12">
-          <div class="authors__info">
-            <a class="authors__image" href="/hidde"><img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet"></a>
-            <div class="authors__meta">
-              <h2 class="authors__name"><a class="authors__link" href="/hidde">Hidde de Smet</a></h2>
+      <div class="col col-12">
+        <div class="section__inner">
+
+          <div class="section__info">
+            <div class="section__head">
+              <h2 class="section__title">Related</h2>
               
-              <span class="authors__posts__count">(13)</span>
               
+                
+                  <a href="/tags#ai-assisted-development" class="section__link">See all<span> ai-assisted-development</span></a>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            
             </div>
-            
-            <div class="authors__description">As a certified Azure Solution Architect, I specialize in designing, implementing, and managing cloud-based solutions using Scrum and DevOps methodologies. 
-</div>
-            
           </div>
+
+          <div class="row">
+          
+            
+            
+
+            
+
+            
+          
+            
+            
+
+            
+
+            
+
+            <div class="col col-4 col-d-6 col-t-12">
+              <div class="article">
+  <div class="article__inner">
+
+    <div class="article__head">
+      
+
+      
+      <a href="/from-vibe-coding-to-spec-driven-development-part3" class="article__image" aria-hidden="true" tabindex="-1">
+        <img class="lazy" data-src="/images/spec-kit/image-03.png" alt="From Vibe Coding to Spec-Driven Development: Part 3 - Best practices and troubleshooting">
+      </a>
+      
+    </div>
+
+    <div class="article__content">
+
+      <div class="article__meta">
+        
+        <div class="article__tags">
+        
+          <a href="/tags#ai-assisted-development" class="article__tag">ai-assisted-development</a>
+        
+          <a href="/tags#spec-kit" class="article__tag">spec-kit</a>
+        
+          <a href="/tags#github" class="article__tag">github</a>
+        
+          <a href="/tags#copilot" class="article__tag">copilot</a>
+        
+          <a href="/tags#vibe-coding" class="article__tag">vibe-coding</a>
+        
+          <a href="/tags#specification-driven-development" class="article__tag">specification-driven-development</a>
+        
+          <a href="/tags#series" class="article__tag">series</a>
+        
         </div>
         
+        <span class="article__date">•<time datetime="2026-01-19T00:00:00+01:00">Jan 19, 2026</time></span>
+      </div>
+
+      <h2 class="article__title">
+        <a href="/from-vibe-coding-to-spec-driven-development-part3">From Vibe Coding to Spec-Driven Development: Part 3 - Best practices and troubleshooting</a>
+      </h2>
+
+      <p class="article__excerpt">Part 3 of our series on mastering AI-assisted development. Learn advanced specification techniques, debugging strategies, iteration patterns, and real-world troubleshooting for production-ready AI-generated code.</p>
+
+      <div class="article__info">
+        
+        
+        <a href="/hidde" class="article__author__image">
+          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
+        </a>
+        <div class="article__info__bottom">
+          <span>Written by</span>
+          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
+        </div>
+        
+      </div>
+
+    </div>
+  </div>
+</div>
+            </div>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            
+
+            <div class="col col-4 col-d-6 col-t-12">
+              <div class="article">
+  <div class="article__inner">
+
+    <div class="article__head">
+      
+
+      
+      <a href="/from-vibe-coding-to-spec-driven-development-part2" class="article__image" aria-hidden="true" tabindex="-1">
+        <img class="lazy" data-src="/images/spec-kit/image-02.png" alt="From Vibe Coding to Spec-Driven Development: Part 2 - The Spec-Kit Workflow">
+      </a>
+      
+    </div>
+
+    <div class="article__content">
+
+      <div class="article__meta">
+        
+        <div class="article__tags">
+        
+          <a href="/tags#ai-assisted-development" class="article__tag">ai-assisted-development</a>
+        
+          <a href="/tags#spec-kit" class="article__tag">spec-kit</a>
+        
+          <a href="/tags#github" class="article__tag">github</a>
+        
+          <a href="/tags#copilot" class="article__tag">copilot</a>
+        
+          <a href="/tags#vibe-coding" class="article__tag">vibe-coding</a>
+        
+          <a href="/tags#specification-driven-development" class="article__tag">specification-driven-development</a>
+        
+          <a href="/tags#series" class="article__tag">series</a>
+        
+        </div>
+        
+        <span class="article__date">•<time datetime="2026-01-12T00:00:00+01:00">Jan 12, 2026</time></span>
+      </div>
+
+      <h2 class="article__title">
+        <a href="/from-vibe-coding-to-spec-driven-development-part2">From Vibe Coding to Spec-Driven Development: Part 2 - The Spec-Kit Workflow</a>
+      </h2>
+
+      <p class="article__excerpt">Part 2 of our series on mastering AI-assisted development. A hands-on walkthrough of the complete Spec-Kit workflow: creating constitutions, writing specs, generating plans, and implementing production-ready code.</p>
+
+      <div class="article__info">
+        
+        
+        <a href="/hidde" class="article__author__image">
+          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
+        </a>
+        <div class="article__info__bottom">
+          <span>Written by</span>
+          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
+        </div>
+        
+      </div>
+
+    </div>
+  </div>
+</div>
+            </div>
+
+            
+            
+            
+          
+            
+            
+
+            
+
+            
+
+            <div class="col col-4 col-d-6 col-t-12">
+              <div class="article">
+  <div class="article__inner">
+
+    <div class="article__head">
+      
+
+      
+      <a href="/from-vibe-coding-to-spec-driven-development" class="article__image" aria-hidden="true" tabindex="-1">
+        <img class="lazy" data-src="/images/spec-kit/image-01.png" alt="From Vibe Coding to Spec-Driven Development: Part 1 - The problem and the solution">
+      </a>
+      
+    </div>
+
+    <div class="article__content">
+
+      <div class="article__meta">
+        
+        <div class="article__tags">
+        
+          <a href="/tags#ai-assisted-development" class="article__tag">ai-assisted-development</a>
+        
+          <a href="/tags#spec-kit" class="article__tag">spec-kit</a>
+        
+          <a href="/tags#github" class="article__tag">github</a>
+        
+          <a href="/tags#claude" class="article__tag">claude</a>
+        
+          <a href="/tags#copilot" class="article__tag">copilot</a>
+        
+          <a href="/tags#vibe-coding" class="article__tag">vibe-coding</a>
+        
+          <a href="/tags#specification-driven-development" class="article__tag">specification-driven-development</a>
+        
+          <a href="/tags#series" class="article__tag">series</a>
+        
+        </div>
+        
+        <span class="article__date">•<time datetime="2026-01-05T00:00:00+01:00">Jan 05, 2026</time></span>
+      </div>
+
+      <h2 class="article__title">
+        <a href="/from-vibe-coding-to-spec-driven-development">From Vibe Coding to Spec-Driven Development: Part 1 - The problem and the solution</a>
+      </h2>
+
+      <p class="article__excerpt">Part 1 of our series on mastering AI-assisted development. Discover why 'vibe coding' gets you only 70% there, and why spec-driven development is the answer. This is your roadmap to production-ready AI-generated code.</p>
+
+      <div class="article__info">
+        
+        
+        <a href="/hidde" class="article__author__image">
+          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
+        </a>
+        <div class="article__info__bottom">
+          <span>Written by</span>
+          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
+        </div>
+        
+      </div>
+
+    </div>
+  </div>
+</div>
+            </div>
+
+            
+            
+                
+          </div>
+
+        </div>
       </div>
     </div>
   </div>
 </section>
-<!-- end authors -->
+<!-- end related posts -->
     </main>
     <!-- end content -->
 

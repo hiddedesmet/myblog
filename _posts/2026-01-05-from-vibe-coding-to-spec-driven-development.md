@@ -230,7 +230,7 @@ This isn't just a philosophical shift—it's practical. When bugs appear or requ
 [Spec-Kit](https://github.com/github/spec-kit) is GitHub's open-source framework for spec-driven development.
 
 ### Key stats:
-- **54k+ GitHub stars** — Battle-tested, not experimental
+- **65k+ GitHub stars** — Battle-tested, not experimental
 - **18+ AI agents supported** — Claude, Copilot, Cursor, Windsurf, Gemini, and more
 - **MIT licensed** — Free to use
 

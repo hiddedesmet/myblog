@@ -5,12 +5,1169 @@
         <description>My blog is a collection of stories, journeys, and ideas for the creatively curious. I share my thoughts on design, technology, with a focus on creativity and innovation.</description>
         <link>http://localhost:4000/</link>
         <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Mon, 19 Jan 2026 09:48:11 +0100</pubDate>
-        <lastBuildDate>Mon, 19 Jan 2026 09:48:11 +0100</lastBuildDate>
+        <pubDate>Mon, 26 Jan 2026 09:00:49 +0100</pubDate>
+        <lastBuildDate>Mon, 26 Jan 2026 09:00:49 +0100</lastBuildDate>
         <generator>Jekyll v4.4.1</generator>
         
             <item>
-                <title>From Vibe Coding to Spec-Driven Development: Part 3 - Best Practices and Troubleshooting</title>
+                <title>From Vibe Coding to Spec-Driven Development: Part 4 - Team collaboration and advanced patterns</title>
+                <description>&lt;blockquote&gt;
+  &lt;p&gt;🎯 &lt;strong&gt;This is Part 4 of a 5-part series on mastering AI-assisted development.&lt;/strong&gt;&lt;/p&gt;
+
+  &lt;p&gt;We’ve covered the individual workflow. Now let’s scale it to teams and production environments.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;series-overview&quot;&gt;Series overview&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Part&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Topic&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Status&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;/from-vibe-coding-to-spec-driven-development&quot;&gt;Part 1&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;The problem and the solution&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;✓&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;/from-vibe-coding-to-spec-driven-development-part2&quot;&gt;Part 2&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Deep dive into the Spec-Kit workflow&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;✓&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;/from-vibe-coding-to-spec-driven-development-part3&quot;&gt;Part 3&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Best practices and troubleshooting&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;✓&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Part 4&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Team collaboration and advanced patterns&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;📍&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Part 5&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Case studies and lessons learned&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Feb 2&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;from-solo-to-team&quot;&gt;From solo to team&lt;/h2&gt;
+
+&lt;p&gt;Everything we’ve covered so far assumes a single developer working with AI. But real software is built by teams. How does spec-driven development scale?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;The good news&lt;/strong&gt;: Spec-Kit was designed with teams in mind. The artifacts (constitution, spec, plan, tasks) become shared contracts that align everyone—humans and AI agents alike.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;The challenge&lt;/strong&gt;: Multiple developers, multiple AI sessions, multiple opinions. Without coordination, you get chaos.&lt;/p&gt;
+
+&lt;p&gt;This post covers three areas:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Team workflows&lt;/strong&gt; - How multiple developers collaborate&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;CI/CD integration&lt;/strong&gt; - Automating validation with GitHub Actions and Azure DevOps&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Advanced patterns&lt;/strong&gt; - Scaling beyond the monolith&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;section-1-team-workflows&quot;&gt;Section 1: Team workflows&lt;/h2&gt;
+
+&lt;h3 id=&quot;the-spec-driven-team-structure&quot;&gt;The spec-driven team structure&lt;/h3&gt;
+
+&lt;p&gt;In a spec-driven team, roles shift slightly:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Traditional Role&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Spec-Driven Role&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Primary Artifacts&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Tech Lead&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Constitution Guardian&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;constitution.md&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Product Owner&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Spec Owner&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;spec.md&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Architect&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Plan Reviewer&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;plan.md&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;data-model.md&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Developer&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Task Implementer&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tasks.md&lt;/code&gt;, code&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;Key insight&lt;/strong&gt;: The constitution becomes your architecture decision record. The spec becomes your product requirements document. These aren’t new artifacts—they’re familiar concepts in a format AI can consume.&lt;/p&gt;
+
+&lt;h3 id=&quot;workflow-1-feature-branch-per-user-story&quot;&gt;Workflow #1: Feature branch per user story&lt;/h3&gt;
+
+&lt;p&gt;The cleanest approach for teams of 3-8 developers. Each &lt;strong&gt;user story&lt;/strong&gt; (US) gets its own feature branch.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-mermaid&quot;&gt;%%{init: {
+  &apos;theme&apos;: &apos;base&apos;,
+  &apos;themeVariables&apos;: {
+    &apos;primaryColor&apos;: &apos;#e8f5e9&apos;,
+    &apos;primaryTextColor&apos;: &apos;#1b5e20&apos;,
+    &apos;primaryBorderColor&apos;: &apos;#4caf50&apos;,
+    &apos;secondaryColor&apos;: &apos;#e3f2fd&apos;,
+    &apos;secondaryTextColor&apos;: &apos;#0d47a1&apos;,
+    &apos;secondaryBorderColor&apos;: &apos;#2196f3&apos;,
+    &apos;tertiaryColor&apos;: &apos;#f3e5f5&apos;,
+    &apos;tertiaryTextColor&apos;: &apos;#4a148c&apos;,
+    &apos;tertiaryBorderColor&apos;: &apos;#9c27b0&apos;,
+    &apos;lineColor&apos;: &apos;#546e7a&apos;,
+    &apos;fontSize&apos;: &apos;14px&apos;
+  }
+}}%%
+flowchart LR
+    subgraph main[&quot;🌳 main&quot;]
+        direction TB
+        M1[v1.0.0]
+        M2[✨ Auth merged]
+        M3[✨ Tasks merged]
+        M1 --&amp;gt; M2 --&amp;gt; M3
+    end
+
+    subgraph us1[&quot;🔐 feature/user-authentication&quot;]
+        direction TB
+        A1[&quot;📝 Update spec.md&quot;]
+        A2[&quot;🗺️ Generate plan&quot;]
+        A3[&quot;📋 Break into tasks&quot;]
+        A4[&quot;⚙️ Implement&quot;]
+        A5[&quot;✅ Tests pass&quot;]
+        A6[&quot;🔍 PR review&quot;]
+        A1 --&amp;gt; A2 --&amp;gt; A3 --&amp;gt; A4 --&amp;gt; A5 --&amp;gt; A6
+    end
+
+    subgraph us2[&quot;📋 feature/task-management&quot;]
+        direction TB
+        B1[&quot;📝 Update spec.md&quot;]
+        B2[&quot;🗺️ Generate plan&quot;]
+        B3[&quot;📋 Break into tasks&quot;]
+        B4[&quot;⚙️ Implement&quot;]
+        B5[&quot;✅ Tests pass&quot;]
+        B6[&quot;🔍 PR review&quot;]
+        B1 --&amp;gt; B2 --&amp;gt; B3 --&amp;gt; B4 --&amp;gt; B5 --&amp;gt; B6
+    end
+
+    subgraph us3[&quot;👥 feature/team-collab&quot;]
+        direction TB
+        C1[&quot;📝 Update spec.md&quot;]
+        C2[&quot;🗺️ ...in progress&quot;]
+        C1 --&amp;gt; C2
+    end
+
+    M1 -.-&amp;gt;|branch| A1
+    M1 -.-&amp;gt;|branch| B1
+    A6 --&amp;gt;|merge| M2
+    M2 -.-&amp;gt;|branch| C1
+    B6 --&amp;gt;|merge| M3
+
+    style main fill:#e8f5e9,stroke:#4caf50,stroke-width:3px
+    style us1 fill:#e3f2fd,stroke:#2196f3,stroke-width:2px
+    style us2 fill:#f3e5f5,stroke:#9c27b0,stroke-width:2px
+    style us3 fill:#fff3e0,stroke:#ff9800,stroke-width:2px
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Process:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Spec Owner&lt;/strong&gt; creates feature branch with spec changes&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Plan Reviewer&lt;/strong&gt; runs &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/speckit.plan&lt;/code&gt; and reviews architecture&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Task Implementer&lt;/strong&gt; runs &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/speckit.tasks&lt;/code&gt; and implements&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;PR review&lt;/strong&gt; validates against constitution&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Merge&lt;/strong&gt; to main with squash commit&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;em&gt;Each user story branch follows the same workflow: spec → plan → tasks → implement → review → merge&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;workflow-2-trunk-based-with-feature-flags&quot;&gt;Workflow #2: Trunk-based with feature flags&lt;/h3&gt;
+
+&lt;p&gt;For teams practicing continuous deployment (8+ developers).&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;main (always deployable)
+ │
+ ├── commit: Add user-auth spec (flag: OFF)
+ ├── commit: Implement auth backend (flag: OFF)
+ ├── commit: Implement auth frontend (flag: OFF)
+ ├── commit: Enable user-auth flag (flag: ON)
+ │
+ └── (features go live via flag toggles)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Process:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;All spec changes go to main immediately&lt;/li&gt;
+  &lt;li&gt;Implementation happens behind feature flags&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/speckit.implement&lt;/code&gt; generates flag-aware code&lt;/li&gt;
+  &lt;li&gt;QA tests with flag enabled&lt;/li&gt;
+  &lt;li&gt;Flag enabled for all users when ready&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Constitution addition for feature flags:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gu&quot;&gt;## Feature Flag Requirements&lt;/span&gt;
+
+&lt;span class=&quot;gu&quot;&gt;### Implementation&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; All new features MUST be behind feature flags
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Flag naming: &lt;span class=&quot;sb&quot;&gt;`feature_{story_id}_{short_name}`&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Default state: OFF in production
+
+&lt;span class=&quot;gu&quot;&gt;### Flag Service&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Use LaunchDarkly / Azure App Configuration / custom implementation
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Flags evaluated server-side (no client exposure of disabled features)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;workflow-3-mob-programming-with-ai&quot;&gt;Workflow #3: Mob programming with AI&lt;/h3&gt;
+
+&lt;p&gt;Surprisingly effective for complex features.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Setup:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;One screen shared (driver)&lt;/li&gt;
+  &lt;li&gt;2-4 developers watching (navigators)&lt;/li&gt;
+  &lt;li&gt;AI assistant running&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Process:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Navigator 1&lt;/strong&gt; dictates spec requirements&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Driver&lt;/strong&gt; types into AI assistant&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Navigator 2&lt;/strong&gt; reviews AI output in real-time&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;All&lt;/strong&gt; discuss and refine before accepting&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Rotate&lt;/strong&gt; driver every 15 minutes&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Why this works&lt;/strong&gt;: Multiple humans catch AI hallucinations immediately. Knowledge transfers naturally. Everyone understands the codebase.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;section-2-code-review-for-spec-driven-projects&quot;&gt;Section 2: Code review for spec-driven projects&lt;/h2&gt;
+
+&lt;h3 id=&quot;the-spec-driven-pr-checklist&quot;&gt;The spec-driven PR checklist&lt;/h3&gt;
+
+&lt;p&gt;Standard code review isn’t enough. Add these checks:&lt;/p&gt;
+
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gu&quot;&gt;## PR Review Checklist&lt;/span&gt;
+
+&lt;span class=&quot;gu&quot;&gt;### Constitution Compliance&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] Code follows technical constraints
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] Performance targets considered
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] Security requirements addressed
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] No prohibited patterns used
+
+&lt;span class=&quot;gu&quot;&gt;### Spec Alignment&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] Implementation matches user stories
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] All acceptance criteria testable
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] Edge cases from spec handled
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] Error messages match spec exactly
+
+&lt;span class=&quot;gu&quot;&gt;### Plan Consistency&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] Architecture matches plan.md
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] Data model matches data-model.md
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] API contracts match api-spec
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] No undocumented deviations
+
+&lt;span class=&quot;gu&quot;&gt;### AI-Specific Checks&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] No hallucinated dependencies
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] No deprecated patterns
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] Tests actually run (not just generated)
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] No hardcoded localhost/dev values
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;review-automation&quot;&gt;Review automation&lt;/h3&gt;
+
+&lt;p&gt;Add a PR template that enforces the checklist:&lt;/p&gt;
+
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- .github/PULL_REQUEST_TEMPLATE.md --&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;gu&quot;&gt;## Summary&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- What does this PR do? --&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;gu&quot;&gt;## Related Spec Section&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Link to spec.md section this implements --&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;gu&quot;&gt;## Constitution Compliance&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] Reviewed against constitution.md
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] No violations or documented exceptions
+
+&lt;span class=&quot;gu&quot;&gt;## Testing&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] Unit tests added/updated
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] Integration tests pass
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] Manual testing completed
+
+&lt;span class=&quot;gu&quot;&gt;## AI Disclosure&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] AI-assisted code reviewed by human
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] All dependencies verified to exist
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; [ ] No TODO/FIXME markers from AI
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;section-3-cicd-integration&quot;&gt;Section 3: CI/CD integration&lt;/h2&gt;
+
+&lt;h3 id=&quot;github-actions-pipeline&quot;&gt;GitHub Actions pipeline&lt;/h3&gt;
+
+&lt;p&gt;For teams using GitHub, here’s a complete pipeline:&lt;/p&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# .github/workflows/spec-driven-ci.yml&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Spec-Driven CI/CD&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;branches&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;pull_request&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;branches&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;DOTNET_VERSION&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;9.0.x&apos;&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;jobs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;validate-specs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Validate Specifications&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;runs-on&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;ubuntu-latest&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;steps&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;actions/checkout@v4&lt;/span&gt;
+      
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Check spec completeness&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;|&lt;/span&gt;
+          &lt;span class=&quot;s&quot;&gt;# Verify required sections exist&lt;/span&gt;
+          &lt;span class=&quot;s&quot;&gt;for section in &quot;User Stories&quot; &quot;Acceptance Criteria&quot; &quot;Edge Cases&quot;; do&lt;/span&gt;
+            &lt;span class=&quot;s&quot;&gt;if ! grep -q &quot;## $section&quot; .speckit/spec.md; then&lt;/span&gt;
+              &lt;span class=&quot;s&quot;&gt;echo &quot;::error::Missing required section: $section&quot;&lt;/span&gt;
+              &lt;span class=&quot;s&quot;&gt;exit 1&lt;/span&gt;
+            &lt;span class=&quot;s&quot;&gt;fi&lt;/span&gt;
+          &lt;span class=&quot;s&quot;&gt;done&lt;/span&gt;
+          
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Check for TODO markers&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;|&lt;/span&gt;
+          &lt;span class=&quot;s&quot;&gt;if grep -r &quot;TODO\|FIXME\|XXX&quot; .speckit/*.md; then&lt;/span&gt;
+            &lt;span class=&quot;s&quot;&gt;echo &quot;::error::Unresolved TODO markers in specifications&quot;&lt;/span&gt;
+            &lt;span class=&quot;s&quot;&gt;exit 1&lt;/span&gt;
+          &lt;span class=&quot;s&quot;&gt;fi&lt;/span&gt;
+          
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Validate constitution compliance&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;|&lt;/span&gt;
+          &lt;span class=&quot;s&quot;&gt;# Check nullable reference types (from constitution)&lt;/span&gt;
+          &lt;span class=&quot;s&quot;&gt;if ! grep -q &quot;&amp;lt;Nullable&amp;gt;enable&amp;lt;/Nullable&amp;gt;&quot; src/*.csproj; then&lt;/span&gt;
+            &lt;span class=&quot;s&quot;&gt;echo &quot;::error::Nullable reference types not enabled&quot;&lt;/span&gt;
+            &lt;span class=&quot;s&quot;&gt;exit 1&lt;/span&gt;
+          &lt;span class=&quot;s&quot;&gt;fi&lt;/span&gt;
+
+  &lt;span class=&quot;na&quot;&gt;build-and-test&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Build and Test&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;runs-on&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;ubuntu-latest&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;needs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;validate-specs&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;steps&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;actions/checkout@v4&lt;/span&gt;
+      
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Setup .NET&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;actions/setup-dotnet@v4&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;dotnet-version&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;
+          
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Restore dependencies&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;dotnet restore&lt;/span&gt;
+        
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Build&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;dotnet build --no-restore --configuration Release&lt;/span&gt;
+        
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Run tests&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;dotnet test --no-build --configuration Release --collect:&quot;XPlat Code Coverage&quot;&lt;/span&gt;
+        
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Check coverage threshold&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;|&lt;/span&gt;
+          &lt;span class=&quot;s&quot;&gt;# Constitution requires 80% coverage&lt;/span&gt;
+          &lt;span class=&quot;s&quot;&gt;coverage=$(cat TestResults/*/coverage.cobertura.xml | grep -oP &apos;line-rate=&quot;\K[^&quot;]+&apos;)&lt;/span&gt;
+          &lt;span class=&quot;s&quot;&gt;if (( $(echo &quot;$coverage &amp;lt; 0.80&quot; | bc -l) )); then&lt;/span&gt;
+            &lt;span class=&quot;s&quot;&gt;echo &quot;::error::Coverage ${coverage} below 80% threshold&quot;&lt;/span&gt;
+            &lt;span class=&quot;s&quot;&gt;exit 1&lt;/span&gt;
+          &lt;span class=&quot;s&quot;&gt;fi&lt;/span&gt;
+
+  &lt;span class=&quot;na&quot;&gt;security-scan&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Security Scan&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;runs-on&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;ubuntu-latest&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;needs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;build-and-test&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;steps&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;actions/checkout@v4&lt;/span&gt;
+      
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Run dependency audit&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;dotnet list package --vulnerable --include-transitive&lt;/span&gt;
+        
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;OWASP dependency check&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;dependency-check/Dependency-Check_Action@main&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;project&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;TeamTaskManager&apos;&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;.&apos;&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;HTML&apos;&lt;/span&gt;
+
+  &lt;span class=&quot;na&quot;&gt;deploy-staging&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Deploy to Staging&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;runs-on&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;ubuntu-latest&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;needs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;build-and-test&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;security-scan&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;github.ref == &apos;refs/heads/main&apos;&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;environment&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;staging&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;steps&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;actions/checkout@v4&lt;/span&gt;
+      
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Deploy to staging&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;|&lt;/span&gt;
+          &lt;span class=&quot;s&quot;&gt;# Your deployment script here&lt;/span&gt;
+          &lt;span class=&quot;s&quot;&gt;echo &quot;Deploying to staging...&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;azure-devops-pipeline&quot;&gt;Azure DevOps pipeline&lt;/h3&gt;
+
+&lt;p&gt;Many enterprises in the Netherlands and Europe use Azure DevOps. Here’s the equivalent pipeline:&lt;/p&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# azure-pipelines.yml&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;trigger&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;branches&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;main&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;paths&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;exclude&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;README.md&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;docs/*&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;pr&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;branches&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;main&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;pool&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;vmImage&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;ubuntu-latest&apos;&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;variables&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;dotnetVersion&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;9.0.x&apos;&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;buildConfiguration&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Release&apos;&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;stages&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;stage&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Validate&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;displayName&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Validate&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Specifications&apos;&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;jobs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;job&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;ValidateSpecs&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;displayName&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Spec&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Validation&apos;&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;steps&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;checkout&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;self&lt;/span&gt;
+          
+          &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Bash@3&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;displayName&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Check&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;spec&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;completeness&apos;&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+              &lt;span class=&quot;na&quot;&gt;targetType&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;inline&apos;&lt;/span&gt;
+              &lt;span class=&quot;na&quot;&gt;script&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;|&lt;/span&gt;
+                &lt;span class=&quot;s&quot;&gt;echo &quot;Checking specification completeness...&quot;&lt;/span&gt;
+                
+                &lt;span class=&quot;s&quot;&gt;required_sections=(&quot;User Stories&quot; &quot;Acceptance Criteria&quot; &quot;Edge Cases&quot;)&lt;/span&gt;
+                &lt;span class=&quot;s&quot;&gt;for section in &quot;${required_sections[@]}&quot;; do&lt;/span&gt;
+                  &lt;span class=&quot;s&quot;&gt;if ! grep -q &quot;## $section&quot; .speckit/spec.md; then&lt;/span&gt;
+                    &lt;span class=&quot;s&quot;&gt;echo &quot;##vso[task.logissue type=error]Missing required section: $section&quot;&lt;/span&gt;
+                    &lt;span class=&quot;s&quot;&gt;exit 1&lt;/span&gt;
+                  &lt;span class=&quot;s&quot;&gt;fi&lt;/span&gt;
+                &lt;span class=&quot;s&quot;&gt;done&lt;/span&gt;
+                
+                &lt;span class=&quot;s&quot;&gt;echo &quot;All required sections present&quot;&lt;/span&gt;
+                
+          &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Bash@3&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;displayName&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Check&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;unresolved&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;TODOs&apos;&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+              &lt;span class=&quot;na&quot;&gt;targetType&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;inline&apos;&lt;/span&gt;
+              &lt;span class=&quot;na&quot;&gt;script&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;|&lt;/span&gt;
+                &lt;span class=&quot;s&quot;&gt;if grep -r &quot;TODO\|FIXME&quot; .speckit/*.md; then&lt;/span&gt;
+                  &lt;span class=&quot;s&quot;&gt;echo &quot;##vso[task.logissue type=error]Unresolved TODO markers found&quot;&lt;/span&gt;
+                  &lt;span class=&quot;s&quot;&gt;exit 1&lt;/span&gt;
+                &lt;span class=&quot;s&quot;&gt;fi&lt;/span&gt;
+                
+          &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Bash@3&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;displayName&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Validate&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;constitution&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;compliance&apos;&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+              &lt;span class=&quot;na&quot;&gt;targetType&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;inline&apos;&lt;/span&gt;
+              &lt;span class=&quot;na&quot;&gt;script&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;|&lt;/span&gt;
+                &lt;span class=&quot;s&quot;&gt;# Check nullable reference types enabled&lt;/span&gt;
+                &lt;span class=&quot;s&quot;&gt;if ! grep -q &quot;&amp;lt;Nullable&amp;gt;enable&amp;lt;/Nullable&amp;gt;&quot; src/*.csproj; then&lt;/span&gt;
+                  &lt;span class=&quot;s&quot;&gt;echo &quot;##vso[task.logissue type=error]Nullable reference types not enabled (constitution violation)&quot;&lt;/span&gt;
+                  &lt;span class=&quot;s&quot;&gt;exit 1&lt;/span&gt;
+                &lt;span class=&quot;s&quot;&gt;fi&lt;/span&gt;
+                
+                &lt;span class=&quot;s&quot;&gt;# Check for raw SQL (prohibited by constitution)&lt;/span&gt;
+                &lt;span class=&quot;s&quot;&gt;if grep -r &quot;ExecuteSqlRaw\|FromSqlRaw&quot; src/; then&lt;/span&gt;
+                  &lt;span class=&quot;s&quot;&gt;echo &quot;##vso[task.logissue type=error]Raw SQL detected (constitution violation)&quot;&lt;/span&gt;
+                  &lt;span class=&quot;s&quot;&gt;exit 1&lt;/span&gt;
+                &lt;span class=&quot;s&quot;&gt;fi&lt;/span&gt;
+
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;stage&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Build&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;displayName&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Build&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;and&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Test&apos;&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;dependsOn&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Validate&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;jobs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;job&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;BuildAndTest&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;displayName&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Build&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Test&apos;&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;steps&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;checkout&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;self&lt;/span&gt;
+          
+          &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;UseDotNet@2&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;displayName&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Setup&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;.NET&apos;&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+              &lt;span class=&quot;na&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$(dotnetVersion)&lt;/span&gt;
+              
+          &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;DotNetCoreCLI@2&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;displayName&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Restore&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;packages&apos;&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+              &lt;span class=&quot;na&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;restore&apos;&lt;/span&gt;
+              &lt;span class=&quot;na&quot;&gt;projects&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;**/*.csproj&apos;&lt;/span&gt;
+              
+          &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;DotNetCoreCLI@2&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;displayName&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Build&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;solution&apos;&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+              &lt;span class=&quot;na&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;build&apos;&lt;/span&gt;
+              &lt;span class=&quot;na&quot;&gt;projects&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;**/*.csproj&apos;&lt;/span&gt;
+              &lt;span class=&quot;na&quot;&gt;arguments&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;--configuration&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$(buildConfiguration)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;--no-restore&apos;&lt;/span&gt;
+              
+          &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;DotNetCoreCLI@2&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;displayName&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Run&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;tests&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;coverage&apos;&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+              &lt;span class=&quot;na&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;test&apos;&lt;/span&gt;
+              &lt;span class=&quot;na&quot;&gt;projects&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;**/*Tests.csproj&apos;&lt;/span&gt;
+              &lt;span class=&quot;na&quot;&gt;arguments&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;--configuration&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$(buildConfiguration)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;--no-build&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;--collect:&quot;XPlat&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Code&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Coverage&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;--results-directory&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$(Build.SourcesDirectory)/TestResults&apos;&lt;/span&gt;
+              
+          &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;PublishCodeCoverageResults@2&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;displayName&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Publish&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;coverage&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;report&apos;&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+              &lt;span class=&quot;na&quot;&gt;summaryFileLocation&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$(Build.SourcesDirectory)/TestResults/**/coverage.cobertura.xml&apos;&lt;/span&gt;
+              
+          &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Bash@3&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;displayName&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Enforce&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;coverage&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;threshold&apos;&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+              &lt;span class=&quot;na&quot;&gt;targetType&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;inline&apos;&lt;/span&gt;
+              &lt;span class=&quot;na&quot;&gt;script&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;|&lt;/span&gt;
+                &lt;span class=&quot;s&quot;&gt;# Constitution requires 80% coverage&lt;/span&gt;
+                &lt;span class=&quot;s&quot;&gt;coverage_file=$(find $(Build.SourcesDirectory)/TestResults -name &quot;coverage.cobertura.xml&quot; | head -1)&lt;/span&gt;
+                &lt;span class=&quot;s&quot;&gt;if [ -f &quot;$coverage_file&quot; ]; then&lt;/span&gt;
+                  &lt;span class=&quot;s&quot;&gt;coverage=$(grep -oP &apos;line-rate=&quot;\K[^&quot;]+&apos; &quot;$coverage_file&quot; | head -1)&lt;/span&gt;
+                  &lt;span class=&quot;s&quot;&gt;threshold=0.80&lt;/span&gt;
+                  &lt;span class=&quot;s&quot;&gt;if (( $(echo &quot;$coverage &amp;lt; $threshold&quot; | bc -l) )); then&lt;/span&gt;
+                    &lt;span class=&quot;s&quot;&gt;echo &quot;##vso[task.logissue type=error]Coverage $coverage is below $threshold threshold&quot;&lt;/span&gt;
+                    &lt;span class=&quot;s&quot;&gt;exit 1&lt;/span&gt;
+                  &lt;span class=&quot;s&quot;&gt;fi&lt;/span&gt;
+                  &lt;span class=&quot;s&quot;&gt;echo &quot;Coverage: $coverage (threshold: $threshold) ✓&quot;&lt;/span&gt;
+                &lt;span class=&quot;s&quot;&gt;fi&lt;/span&gt;
+
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;stage&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Security&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;displayName&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Security&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Scanning&apos;&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;dependsOn&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Build&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;jobs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;job&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;SecurityScan&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;displayName&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Dependency&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;SAST&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Scan&apos;&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;steps&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;checkout&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;self&lt;/span&gt;
+          
+          &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;UseDotNet@2&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+              &lt;span class=&quot;na&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$(dotnetVersion)&lt;/span&gt;
+              
+          &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;DotNetCoreCLI@2&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;displayName&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Check&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;vulnerable&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;packages&apos;&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+              &lt;span class=&quot;na&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;custom&apos;&lt;/span&gt;
+              &lt;span class=&quot;na&quot;&gt;custom&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;list&apos;&lt;/span&gt;
+              &lt;span class=&quot;na&quot;&gt;arguments&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;package&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;--vulnerable&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;--include-transitive&apos;&lt;/span&gt;
+              
+          &lt;span class=&quot;c1&quot;&gt;# If you have Microsoft Defender for DevOps or SonarCloud&lt;/span&gt;
+          &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;MicrosoftSecurityDevOps@1&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;displayName&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Microsoft&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Security&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;DevOps&apos;&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;continueOnError&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;stage&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;DeployStaging&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;displayName&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Deploy&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Staging&apos;&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;dependsOn&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Security&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;condition&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;and(succeeded(), eq(variables[&apos;Build.SourceBranch&apos;], &apos;refs/heads/main&apos;))&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;jobs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;deployment&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;DeployStaging&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;displayName&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Deploy&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Staging&apos;&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;environment&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;staging&apos;&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;strategy&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;runOnce&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;deploy&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+              &lt;span class=&quot;na&quot;&gt;steps&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+                &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;AzureWebApp@1&lt;/span&gt;
+                  &lt;span class=&quot;na&quot;&gt;displayName&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Deploy&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Azure&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;App&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Service&apos;&lt;/span&gt;
+                  &lt;span class=&quot;na&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+                    &lt;span class=&quot;na&quot;&gt;azureSubscription&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$(azureServiceConnection)&apos;&lt;/span&gt;
+                    &lt;span class=&quot;na&quot;&gt;appType&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;webApp&apos;&lt;/span&gt;
+                    &lt;span class=&quot;na&quot;&gt;appName&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$(stagingAppName)&apos;&lt;/span&gt;
+                    &lt;span class=&quot;na&quot;&gt;package&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$(Pipeline.Workspace)/**/*.zip&apos;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;key-differences-github-actions-vs-azure-devops&quot;&gt;Key differences: GitHub Actions vs Azure DevOps&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Aspect&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;GitHub Actions&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Azure DevOps&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Syntax&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;YAML with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jobs&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;YAML with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;stages&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jobs&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Environments&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;environment:&lt;/code&gt; keyword&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Deployment jobs with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;environment:&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Secrets&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Repository/org secrets&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Variable groups, Key Vault&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Logging&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;echo &quot;::error::&quot;&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;##vso[task.logissue]&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Artifacts&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;actions/upload-artifact&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PublishPipelineArtifact&lt;/code&gt; task&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Approvals&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Environment protection rules&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Stage gates and approvals&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;Pro tip&lt;/strong&gt;: Many Dutch enterprises use Azure DevOps for the tighter Azure integration, built-in boards, and compliance features. GitHub Actions is simpler for open-source or GitHub-native workflows.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;section-4-advanced-architectural-patterns&quot;&gt;Section 4: Advanced architectural patterns&lt;/h2&gt;
+
+&lt;p&gt;As your application grows, the monolith from Part 2 may need to evolve. Here’s how spec-driven development adapts to advanced patterns.&lt;/p&gt;
+
+&lt;h3 id=&quot;pattern-1-modular-monolith&quot;&gt;Pattern #1: Modular monolith&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;When to use&lt;/strong&gt;: Application growing, but not ready for microservices.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Constitution update:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gu&quot;&gt;## Architecture: Modular Monolith&lt;/span&gt;
+
+&lt;span class=&quot;gu&quot;&gt;### Module Boundaries&lt;/span&gt;
+Each module is a separate project/assembly with:
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Own data access (no cross-module database queries)
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Public API via interfaces only
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Internal implementation hidden
+
+&lt;span class=&quot;gu&quot;&gt;### Modules&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`TeamTaskManager.Users`&lt;/span&gt; - Authentication, profiles
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`TeamTaskManager.Teams`&lt;/span&gt; - Team management
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`TeamTaskManager.Tasks`&lt;/span&gt; - Task CRUD and workflows
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`TeamTaskManager.Notifications`&lt;/span&gt; - Email, push notifications
+
+&lt;span class=&quot;gu&quot;&gt;### Communication&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Modules communicate via defined interfaces
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; No direct database access across modules
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Events for async communication (MediatR)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Spec pattern:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gu&quot;&gt;## Feature: Task Assignment Notification&lt;/span&gt;
+
+&lt;span class=&quot;gs&quot;&gt;**Module**&lt;/span&gt;: Tasks (primary), Notifications (consumer)
+
+&lt;span class=&quot;gs&quot;&gt;**Given**&lt;/span&gt; a task is assigned to a user
+&lt;span class=&quot;gs&quot;&gt;**When**&lt;/span&gt; the assignment is saved
+&lt;span class=&quot;gs&quot;&gt;**Then**&lt;/span&gt; Tasks module publishes &lt;span class=&quot;sb&quot;&gt;`TaskAssignedEvent`&lt;/span&gt;
+&lt;span class=&quot;gs&quot;&gt;**And**&lt;/span&gt; Notifications module sends email to assignee
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;pattern-2-backend-for-frontend-bff&quot;&gt;Pattern #2: Backend for Frontend (BFF)&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;When to use&lt;/strong&gt;: Multiple clients (web, mobile, third-party) need different APIs.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Constitution update:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gu&quot;&gt;## Architecture: Backend for Frontend&lt;/span&gt;
+
+&lt;span class=&quot;gu&quot;&gt;### BFF Services&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`TeamTaskManager.WebBFF`&lt;/span&gt; - Optimized for Blazor web app
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`TeamTaskManager.MobileBFF`&lt;/span&gt; - Optimized for mobile (future)
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`TeamTaskManager.PublicAPI`&lt;/span&gt; - Third-party integrations
+
+&lt;span class=&quot;gu&quot;&gt;### Core Services&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; BFFs call shared core services
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Core services own business logic
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; BFFs handle client-specific concerns (aggregation, formatting)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Plan pattern:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gu&quot;&gt;## API Architecture&lt;/span&gt;
+
+&lt;span class=&quot;gu&quot;&gt;### Web BFF Endpoints&lt;/span&gt;
+Optimized for single-page load:
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`GET /web/dashboard`&lt;/span&gt; → Returns user, teams, tasks in one call
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`GET /web/team/{id}`&lt;/span&gt; → Returns team with members and recent tasks
+
+&lt;span class=&quot;gu&quot;&gt;### Mobile BFF Endpoints (Future)&lt;/span&gt;
+Optimized for bandwidth:
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`GET /mobile/sync`&lt;/span&gt; → Delta sync since last update
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Compressed responses, minimal payload
+
+&lt;span class=&quot;gu&quot;&gt;### Public API&lt;/span&gt;
+RESTful, versioned, rate-limited:
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`GET /api/v1/tasks`&lt;/span&gt; → Standard REST
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; OAuth 2.0 authentication
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;pattern-3-event-driven-architecture&quot;&gt;Pattern #3: Event-driven architecture&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;When to use&lt;/strong&gt;: Need loose coupling, async processing, audit trails.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Constitution update:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gu&quot;&gt;## Architecture: Event-Driven&lt;/span&gt;
+
+&lt;span class=&quot;gu&quot;&gt;### Event Bus&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Use Azure Service Bus / RabbitMQ / MassTransit
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; All state changes published as events
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Events are immutable facts
+
+&lt;span class=&quot;gu&quot;&gt;### Event Patterns&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;gs&quot;&gt;**Domain Events**&lt;/span&gt;: &lt;span class=&quot;sb&quot;&gt;`TaskCreated`&lt;/span&gt;, &lt;span class=&quot;sb&quot;&gt;`TaskCompleted`&lt;/span&gt;, &lt;span class=&quot;sb&quot;&gt;`MemberInvited`&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;gs&quot;&gt;**Integration Events**&lt;/span&gt;: Cross-service communication
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;gs&quot;&gt;**Event Sourcing**&lt;/span&gt;: Optional, for audit-critical features
+
+&lt;span class=&quot;gu&quot;&gt;### Guarantees&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; At-least-once delivery (consumers must be idempotent)
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Events include correlation ID for tracing
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Spec pattern:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gu&quot;&gt;## Event: TaskCompleted&lt;/span&gt;
+
+&lt;span class=&quot;gs&quot;&gt;**Published when**&lt;/span&gt;: User marks task as complete
+
+&lt;span class=&quot;gs&quot;&gt;**Payload:**&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;```&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;json
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;eventId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;uuid&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;eventType&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;TaskCompleted&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;timestamp&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2026-01-26T10:30:00Z&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;correlationId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;uuid&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;data&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;taskId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;uuid&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;completedBy&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;userId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;teamId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;uuid&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Consumers:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Notifications: Send completion email to task creator&lt;/li&gt;
+  &lt;li&gt;Analytics: Update team productivity metrics&lt;/li&gt;
+  &lt;li&gt;Audit: Log completion event
+```&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;pattern-4-microservices-proceed-with-caution&quot;&gt;Pattern #4: Microservices (proceed with caution)&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;When to use&lt;/strong&gt;: Large team (10+ developers), clear domain boundaries, need independent deployment.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;⚠️ &lt;strong&gt;Warning&lt;/strong&gt;: Don’t start with microservices. Extract them from a working monolith when you have clear reasons.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Constitution update:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gu&quot;&gt;## Architecture: Microservices&lt;/span&gt;
+
+&lt;span class=&quot;gu&quot;&gt;### Services&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`users-service`&lt;/span&gt; - Authentication, profiles (owns users DB)
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`teams-service`&lt;/span&gt; - Team management (owns teams DB)
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`tasks-service`&lt;/span&gt; - Task management (owns tasks DB)
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`notifications-service`&lt;/span&gt; - All notifications (stateless)
+
+&lt;span class=&quot;gu&quot;&gt;### Communication&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Sync: gRPC for internal, REST for external
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Async: Azure Service Bus for events
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; No shared databases (each service owns its data)
+
+&lt;span class=&quot;gu&quot;&gt;### Deployment&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Each service independently deployable
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Kubernetes for orchestration
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Service mesh for observability (Istio/Linkerd)
+
+&lt;span class=&quot;gu&quot;&gt;### Data Consistency&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Eventual consistency between services
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Saga pattern for distributed transactions
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Outbox pattern for reliable event publishing
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;choosing-the-right-pattern&quot;&gt;Choosing the right pattern&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Pattern&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Team Size&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Complexity&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;When to Choose&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Monolith&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;1-5&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Low&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Starting out, validating product&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Modular Monolith&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;3-10&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Medium&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Growing, need structure&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;BFF&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;5-15&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Medium&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Multiple client types&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Event-Driven&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;5-20&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;High&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Async workflows, audit needs&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Microservices&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;10+&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Very High&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Clear domains, independent scaling&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;The spec-driven advantage&lt;/strong&gt;: Your constitution documents architectural decisions. When you evolve from monolith to modular to microservices, the spec history shows why.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;section-5-scaling-strategies&quot;&gt;Section 5: Scaling strategies&lt;/h2&gt;
+
+&lt;h3 id=&quot;when-your-application-outgrows-the-initial-architecture&quot;&gt;When your application outgrows the initial architecture&lt;/h3&gt;
+
+&lt;p&gt;The Team Task Manager from Part 2 works great for 100 users. What about 10,000? 100,000?&lt;/p&gt;
+
+&lt;h3 id=&quot;strategy-1-horizontal-scaling&quot;&gt;Strategy #1: Horizontal scaling&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Constitution update:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gu&quot;&gt;## Scaling Requirements&lt;/span&gt;
+
+&lt;span class=&quot;gu&quot;&gt;### Stateless Application&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; No in-memory session state
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Use distributed cache (Redis) for session
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Any instance can handle any request
+
+&lt;span class=&quot;gu&quot;&gt;### Database Scaling&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Read replicas for query-heavy operations
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Connection pooling required
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Consider read/write splitting at 10k users
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;strategy-2-caching-layers&quot;&gt;Strategy #2: Caching layers&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Spec pattern:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gu&quot;&gt;## Performance: Task List Caching&lt;/span&gt;
+
+&lt;span class=&quot;gs&quot;&gt;**Given**&lt;/span&gt; a user views their team&apos;s task list
+&lt;span class=&quot;gs&quot;&gt;**When**&lt;/span&gt; the list was fetched &amp;lt; 30 seconds ago
+&lt;span class=&quot;gs&quot;&gt;**Then**&lt;/span&gt; return cached result (skip database)
+
+&lt;span class=&quot;gs&quot;&gt;**Cache invalidation:**&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Task created → Invalidate team&apos;s task list cache
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Task updated → Invalidate specific task + team list cache
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Team membership changed → Invalidate all team caches
+
+&lt;span class=&quot;gs&quot;&gt;**Cache implementation:**&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; L1: In-memory (IMemoryCache), 10 second TTL
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; L2: Distributed (Redis), 30 second TTL
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;strategy-3-background-processing&quot;&gt;Strategy #3: Background processing&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Constitution update:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gu&quot;&gt;## Background Jobs&lt;/span&gt;
+
+&lt;span class=&quot;gu&quot;&gt;### Job Queue&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Use Hangfire / Azure Functions / AWS Lambda
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Long-running operations MUST be async
+
+&lt;span class=&quot;gu&quot;&gt;### Job Types&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Email sending (&amp;lt; 1 minute)
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Report generation (&amp;lt; 5 minutes)  
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Data export (&amp;lt; 30 minutes)
+
+&lt;span class=&quot;gu&quot;&gt;### Retry Policy&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; 3 retries with exponential backoff
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Dead letter queue for failed jobs
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Alert on repeated failures
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;section-6-team-communication-patterns&quot;&gt;Section 6: Team communication patterns&lt;/h2&gt;
+
+&lt;h3 id=&quot;keeping-everyone-aligned&quot;&gt;Keeping everyone aligned&lt;/h3&gt;
+
+&lt;p&gt;Spec-driven development generates artifacts. Those artifacts need to be communicated.&lt;/p&gt;
+
+&lt;h3 id=&quot;pattern-1-spec-review-meetings&quot;&gt;Pattern #1: Spec review meetings&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Weekly, 30 minutes:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Spec changes this week&lt;/strong&gt; (5 min)
+    &lt;ul&gt;
+      &lt;li&gt;What was added/modified/removed?&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Plan deviations&lt;/strong&gt; (10 min)
+    &lt;ul&gt;
+      &lt;li&gt;Any architectural decisions that deviated from plan?&lt;/li&gt;
+      &lt;li&gt;Update plan.md to reflect reality&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Constitution amendments&lt;/strong&gt; (10 min)
+    &lt;ul&gt;
+      &lt;li&gt;Any new constraints discovered?&lt;/li&gt;
+      &lt;li&gt;Any constraints that need relaxing?&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Next week’s focus&lt;/strong&gt; (5 min)
+    &lt;ul&gt;
+      &lt;li&gt;Which user stories are in flight?&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;pattern-2-async-spec-updates&quot;&gt;Pattern #2: Async spec updates&lt;/h3&gt;
+
+&lt;p&gt;For distributed teams:&lt;/p&gt;
+
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- In PR description --&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;gu&quot;&gt;## Spec Changes&lt;/span&gt;
+
+&lt;span class=&quot;gu&quot;&gt;### Added&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; User story: Password-less authentication (magic links)
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Edge case: Handle expired magic links gracefully
+
+&lt;span class=&quot;gu&quot;&gt;### Modified  &lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Authentication flow now supports both password and magic link
+
+&lt;span class=&quot;gu&quot;&gt;### Constitution Impact&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; None (existing security requirements cover magic links)
+
+&lt;span class=&quot;gu&quot;&gt;### Reviewers&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; @tech-lead - Constitution compliance
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; @product-owner - Spec accuracy
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; @security-team - Authentication changes
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;pattern-3-decision-records&quot;&gt;Pattern #3: Decision records&lt;/h3&gt;
+
+&lt;p&gt;When specs change significantly, document why:&lt;/p&gt;
+
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- docs/decisions/004-magic-link-auth.md --&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;gh&quot;&gt;# ADR-004: Add Magic Link Authentication&lt;/span&gt;
+
+&lt;span class=&quot;gu&quot;&gt;## Status&lt;/span&gt;
+Accepted
+
+&lt;span class=&quot;gu&quot;&gt;## Context&lt;/span&gt;
+Users forget passwords. Password reset flow has 40% abandonment rate.
+
+&lt;span class=&quot;gu&quot;&gt;## Decision&lt;/span&gt;
+Add magic link (email-based) authentication as alternative to passwords.
+
+&lt;span class=&quot;gu&quot;&gt;## Consequences&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Positive: Reduced friction, fewer support tickets
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Negative: Email deliverability becomes critical path
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Neutral: Both auth methods coexist
+
+&lt;span class=&quot;gu&quot;&gt;## Spec Reference&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; spec.md: Section &quot;Authentication&quot; updated
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; plan.md: Email service now critical infrastructure
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;key-takeaways-from-part-4&quot;&gt;Key takeaways from Part 4&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;#&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Takeaway&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Teams need workflows&lt;/strong&gt; - Feature branches or trunk-based, pick one and commit&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Automate validation&lt;/strong&gt; - CI/CD should enforce constitution and spec compliance&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;3&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Architecture evolves&lt;/strong&gt; - Start simple, extract complexity when needed&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;4&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Document decisions&lt;/strong&gt; - Specs + ADRs = traceable architecture history&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;5&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Communication matters&lt;/strong&gt; - Artifacts are useless if the team doesn’t read them&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;whats-next&quot;&gt;What’s next&lt;/h2&gt;
+
+&lt;p&gt;In &lt;strong&gt;Part 5&lt;/strong&gt; (next week), we’ll wrap up the series with:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Real case studies&lt;/strong&gt; - Actual projects built with spec-driven development&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Metrics and outcomes&lt;/strong&gt; - What improved, what didn’t&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Lessons learned&lt;/strong&gt; - Mistakes made, wisdom gained&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;The future&lt;/strong&gt; - Where AI-assisted development is heading&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;resources&quot;&gt;Resources&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Resource&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;https://github.com/github/spec-kit&quot;&gt;&lt;strong&gt;Spec-Kit GitHub&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Official toolkit&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;https://docs.github.com/en/actions&quot;&gt;&lt;strong&gt;GitHub Actions Docs&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;CI/CD for GitHub&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;https://learn.microsoft.com/en-us/azure/devops/pipelines/&quot;&gt;&lt;strong&gt;Azure Pipelines Docs&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;CI/CD for Azure DevOps&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;https://www.milanjovanovic.tech/blog/what-is-a-modular-monolith&quot;&gt;&lt;strong&gt;Modular Monolith&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Architecture pattern guide&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;https://adr.github.io/&quot;&gt;&lt;strong&gt;ADR Templates&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Architecture Decision Records&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;series-navigation&quot;&gt;Series navigation&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Previous&lt;/strong&gt;: &lt;a href=&quot;/from-vibe-coding-to-spec-driven-development-part3&quot;&gt;Part 3 - Best practices and troubleshooting&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;📍 You are here: Part 4 - Team collaboration and advanced patterns&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Next&lt;/strong&gt;: Part 5 - Case studies and lessons learned (Coming February 2, 2026)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;💬 &lt;strong&gt;Using spec-driven development with your team?&lt;/strong&gt;&lt;/p&gt;
+
+  &lt;p&gt;I’d love to hear your experience. Connect with me on &lt;a href=&quot;https://linkedin.com/in/hiddedesmet&quot;&gt;LinkedIn&lt;/a&gt;.&lt;/p&gt;
+
+  &lt;p&gt;&lt;strong&gt;Want to get notified when Part 5 drops?&lt;/strong&gt; Follow me for the finale!&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+                <pubDate>Mon, 26 Jan 2026 00:00:00 +0100</pubDate>
+                <link>http://localhost:4000/from-vibe-coding-to-spec-driven-development-part4</link>
+                <guid isPermaLink="true">http://localhost:4000/from-vibe-coding-to-spec-driven-development-part4</guid>
+                
+                <category>ai-assisted-development</category>
+                
+                <category>spec-kit</category>
+                
+                <category>github</category>
+                
+                <category>copilot</category>
+                
+                <category>vibe-coding</category>
+                
+                <category>specification-driven-development</category>
+                
+                <category>series</category>
+                
+                <category>team-collaboration</category>
+                
+                <category>ci-cd</category>
+                
+                
+                <category>AI</category>
+                
+                <category>Development</category>
+                
+                <category>DevOps</category>
+                
+            </item>
+        
+            <item>
+                <title>From Vibe Coding to Spec-Driven Development: Part 3 - Best practices and troubleshooting</title>
                 <description>&lt;blockquote&gt;
   &lt;p&gt;🎯 &lt;strong&gt;This is Part 3 of a 5-part series on mastering AI-assisted development.&lt;/strong&gt;&lt;/p&gt;
 
@@ -3866,7 +5023,7 @@ graph TB
 
 &lt;h3 id=&quot;key-stats&quot;&gt;Key stats:&lt;/h3&gt;
 &lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;54k+ GitHub stars&lt;/strong&gt; — Battle-tested, not experimental&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;65k+ GitHub stars&lt;/strong&gt; — Battle-tested, not experimental&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;18+ AI agents supported&lt;/strong&gt; — Claude, Copilot, Cursor, Windsurf, Gemini, and more&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;MIT licensed&lt;/strong&gt; — Free to use&lt;/li&gt;
 &lt;/ul&gt;
@@ -7306,335 +8463,6 @@ terraform plan &lt;span class=&quot;nt&quot;&gt;-detailed-exitcode&lt;/span&gt; 
                 <category>Project validation</category>
                 
                 <category>Series</category>
-                
-                
-            </item>
-        
-            <item>
-                <title>A practical guide to Machine Learning for image classification</title>
-                <description>&lt;p&gt;I recently started the AI Architecture course by Zach Gardner from IASA Global, which aims to equip professionals with the knowledge to implement AI effectively within businesses. The course delves into AI principles, frameworks, MLOps, governance, and best practices, emphasizing a business-first approach to security, scalability, and performance in AI architectures. Inspired by this, I wanted to share a practical walkthrough of a typical machine learning project.&lt;/p&gt;
-
-&lt;h1 id=&quot;a-practical-guide-to-machine-learning-for-image-classification&quot;&gt;A practical guide to Machine Learning for image classification&lt;/h1&gt;
-
-&lt;p&gt;Many real-world problems involve classifying items based on visual features. Identifying these categories is important for various applications. Often, these classification tasks are performed manually, a process that can be slow and prone to inconsistencies. Machine learning (ML) offers an alternative, enabling computers to learn from examples and automate this process, leading to increased speed, efficiency, and reliability. This post will walk through a common machine learning project focused on image classification, explaining each step from defining the problem to deploying a solution. We’ll see how ML can be used to analyze images and assign them to predefined categories.&lt;/p&gt;
-
-&lt;p&gt;Computers can analyze vast numbers of images quickly without fatigue or distraction. For instance, manually sorting hundreds or thousands of images can lead to errors over time. An ML model, once trained, can maintain consistent performance, ensuring uniform quality in classification tasks.&lt;/p&gt;
-
-&lt;h2 id=&quot;defining-the-problem-image-classification&quot;&gt;Defining the problem: image classification&lt;/h2&gt;
-
-&lt;p&gt;The main challenge in image classification is to analyze an image and determine which predefined category it belongs to. For example, we might need to classify images into:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Object type 1&lt;/li&gt;
-  &lt;li&gt;Object type 2&lt;/li&gt;
-  &lt;li&gt;Object type 3&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Each category typically possesses distinct visual characteristics. Differentiating these by eye can be difficult, especially when dealing with a large volume of images or when the visual differences are subtle.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Figure 1: Basic image classification process&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-mermaid&quot;&gt;flowchart TD
-    A[Input Images] --&amp;gt; B{Classification}
-    B --&amp;gt; C[Object type 1]
-    B --&amp;gt; D[Object type 2]
-    B --&amp;gt; E[Object type 3]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Using images for classification is often more efficient than manual inspection. Consider an automated system where items pass by a camera; the camera captures images, and a computer instantly sorts them. This not only saves time but also minimizes errors that might occur due to human fatigue or haste.&lt;/p&gt;
-
-&lt;h2 id=&quot;choosing-the-right-approach-supervised-learning-and-cnns&quot;&gt;Choosing the right approach: supervised learning and CNNs&lt;/h2&gt;
-
-&lt;p&gt;To tackle image classification, we typically turn to &lt;strong&gt;supervised learning&lt;/strong&gt;. In this approach, we provide the computer with a large dataset of examples where the correct answer (the category label) is already known. The model learns to recognize patterns from these labeled examples.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Figure 2: Supervised learning with CNNs&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-mermaid&quot;&gt;graph LR
-    Input[Input: Labeled images] --&amp;gt; Model[Convolutional Neural Network]
-    Model --&amp;gt; Output[Output: Category label]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Supervised learning with CNNs is like teaching a child with flashcards: “This image is object type 1,” “This one is object type 2,” and so on. CNNs are effective because they can automatically learn hierarchical features from images, such as edges, textures, and complex shapes, which are important for accurate classification.&lt;/p&gt;
-
-&lt;h2 id=&quot;essential-tools-for-the-workflow&quot;&gt;Essential tools for the workflow&lt;/h2&gt;
-
-&lt;p&gt;A machine learning project relies on a set of tools to manage the various stages of development. Here are some common categories and examples:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;ML frameworks&lt;/strong&gt;: These provide the building blocks for creating and training models.
-    &lt;ul&gt;
-      &lt;li&gt;TensorFlow (often with Keras API)&lt;/li&gt;
-      &lt;li&gt;PyTorch&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Data labeling tools&lt;/strong&gt;: Used to annotate images with their correct categories.
-    &lt;ul&gt;
-      &lt;li&gt;LabelImg&lt;/li&gt;
-      &lt;li&gt;Roboflow&lt;/li&gt;
-      &lt;li&gt;CVAT (Computer Vision Annotation Tool)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Experiment tracking&lt;/strong&gt;: Helps monitor and compare different model versions and training runs.
-    &lt;ul&gt;
-      &lt;li&gt;MLflow&lt;/li&gt;
-      &lt;li&gt;TensorBoard (especially for TensorFlow)&lt;/li&gt;
-      &lt;li&gt;Weights &amp;amp; Biases&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The typical workflow involving these tools can be visualized as follows:&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Figure 3: Data preparation workflow&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-mermaid&quot;&gt;flowchart LR
-    A[Data collection] --&amp;gt; B[Labeling tool]
-    B --&amp;gt; C[ML framework]
-    C --&amp;gt; D[Experiment tracking]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;First, we collect the necessary images. Then, using a labeling tool, we assign the correct category to each image. With the labeled dataset, we use an ML framework like TensorFlow or PyTorch to design and train our CNN model. Throughout this process, experiment tracking tools log metrics, parameters, and artifacts, allowing us to reproduce results and understand what works best. These tools are like a scientist’s lab notebook, helpful for systematic improvement.&lt;/p&gt;
-
-&lt;h2 id=&quot;preparing-the-data-collection-splitting-and-augmentation&quot;&gt;Preparing the data: collection, splitting, and augmentation&lt;/h2&gt;
-
-&lt;p&gt;The quality and quantity of data are very important in machine learning. For our image classification model to learn effectively, it needs to see a diverse set of examples.&lt;/p&gt;
-
-&lt;p&gt;Key steps in data preparation include:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;Collect diverse, labeled images&lt;/strong&gt;: Gather a wide variety of images for each category, ensuring they represent different conditions (lighting, angles, backgrounds) the model might encounter in the real world.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Split data&lt;/strong&gt;: Divide the dataset into three distinct subsets:
-    &lt;ul&gt;
-      &lt;li&gt;&lt;strong&gt;Training set (e.g., 70%)&lt;/strong&gt;: Used to train the model.&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;Validation set (e.g., 15%)&lt;/strong&gt;: Used to tune model parameters and monitor for overfitting during training.&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;Test set (e.g., 15%)&lt;/strong&gt;: Used for a final, unbiased evaluation of the trained model’s performance on unseen data.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Use data augmentation&lt;/strong&gt;: Artificially increase the size and diversity of the training set by applying random transformations to existing images (e.g., rotations, flips, brightness adjustments). This helps the model become more robust and generalize better to new, unseen images.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Here’s an example of how you can set up data augmentation using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ImageDataGenerator&lt;/code&gt; in TensorFlow/Keras:&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tensorflow.keras.preprocessing.image&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ImageDataGenerator&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Create an ImageDataGenerator instance with desired augmentations
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;datagen&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ImageDataGenerator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;rotation_range&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;      &lt;span class=&quot;c1&quot;&gt;# Randomly rotate images by up to 20 degrees
-&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;width_shift_range&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# Randomly shift images horizontally by up to 20% of the width
-&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;height_shift_range&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Randomly shift images vertically by up to 20% of the height
-&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;shear_range&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;        &lt;span class=&quot;c1&quot;&gt;# Apply shear transformations
-&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;zoom_range&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;         &lt;span class=&quot;c1&quot;&gt;# Randomly zoom into images
-&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;horizontal_flip&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;# Randomly flip images horizontally
-&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;fill_mode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;nearest&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;     &lt;span class=&quot;c1&quot;&gt;# Strategy for filling newly created pixels
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Example: Applying it to a training data generator
-# train_generator = datagen.flow_from_directory(
-#     &apos;path/to/train_data&apos;,
-#     target_size=(224, 224),
-#     batch_size=32,
-#     class_mode=&apos;categorical&apos;
-# )
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;Figure 3: Data preparation workflow&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-mermaid&quot;&gt;flowchart TD
-    A[Raw Images] --&amp;gt; B[Labeling]
-    B --&amp;gt; C[Dataset split]
-    C --&amp;gt; D1[Training set]
-    C --&amp;gt; D2[Validation set]
-    C --&amp;gt; D3[Test set]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Splitting the data is important to ensure the model isn’t just “memorizing” the training examples but is actually learning to generalize. Data augmentation acts as a regularizer, preventing the model from becoming too specialized to the training data and improving its performance on real-world data.&lt;/p&gt;
-
-&lt;h2 id=&quot;building-and-training-the-model&quot;&gt;Building and training the model&lt;/h2&gt;
-
-&lt;p&gt;With the data prepared, the next step is to define the model architecture and train it.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Choose a CNN architecture&lt;/strong&gt;: Select a CNN architecture suitable for image classification. This could be a custom-built network or a pre-trained model using &lt;strong&gt;transfer learning&lt;/strong&gt;. Transfer learning is a powerful technique where a model developed for a task (e.g., classifying a large dataset like ImageNet) is reused as the starting point for a model on a second task. This approach can significantly reduce training time and improve performance, especially when your dataset is relatively small, as the model has already learned general features from the larger dataset.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Example architecture&lt;/strong&gt;: A simple CNN might consist of:
-    &lt;ul&gt;
-      &lt;li&gt;Input layer (receiving image data)&lt;/li&gt;
-      &lt;li&gt;Convolutional layers (Conv2D) with activation functions (e.g., ReLU)&lt;/li&gt;
-      &lt;li&gt;Pooling layers (MaxPooling) to reduce dimensionality&lt;/li&gt;
-      &lt;li&gt;Flatten layer (to convert 2D feature maps to a 1D vector)&lt;/li&gt;
-      &lt;li&gt;Dense layers (fully connected layers) for classification&lt;/li&gt;
-      &lt;li&gt;Output layer with an activation function (e.g., softmax for multi-class classification)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Compile the model&lt;/strong&gt;: Configure the learning process by specifying:
-    &lt;ul&gt;
-      &lt;li&gt;&lt;strong&gt;Optimizer&lt;/strong&gt; (e.g., Adam, SGD): Algorithm to update model weights.&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;Loss function&lt;/strong&gt; (e.g., &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;categorical_crossentropy&lt;/code&gt; for multi-class): Measures how well the model is performing.&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;Metrics&lt;/strong&gt; (e.g., &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;accuracy&lt;/code&gt;): Used to monitor training and testing steps.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Train the model&lt;/strong&gt;: Fit the model to the training data, using the validation set to monitor its performance and prevent overfitting.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Here&apos;s a simplified example of defining and compiling a CNN model using TensorFlow/Keras:&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tensorflow&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tensorflow.keras&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;layers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Assuming 3 categories and input images of size 224x224x3 (RGB)
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Sequential&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;layers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;224&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;224&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)),&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;layers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Conv2D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;32&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;activation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;relu&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;layers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;MaxPooling2D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)),&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;layers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Conv2D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;64&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;activation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;relu&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;layers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;MaxPooling2D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)),&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;layers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Flatten&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;layers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Dense&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;64&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;activation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;relu&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;layers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Dense&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;activation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;softmax&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Output layer for 3 classes
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;compile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;optimizer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;adam&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-              &lt;span class=&quot;n&quot;&gt;loss&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;categorical_crossentropy&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-              &lt;span class=&quot;n&quot;&gt;metrics&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;accuracy&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# model.fit(training_data, validation_data=validation_data, epochs=N) # Actual training step
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;The model&apos;s architecture dictates its capacity to learn. Convolutional layers act as feature extractors, learning to identify patterns like edges and textures. Pooling layers help to make the learned features more robust to variations in object scale and position. Dense layers then use these high-level features to make the final classification. The training process iteratively adjusts the model&apos;s weights to minimize the chosen loss function.&lt;/p&gt;
-
-&lt;h2 id=&quot;saving-your-trained-model&quot;&gt;Saving your trained model&lt;/h2&gt;
-
-&lt;p&gt;Once the model is trained to a satisfactory performance level, it&apos;s important to save its learned parameters (weights) and architecture. This allows you to reuse the model later for predictions without needing to retrain it from scratch.&lt;/p&gt;
-
-&lt;p&gt;In TensorFlow/Keras, saving a model is straightforward:&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Assume &apos;model&apos; is your trained Keras model
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;image_classifier_model&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;This command saves the entire model (architecture, weights, and training configuration) to a directory named &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;image_classifier_model&lt;/code&gt;. This saved model can then be loaded into other applications or deployed to a server. It’s like saving your progress in a complex task, ensuring your efforts are preserved for future use.&lt;/p&gt;
-
-&lt;h2 id=&quot;making-the-model-accessible-serving-with-flask&quot;&gt;Making the model accessible: serving with Flask&lt;/h2&gt;
-
-&lt;p&gt;To make your trained image classification model usable by other applications or users, you can expose it as a web API. Flask is a lightweight Python web framework that is excellent for this purpose.&lt;/p&gt;
-
-&lt;p&gt;Here’s a conceptual example of a Flask app that loads the saved TensorFlow model and provides a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/predict&lt;/code&gt; endpoint:&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;flask&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Flask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;jsonify&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tensorflow&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PIL&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Image&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Pillow library for image manipulation
-&lt;/span&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;app&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Flask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;__name__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Load the saved model
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keras&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;load_model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;image_classifier_model&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# Define the class names (ensure order matches model output)
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CLASSES&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Object type 1&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Object type 2&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Object type 3&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;preprocess_image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;image_file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;img&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;image_file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stream&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;convert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;RGB&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Ensure 3 channels
-&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;img&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;resize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;224&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;224&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Resize to model&apos;s expected input size
-&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;img_array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;255.0&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Normalize pixel values
-&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;img_array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;expand_dims&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;img_array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;axis&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Add batch dimension
-&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;img_array&lt;/span&gt;
-
-&lt;span class=&quot;nd&quot;&gt;@app.route&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;/predict&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;methods&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;POST&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;predict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;jsonify&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;No file part&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}),&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;400&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;jsonify&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;No selected file&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}),&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;400&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;img_array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;preprocess_image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;prediction&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;predict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;img_array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;class_idx&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;argmax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prediction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;axis&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;jsonify&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CLASSES&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;class_idx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;confidence&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prediction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;class_idx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])})&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;except&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;jsonify&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)}),&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;500&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__name__&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;__main__&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;host&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;0.0.0.0&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;This Flask application creates an endpoint that accepts an image file, preprocesses it to match the model’s input requirements, gets a prediction from the loaded TensorFlow model, and returns the predicted class as a JSON response. This makes the model accessible over the network.&lt;/p&gt;
-
-&lt;h2 id=&quot;ensuring-portability-dockerizing-the-application&quot;&gt;Ensuring portability: dockerizing the application&lt;/h2&gt;
-
-&lt;p&gt;To ensure that your Flask application (and the ML model it serves) runs consistently across different environments (development, testing, production), containerization with Docker is highly recommended. Docker packages the application and all its dependencies into a standardized unit called a container.&lt;/p&gt;
-
-&lt;p&gt;Here’s an example &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Dockerfile&lt;/code&gt; for the Flask application:&lt;/p&gt;
-
-&lt;div class=&quot;language-dockerfile highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# Use an official Python runtime as a parent image&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; python:3.10-slim&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# Set the working directory in the container&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;WORKDIR&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; /app&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# Copy the current directory contents into the container at /app&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;COPY&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; . /app&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# Copy requirements.txt and install dependencies&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;COPY&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; requirements.txt .&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;RUN &lt;/span&gt;pip &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--no-cache-dir&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt; requirements.txt
-
-&lt;span class=&quot;c&quot;&gt;# Make port 5000 available to the world outside this container&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;EXPOSE&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; 5000&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# Define environment variable&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;ENV&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; NAME World&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# Run app.py when the container launches&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;CMD&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; [&quot;python&quot;, &quot;app.py&quot;]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;You would create a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;requirements.txt&lt;/code&gt; file in the same directory as your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Dockerfile&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app.py&lt;/code&gt;. For this project, it would look like this:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-txt&quot;&gt;flask
-tensorflow
-pillow
-numpy
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Dockerfile&lt;/code&gt; defines the steps to build a Docker image. It starts from a base Python image, copies the application code (including &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app.py&lt;/code&gt;, the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;image_classifier_model&lt;/code&gt; directory, and a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;requirements.txt&lt;/code&gt; file), installs dependencies, exposes the port Flask is running on, and specifies the command to run the application. This container can then be deployed on any system with Docker installed, resolving the “it works on my machine” problem.&lt;/p&gt;
-
-&lt;h2 id=&quot;the-complete-workflow&quot;&gt;The complete workflow&lt;/h2&gt;
-
-&lt;p&gt;The overall workflow, from a user or system providing an image to receiving a classification, can be summarized with the following diagram:&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Figure 4: Complete image classification and serving workflow&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-mermaid&quot;&gt;flowchart TD
-    A[&quot;User Uploads Image / Image from System&quot;] --&amp;gt; B[&quot;Flask API (via HTTP)&quot;]
-    B --&amp;gt; C[&quot;Docker Container hosting Flask App &amp;amp; TensorFlow Model&quot;]
-    C -- Preprocesses Image --&amp;gt; D[TensorFlow Model Inference]
-    D -- Returns Prediction --&amp;gt; C
-    C -- Sends JSON Response --&amp;gt; A[&quot;Prediction (Category) returned to User/System&quot;]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;A user or an automated system sends an image to the Flask API. The API, running inside a Docker container, receives the image. The Flask application preprocesses the image and feeds it to the TensorFlow model for inference. The model returns a prediction, which the Flask app then formats as a JSON response and sends back to the requester.&lt;/p&gt;
-
-&lt;h2 id=&quot;conclusion-and-key-takeaways&quot;&gt;Conclusion and key takeaways&lt;/h2&gt;
-
-&lt;p&gt;This post highlighted a common and effective machine learning workflow for image classification. The key stages include:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;Problem definition&lt;/strong&gt;: Clearly understanding the classification task.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Data management&lt;/strong&gt;: Collecting, labeling, splitting, and augmenting image data.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Model development&lt;/strong&gt;: Choosing an appropriate architecture (like a CNN), training it with frameworks such as TensorFlow, and saving the trained model.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Deployment&lt;/strong&gt;: Serving the model via a web API using Flask.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Packaging&lt;/strong&gt;: Containerizing the application with Docker for portability and scalability.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;This structured approach can be adapted for a wide array of applications, from identifying different types of flora and fauna to detecting defects in manufacturing or recognizing landmarks in photographs. By following these steps and leveraging the right tools, you can build AI systems capable of understanding and interpreting visual information.&lt;/p&gt;
-</description>
-                <pubDate>Wed, 21 May 2025 09:00:00 +0200</pubDate>
-                <link>http://localhost:4000/iasa-ai-course</link>
-                <guid isPermaLink="true">http://localhost:4000/iasa-ai-course</guid>
-                
-                <category>AI</category>
-                
-                <category>Machine Learning</category>
-                
-                <category>Image Classification</category>
-                
-                <category>IASA</category>
                 
                 
             </item>
