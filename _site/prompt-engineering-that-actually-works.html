@@ -6,22 +6,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>From Vibe Coding to Spec-Driven Development: Part 1 - The problem and the solution</title>
-  <meta name='description' content='Part 1 of our series on mastering AI-assisted development. Discover why 'vibe coding' gets you only 70% there, and why spec-driven development is the answer....'>
+  <title>Prompt Engineering That Actually Works</title>
+  <meta name='description' content='From vague prompts to reliable results: practical frameworks and mental models for working with LLMs, covering the 5 Principles, few-shot learning, Chain of ...'>
 
-  <link rel="canonical" href="http://localhost:4000/from-vibe-coding-to-spec-driven-development">
+  <link rel="canonical" href="http://localhost:4000/prompt-engineering-that-actually-works">
   <link rel="alternate" type="application/rss+xml" title="" href="/feed.xml">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="From Vibe Coding to Spec-Driven Development: Part 1 - The problem and the solution – Hidde de Smet">
-  <meta name="twitter:description" content="Part 1 of our series on mastering AI-assisted development. Discover why &apos;vibe coding&apos; gets you only 70% there, and why spec-driven development is the answer. This is your roadmap to production-ready AI-generated code.">
-  <meta name="twitter:image:src" content="http://localhost:4000/images/spec-kit/image-01.png">
+  <meta name="twitter:title" content="Prompt Engineering That Actually Works – Hidde de Smet">
+  <meta name="twitter:description" content="From vague prompts to reliable results: practical frameworks and mental models for working with LLMs, covering the 5 Principles, few-shot learning, Chain of Thought, RAG, context engineering, and how agents change everything.">
+  <meta name="twitter:image:src" content="http://localhost:4000/images/promptengineering.png">
 
   <!-- Facebook OpenGraph -->
-  <meta property="og:title" content="From Vibe Coding to Spec-Driven Development: Part 1 - The problem and the solution – Hidde de Smet">
-  <meta property="og:description" content="Part 1 of our series on mastering AI-assisted development. Discover why &apos;vibe coding&apos; gets you only 70% there, and why spec-driven development is the answer. This is your roadmap to production-ready AI-generated code.">
-  <meta property="og:image" content="http://localhost:4000/images/spec-kit/image-01.png">
+  <meta property="og:title" content="Prompt Engineering That Actually Works – Hidde de Smet">
+  <meta property="og:description" content="From vague prompts to reliable results: practical frameworks and mental models for working with LLMs, covering the 5 Principles, few-shot learning, Chain of Thought, RAG, context engineering, and how agents change everything.">
+  <meta property="og:image" content="http://localhost:4000/images/promptengineering.png">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -211,41 +211,41 @@
         
         <div class="post__tags">
         
-          <a href="/tags#ai-assisted-development" class="post__tag">ai-assisted-development</a>
+          <a href="/tags#prompt-engineering" class="post__tag">prompt-engineering</a>
         
-          <a href="/tags#spec-kit" class="post__tag">spec-kit</a>
+          <a href="/tags#llm" class="post__tag">llm</a>
         
-          <a href="/tags#github" class="post__tag">github</a>
+          <a href="/tags#ai" class="post__tag">ai</a>
         
           <a href="/tags#claude" class="post__tag">claude</a>
         
-          <a href="/tags#copilot" class="post__tag">copilot</a>
+          <a href="/tags#chatgpt" class="post__tag">chatgpt</a>
         
-          <a href="/tags#vibe-coding" class="post__tag">vibe-coding</a>
+          <a href="/tags#github-copilot" class="post__tag">github-copilot</a>
         
-          <a href="/tags#specification-driven-development" class="post__tag">specification-driven-development</a>
+          <a href="/tags#context-engineering" class="post__tag">context-engineering</a>
         
-          <a href="/tags#series" class="post__tag">series</a>
+          <a href="/tags#agents" class="post__tag">agents</a>
         
         </div>
         
         <div class="post__date">•
-          <time datetime="2026-01-05T00:00:00+01:00">Jan 05, 2026</time>
+          <time datetime="2026-02-25T00:00:00+01:00">Feb 25, 2026</time>
         </div>
         <div class="post__minutes">•
           <span>
             
             
-              16 min read
+              28 min read
             
           </span>
         </div>
       </div>
 
-      <h1 class="post__title">From Vibe Coding to Spec-Driven Development: Part 1 - The problem and the solution</h1>
+      <h1 class="post__title">Prompt Engineering That Actually Works</h1>
 
       
-      <div class="post__description">Part 1 of our series on mastering AI-assisted development. Discover why 'vibe coding' gets you only 70% there, and why spec-driven development is the answer. This is your roadmap to production-ready AI-generated code.</div>
+      <div class="post__description">From vague prompts to reliable results: practical frameworks and mental models for working with LLMs, covering the 5 Principles, few-shot learning, Chain of Thought, RAG, context engineering, and how agents change everything.</div>
       
 
       <div class="post__meta">
@@ -267,25 +267,25 @@
   <ul class="share__list list-reset">
     <li class="share__item">
       <a class="share__link share__twitter"
-        href="https://twitter.com/intent/tweet?text=From%20Vibe%20Coding%20to%20Spec-Driven%20Development:%20Part%201%20-%20The%20problem%20and%20the%20solution&url=http://localhost:4000/from-vibe-coding-to-spec-driven-development"
+        href="https://twitter.com/intent/tweet?text=Prompt%20Engineering%20That%20Actually%20Works&url=http://localhost:4000/prompt-engineering-that-actually-works"
         onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
         title="Share on Twitter" rel="nofollow"><i class="fa-brands fa-x-twitter"></i></a>
     </li>
     <li class="share__item">
       <a class="share__link share__facebook"
-        href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/from-vibe-coding-to-spec-driven-development"
+        href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/prompt-engineering-that-actually-works"
         onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
         title="Share on Facebook" rel="nofollow"><i class="fa-brands fa-facebook-f"></i></a>
     </li>
     <li class="share__item">
       <a class="share__link share__pinterest"
-        href="http://pinterest.com/pin/create/button/?url=http://localhost:4000/from-vibe-coding-to-spec-driven-development&amp;media=http://localhost:4000/images/spec-kit/image-01.png&amp;description=From%20Vibe%20Coding%20to%20Spec-Driven%20Development:%20Part%201%20-%20The%20problem%20and%20the%20solution"
+        href="http://pinterest.com/pin/create/button/?url=http://localhost:4000/prompt-engineering-that-actually-works&amp;media=http://localhost:4000/images/promptengineering.png&amp;description=Prompt%20Engineering%20That%20Actually%20Works"
         onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"
         title="Share on Pinterest" rel="nofollow"><i class="fa-brands fa-pinterest"></i></a>
     </li>
     <li class="share__item">
       <a class="share__link share__linkedin"
-        href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/from-vibe-coding-to-spec-driven-development&title=From%20Vibe%20Coding%20to%20Spec-Driven%20Development:%20Part%201%20-%20The%20problem%20and%20the%20solution&summary=Part%201%20of%20our%20series%20on%20mastering%20AI-assisted%20development.%20Discover%20why%20'vibe%20coding'%20gets%20you%20only%2070%25%20there,%20and%20why%20spec-driven%20development%20is%20the%20answer.%20This%20is%20your%20roadmap%20to%20production-ready%20AI-generated%20code.&source="
+        href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/prompt-engineering-that-actually-works&title=Prompt%20Engineering%20That%20Actually%20Works&summary=From%20vague%20prompts%20to%20reliable%20results:%20practical%20frameworks%20and%20mental%20models%20for%20working%20with%20LLMs,%20covering%20the%205%20Principles,%20few-shot%20learning,%20Chain%20of%20Thought,%20RAG,%20context%20engineering,%20and%20how%20agents%20change%20everything.&source="
         onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
         title="Share on LinkedIn" rel="nofollow"><i class="fa-brands fa-linkedin"></i></a>
     </li>
@@ -300,7 +300,7 @@
 
     
     <div class="post__image">
-      <img class="lazy" data-src="/images/spec-kit/image-01.png" alt="From Vibe Coding to Spec-Driven Development: Part 1 - The problem and the solution">
+      <img class="lazy" data-src="/images/promptengineering.png" alt="Prompt Engineering That Actually Works">
     </div>
     
     
@@ -314,759 +314,1238 @@
       
       <div class="post__toc">
         <h2 class="post__toc__title">Table of Contents</h2>
-        <ol class="post__toc__list"><li><a href="#series-overview">Series overview</a></li><li><a href="#the-ai-shift-in-software-development">The AI shift in software development</a></li><li><a href="#what-is-vibe-coding">What is “Vibe Coding”?</a></li><li><a href="#the-70-problem">The 70% Problem</a><ol><li><a href="#four-main-issues">Four main issues:</a></li></ol></li><li><a href="#the-spectrum-of-ai-assisted-development">The spectrum of AI-assisted development</a></li><li><a href="#what-is-ai-assisted-engineering">What is AI-assisted engineering?</a><ol><li><a href="#three-pillars">Three pillars:</a></li></ol></li><li><a href="#the-paradigm-shift">The paradigm shift</a></li><li><a href="#the-evolution-three-levels-of-spec-driven-development">The evolution: three levels of spec-driven development</a><ol><li><a href="#level-1-spec-first-throwaway-scaffolding">Level 1: Spec-first (throwaway scaffolding)</a></li><li><a href="#level-2-spec-anchored-documentation-trail">Level 2: Spec-anchored (documentation trail)</a></li><li><a href="#level-3-spec-as-source-single-source-of-truth">Level 3: Spec-as-source (single source of truth)</a></li><li><a href="#why-this-matters">Why this matters</a></li></ol></li><li><a href="#enter-spec-kit">Enter Spec-Kit</a><ol><li><a href="#key-stats">Key stats:</a></li><li><a href="#quick-start">Quick start:</a></li></ol></li><li><a href="#core-principles">Core principles</a></li><li><a href="#the-accountability-chain">The accountability chain</a></li><li><a href="#constitution-vs-custom-instructions">Constitution vs custom instructions</a><ol><li><a href="#the-real-difference-workflow-integration">The real difference: workflow integration</a></li><li><a href="#the-analogy">The analogy</a></li></ol></li><li><a href="#step-1-create-your-constitution">Step 1: Create your constitution</a><ol><li><a href="#include-things-like">Include things like:</a></li></ol></li><li><a href="#step-2-write-the-specification">Step 2: Write the specification</a><ol><li><a href="#-dont">❌ Don’t:</a></li><li><a href="#-do">✅ Do:</a></li></ol></li><li><a href="#step-3-create-the-technical-plan">Step 3: Create the technical plan</a><ol><li><a href="#the-ai-generates">The AI generates:</a></li></ol></li><li><a href="#step-4-break-down-into-tasks">Step 4: Break down into tasks</a><ol><li><a href="#each-task-includes">Each task includes:</a></li></ol></li><li><a href="#step-5-implement">Step 5: Implement</a><ol><li><a href="#the-execution-flow">The execution flow:</a></li></ol></li><li><a href="#handling-changes-after-implementation">Handling changes after implementation</a><ol><li><a href="#before-implementation">Before implementation:</a></li><li><a href="#runtime-bugs">Runtime bugs:</a></li><li><a href="#spec-changes">Spec changes:</a></li></ol></li><li><a href="#why-this-approach-works">Why this approach works</a></li><li><a href="#best-practice-1-context-is-everything">Best practice #1: Context is everything</a><ol><li><a href="#-poor-context">❌ Poor context:</a></li><li><a href="#-rich-context">✅ Rich context:</a></li></ol></li><li><a href="#best-practice-2-plan-first-code-later">Best practice #2: Plan first, code later</a><ol><li><a href="#the-magic-words">The magic words:</a></li></ol></li><li><a href="#best-practice-3-test-ruthlessly">Best practice #3: Test ruthlessly</a><ol><li><a href="#the-rule">The rule:</a></li><li><a href="#when-debugging-be-specific">When debugging, be specific:</a></li></ol></li><li><a href="#when-to-use-what">When to use what</a><ol><li><a href="#vibe-coding-is-fine-for">Vibe coding is fine for:</a></li><li><a href="#spec-driven-is-essential-for">Spec-driven is essential for:</a></li></ol></li><li><a href="#whats-next-in-this-series">What’s next in this series</a><ol><li><a href="#coming-next-week-part-2-the-spec-kit-workflow">Coming next week (Part 2): The Spec-Kit workflow</a></li><li><a href="#get-ready">Get ready</a></li></ol></li><li><a href="#key-takeaways-from-part-1">Key takeaways from part 1</a></li><li><a href="#resources">Resources</a></li><li><a href="#series-navigation">Series navigation</a></li></ol>
+        <ol class="post__toc__list"><li><a href="#the-problem-everyone-recognizes">The problem everyone recognizes</a></li><li><a href="#prompt-engineering-is-dead">“Prompt engineering is dead”</a></li><li><a href="#the-8020-of-prompt-engineering">The 80/20 of prompt engineering</a><ol><li><a href="#1-be-specific">1. Be specific</a></li><li><a href="#2-show-dont-tell-few-shot">2. Show, don’t tell (few-shot)</a></li><li><a href="#3-iterate-dont-restart">3. Iterate, don’t restart</a></li></ol></li><li><a href="#how-llms-actually-work">How LLMs actually work</a><ol><li><a href="#llms-are-document-completers">LLMs are document completers</a></li><li><a href="#how-llms-see-the-world-differently">How LLMs see the world differently</a></li><li><a href="#the-context-window">The context window</a></li><li><a href="#bigger-isnt-always-better">Bigger isn’t always better</a></li><li><a href="#practical-rules">Practical rules</a></li><li><a href="#the-loop-framework">The Loop Framework</a></li></ol></li><li><a href="#core-techniques">Core techniques</a><ol><li><a href="#the-5-principles">The 5 Principles</a></li><li><a href="#the-playwriting-metaphor">The Playwriting metaphor</a></li><li><a href="#anatomy-of-a-great-prompt">Anatomy of a great prompt</a></li><li><a href="#how-prompt-elements-interact">How prompt elements interact</a></li><li><a href="#choose-your-document-type">Choose your document type</a></li><li><a href="#few-shot-the-technique-that-always-works">Few-shot: the technique that always works</a></li></ol></li><li><a href="#advanced-patterns">Advanced patterns</a><ol><li><a href="#chain-of-thought-cot-reasoning">Chain of Thought (CoT) reasoning</a></li><li><a href="#prewarming">Prewarming</a></li><li><a href="#react-pattern">ReAct Pattern</a></li><li><a href="#prompt-chaining">Prompt Chaining</a></li><li><a href="#rag-retrieval-augmented-generation">RAG: Retrieval-Augmented Generation</a></li><li><a href="#context-engineering">Context Engineering</a></li><li><a href="#anatomy-of-a-system-prompt">Anatomy of a system prompt</a></li><li><a href="#from-chat-to-agents">From chat to agents</a></li><li><a href="#instructing-agents">Instructing agents</a></li><li><a href="#meta-prompting">Meta Prompting</a></li><li><a href="#self-critique-prompting">Self-Critique Prompting</a></li><li><a href="#text-style-unbundling">Text Style Unbundling</a></li></ol></li><li><a href="#model-settings-and-behavior">Model settings and behavior</a><ol><li><a href="#temperature">Temperature</a></li><li><a href="#the-alignment-tax">The alignment tax</a></li></ol></li><li><a href="#practice-and-evaluation">Practice and evaluation</a><ol><li><a href="#common-pitfalls">Common pitfalls</a></li><li><a href="#real-rewrites">Real rewrites</a></li><li><a href="#iteration-in-practice">Iteration in practice</a></li><li><a href="#the-soma-framework-for-evaluation">The SOMA framework for evaluation</a></li><li><a href="#which-technique-when">Which technique when?</a></li><li><a href="#prompt-engineering-at-work">Prompt engineering at work</a></li></ol></li><li><a href="#your-prompt-toolkit">Your prompt toolkit</a><ol><li><a href="#templates">Templates</a></li><li><a href="#rules">Rules</a></li></ol></li><li><a href="#key-takeaways">Key takeaways</a></li><li><a href="#resources">Resources</a></li></ol>
       </div>
       
 
-      <blockquote>
-  <p><strong>This is Part 1 of a 5-part series on mastering AI-assisted development.</strong> Each week, we’ll dive deeper into practical techniques for building production-ready applications with AI coding assistants.</p>
-</blockquote>
+      <p>This week I gave a talk at the Xebia Azure AI Winter Jam: <em>Prompt Engineering That Actually Works</em>. The session drew from two O’Reilly books, <a href="https://www.oreilly.com/library/view/prompt-engineering-for/9781098156145/"><em>Prompt Engineering for LLMs</em></a> by Berryman &amp; Ziegler and <a href="https://www.oreilly.com/library/view/prompt-engineering-for/9781098153427/"><em>Prompt Engineering for Generative AI</em></a> by Phoenix &amp; Taylor, along with the latest 2025-2026 research.</p>
 
-<h2 id="series-overview">Series overview</h2>
-
-<ol>
-  <li><strong>Part 1 (This post)</strong>: The problem and the solution - Why vibe coding fails and what spec-driven development offers</li>
-  <li><strong>Part 2 (Jan 12)</strong>: Deep dive into the Spec-Kit workflow - Constitution, specs, plans, and tasks</li>
-  <li><strong>Part 3 (Jan 19)</strong>: Best practices and troubleshooting - Real-world debugging and iteration patterns</li>
-  <li><strong>Part 4 (Jan 26)</strong>: Team collaboration and advanced patterns - Using Spec-Kit in production environments</li>
-  <li><strong>Part 5 (Feb 2)</strong>: Case studies and lessons learned - Real projects, real results, real lessons</li>
-</ol>
+<p>This is an expanded writeup of that talk. The goal: get more predictable results out of LLMs, for quick daily tasks and for building AI features into products.</p>
 
 <hr />
 
-<p>A few weeks ago, I presented at a Xebia .NET synergy event on moving from ad-hoc “vibe coding” to structured, spec-driven development. The questions and discussions afterward showed that developers are wrestling with these same issues, so I decided to expand the content into this blog series.</p>
+<h2 id="the-problem-everyone-recognizes">The problem everyone recognizes</h2>
 
-<p>This blog series is the result of that presentation, expanded and refined based on the feedback and discussions with fellow developers. Whether you attended the event or are discovering this topic for the first time, my goal is to give you practical, actionable guidance for building production-ready AI-assisted applications.</p>
+<p>You type a prompt. The result is… fine. Kind of useful. But not exactly what you needed.</p>
 
-<p>AI coding assistants have changed how we write software. The code they generate often works well enough to ship, but falls apart when you need to maintain or extend it. This guide shows you how to get from code that works to code that’s production-ready using specification-driven development.</p>
+<p>So you try again with slightly different wording. Still not quite right. After the fourth attempt, you either settle for “good enough” or give up.</p>
 
-<p>Based on <a href="https://github.com/github/spec-kit">GitHub’s Spec-Kit</a> and <a href="https://beyond.addy.ie/">Addy Osmani’s “Beyond Vibe Coding”</a> guide, this series walks you through a structured approach to AI-assisted development that actually works for real-world applications.</p>
+<p>Sound familiar?</p>
 
-<p>In this first post, we’ll explore the fundamental problem with unstructured AI coding and introduce you to the spec-driven approach. Next week, we’ll get hands-on with the actual workflow.</p>
+<p>Here’s the same scenario with and without intentional prompting:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">The vague prompt</th>
+      <th style="text-align: left">The engineered prompt</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">“Tell me about AI”</td>
+      <td style="text-align: left">“You are a tech analyst writing for a CTO audience. Compare the top 3 AI approaches for enterprise use in 2026, in a table with pros and cons.”</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">500 words of generic overview</td>
+      <td style="text-align: left">Focused comparison table with CTO-appropriate depth</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Probably hallucinated dates</td>
+      <td style="text-align: left">Actionable insights in the format you asked for</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Same model. Same topic. Completely different result.</p>
 
 <hr />
 
-<h2 id="the-ai-shift-in-software-development">The AI shift in software development</h2>
+<h2 id="prompt-engineering-is-dead">“Prompt engineering is dead”</h2>
 
-<p>Software development has changed significantly in the past few years:</p>
+<p>You’ve seen the headlines. Let’s be honest about what actually changed.</p>
+
+<p>Models got smarter. You don’t need magic spells anymore. In 2024, phrasing mattered enormously. In 2026, Claude and GPT understand vague intent much better. The “prompt wizard” era is over.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">What died</th>
+      <th style="text-align: left">What evolved</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Memorizing magic phrases</td>
+      <td style="text-align: left">Clear communication with AI</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">“Act as a…” formulas</td>
+      <td style="text-align: left">System prompts for agents</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Prompt libraries of 500 templates</td>
+      <td style="text-align: left">CLAUDE.md &amp; copilot-instructions.md</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Prompt engineer as a job title</td>
+      <td style="text-align: left">Context architecture at scale</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>What matters in 2026:</strong></p>
 
 <ul>
-  <li><strong>Yesterday</strong>: Simple autocomplete finishing variable names and common patterns</li>
-  <li><strong>Today</strong>: AI agents that write entire features, debug complex issues, and refactor codebases</li>
-  <li><strong>Tomorrow</strong>: Autonomous systems handling full development cycles</li>
+  <li>Instructing agents, not just chatbots</li>
+  <li>Designing workflows, not sentences</li>
+  <li>Evaluation and reliability</li>
+  <li>The skill inside every role</li>
 </ul>
 
-<p>The question is how to use AI effectively while maintaining code quality.</p>
+<p>This talk teaches the skill that survived: communicating effectively with AI systems, from chat to agents.</p>
 
 <hr />
 
-<h2 id="what-is-vibe-coding">What is “Vibe Coding”?</h2>
+<h2 id="the-8020-of-prompt-engineering">The 80/20 of prompt engineering</h2>
 
-<p><img src="/images/spec-kit/slide-03.png" alt="What is vibe coding?" /></p>
+<p>Dozens of techniques exist. Three of them deliver 80% of the value. Start here.</p>
 
-<p>The term “vibe coding” comes from Andrej Karpathy (former head of AI at Tesla). It describes an approach where you:</p>
+<h3 id="1-be-specific">1. Be specific</h3>
+
+<p>Say who it’s for, what format you want, how long, and what good looks like. Vagueness is the number one cause of bad output.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>❌ "Summarize this"
+✓  "Summarize this for a CTO in 3 bullets, max 50 words each"
+</code></pre></div></div>
+
+<h3 id="2-show-dont-tell-few-shot">2. Show, don’t tell (few-shot)</h3>
+
+<p>Give 2-3 examples of what you want. Models learn patterns faster from examples than from instructions.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>❌ "Write a professional reply"
+✓  [paste example reply] → "Write one like this for [new situation]"
+</code></pre></div></div>
+
+<h3 id="3-iterate-dont-restart">3. Iterate, don’t restart</h3>
+
+<p>Your first prompt is a rough draft. Read the output, tell the model what to fix. Three rounds of iteration beats one “perfect” prompt.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"Good, but make it shorter and remove the jargon. Keep the data points."
+</code></pre></div></div>
+
+<p>Everything else in this post is for the remaining 20%. Get these three right first.</p>
+
+<hr />
+
+<h2 id="how-llms-actually-work">How LLMs actually work</h2>
+
+<p>Knowing how the model actually works changes how you write prompts. Two mental models help.</p>
+
+<h3 id="llms-are-document-completers">LLMs are document completers</h3>
+
+<p>LLMs don’t “understand” or “think.” They predict the most likely next token based on patterns in their training data. Your prompt is the beginning of a document. The model writes what should come next.</p>
 
 <blockquote>
-  <p>Accept AI suggestions without critical review, trusting the output completely</p>
+  <p>“The beginning of your prompt is the start of a document. The model will try to write the most plausible continuation of that document.”
+— Berryman &amp; Ziegler, <em>Prompt Engineering for LLMs</em></p>
 </blockquote>
 
-<p>For prototypes and experiments? Maybe fine. For production code? We need something more structured.</p>
+<p>This is why framing matters so much. If you start with “Here’s why AI is overhyped…”, you’ll get a very different continuation than “Here’s what enterprises are getting right with AI…”.</p>
 
-<p>Key insight: Vibe coding isn’t inherently bad code—it’s a specific approach where you trust the AI completely and don’t review what it produces.</p>
+<h3 id="how-llms-see-the-world-differently">How LLMs see the world differently</h3>
 
-<hr />
-
-<h2 id="the-70-problem">The 70% Problem</h2>
-
-<p><img src="/images/spec-kit/slide-04.png" alt="The 70% problem" /></p>
-
-<p>Here’s the core problem with vibe coding: AI can get you 70% of the way incredibly fast. But that last 30%? That’s where things get difficult.</p>
-
-<h3 id="four-main-issues">Four main issues:</h3>
-
-<ol>
-  <li><strong>Two steps back pattern</strong>: Fixing bugs creates new bugs</li>
-  <li><strong>Hidden technical debt</strong>: Code works but isn’t maintainable</li>
-  <li><strong>Diminishing returns</strong>: AI helps experts more than beginners</li>
-  <li><strong>Security vulnerabilities</strong>: Database credentials leak into client-side code</li>
-</ol>
-
-<blockquote>
-  <p>“We’ve seen apps leak database credentials because the AI ‘helpfully’ included them in client-side code.”</p>
-</blockquote>
-
-<p>That’s not hypothetical—it happens.</p>
-
-<hr />
-
-<h2 id="the-spectrum-of-ai-assisted-development">The spectrum of AI-assisted development</h2>
-
-<p><img src="/images/spec-kit/slide-05.png" alt="The spectrum" /></p>
-
-<p>AI-assisted development exists on a spectrum:</p>
+<p>Three differences that affect how you write prompts:</p>
 
 <table>
   <thead>
     <tr>
-      <th>Approach</th>
-      <th>Risk</th>
-      <th>Reward</th>
-      <th>Control</th>
+      <th style="text-align: left">Difference</th>
+      <th style="text-align: left">Implication</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><strong>Autocomplete</strong></td>
-      <td>Low</td>
-      <td>Low</td>
-      <td>High</td>
+      <td style="text-align: left"><strong>One token at a time</strong> (sequential, can’t skip ahead)</td>
+      <td style="text-align: left">Order matters. Put critical constraints early</td>
     </tr>
     <tr>
-      <td><strong>Chatbot assistance</strong></td>
-      <td>Medium</td>
-      <td>Medium</td>
-      <td>Medium</td>
+      <td style="text-align: left"><strong>Tokens, not words</strong> (‘ChatGPT’ = [‘Chat’, ‘G’, ‘PT’])</td>
+      <td style="text-align: left">Spelling, counting, and character-level tasks trip them up</td>
     </tr>
     <tr>
-      <td><strong>Agentic coding</strong></td>
-      <td>High</td>
-      <td>High</td>
-      <td>Lower</td>
-    </tr>
-    <tr>
-      <td><strong>Spec-driven development</strong></td>
-      <td>Managed</td>
-      <td>High</td>
-      <td>High</td>
+      <td style="text-align: left"><strong>Pattern matching, not reasoning</strong></td>
+      <td style="text-align: left">Few-shot examples speak their native language</td>
     </tr>
   </tbody>
 </table>
 
-<p>The key insight: As AI gets more capable, we need more structure, not less.</p>
+<h3 id="the-context-window">The context window</h3>
 
-<hr />
+<p>The model’s working memory: everything it can see at once. 1 token ≈ ¾ of a word.</p>
 
-<h2 id="what-is-ai-assisted-engineering">What is AI-assisted engineering?</h2>
-
-<p><img src="/images/spec-kit/slide-06.png" alt="AI-Assisted Engineering" /></p>
-
-<p>AI-assisted engineering is not about letting AI do whatever it wants. It’s about maintaining human oversight while leveraging AI capabilities.</p>
-
-<h3 id="three-pillars">Three pillars:</h3>
-
-<ol>
-  <li><strong>Human-in-the-loop</strong>: You stay in control of decisions</li>
-  <li><strong>Structured methodology</strong>: Clear processes and checkpoints</li>
-  <li><strong>Quality guardrails</strong>: Automated checks and balances</li>
-</ol>
-
-<p>Think of it like being the architect while AI is the contractor. You design, they build, but you review everything.</p>
-
-<hr />
-
-<h2 id="the-paradigm-shift">The paradigm shift</h2>
-
-<p><img src="/images/spec-kit/slide-07.png" alt="The paradigm shift" /></p>
-
-<p>This is where the paradigm shift happens:</p>
+<p>Context windows have grown dramatically. As of early 2026:</p>
 
 <table>
   <thead>
     <tr>
-      <th>OLD WAY</th>
-      <th>NEW WAY</th>
+      <th style="text-align: left">Model</th>
+      <th style="text-align: left">Context window</th>
+      <th style="text-align: left">Max output</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Write code first</td>
-      <td>Write specifications first</td>
+      <td style="text-align: left"><strong>OpenAI</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td>Document later (maybe)</td>
-      <td>Code follows from specs</td>
+      <td style="text-align: left">GPT-4o / GPT-4o mini</td>
+      <td style="text-align: left">128K</td>
+      <td style="text-align: left">16K</td>
     </tr>
     <tr>
-      <td>Specs are scaffolding</td>
-      <td>Specs are source of truth</td>
+      <td style="text-align: left">o3 / o4-mini</td>
+      <td style="text-align: left">200K</td>
+      <td style="text-align: left">100K</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GPT-4.1 / 4.1 mini / 4.1 nano</td>
+      <td style="text-align: left">1M</td>
+      <td style="text-align: left">32K</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Anthropic</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Claude 3 Opus</td>
+      <td style="text-align: left">200K</td>
+      <td style="text-align: left">4K</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Claude 3.5 Sonnet</td>
+      <td style="text-align: left">200K</td>
+      <td style="text-align: left">8K</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Claude 3.5 Haiku</td>
+      <td style="text-align: left">200K</td>
+      <td style="text-align: left">8K</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Claude Haiku 4.5</td>
+      <td style="text-align: left">200K</td>
+      <td style="text-align: left">64K</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Claude Sonnet 4 / 4.5 / 4.6</td>
+      <td style="text-align: left">200K (1M beta, API only)</td>
+      <td style="text-align: left">64K</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Claude Opus 4.6</td>
+      <td style="text-align: left">200K (1M beta, API only)</td>
+      <td style="text-align: left">128K</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Google</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Gemini 2.0 Flash / 2.5 Flash</td>
+      <td style="text-align: left">1M</td>
+      <td style="text-align: left">—</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Gemini 2.5 Pro</td>
+      <td style="text-align: left">1M (2M in testing)</td>
+      <td style="text-align: left">—</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Meta</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Llama 3.1 / 3.2 / 3.3</td>
+      <td style="text-align: left">128K</td>
+      <td style="text-align: left">—</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Llama 4 Maverick</td>
+      <td style="text-align: left">1M</td>
+      <td style="text-align: left">—</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Llama 4 Scout</td>
+      <td style="text-align: left">10M</td>
+      <td style="text-align: left">—</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Mistral</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Mistral Small 3.1 / Medium 3</td>
+      <td style="text-align: left">128K</td>
+      <td style="text-align: left">—</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Mistral Large 3 / Codestral</td>
+      <td style="text-align: left">256K</td>
+      <td style="text-align: left">—</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Other</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DeepSeek V3</td>
+      <td style="text-align: left">128K</td>
+      <td style="text-align: left">—</td>
     </tr>
   </tbody>
 </table>
 
-<p>For decades, we treated specifications as scaffolding—useful during construction but discarded afterward. Now, specifications become the <strong>source of truth</strong> that generates the implementation.</p>
+<blockquote>
+  <p>Note: Claude 3.5 Haiku has been retired by Anthropic. API calls will error. Use Haiku 4.5 instead. The 1M beta for Claude 4-series requires a <code class="language-plaintext highlighter-rouge">context-1m-2025-08-07</code> header and is restricted to API tier 4.</p>
+</blockquote>
 
-<hr />
+<p><strong>1M tokens is becoming the new baseline</strong> for frontier models. Llama 4 Scout holds the current record at 10M (roughly 7.5 million words).</p>
 
-<h2 id="the-evolution-three-levels-of-spec-driven-development">The evolution: three levels of spec-driven development</h2>
+<h3 id="bigger-isnt-always-better">Bigger isn’t always better</h3>
 
-<p>As Martin Fowler explores in his article on <a href="https://martinfowler.com/articles/exploring-gen-ai.html">exploring generative AI</a>, spec-driven development exists on a maturity spectrum. Understanding these levels helps clarify where Spec-Kit fits.</p>
+<p>Two research findings are worth knowing before you start stuffing context.</p>
 
-<pre><code class="language-mermaid">%%{init: {'theme':'base', 'themeVariables': { 'fontSize':'18px'}}}%%
-graph TB
-    subgraph Level1["&lt;b&gt;Level 1: Spec-First (Throwaway)&lt;/b&gt;"]
-        direction TB
-        A1["📄 Write spec.md&lt;br/&gt;for feature"] 
-        B1["⚙️ Generate&lt;br/&gt;code"]
-        C1["🗑️ Delete&lt;br/&gt;spec.md"]
-        D1[" "]
-        E1["📄 Write new&lt;br/&gt;spec.md"]
-        F1["⚙️ Update&lt;br/&gt;code"]
-        
-        A1 --&gt; B1
-        B1 --&gt; C1
-        C1 -.-&gt;|New feature needed| D1
-        D1 -.-&gt; E1
-        E1 --&gt; F1
-    end
-    
-    subgraph Level2["&lt;b&gt;Level 2: Spec-Anchored (Multiple Files)&lt;/b&gt;"]
-        direction TB
-        A2["📄 Original&lt;br/&gt;spec.md"] 
-        B2["⚙️ Generate&lt;br/&gt;code"]
-        D2[" "]
-        E2["📝 Write&lt;br/&gt;change-spec.md"]
-        F2["⚙️ Update&lt;br/&gt;code"]
-        G2["📄 spec.md stays&lt;br/&gt;but outdated"]
-        
-        A2 --&gt; B2
-        B2 -.-&gt;|Change needed| D2
-        D2 -.-&gt; E2
-        E2 --&gt; F2
-        F2 --&gt; G2
-    end
-    
-    subgraph Level3["&lt;b&gt;Level 3: Spec-as-Source (Single Truth)&lt;/b&gt;"]
-        direction TB
-        A3["📄 spec.md&lt;br/&gt;is truth"] 
-        B3["⚙️ Generate&lt;br/&gt;code"]
-        D3[" "]
-        E3["✏️ Edit&lt;br/&gt;spec.md"]
-        F3["♻️ Regenerate&lt;br/&gt;code"]
-        
-        A3 --&gt; B3
-        B3 -.-&gt;|Change needed| D3
-        D3 -.-&gt; E3
-        E3 --&gt; F3
-        F3 -.-&gt; A3
-    end
-    
-    style C1 fill:#ffdddd,stroke:#cc0000,stroke-width:3px
-    style E2 fill:#fff4cc,stroke:#cc9900,stroke-width:3px
-    style E3 fill:#ddffdd,stroke:#00cc00,stroke-width:3px
-    style F3 fill:#ddffdd,stroke:#00cc00,stroke-width:3px
-    style A3 fill:#ddffdd,stroke:#00cc00,stroke-width:3px
-    
-    style Level1 fill:#f9f9f9,stroke:#666,stroke-width:2px
-    style Level2 fill:#f9f9f9,stroke:#666,stroke-width:2px
-    style Level3 fill:#f9f9f9,stroke:#666,stroke-width:2px
+<p><strong>Lost in the middle</strong> (<a href="https://aclanthology.org/2024.tacl-1.9/">Liu et al., 2024</a>): performance degrades significantly when relevant information is placed in the middle of a long context. Models recall information at the start (primacy) and end (recency) much more reliably. In tested models, accuracy dropped over 30% when relevant content shifted from the edges to the middle.</p>
+
+<p><strong>Context rot</strong> (<a href="https://research.trychroma.com/context-rot">Chroma Research, 2025</a>): performance becomes increasingly unreliable as input length grows, even within the advertised window. The common benchmark (“needle in a haystack”) (find a specific phrase buried in text) — is a weak proxy for real tasks. Summarization, reasoning, and agentic tasks degrade faster. At ~133K tokens, response latency can jump 50x.</p>
+
+<h3 id="practical-rules">Practical rules</h3>
+
+<ul>
+  <li><strong>Put critical information at the edges</strong> of your prompt, not in the middle</li>
+  <li><strong>Long context ≠ better RAG</strong>: use RAG when the knowledge base is large or dynamic; use full-context stuffing when you need holistic reasoning over a fixed document</li>
+  <li><strong>Compress before you stuff</strong>: summarize and trim irrelevant context rather than dumping everything in</li>
+  <li><strong>Be skeptical of window sizes for complex tasks</strong>: a model passing needle-in-a-haystack at 1M tokens doesn’t guarantee reliable reasoning across that full context in production</li>
+</ul>
+
+<h3 id="the-loop-framework">The Loop Framework</h3>
+
+<p>The best mental model for debugging when things go wrong:</p>
+
+<pre><code class="language-mermaid">%%{init: {
+  'theme': 'base',
+  'themeVariables': {
+    'primaryColor': '#e3f2fd',
+    'primaryTextColor': '#0d47a1',
+    'primaryBorderColor': '#2196f3',
+    'lineColor': '#546e7a',
+    'fontSize': '14px'
+  }
+}}%%
+flowchart LR
+    A["🧑 User's Problem\nExpressed in human terms"] --&gt; B["🔄 Convert to Model Domain\nAdd role, context, examples"]
+    B --&gt; C["🤖 LLM Completes\nGenerates continuation"]
+    C --&gt; D["✅ Transform Back\nParse, validate, extract"]
+    D --&gt; A
+
+    style A fill:#fff3e0,stroke:#ff9800,stroke-width:2px
+    style B fill:#e3f2fd,stroke:#2196f3,stroke-width:2px
+    style C fill:#e8f5e9,stroke:#4caf50,stroke-width:2px
+    style D fill:#f3e5f5,stroke:#9c27b0,stroke-width:2px
 </code></pre>
 
-<h3 id="level-1-spec-first-throwaway-scaffolding">Level 1: Spec-first (throwaway scaffolding)</h3>
-
-<p>You write a spec to help the AI understand what to build, then delete it once the code is generated. The spec was just scaffolding—useful temporarily, then discarded.</p>
-
-<p><strong>Problem</strong>: When you need to change the feature, you start from scratch with a new spec. No continuity, no history.</p>
-
-<h3 id="level-2-spec-anchored-documentation-trail">Level 2: Spec-anchored (documentation trail)</h3>
-
-<p>The original spec persists, but changes are documented in separate files. You’re building a paper trail of evolution, but the original spec becomes outdated.</p>
-
-<p><strong>Problem</strong>: You end up with <code class="language-plaintext highlighter-rouge">spec.md</code>, <code class="language-plaintext highlighter-rouge">new-feature-spec.md</code>, <code class="language-plaintext highlighter-rouge">bug-fix-spec.md</code>, etc. Which one is the source of truth? You have to read them all in order.</p>
-
-<h3 id="level-3-spec-as-source-single-source-of-truth">Level 3: Spec-as-source (single source of truth)</h3>
-
-<p>The spec is the source of truth. When you need changes, you edit the spec and regenerate the code. The spec stays current because it’s the authoritative definition of what the system should do.</p>
-
-<p><strong>This is where Spec-Kit lives.</strong> The specification isn’t documentation of the code—the code is an implementation of the specification.</p>
-
-<h3 id="why-this-matters">Why this matters</h3>
-
-<p>In traditional development, we wrote code and maybe documented it later. The code was the truth.</p>
-
-<p>In spec-as-source development, we write specifications and generate code from them. The spec is the truth.</p>
-
-<p>This isn’t just a philosophical shift—it’s practical. When bugs appear or requirements change, you update the spec and regenerate. The spec never drifts out of sync with reality.</p>
+<p><strong>You’re the translator</strong> between human intent and AI patterns. When output goes wrong, check which step failed: bad conversion? Wrong completion? Poor transformation?</p>
 
 <hr />
 
-<h2 id="enter-spec-kit">Enter Spec-Kit</h2>
+<h2 id="core-techniques">Core techniques</h2>
 
-<p><img src="/images/spec-kit/slide-10.png" alt="Introducing Spec-Kit" /></p>
+<h3 id="the-5-principles">The 5 Principles</h3>
 
-<p><a href="https://github.com/github/spec-kit">Spec-Kit</a> is GitHub’s open-source framework for spec-driven development.</p>
-
-<h3 id="key-stats">Key stats:</h3>
-<ul>
-  <li><strong>65k+ GitHub stars</strong> — Battle-tested, not experimental</li>
-  <li><strong>18+ AI agents supported</strong> — Claude, Copilot, Cursor, Windsurf, Gemini, and more</li>
-  <li><strong>MIT licensed</strong> — Free to use</li>
-</ul>
-
-<h3 id="quick-start">Quick start:</h3>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>uv tool <span class="nb">install </span>specify-cli <span class="nt">--from</span> git+https://github.com/github/spec-kit.git
-specify init my-project
-</code></pre></div></div>
-
-<hr />
-
-<h2 id="core-principles">Core principles</h2>
-
-<p><img src="/images/spec-kit/slide-11.png" alt="Core principles" /></p>
-
-<p>Four core principles guide Spec-Kit:</p>
-
-<ol>
-  <li><strong>Intent-driven</strong>: Focus on what and why, not how</li>
-  <li><strong>Rich specifications</strong>: Detailed context beats vague prompts</li>
-  <li><strong>Multi-step refinement</strong>: Review and iterate at each phase</li>
-  <li><strong>AI-native design</strong>: Built specifically for how LLMs think</li>
-</ol>
-
-<p>These aren’t arbitrary—they’re based on what actually works in practice.</p>
-
-<hr />
-
-<h2 id="the-accountability-chain">The accountability chain</h2>
-
-<p><img src="/images/spec-kit/slide-12.png" alt="The accountability chain" /></p>
-
-<p>Here’s the complete Spec-Kit workflow:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Constitution → Specification → Plan → Tasks → Implementation
-</code></pre></div></div>
-
-<p>Each step has a slash command. Each step produces artifacts for the next step. This chain creates <strong>accountability</strong>—you can trace any decision back to its source.</p>
+<p>Five principles that work together:</p>
 
 <table>
   <thead>
     <tr>
-      <th>Step</th>
-      <th>Command</th>
-      <th>Output</th>
+      <th style="text-align: center">#</th>
+      <th style="text-align: left">Principle</th>
+      <th style="text-align: left">What it means</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Constitution</td>
-      <td><code class="language-plaintext highlighter-rouge">/speckit.constitution</code></td>
-      <td><code class="language-plaintext highlighter-rouge">constitution.md</code></td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: left"><strong>Give Direction</strong></td>
+      <td style="text-align: left">Assign a role, set the tone and persona</td>
     </tr>
     <tr>
-      <td>Specify</td>
-      <td><code class="language-plaintext highlighter-rouge">/speckit.specify</code></td>
-      <td><code class="language-plaintext highlighter-rouge">spec.md</code></td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: left"><strong>Specify Format</strong></td>
+      <td style="text-align: left">Define output structure: bullets, JSON, table, length</td>
     </tr>
     <tr>
-      <td>Plan</td>
-      <td><code class="language-plaintext highlighter-rouge">/speckit.plan</code></td>
-      <td><code class="language-plaintext highlighter-rouge">plan.md</code>, <code class="language-plaintext highlighter-rouge">data-model.md</code>, <code class="language-plaintext highlighter-rouge">api-spec.json</code></td>
+      <td style="text-align: center">3</td>
+      <td style="text-align: left"><strong>Provide Examples</strong></td>
+      <td style="text-align: left">Few-shot learning: show what you want</td>
     </tr>
     <tr>
-      <td>Tasks</td>
-      <td><code class="language-plaintext highlighter-rouge">/speckit.tasks</code></td>
-      <td><code class="language-plaintext highlighter-rouge">tasks.md</code></td>
+      <td style="text-align: center">4</td>
+      <td style="text-align: left"><strong>Evaluate Quality</strong></td>
+      <td style="text-align: left">Set criteria: “Rate confidence 1-5” or require sources</td>
     </tr>
     <tr>
-      <td>Implement</td>
-      <td><code class="language-plaintext highlighter-rouge">/speckit.implement</code></td>
-      <td>Working code</td>
+      <td style="text-align: center">5</td>
+      <td style="text-align: left"><strong>Divide Labor</strong></td>
+      <td style="text-align: left">Break complex tasks into sequential, focused prompts</td>
     </tr>
   </tbody>
 </table>
 
-<hr />
+<h3 id="the-playwriting-metaphor">The Playwriting metaphor</h3>
 
-<h2 id="constitution-vs-custom-instructions">Constitution vs custom instructions</h2>
-
-<p><img src="/images/spec-kit/slide-15.png" alt="Constitution vs custom instructions" /></p>
-
-<p>You might be thinking: <em>“Wait, I already have custom instructions for Copilot or Claude Code. Isn’t this the same thing?”</em></p>
-
-<p>Great question—and this is the heart of the confusion.</p>
-
-<p>Both files are just Markdown. An LLM can read both the same way. So why does one work better?</p>
-
-<h3 id="the-real-difference-workflow-integration">The real difference: workflow integration</h3>
-
-<p><strong>Spec-Kit’s constitution</strong> is part of a multi-step enforced workflow:</p>
-
-<ol>
-  <li>Reads <code class="language-plaintext highlighter-rouge">constitution.md</code> first</li>
-  <li>Injects it into every step: spec, plan, tasks, implementation</li>
-  <li>Each artifact is validated against the constitution</li>
-  <li>Creates an accountability chain</li>
-</ol>
-
-<p><strong>Custom instructions</strong> (like Copilot’s <code class="language-plaintext highlighter-rouge">copilot-instructions.md</code>):</p>
-
-<ol>
-  <li>Added to prompt context</li>
-  <li>Respected during that interaction</li>
-  <li>But no formal spec → plan → tasks chain</li>
-  <li>No artifact accountability</li>
-</ol>
-
-<h3 id="the-analogy">The analogy</h3>
+<p>Berryman’s key insight: you’re not asking a question. You’re writing a script for a brilliant actor.</p>
 
 <table>
   <thead>
     <tr>
-      <th>Spec-Kit</th>
-      <th>Custom instructions</th>
+      <th style="text-align: left">Script element</th>
+      <th style="text-align: left">Prompting equivalent</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Architect’s blueprint + construction plan + building permits checked at every phase</td>
-      <td>Style guide for a contractor + final inspection</td>
+      <td style="text-align: left"><strong>Set the Stage</strong></td>
+      <td style="text-align: left">Context &amp; background: what’s the situation?</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Cast the Role</strong></td>
+      <td style="text-align: left">Persona &amp; expertise: who should the AI be?</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Write the Lines</strong></td>
+      <td style="text-align: left">Examples &amp; patterns: show the style you want</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Direct the Scene</strong></td>
+      <td style="text-align: left">Constraints &amp; format: set the boundaries</td>
     </tr>
   </tbody>
 </table>
 
-<p>Both are valuable! You can even use both together—Copilot’s instructions for coding style, Spec-Kit’s workflow for complex features.</p>
+<h3 id="anatomy-of-a-great-prompt">Anatomy of a great prompt</h3>
 
-<hr />
+<p>Each layer adds precision:</p>
 
-<h2 id="step-1-create-your-constitution">Step 1: Create your constitution</h2>
-
-<p><img src="/images/spec-kit/slide-14.png" alt="Create constitution" /></p>
-
-<p>Think of this as your project’s “bill of rights”—the principles that guide all decisions.</p>
-
-<h3 id="include-things-like">Include things like:</h3>
-
-<ul>
-  <li>Code quality standards</li>
-  <li>Testing requirements</li>
-  <li>Performance targets</li>
-  <li>Security guidelines</li>
-  <li>Technology constraints</li>
-</ul>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/speckit.constitution
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Role:     "You are a senior Python developer"
+Context:  "reviewing code for a REST API"
+Task:     "Review for: security, bugs, performance"
+Format:   "For each issue: describe, rate severity, give fix"
+Examples: [Include 1-2 examples of ideal output]
+CoT:      "Think through each concern systematically"
 </code></pre></div></div>
 
-<p>The AI references this during all phases. It’s your guardrail against scope creep and over-engineering.</p>
+<h3 id="how-prompt-elements-interact">How prompt elements interact</h3>
 
-<hr />
+<p>Your prompt is a system of interacting parts, not a flat list. Three things to keep in mind:</p>
 
-<h2 id="step-2-write-the-specification">Step 2: Write the specification</h2>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Property</th>
+      <th style="text-align: left">What it means</th>
+      <th style="text-align: left">Practical rule</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Position</strong></td>
+      <td style="text-align: left">Elements at the start and end get the most attention</td>
+      <td style="text-align: left">Put critical constraints early — don’t bury them in the middle</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Importance</strong></td>
+      <td style="text-align: left">Role and format dominate output. Examples outweigh descriptions. Constraints beat suggestions</td>
+      <td style="text-align: left">Invest effort in role and examples before tweaking wording</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Dependency</strong></td>
+      <td style="text-align: left">Elements affect each other. Role shapes how examples are interpreted. Format can conflict with task complexity</td>
+      <td style="text-align: left">Design prompts as a system — changing one element changes how others are read</td>
+    </tr>
+  </tbody>
+</table>
 
-<p><img src="/images/spec-kit/slide-16.png" alt="Write specification" /></p>
+<h3 id="choose-your-document-type">Choose your document type</h3>
 
-<p>Focus on what and why—not how.</p>
+<p>Most people default to casual conversation. But different task types have different optimal frames:</p>
 
-<h3 id="-dont">❌ Don’t:</h3>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Build me a todo app
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Best for</th>
+      <th style="text-align: left">Example use</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Advice/Conversation</strong></td>
+      <td style="text-align: left">Questions, brainstorming, exploration</td>
+      <td style="text-align: left">Ideation, Q&amp;A</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Analytic/Report</strong></td>
+      <td style="text-align: left">Formal analysis, code review, data analysis</td>
+      <td style="text-align: left">Evaluation, comparison</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Structured/Document</strong></td>
+      <td style="text-align: left">Fixed format output, JSON, tables, templates</td>
+      <td style="text-align: left">Data extraction, forms</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="few-shot-the-technique-that-always-works">Few-shot: the technique that always works</h3>
+
+<p>Without examples, results are inconsistent. With 3 examples, results are predictable:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Without examples:
+"Convert casual text to formal tone"
+→ Inconsistent results, different styles each time
+
+With 3 examples:
+"Hey, can u help?" → "Could you please assist?"
+"This is broken lol" → "This is not functioning."
+"Thx so much!!!" → "Thank you."
+→ Consistent, predictable, matches your style
 </code></pre></div></div>
 
-<h3 id="-do">✅ Do:</h3>
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gu">## User Stories</span>
+<p><strong>Why it works</strong>: LLMs are pattern matchers. Examples speak their language better than any description. Use 2-3 diverse ones, include edge cases, mark them clearly.</p>
 
-As a busy professional, I want to:
-<span class="p">-</span> Quickly capture tasks with minimal friction
-<span class="p">-</span> See my tasks organized by priority
-<span class="p">-</span> Mark tasks complete with a single tap
+<hr />
 
-<span class="gu">## Acceptance Criteria</span>
-<span class="p">-</span> Task creation takes &lt; 2 seconds
-<span class="p">-</span> Tasks persist across browser sessions
-<span class="p">-</span> Works offline with sync when online
+<h2 id="advanced-patterns">Advanced patterns</h2>
+
+<h3 id="chain-of-thought-cot-reasoning">Chain of Thought (CoT) reasoning</h3>
+
+<p>Asking the model to show its work dramatically improves accuracy on complex tasks.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Without reasoning:
+"Solve this problem"
+→ Answer: 42  (can't verify, can't debug)
+
+With reasoning:
+"Let's think step by step"
+→ First... Then... Therefore: 42  (verifiable, debuggable)
 </code></pre></div></div>
-
-<p>The more context you provide here, the better your results throughout the entire process.</p>
-
-<hr />
-
-<h2 id="step-3-create-the-technical-plan">Step 3: Create the technical plan</h2>
-
-<p><img src="/images/spec-kit/slide-18.png" alt="Technical plan" /></p>
-
-<p>Now you specify the tech stack. Not before.</p>
-
-<p>Why wait? Because understanding what you’re building should drive how you build it.</p>
-
-<h3 id="the-ai-generates">The AI generates:</h3>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">plan.md</code>: Overall architecture</li>
-  <li><code class="language-plaintext highlighter-rouge">data-model.md</code>: Your data structures</li>
-  <li><code class="language-plaintext highlighter-rouge">api-spec.json</code>: API contracts</li>
-  <li><code class="language-plaintext highlighter-rouge">research.md</code>: Framework recommendations</li>
-</ul>
-
-<p><strong>Pro tip</strong>: Ask the AI to research rapidly-changing frameworks. Its training data might be outdated on specific library versions.</p>
-
-<hr />
-
-<h2 id="step-4-break-down-into-tasks">Step 4: Break down into tasks</h2>
-
-<p><img src="/images/spec-kit/slide-19.png" alt="Generate tasks" /></p>
-
-<p>This takes your plan and breaks it into actionable, implementable chunks.</p>
-
-<h3 id="each-task-includes">Each task includes:</h3>
-
-<ul>
-  <li>Clear description</li>
-  <li>Dependencies on other tasks</li>
-  <li>Acceptance criteria</li>
-  <li>Estimated complexity</li>
-</ul>
-
-<p>The key is <strong>ordered execution</strong>—dependencies are respected automatically.</p>
-
-<p><strong>Review these tasks!</strong> This is your last chance to adjust scope before implementation begins.</p>
-
-<hr />
-
-<h2 id="step-5-implement">Step 5: Implement</h2>
-
-<p><img src="/images/spec-kit/slide-20.png" alt="Implementation" /></p>
-
-<p>The <code class="language-plaintext highlighter-rouge">/speckit.implement</code> command:</p>
-
-<ol>
-  <li>Validates all prerequisites exist</li>
-  <li>Parses the task breakdown</li>
-  <li>Executes in correct order</li>
-  <li>Handles errors gracefully</li>
-</ol>
-
-<h3 id="the-execution-flow">The execution flow:</h3>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Load Constitution → Validate Spec → Review Plan → Execute Tasks → Run Tests
-</code></pre></div></div>
-
-<p>Critical: Test the application after completion. Feed runtime errors back to the AI.</p>
-
-<hr />
-
-<h2 id="handling-changes-after-implementation">Handling changes after implementation</h2>
-
-<p><img src="/images/spec-kit/slide-21.png" alt="Validation and debugging" /></p>
-
-<p>What happens when specs change or bugs appear? This is frontier territory, but here’s the workflow:</p>
-
-<h3 id="before-implementation">Before implementation:</h3>
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">/speckit.analyze</code> — Cross-artifact consistency check</li>
-  <li>Audit the plan</li>
-  <li><code class="language-plaintext highlighter-rouge">/speckit.checklist</code> — Verify readiness</li>
-</ul>
-
-<h3 id="runtime-bugs">Runtime bugs:</h3>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/implement fix bug: <span class="o">[</span>description with full context]
-</code></pre></div></div>
-
-<h3 id="spec-changes">Spec changes:</h3>
-<ol>
-  <li>Update <code class="language-plaintext highlighter-rouge">spec.md</code></li>
-  <li>Re-run <code class="language-plaintext highlighter-rouge">/speckit.plan</code></li>
-  <li>Re-run <code class="language-plaintext highlighter-rouge">/speckit.tasks</code></li>
-  <li>Continue <code class="language-plaintext highlighter-rouge">/implement</code></li>
-</ol>
-
-<p>Key principle: “Specification is durable, plan/tasks are flexible”</p>
-
-<p>After any fix, ask AI to: “Update plan, tasks, data-model to reflect this change”</p>
-
-<hr />
-
-<h2 id="why-this-approach-works">Why this approach works</h2>
-
-<p><img src="/images/spec-kit/slide-23.png" alt="Why it works" /></p>
-
-<p>Four reasons:</p>
-
-<ol>
-  <li><strong>Context is king</strong> — AI output quality is proportional to context quality</li>
-  <li><strong>Audit trail</strong> — Every decision is documented and traceable</li>
-  <li><strong>Iterative refinement</strong> — Catch mistakes early, not in production</li>
-  <li><strong>Safety rails</strong> — The constitution prevents over-engineering</li>
-</ol>
-
-<p>Result: You get the full 100%, not just the easy 70%.</p>
-
-<hr />
-
-<h2 id="best-practice-1-context-is-everything">Best practice #1: Context is everything</h2>
-
-<p><img src="/images/spec-kit/slide-24.png" alt="Context best practice" /></p>
-
-<h3 id="-poor-context">❌ Poor context:</h3>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Why is my code not working?
-</code></pre></div></div>
-
-<h3 id="-rich-context">✅ Rich context:</h3>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The handleSubmit function in UserForm.tsx throws 
-"Cannot read property 'email' of undefined" on line 47 
-when the form is submitted with empty fields.
-
-Stack trace:
-[full trace here]
-
-Expected: Form validation should prevent submission
-Actual: Error thrown before validation runs
-</code></pre></div></div>
-
-<p>The quality of AI output is directly proportional to the context you provide.</p>
-
-<hr />
-
-<h2 id="best-practice-2-plan-first-code-later">Best practice #2: Plan first, code later</h2>
-
-<p><img src="/images/spec-kit/slide-25.png" alt="Plan first" /></p>
-
-<p>This is exactly what happens when you say “build me a todo app” without planning:</p>
-
-<p>You ask for a bicycle. The AI proudly presents… a massive over-engineered robot spaceship.</p>
-
-<h3 id="the-magic-words">The magic words:</h3>
 
 <blockquote>
-  <p>“Give me options, starting with the simplest. Don’t code yet.”</p>
+  <p><strong>2026 update</strong>: Modern reasoning models (o3, Claude with extended thinking, Gemini 2.5 Pro) now do this automatically. But the concept still matters for debugging and for smaller/faster models where you want explicit reasoning.</p>
 </blockquote>
 
-<p>Ask for architecture OPTIONS first. Start with the simplest viable solution.</p>
+<h3 id="prewarming">Prewarming</h3>
 
-<hr />
+<p>Prime the model before asking your real question. Ask it to gather relevant knowledge first, then use that as context.</p>
 
-<h2 id="best-practice-3-test-ruthlessly">Best practice #3: Test ruthlessly</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Without prewarming:
+"Give me 5 product names for shoes that fit any size."
+→ UniFit, FlexShoe, AnySize... (generic)
 
-<p><img src="/images/spec-kit/slide-26.png" alt="Test ruthlessly" /></p>
-
-<h3 id="the-rule">The rule:</h3>
-
-<p>After every AI update:</p>
-<ol>
-  <li>Test in localhost immediately</li>
-  <li>Open browser console</li>
-  <li>Check for errors</li>
-</ol>
-
-<h3 id="when-debugging-be-specific">When debugging, be specific:</h3>
-
-<p>❌ <em>“It’s broken”</em></p>
-
-<p>✅ <em>“The submit button should save the form data, but instead it shows ‘TypeError: Cannot read property map of undefined’ in the console”</em></p>
-
-<p>Small, incremental testing prevents nightmare debugging sessions.</p>
-
-<hr />
-
-<h2 id="when-to-use-what">When to use what</h2>
-
-<p><img src="/images/spec-kit/slide-28.png" alt="When to use what" /></p>
-
-<h3 id="vibe-coding-is-fine-for">Vibe coding is fine for:</h3>
-<ul>
-  <li>Quick prototypes and experiments</li>
-  <li>Learning new technologies</li>
-  <li>One-off scripts you’ll throw away</li>
-</ul>
-
-<h3 id="spec-driven-is-essential-for">Spec-driven is essential for:</h3>
-<ul>
-  <li>Production applications</li>
-  <li>Team projects</li>
-  <li>Anything with users</li>
-  <li>Code that needs to be maintained</li>
-</ul>
-
-<p><strong>The key question</strong>: Will someone (including future you) need to understand this code later?</p>
-
-<hr />
-
-<h2 id="whats-next-in-this-series">What’s next in this series</h2>
-
-<p><img src="/images/spec-kit/slide-31.png" alt="Getting started" /></p>
-
-<p>Now that you understand the <em>why</em> behind spec-driven development, you’re ready for the <em>how</em>.</p>
-
-<h3 id="coming-next-week-part-2-the-spec-kit-workflow">Coming next week (Part 2): The Spec-Kit workflow</h3>
-
-<p>We’ll do a hands-on walkthrough of the complete workflow:</p>
-
-<ul>
-  <li><strong>Creating your constitution</strong> - What to include and what to skip</li>
-  <li><strong>Writing effective specifications</strong> - Real examples from production projects</li>
-  <li><strong>Generating plans and tasks</strong> - How AI breaks down your spec into implementable chunks</li>
-  <li><strong>The implementation phase</strong> - What happens when you hit <code class="language-plaintext highlighter-rouge">/speckit.implement</code></li>
-  <li><strong>Dealing with AI hallucinations</strong> - Practical recovery strategies</li>
-</ul>
-
-<p>Each step will include real code examples, common mistakes, and troubleshooting tips.</p>
-
-<h3 id="get-ready">Get ready</h3>
-
-<p>Before next week’s post, you can:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Install Spec-Kit CLI</span>
-uv tool <span class="nb">install </span>specify-cli <span class="nt">--from</span> git+https://github.com/github/spec-kit.git
-
-<span class="c"># Verify installation</span>
-specify <span class="nt">--version</span>
+With prewarming:
+Step 1: "List 10 expert tips for naming consumer products."
+Step 2: "Now using those tips, give me 5 product names
+         for shoes that fit any size."
+→ iMorph, SoleFlex, TrueForm... (expert-informed, creative)
 </code></pre></div></div>
 
-<p>We’ll use this in Part 2 to build a real application together.</p>
+<p>Also called <strong>Internal Retrieval</strong> or <strong>Generate Knowledge Prompting</strong>: the model retrieves from its own training data before answering.</p>
+
+<h3 id="react-pattern">ReAct Pattern</h3>
+
+<p>Reasoning + Action for complex tasks. Instead of letting the model jump straight to an answer, force it to show its thinking before each action.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Thought:  Reason about what to do next
+Action:   Use a tool or execute a step
+Observation: See the result and analyze it
+Repeat:   Until the task is complete
+</code></pre></div></div>
+
+<p>This is the backbone of most modern agent frameworks. In practice: ask the model to explain what it’s doing before it does it. This makes errors visible and debuggable, rather than silently baked into the final output.</p>
+
+<h3 id="prompt-chaining">Prompt Chaining</h3>
+
+<p>Don’t ask the model to do everything at once. Break complex tasks into a pipeline of focused prompts:</p>
+
+<pre><code class="language-mermaid">%%{init: {
+  'theme': 'base',
+  'themeVariables': {
+    'primaryColor': '#e3f2fd',
+    'primaryTextColor': '#0d47a1',
+    'primaryBorderColor': '#2196f3',
+    'lineColor': '#546e7a',
+    'fontSize': '14px'
+  }
+}}%%
+flowchart LR
+    A["1. Extract\nPull key data\nfrom raw input"] --&gt; B["2. Transform\nRestructure into\nuseful format"]
+    B --&gt; C["3. Analyze\nReason over\nstructured data"]
+    C --&gt; D["4. Generate\nProduce the\nfinal output"]
+
+    style A fill:#e3f2fd,stroke:#2196f3
+    style B fill:#e8f5e9,stroke:#4caf50
+    style C fill:#fff3e0,stroke:#ff9800
+    style D fill:#f3e5f5,stroke:#9c27b0
+</code></pre>
+
+<p>Each step is independently testable. When something breaks, you know exactly where.</p>
+
+<p><strong>Example: analyzing a contract</strong></p>
+
+<ol>
+  <li>“Extract all dates, names, and amounts from this contract”</li>
+  <li>“Given this data, create a JSON summary with…”</li>
+  <li>“Compare these values and flag anomalies over 10%”</li>
+  <li>“Write a 3-paragraph executive summary from this analysis”</li>
+</ol>
+
+<h3 id="rag-retrieval-augmented-generation">RAG: Retrieval-Augmented Generation</h3>
+
+<p>LLMs don’t know your internal data. RAG fetches relevant documents at query time and injects them as context. No retraining needed.</p>
+
+<pre><code class="language-mermaid">%%{init: {
+  'theme': 'base',
+  'themeVariables': {
+    'primaryColor': '#e3f2fd',
+    'primaryTextColor': '#0d47a1',
+    'primaryBorderColor': '#2196f3',
+    'lineColor': '#546e7a',
+    'fontSize': '14px'
+  }
+}}%%
+flowchart LR
+    A["🧑 User asks\nNatural language query"] --&gt; B["🔍 Retrieve\nSearch knowledge base"]
+    B --&gt; C["📄 Inject\nAdd docs to prompt"]
+    C --&gt; D["💬 Generate\nGrounded response"]
+
+    style A fill:#fff3e0,stroke:#ff9800,stroke-width:2px
+    style B fill:#e3f2fd,stroke:#2196f3,stroke-width:2px
+    style C fill:#e8f5e9,stroke:#4caf50,stroke-width:2px
+    style D fill:#f3e5f5,stroke:#9c27b0,stroke-width:2px
+</code></pre>
+
+<p><strong>Use cases</strong>: documentation bots, code search, customer support, enterprise knowledge bases.</p>
+
+<h3 id="context-engineering">Context Engineering</h3>
+
+<p>The prompt is only part of what the model reads. Context engineering means designing the <em>full information architecture</em>:</p>
+
+<pre><code class="language-mermaid">%%{init: {
+  'theme': 'base',
+  'themeVariables': {
+    'primaryColor': '#e3f2fd',
+    'primaryTextColor': '#1a1a2e',
+    'primaryBorderColor': '#2196f3',
+    'lineColor': '#546e7a',
+    'fontSize': '14px'
+  }
+}}%%
+flowchart LR
+    A["⚙️ System Instructions\nStable rules, identity, behavior"] --&gt; G
+    B["🧠 Memory\nPersisted facts across sessions"] --&gt; G
+    C["📄 Retrieved Docs (RAG)\nDynamic knowledge per query"] --&gt; G
+    D["🔧 Tool Schemas\nAvailable actions &amp; contracts"] --&gt; G
+    E["💬 Conversation History\nRecent messages &amp; context"] --&gt; G
+    F["🎯 Current Task\nThe actual user request"] --&gt; G
+    G(["🤖 LLM"])
+
+    style A fill:#e3f2fd,stroke:#2196f3,stroke-width:2px
+    style B fill:#e8f5e9,stroke:#4caf50,stroke-width:2px
+    style C fill:#fff3e0,stroke:#ff9800,stroke-width:2px
+    style D fill:#fce4ec,stroke:#e91e63,stroke-width:2px
+    style E fill:#f3e5f5,stroke:#9c27b0,stroke-width:2px
+    style F fill:#e0f7fa,stroke:#00bcd4,stroke-width:2px
+    style G fill:#1a237e,color:#fff,stroke:#1a237e,stroke-width:3px
+</code></pre>
+
+<blockquote>
+  <p>“Prompt engineering is now being rebranded as context engineering” — promptingguide.ai</p>
+</blockquote>
+
+<p>Each layer can be tuned independently.</p>
+
+<h3 id="anatomy-of-a-system-prompt">Anatomy of a system prompt</h3>
+
+<p>When you build an AI feature, the system prompt is where you do most of the work. It has four distinct components:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Component</th>
+      <th style="text-align: left">Purpose</th>
+      <th style="text-align: left">Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Identity</strong></td>
+      <td style="text-align: left">Who the model is and what it knows</td>
+      <td style="text-align: left">“You are a senior software engineer specializing in Python and API design.”</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Rules</strong></td>
+      <td style="text-align: left">What the model must or must not do</td>
+      <td style="text-align: left">“Always explain your reasoning. Never output code without a brief explanation.”</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Format</strong></td>
+      <td style="text-align: left">How output should be structured</td>
+      <td style="text-align: left">“Respond in markdown. Use bullet points for lists, code blocks for code.”</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Guardrails</strong></td>
+      <td style="text-align: left">What to do when things go out of scope</td>
+      <td style="text-align: left">“If asked about topics outside software engineering, politely redirect.”</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>A minimal but effective system prompt covers all four. You can leave Identity implicit (the model will infer from rules and context), but skipping Rules or Format usually leads to inconsistent output.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>You are a technical writing assistant helping developers write clear API documentation.
+
+Rules:
+- Use plain language. Avoid jargon unless the term is defined first.
+- Always include a request example and response example.
+- Flag any ambiguous parameter descriptions for human review.
+
+Format:
+- Use markdown with H3 headings for each endpoint.
+- Code blocks use the language tag (json, bash, etc.)
+
+If asked to document something outside the API, ask for clarification.
+</code></pre></div></div>
+
+<p>The guardrail at the end is short on purpose. Over-specifying edge cases in the system prompt leads to brittle behavior. Define the center, not all the edges.</p>
+
+<h3 id="from-chat-to-agents">From chat to agents</h3>
+
+<p>In 2026, the mode has shifted:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Chat mode</th>
+      <th style="text-align: left">Agent mode</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">You type, AI responds</td>
+      <td style="text-align: left">You instruct, AI executes</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">You write the prompt each time</td>
+      <td style="text-align: left">Instructions run autonomously</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">You iterate manually</td>
+      <td style="text-align: left">Agent self-corrects in a loop</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">You manage context yourself</td>
+      <td style="text-align: left">Context managed by the system</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">One task at a time</td>
+      <td style="text-align: left">Multi-step, multi-file workflows</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>“GPT-3.5 in an agentic workflow outperforms GPT-4 with a single prompt.”
+— Andrew Ng, Sequoia AI Ascent</p>
+</blockquote>
+
+<p>Your “prompt” is now a configuration file. With Claude Code, GitHub Copilot, or Cursor, you write instructions once and they execute thousands of times. The surface has changed but the skill hasn’t: be specific, give examples, set constraints.</p>
+
+<h3 id="instructing-agents">Instructing agents</h3>
+
+<p>Each tool has its own instruction file. Here’s where your prompting skills live in 2026:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">File</th>
+      <th style="text-align: left">Tool</th>
+      <th style="text-align: left">Purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">CLAUDE.md</code></td>
+      <td style="text-align: left">Claude Code</td>
+      <td style="text-align: left">Global rules for the agent: conventions, workflow, preferences</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">agent.md</code></td>
+      <td style="text-align: left">Claude Code sub-agents</td>
+      <td style="text-align: left">Role and scope for a specialized sub-agent</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">.github/copilot-instructions.md</code></td>
+      <td style="text-align: left">GitHub Copilot</td>
+      <td style="text-align: left">Workspace-level coding conventions</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">SKILL.md</code></td>
+      <td style="text-align: left">Claude Code skills</td>
+      <td style="text-align: left">Reusable task definitions the agent can invoke</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">System prompt</td>
+      <td style="text-align: left">Custom agents / APIs</td>
+      <td style="text-align: left">Core identity, rules, and guardrails for production agents</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gh"># CLAUDE.md</span>
+Use TypeScript strict mode.
+Run tests before committing.
+Prefer async/await patterns.
+</code></pre></div></div>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gh"># agent.md  (security review sub-agent)</span>
+You are a security reviewer.
+Focus: authentication, injection vulnerabilities, secrets in code.
+Flag severity as: critical / warning / info.
+</code></pre></div></div>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gh"># skills/deploy/SKILL.md</span>
+Use Bicep for all infrastructure. Target: Azure.
+Naming convention: rg-{app}-{env}.
+Always output a plan before applying changes.
+</code></pre></div></div>
+
+<p>Skills are particularly useful for repeated workflows: deploy, test, review, document. You define the skill once and the agent can invoke it by name.</p>
+
+<p><strong>MCP (Model Context Protocol)</strong> extends this further. It’s a standard for connecting agents to external tools: databases, APIs, file systems, internal services. When you define what tools an agent can use and how, you’re doing context engineering at the infrastructure level.</p>
+
+<p>The same 80/20 principles apply. But with agents, vague instructions run at scale: across every file, every commit, every customer request.</p>
+
+<h3 id="meta-prompting">Meta Prompting</h3>
+
+<p>Stop writing prompts from scratch. Use a stronger model to generate and refine prompts for your target model.</p>
+
+<ol>
+  <li><strong>Describe your task</strong>: tell the LLM what you want to achieve</li>
+  <li><strong>LLM generates prompt</strong>: it produces a structured prompt using best practices</li>
+  <li><strong>Test and iterate</strong>: run the prompt, give feedback, let it refine further</li>
+</ol>
+
+<p>Available tools: Anthropic Console prompt generator, OpenAI Playground system prompt builder, or simply ask Claude/GPT to write your prompt for you.</p>
+
+<h3 id="self-critique-prompting">Self-Critique Prompting</h3>
+
+<p>First drafts from AI are fine. Second drafts are better. Third drafts are great.</p>
+
+<pre><code class="language-mermaid">%%{init: {
+  'theme': 'base',
+  'themeVariables': {
+    'primaryColor': '#e3f2fd',
+    'primaryTextColor': '#0d47a1',
+    'primaryBorderColor': '#2196f3',
+    'lineColor': '#546e7a',
+    'fontSize': '14px'
+  }
+}}%%
+flowchart LR
+    A["✍️ Generate\nWrite first draft"] --&gt; B["🔎 Critique\nWhat's weak?\nWhat would make\nsomeone delete this?"]
+    B --&gt; C["♻️ Revise\nFix every issue\nidentified"]
+    C --&gt;|"Still not great?"| B
+
+    style A fill:#e3f2fd,stroke:#2196f3,stroke-width:2px
+    style B fill:#fff3e0,stroke:#ff9800,stroke-width:2px
+    style C fill:#e8f5e9,stroke:#4caf50,stroke-width:2px
+</code></pre>
+
+<p><strong>Why it works</strong>: LLMs are better critics than creators. They spot issues they wouldn’t have caught on first pass. Ask “What’s missing?” to surface gaps the model skipped over.</p>
+
+<p><strong>Power move</strong>: Give Claude’s output to GPT for critique, then back. Different models catch different things.</p>
+
+<h3 id="text-style-unbundling">Text Style Unbundling</h3>
+
+<p>Don’t describe the style you want. Extract it from examples.</p>
+
+<ol>
+  <li><strong>Provide sample</strong>: paste your best blog post, email, or brand copy</li>
+  <li><strong>Extract features</strong>: “Analyze this text. Identify: tone, sentence structure, vocabulary level, rhetorical devices, and formatting.”</li>
+  <li><strong>Generate in style</strong>: “Write a new [text] using EXACTLY these style features: [paste extracted features]”</li>
+</ol>
+
+<p><strong>Use cases</strong>: brand consistency, ghostwriting, matching someone’s writing style from samples.</p>
+
+<p>Essentially advanced few-shot: instead of pasting examples, you extract the underlying rules and apply them explicitly.</p>
 
 <hr />
 
-<h2 id="key-takeaways-from-part-1">Key takeaways from part 1</h2>
+<h2 id="model-settings-and-behavior">Model settings and behavior</h2>
 
-<p><img src="/images/spec-kit/slide-32.png" alt="Key takeaways" /></p>
+<h3 id="temperature">Temperature</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>temp = 0.1  →  Deterministic   →  Facts, code, data extraction
+temp = 0.5  →  Professional    →  Emails, reports, analysis
+temp = 0.9  →  Creative        →  Brainstorming, fiction, copy
+</code></pre></div></div>
+
+<p>When in doubt, start at 0.3-0.5 and adjust from there.</p>
+
+<h3 id="the-alignment-tax">The alignment tax</h3>
+
+<p>RLHF made models helpful but also verbose, hedging, and overly cautious. Modern models handle this better, but it still shows up:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>❌ "What's the capital of France?"
+→  "Great question! The capital of France is Paris. I hope that helps!"
+
+✓  Add: "Be concise. No disclaimers. Direct answers only."
+→  "Paris."
+</code></pre></div></div>
+
+<p>When output feels “off” or unnecessarily padded, add explicit constraints about tone and length.</p>
+
+<hr />
+
+<h2 id="practice-and-evaluation">Practice and evaluation</h2>
+
+<h3 id="common-pitfalls">Common pitfalls</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Pitfall</th>
+      <th style="text-align: left">Fix</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Too vague</strong></td>
+      <td style="text-align: left">Add specifics: who, what, how many, format, for whom</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Negative instructions</strong></td>
+      <td style="text-align: left">Say what TO do, not what NOT to do. “Be concise” beats “Don’t be long”</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Monolithic prompts</strong></td>
+      <td style="text-align: left">Break into steps. Complex tasks need sequential, focused prompts</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Ignoring hallucinations</strong></td>
+      <td style="text-align: left">Ask for sources. Add “If unsure, say so”</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Not iterating</strong></td>
+      <td style="text-align: left">First prompt rarely perfect. Refine based on output</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="real-rewrites">Real rewrites</h3>
+
+<p><strong>Too vague → Specific:</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>❌  "Summarize these meeting notes"
+✓   "Extract: (1) key decisions, (2) action items with owners,
+     (3) open questions. Max 150 words."
+</code></pre></div></div>
+
+<p><strong>Negative → Positive:</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>❌  "Don't be too technical and don't use jargon"
+✓   "Explain at high school level. Everyday analogies. Under 100 words."
+</code></pre></div></div>
+
+<p><strong>Monolith → Chained:</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>❌  "Analyze Q3 sales, find trends, compare Q2, write report"
+✓   "Step 1: Top 5 by revenue. Step 2: Compare to Q2.
+     Step 3: Biggest trend. Step 4: 3-sentence summary."
+</code></pre></div></div>
+
+<h3 id="iteration-in-practice">Iteration in practice</h3>
+
+<p>Nobody writes the perfect prompt on the first try. Here’s what three rounds looks like:</p>
+
+<p><strong>Round 1:</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"Write a product description for our new headphones"
+→ Generic, bland. Missing audience, tone, differentiators.
+Fix: add who it's for and what makes it premium
+</code></pre></div></div>
+
+<p><strong>Round 2:</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"You are a copywriter for premium audio. 50-word description.
+Target: remote workers. Tone: premium but approachable."
+→ Better tone. Still missing the actual product specs.
+Fix: add the features that matter
+</code></pre></div></div>
+
+<p><strong>Round 3:</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"...Same. Must mention: 40hr battery, spatial audio, ANC.
+End with a call to action."
+→ Specific, compelling, on-brand. ✓
+</code></pre></div></div>
+
+<p>Each round takes 30 seconds. Three rounds of iteration consistently beats one attempt at the perfect prompt.</p>
+
+<h3 id="the-soma-framework-for-evaluation">The SOMA framework for evaluation</h3>
+
+<p>When building AI features, test systematically:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Letter</th>
+      <th style="text-align: left">Principle</th>
+      <th style="text-align: left">What it means</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>S</strong></td>
+      <td style="text-align: left">Specificity</td>
+      <td style="text-align: left">Test specific scenarios with concrete inputs and expected outputs</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>O</strong></td>
+      <td style="text-align: left">Objective Measurement</td>
+      <td style="text-align: left">Define success criteria. Automate scoring. Track accuracy, consistency, format compliance</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>M</strong></td>
+      <td style="text-align: left">Multiple Scenarios</td>
+      <td style="text-align: left">Test happy path AND edge cases, different input variations</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>A</strong></td>
+      <td style="text-align: left">Automation</td>
+      <td style="text-align: left">Integrate testing into CI/CD. Treat prompts like production code</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="which-technique-when">Which technique when?</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Situation</th>
+      <th style="text-align: left">Technique</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Output is vague or off-target</td>
+      <td style="text-align: left">Be specific + format constraints</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Need consistent results</td>
+      <td style="text-align: left">Few-shot examples</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">First draft not good enough</td>
+      <td style="text-align: left">Self-Critique: “Now critique this”</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Don’t know how to prompt it</td>
+      <td style="text-align: left">Meta Prompting: ask the AI to help</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Complex multi-step task</td>
+      <td style="text-align: left">Prompt Chaining</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Need domain expertise primed</td>
+      <td style="text-align: left">Prewarming first, then ask</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Need to match a voice or style</td>
+      <td style="text-align: left">Text Style Unbundling</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">High-stakes, can’t be wrong</td>
+      <td style="text-align: left">CoT + Self-Consistency</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Building an AI feature</td>
+      <td style="text-align: left">Context Engineering + System Prompts</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Need to measure quality at scale</td>
+      <td style="text-align: left">SOMA framework + automated eval</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Start at the top. Move down only when the simpler approach isn’t enough.</p>
+
+<h3 id="prompt-engineering-at-work">Prompt engineering at work</h3>
+
+<p>These aren’t tricks. They’re just clear communication applied to common tasks:</p>
+
+<p><strong>Code review:</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>You are a senior Python developer reviewing code for a REST API.
+Review for: bugs, performance, readability.
+For each issue: describe it, rate severity (high/med/low), suggest a fix.
+</code></pre></div></div>
+
+<p><strong>Data analysis:</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Analyze this CSV of monthly sales data.
+Identify the top 3 trends, any anomalies, and explain what's driving them.
+Format: numbered list.
+</code></pre></div></div>
+
+<p><strong>Email drafting:</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Write a follow-up email to a client whose project is 2 weeks late due to API issues.
+Tone: firm but professional. Goal: get a new commitment date from them.
+Max 100 words.
+</code></pre></div></div>
+
+<p><strong>Content creation:</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>You are a B2B content strategist. Write a 300-word blog intro about cloud migration,
+targeted at CTOs. Tone: authoritative, not salesy.
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="your-prompt-toolkit">Your prompt toolkit</h2>
+
+<h3 id="templates">Templates</h3>
+
+<p><strong>The Expert:</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>You are a [role] with [X] years of experience.
+[Task] for [audience]. Format: [format]. Max [N] words.
+</code></pre></div></div>
+
+<p><strong>The Extractor:</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>From [source], extract: [field 1], [field 2], [field 3].
+Return as [JSON/table]. If unsure: unknown.
+</code></pre></div></div>
+
+<p><strong>The Analyst:</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Analyze [data]. Top [N] trends. Compare to [benchmark].
+Present as [format].
+</code></pre></div></div>
+
+<p><strong>The Creator:</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Write [type] about [topic]. Audience: [who]. Tone: [tone].
+Include: [elements]. [N] words.
+</code></pre></div></div>
+
+<h3 id="rules">Rules</h3>
 
 <ol>
-  <li>
-    <p><strong>Vibe coding gets you 70%</strong>: The last 30% is where real engineering happens</p>
-  </li>
-  <li>
-    <p><strong>Specifications are the new source code</strong>: Write them first, code follows</p>
-  </li>
-  <li>
-    <p><strong>Structure enables speed</strong>: More guardrails means less debugging</p>
-  </li>
-  <li>
-    <p><strong>Three levels of spec-driven development</strong>: Spec-Kit operates at Level 3 (spec-as-source)</p>
-  </li>
-  <li>
-    <p><strong>You’re the architect</strong>: AI is a tool, but you make the decisions</p>
-  </li>
+  <li>Start with a clear verb: Summarize, Compare, Create, Extract</li>
+  <li>Assign a role and expertise level</li>
+  <li>Set constraints: length, format, audience, tone</li>
+  <li>Show 2-3 examples (few-shot)</li>
+  <li>Use delimiters to separate instructions from data</li>
+  <li>Break complex tasks into steps or chains</li>
+  <li>Iterate: first prompt is a rough draft</li>
+  <li>Say what TO do, not what NOT to do</li>
 </ol>
 
-<p>Next week in Part 2, we’ll put these concepts into practice with a complete walkthrough of the Spec-Kit workflow.</p>
+<hr />
+
+<h2 id="key-takeaways">Key takeaways</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">#</th>
+      <th style="text-align: left">Takeaway</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: left"><strong>LLMs are document completers</strong>: they predict continuations. Design prompts as document beginnings</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td style="text-align: left"><strong>The Loop is your mental model</strong>: you’re the translator between human intent and AI patterns</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td style="text-align: left"><strong>80/20 applies</strong>: specificity, examples, and iteration deliver most of the value</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td style="text-align: left"><strong>Context engineering &gt; prompt engineering</strong>: design all six layers, not just the message</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td style="text-align: left"><strong>Agents change the surface, not the skill</strong>: the same principles apply, with higher stakes</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td style="text-align: left"><strong>Evaluate systematically</strong>: SOMA framework — Specificity, Objective measurement, Multiple scenarios, Automation</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The skill that survived the “prompt engineering is dead” wave isn’t about magic phrases. It’s about communicating clearly with AI systems, in chat or in production.</p>
+
+<p>Start today: pick one technique from this post, apply it to a real task, and iterate.</p>
 
 <hr />
 
 <h2 id="resources">Resources</h2>
 
-<ul>
-  <li><strong>Spec-Kit</strong>: <a href="https://github.com/github/spec-kit">github.com/github/spec-kit</a></li>
-  <li><strong>Beyond Vibe Coding</strong>: <a href="https://beyond.addy.ie/">beyond.addy.ie</a></li>
-  <li><strong>GitHub Copilot Custom Instructions</strong>: <a href="https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions">docs.github.com</a></li>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Resource</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="https://www.oreilly.com/library/view/prompt-engineering-for/9781098156145/"><strong>Prompt Engineering for LLMs</strong></a></td>
+      <td style="text-align: left">O’Reilly book by Berryman &amp; Ziegler</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://www.oreilly.com/library/view/prompt-engineering-for/9781098153427/"><strong>Prompt Engineering for Generative AI</strong></a></td>
+      <td style="text-align: left">O’Reilly book by Phoenix &amp; Taylor</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://docs.anthropic.com/en/prompt-library/library"><strong>Anthropic Prompt Library</strong></a></td>
+      <td style="text-align: left">Ready-to-use prompt templates from Anthropic</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://www.promptingguide.ai/"><strong>Prompt Engineering Guide</strong></a></td>
+      <td style="text-align: left">Comprehensive community resource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://platform.openai.com/docs/guides/prompt-engineering"><strong>OpenAI Prompt Engineering</strong></a></td>
+      <td style="text-align: left">Official OpenAI guidance</td>
+    </tr>
+  </tbody>
+</table>
 
 <hr />
 
-<h2 id="series-navigation">Series navigation</h2>
+<blockquote>
+  <p>💬 <strong>What’s your go-to prompt technique?</strong></p>
 
-<p><strong>📍 You are here: Part 1 - The problem and the solution</strong></p>
-
-<ul>
-  <li><strong>Next</strong>: Part 2 - Deep dive into the Spec-Kit workflow (Coming January 12, 2026)</li>
-  <li>Part 3 - Best practices and troubleshooting (Coming January 19, 2026)</li>
-  <li>Part 4 - Team collaboration and advanced patterns (Coming January 26, 2026)</li>
-  <li>Part 5 - Case studies and lessons learned (Coming February 2, 2026)</li>
-</ul>
-
-<hr />
-
-<p><em>This series is based on a presentation I gave about moving from ad-hoc AI-assisted coding to structured, specification-driven development. The full presentation slides are available for download.</em></p>
-
-<p><strong>Questions or feedback?</strong> Connect with me on <a href="https://linkedin.com/in/hiddedesmet">LinkedIn</a> or check out more posts at <a href="https://hiddedesmet.com">hiddedesmet.com</a>.</p>
-
-<p><strong>Want to get notified when Part 2 drops?</strong> Follow me on <a href="https://linkedin.com/in/hiddedesmet">LinkedIn</a> for updates.</p>
+  <p>I’d love to hear what works for your workflow. Connect with me on <a href="https://linkedin.com/in/hiddedesmet">LinkedIn</a>.</p>
+</blockquote>
 
     </div>
   </article>
@@ -1164,7 +1643,7 @@ specify <span class="nt">--version</span>
               
               
                 
-                  <a href="/tags#ai-assisted-development" class="section__link">See all<span> ai-assisted-development</span></a>
+                  <a href="/tags#prompt-engineering" class="section__link">See all<span> prompt-engineering</span></a>
                 
               
                 
@@ -1193,6 +1672,34 @@ specify <span class="nt">--version</span>
             
 
             
+          
+            
+            
+
+            
+
+            
+          
+            
+            
+
+            
+
+            
+          
+            
+            
+
+            
+
+            
+          
+            
+            
+
+            
+
+            
 
             <div class="col col-4 col-d-6 col-t-12">
               <div class="article">
@@ -1202,8 +1709,8 @@ specify <span class="nt">--version</span>
       
 
       
-      <a href="/prompt-engineering-that-actually-works" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/promptengineering.png" alt="Prompt Engineering That Actually Works">
+      <a href="/from-vibe-coding-to-spec-driven-development" class="article__image" aria-hidden="true" tabindex="-1">
+        <img class="lazy" data-src="/images/spec-kit/image-01.png" alt="From Vibe Coding to Spec-Driven Development: Part 1 - The problem and the solution">
       </a>
       
     </div>
@@ -1214,32 +1721,32 @@ specify <span class="nt">--version</span>
         
         <div class="article__tags">
         
-          <a href="/tags#prompt-engineering" class="article__tag">prompt-engineering</a>
+          <a href="/tags#ai-assisted-development" class="article__tag">ai-assisted-development</a>
         
-          <a href="/tags#llm" class="article__tag">llm</a>
+          <a href="/tags#spec-kit" class="article__tag">spec-kit</a>
         
-          <a href="/tags#ai" class="article__tag">ai</a>
+          <a href="/tags#github" class="article__tag">github</a>
         
           <a href="/tags#claude" class="article__tag">claude</a>
         
-          <a href="/tags#chatgpt" class="article__tag">chatgpt</a>
+          <a href="/tags#copilot" class="article__tag">copilot</a>
         
-          <a href="/tags#github-copilot" class="article__tag">github-copilot</a>
+          <a href="/tags#vibe-coding" class="article__tag">vibe-coding</a>
         
-          <a href="/tags#context-engineering" class="article__tag">context-engineering</a>
+          <a href="/tags#specification-driven-development" class="article__tag">specification-driven-development</a>
         
-          <a href="/tags#agents" class="article__tag">agents</a>
+          <a href="/tags#series" class="article__tag">series</a>
         
         </div>
         
-        <span class="article__date">•<time datetime="2026-02-25T00:00:00+01:00">Feb 25, 2026</time></span>
+        <span class="article__date">•<time datetime="2026-01-05T00:00:00+01:00">Jan 05, 2026</time></span>
       </div>
 
       <h2 class="article__title">
-        <a href="/prompt-engineering-that-actually-works">Prompt Engineering That Actually Works</a>
+        <a href="/from-vibe-coding-to-spec-driven-development">From Vibe Coding to Spec-Driven Development: Part 1 - The problem and the solution</a>
       </h2>
 
-      <p class="article__excerpt">From vague prompts to reliable results: practical frameworks and mental models for working with LLMs, covering the 5 Principles, few-shot learning, Chain of Thought, RAG, context engineering, and how agents change everything.</p>
+      <p class="article__excerpt">Part 1 of our series on mastering AI-assisted development. Discover why 'vibe coding' gets you only 70% there, and why spec-driven development is the answer. This is your roadmap to production-ready AI-generated code.</p>
 
       <div class="article__info">
         
@@ -1278,8 +1785,8 @@ specify <span class="nt">--version</span>
       
 
       
-      <a href="/from-vibe-coding-to-spec-driven-development-part4" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/spec-kit/image-04.png" alt="From Vibe Coding to Spec-Driven Development: Part 4 - Team collaboration and advanced patterns">
+      <a href="/creating-ccoe-for-ai" class="article__image" aria-hidden="true" tabindex="-1">
+        <img class="lazy" data-src="/images/aiccoe.png" alt="Building a Center of Excellence for AI: A strategic approach to enterprise AI adoption">
       </a>
       
     </div>
@@ -1290,34 +1797,22 @@ specify <span class="nt">--version</span>
         
         <div class="article__tags">
         
-          <a href="/tags#ai-assisted-development" class="article__tag">ai-assisted-development</a>
+          <a href="/tags#ai" class="article__tag">ai</a>
         
-          <a href="/tags#spec-kit" class="article__tag">spec-kit</a>
+          <a href="/tags#governance" class="article__tag">governance</a>
         
-          <a href="/tags#github" class="article__tag">github</a>
-        
-          <a href="/tags#copilot" class="article__tag">copilot</a>
-        
-          <a href="/tags#vibe-coding" class="article__tag">vibe-coding</a>
-        
-          <a href="/tags#specification-driven-development" class="article__tag">specification-driven-development</a>
-        
-          <a href="/tags#series" class="article__tag">series</a>
-        
-          <a href="/tags#team-collaboration" class="article__tag">team-collaboration</a>
-        
-          <a href="/tags#ci-cd" class="article__tag">ci-cd</a>
+          <a href="/tags#ccoe" class="article__tag">ccoe</a>
         
         </div>
         
-        <span class="article__date">•<time datetime="2026-01-26T00:00:00+01:00">Jan 26, 2026</time></span>
+        <span class="article__date">•<time datetime="2025-07-14T11:00:00+02:00">Jul 14, 2025</time></span>
       </div>
 
       <h2 class="article__title">
-        <a href="/from-vibe-coding-to-spec-driven-development-part4">From Vibe Coding to Spec-Driven Development: Part 4 - Team collaboration and advanced patterns</a>
+        <a href="/creating-ccoe-for-ai">Building a Center of Excellence for AI: A strategic approach to enterprise AI adoption</a>
       </h2>
 
-      <p class="article__excerpt">Part 4 of our series on mastering AI-assisted development. Learn how teams collaborate with Spec-Kit, integrate with CI/CD pipelines (GitHub Actions & Azure DevOps), and apply advanced architectural patterns.</p>
+      <p class="article__excerpt">A comprehensive guide to establishing and operating a successful Center of Excellence (CCoE) for Artificial Intelligence in enterprise organizations. Learn the key components, governance frameworks, and best practices for scaling AI initiatives across your organization.</p>
 
       <div class="article__info">
         
@@ -1347,73 +1842,56 @@ specify <span class="nt">--version</span>
             
 
             
-
-            <div class="col col-4 col-d-6 col-t-12">
-              <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/from-vibe-coding-to-spec-driven-development-part3" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/spec-kit/image-03.png" alt="From Vibe Coding to Spec-Driven Development: Part 3 - Best practices and troubleshooting">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#ai-assisted-development" class="article__tag">ai-assisted-development</a>
-        
-          <a href="/tags#spec-kit" class="article__tag">spec-kit</a>
-        
-          <a href="/tags#github" class="article__tag">github</a>
-        
-          <a href="/tags#copilot" class="article__tag">copilot</a>
-        
-          <a href="/tags#vibe-coding" class="article__tag">vibe-coding</a>
-        
-          <a href="/tags#specification-driven-development" class="article__tag">specification-driven-development</a>
-        
-          <a href="/tags#series" class="article__tag">series</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2026-01-19T00:00:00+01:00">Jan 19, 2026</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/from-vibe-coding-to-spec-driven-development-part3">From Vibe Coding to Spec-Driven Development: Part 3 - Best practices and troubleshooting</a>
-      </h2>
-
-      <p class="article__excerpt">Part 3 of our series on mastering AI-assisted development. Learn advanced specification techniques, debugging strategies, iteration patterns, and real-world troubleshooting for production-ready AI-generated code.</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-            </div>
-
+          
             
             
-                
+
+            
+
+            
+          
+            
+            
+
+            
+
+            
+          
+            
+            
+
+            
+
+            
+          
+            
+            
+
+            
+
+            
+          
+            
+            
+
+            
+
+            
+          
+            
+            
+
+            
+
+            
+          
+            
+            
+
+            
+
+            
+          
           </div>
 
         </div>

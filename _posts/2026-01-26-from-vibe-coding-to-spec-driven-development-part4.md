@@ -8,7 +8,7 @@ author: hidde
 description: "Part 4 of our series on mastering AI-assisted development. Learn how teams collaborate with Spec-Kit, integrate with CI/CD pipelines (GitHub Actions & Azure DevOps), and apply advanced architectural patterns."
 image: /images/spec-kit/image-04.png
 series: "Mastering Spec-Driven Development"
-featured: true
+featured: false
 toc: true
 ---
 

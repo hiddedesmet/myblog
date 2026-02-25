@@ -5,9 +5,1267 @@
         <description>My blog is a collection of stories, journeys, and ideas for the creatively curious. I share my thoughts on design, technology, with a focus on creativity and innovation.</description>
         <link>http://localhost:4000/</link>
         <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Mon, 26 Jan 2026 09:00:57 +0100</pubDate>
-        <lastBuildDate>Mon, 26 Jan 2026 09:00:57 +0100</lastBuildDate>
+        <pubDate>Wed, 25 Feb 2026 11:38:44 +0100</pubDate>
+        <lastBuildDate>Wed, 25 Feb 2026 11:38:44 +0100</lastBuildDate>
         <generator>Jekyll v4.4.1</generator>
+        
+            <item>
+                <title>Prompt Engineering That Actually Works</title>
+                <description>&lt;p&gt;This week I gave a talk at the Xebia Azure AI Winter Jam: &lt;em&gt;Prompt Engineering That Actually Works&lt;/em&gt;. The session drew from two O’Reilly books, &lt;a href=&quot;https://www.oreilly.com/library/view/prompt-engineering-for/9781098156145/&quot;&gt;&lt;em&gt;Prompt Engineering for LLMs&lt;/em&gt;&lt;/a&gt; by Berryman &amp;amp; Ziegler and &lt;a href=&quot;https://www.oreilly.com/library/view/prompt-engineering-for/9781098153427/&quot;&gt;&lt;em&gt;Prompt Engineering for Generative AI&lt;/em&gt;&lt;/a&gt; by Phoenix &amp;amp; Taylor, along with the latest 2025-2026 research.&lt;/p&gt;
+
+&lt;p&gt;This is an expanded writeup of that talk. The goal: get more predictable results out of LLMs, for quick daily tasks and for building AI features into products.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;the-problem-everyone-recognizes&quot;&gt;The problem everyone recognizes&lt;/h2&gt;
+
+&lt;p&gt;You type a prompt. The result is… fine. Kind of useful. But not exactly what you needed.&lt;/p&gt;
+
+&lt;p&gt;So you try again with slightly different wording. Still not quite right. After the fourth attempt, you either settle for “good enough” or give up.&lt;/p&gt;
+
+&lt;p&gt;Sound familiar?&lt;/p&gt;
+
+&lt;p&gt;Here’s the same scenario with and without intentional prompting:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;The vague prompt&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;The engineered prompt&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;“Tell me about AI”&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;“You are a tech analyst writing for a CTO audience. Compare the top 3 AI approaches for enterprise use in 2026, in a table with pros and cons.”&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;500 words of generic overview&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Focused comparison table with CTO-appropriate depth&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Probably hallucinated dates&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Actionable insights in the format you asked for&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Same model. Same topic. Completely different result.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;prompt-engineering-is-dead&quot;&gt;“Prompt engineering is dead”&lt;/h2&gt;
+
+&lt;p&gt;You’ve seen the headlines. Let’s be honest about what actually changed.&lt;/p&gt;
+
+&lt;p&gt;Models got smarter. You don’t need magic spells anymore. In 2024, phrasing mattered enormously. In 2026, Claude and GPT understand vague intent much better. The “prompt wizard” era is over.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;What died&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;What evolved&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Memorizing magic phrases&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Clear communication with AI&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;“Act as a…” formulas&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;System prompts for agents&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Prompt libraries of 500 templates&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;CLAUDE.md &amp;amp; copilot-instructions.md&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Prompt engineer as a job title&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Context architecture at scale&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;What matters in 2026:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Instructing agents, not just chatbots&lt;/li&gt;
+  &lt;li&gt;Designing workflows, not sentences&lt;/li&gt;
+  &lt;li&gt;Evaluation and reliability&lt;/li&gt;
+  &lt;li&gt;The skill inside every role&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This talk teaches the skill that survived: communicating effectively with AI systems, from chat to agents.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;the-8020-of-prompt-engineering&quot;&gt;The 80/20 of prompt engineering&lt;/h2&gt;
+
+&lt;p&gt;Dozens of techniques exist. Three of them deliver 80% of the value. Start here.&lt;/p&gt;
+
+&lt;h3 id=&quot;1-be-specific&quot;&gt;1. Be specific&lt;/h3&gt;
+
+&lt;p&gt;Say who it’s for, what format you want, how long, and what good looks like. Vagueness is the number one cause of bad output.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;❌ &quot;Summarize this&quot;
+✓  &quot;Summarize this for a CTO in 3 bullets, max 50 words each&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;2-show-dont-tell-few-shot&quot;&gt;2. Show, don’t tell (few-shot)&lt;/h3&gt;
+
+&lt;p&gt;Give 2-3 examples of what you want. Models learn patterns faster from examples than from instructions.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;❌ &quot;Write a professional reply&quot;
+✓  [paste example reply] → &quot;Write one like this for [new situation]&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;3-iterate-dont-restart&quot;&gt;3. Iterate, don’t restart&lt;/h3&gt;
+
+&lt;p&gt;Your first prompt is a rough draft. Read the output, tell the model what to fix. Three rounds of iteration beats one “perfect” prompt.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;Good, but make it shorter and remove the jargon. Keep the data points.&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Everything else in this post is for the remaining 20%. Get these three right first.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;how-llms-actually-work&quot;&gt;How LLMs actually work&lt;/h2&gt;
+
+&lt;p&gt;Knowing how the model actually works changes how you write prompts. Two mental models help.&lt;/p&gt;
+
+&lt;h3 id=&quot;llms-are-document-completers&quot;&gt;LLMs are document completers&lt;/h3&gt;
+
+&lt;p&gt;LLMs don’t “understand” or “think.” They predict the most likely next token based on patterns in their training data. Your prompt is the beginning of a document. The model writes what should come next.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“The beginning of your prompt is the start of a document. The model will try to write the most plausible continuation of that document.”
+— Berryman &amp;amp; Ziegler, &lt;em&gt;Prompt Engineering for LLMs&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This is why framing matters so much. If you start with “Here’s why AI is overhyped…”, you’ll get a very different continuation than “Here’s what enterprises are getting right with AI…”.&lt;/p&gt;
+
+&lt;h3 id=&quot;how-llms-see-the-world-differently&quot;&gt;How LLMs see the world differently&lt;/h3&gt;
+
+&lt;p&gt;Three differences that affect how you write prompts:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Difference&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Implication&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;One token at a time&lt;/strong&gt; (sequential, can’t skip ahead)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Order matters. Put critical constraints early&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Tokens, not words&lt;/strong&gt; (‘ChatGPT’ = [‘Chat’, ‘G’, ‘PT’])&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Spelling, counting, and character-level tasks trip them up&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Pattern matching, not reasoning&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Few-shot examples speak their native language&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;the-context-window&quot;&gt;The context window&lt;/h3&gt;
+
+&lt;p&gt;The model’s working memory: everything it can see at once. 1 token ≈ ¾ of a word.&lt;/p&gt;
+
+&lt;p&gt;Context windows have grown dramatically. As of early 2026:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Model&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Context window&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Max output&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;OpenAI&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;GPT-4o / GPT-4o mini&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;128K&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;16K&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;o3 / o4-mini&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;200K&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;100K&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;GPT-4.1 / 4.1 mini / 4.1 nano&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;1M&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;32K&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Anthropic&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Claude 3 Opus&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;200K&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;4K&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Claude 3.5 Sonnet&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;200K&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;8K&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Claude 3.5 Haiku&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;200K&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;8K&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Claude Haiku 4.5&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;200K&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;64K&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Claude Sonnet 4 / 4.5 / 4.6&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;200K (1M beta, API only)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;64K&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Claude Opus 4.6&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;200K (1M beta, API only)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;128K&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Google&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Gemini 2.0 Flash / 2.5 Flash&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;1M&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;—&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Gemini 2.5 Pro&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;1M (2M in testing)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;—&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Meta&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Llama 3.1 / 3.2 / 3.3&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;128K&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;—&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Llama 4 Maverick&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;1M&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;—&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Llama 4 Scout&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;10M&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;—&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Mistral&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Mistral Small 3.1 / Medium 3&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;128K&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;—&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Mistral Large 3 / Codestral&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;256K&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;—&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Other&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;DeepSeek V3&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;128K&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;—&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Note: Claude 3.5 Haiku has been retired by Anthropic. API calls will error. Use Haiku 4.5 instead. The 1M beta for Claude 4-series requires a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;context-1m-2025-08-07&lt;/code&gt; header and is restricted to API tier 4.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;1M tokens is becoming the new baseline&lt;/strong&gt; for frontier models. Llama 4 Scout holds the current record at 10M (roughly 7.5 million words).&lt;/p&gt;
+
+&lt;h3 id=&quot;bigger-isnt-always-better&quot;&gt;Bigger isn’t always better&lt;/h3&gt;
+
+&lt;p&gt;Two research findings are worth knowing before you start stuffing context.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Lost in the middle&lt;/strong&gt; (&lt;a href=&quot;https://aclanthology.org/2024.tacl-1.9/&quot;&gt;Liu et al., 2024&lt;/a&gt;): performance degrades significantly when relevant information is placed in the middle of a long context. Models recall information at the start (primacy) and end (recency) much more reliably. In tested models, accuracy dropped over 30% when relevant content shifted from the edges to the middle.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Context rot&lt;/strong&gt; (&lt;a href=&quot;https://research.trychroma.com/context-rot&quot;&gt;Chroma Research, 2025&lt;/a&gt;): performance becomes increasingly unreliable as input length grows, even within the advertised window. The common benchmark (“needle in a haystack”) (find a specific phrase buried in text) — is a weak proxy for real tasks. Summarization, reasoning, and agentic tasks degrade faster. At ~133K tokens, response latency can jump 50x.&lt;/p&gt;
+
+&lt;h3 id=&quot;practical-rules&quot;&gt;Practical rules&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Put critical information at the edges&lt;/strong&gt; of your prompt, not in the middle&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Long context ≠ better RAG&lt;/strong&gt;: use RAG when the knowledge base is large or dynamic; use full-context stuffing when you need holistic reasoning over a fixed document&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Compress before you stuff&lt;/strong&gt;: summarize and trim irrelevant context rather than dumping everything in&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Be skeptical of window sizes for complex tasks&lt;/strong&gt;: a model passing needle-in-a-haystack at 1M tokens doesn’t guarantee reliable reasoning across that full context in production&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;the-loop-framework&quot;&gt;The Loop Framework&lt;/h3&gt;
+
+&lt;p&gt;The best mental model for debugging when things go wrong:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-mermaid&quot;&gt;%%{init: {
+  &apos;theme&apos;: &apos;base&apos;,
+  &apos;themeVariables&apos;: {
+    &apos;primaryColor&apos;: &apos;#e3f2fd&apos;,
+    &apos;primaryTextColor&apos;: &apos;#0d47a1&apos;,
+    &apos;primaryBorderColor&apos;: &apos;#2196f3&apos;,
+    &apos;lineColor&apos;: &apos;#546e7a&apos;,
+    &apos;fontSize&apos;: &apos;14px&apos;
+  }
+}}%%
+flowchart LR
+    A[&quot;🧑 User&apos;s Problem\nExpressed in human terms&quot;] --&amp;gt; B[&quot;🔄 Convert to Model Domain\nAdd role, context, examples&quot;]
+    B --&amp;gt; C[&quot;🤖 LLM Completes\nGenerates continuation&quot;]
+    C --&amp;gt; D[&quot;✅ Transform Back\nParse, validate, extract&quot;]
+    D --&amp;gt; A
+
+    style A fill:#fff3e0,stroke:#ff9800,stroke-width:2px
+    style B fill:#e3f2fd,stroke:#2196f3,stroke-width:2px
+    style C fill:#e8f5e9,stroke:#4caf50,stroke-width:2px
+    style D fill:#f3e5f5,stroke:#9c27b0,stroke-width:2px
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;You’re the translator&lt;/strong&gt; between human intent and AI patterns. When output goes wrong, check which step failed: bad conversion? Wrong completion? Poor transformation?&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;core-techniques&quot;&gt;Core techniques&lt;/h2&gt;
+
+&lt;h3 id=&quot;the-5-principles&quot;&gt;The 5 Principles&lt;/h3&gt;
+
+&lt;p&gt;Five principles that work together:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;#&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Principle&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;What it means&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Give Direction&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Assign a role, set the tone and persona&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Specify Format&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Define output structure: bullets, JSON, table, length&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;3&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Provide Examples&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Few-shot learning: show what you want&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;4&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Evaluate Quality&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Set criteria: “Rate confidence 1-5” or require sources&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;5&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Divide Labor&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Break complex tasks into sequential, focused prompts&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;the-playwriting-metaphor&quot;&gt;The Playwriting metaphor&lt;/h3&gt;
+
+&lt;p&gt;Berryman’s key insight: you’re not asking a question. You’re writing a script for a brilliant actor.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Script element&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Prompting equivalent&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Set the Stage&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Context &amp;amp; background: what’s the situation?&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Cast the Role&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Persona &amp;amp; expertise: who should the AI be?&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Write the Lines&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Examples &amp;amp; patterns: show the style you want&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Direct the Scene&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Constraints &amp;amp; format: set the boundaries&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;anatomy-of-a-great-prompt&quot;&gt;Anatomy of a great prompt&lt;/h3&gt;
+
+&lt;p&gt;Each layer adds precision:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Role:     &quot;You are a senior Python developer&quot;
+Context:  &quot;reviewing code for a REST API&quot;
+Task:     &quot;Review for: security, bugs, performance&quot;
+Format:   &quot;For each issue: describe, rate severity, give fix&quot;
+Examples: [Include 1-2 examples of ideal output]
+CoT:      &quot;Think through each concern systematically&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;how-prompt-elements-interact&quot;&gt;How prompt elements interact&lt;/h3&gt;
+
+&lt;p&gt;Your prompt is a system of interacting parts, not a flat list. Three things to keep in mind:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Property&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;What it means&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Practical rule&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Position&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Elements at the start and end get the most attention&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Put critical constraints early — don’t bury them in the middle&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Importance&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Role and format dominate output. Examples outweigh descriptions. Constraints beat suggestions&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Invest effort in role and examples before tweaking wording&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Dependency&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Elements affect each other. Role shapes how examples are interpreted. Format can conflict with task complexity&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Design prompts as a system — changing one element changes how others are read&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;choose-your-document-type&quot;&gt;Choose your document type&lt;/h3&gt;
+
+&lt;p&gt;Most people default to casual conversation. But different task types have different optimal frames:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Type&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Best for&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Example use&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Advice/Conversation&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Questions, brainstorming, exploration&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Ideation, Q&amp;amp;A&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Analytic/Report&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Formal analysis, code review, data analysis&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Evaluation, comparison&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Structured/Document&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Fixed format output, JSON, tables, templates&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Data extraction, forms&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;few-shot-the-technique-that-always-works&quot;&gt;Few-shot: the technique that always works&lt;/h3&gt;
+
+&lt;p&gt;Without examples, results are inconsistent. With 3 examples, results are predictable:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Without examples:
+&quot;Convert casual text to formal tone&quot;
+→ Inconsistent results, different styles each time
+
+With 3 examples:
+&quot;Hey, can u help?&quot; → &quot;Could you please assist?&quot;
+&quot;This is broken lol&quot; → &quot;This is not functioning.&quot;
+&quot;Thx so much!!!&quot; → &quot;Thank you.&quot;
+→ Consistent, predictable, matches your style
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Why it works&lt;/strong&gt;: LLMs are pattern matchers. Examples speak their language better than any description. Use 2-3 diverse ones, include edge cases, mark them clearly.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;advanced-patterns&quot;&gt;Advanced patterns&lt;/h2&gt;
+
+&lt;h3 id=&quot;chain-of-thought-cot-reasoning&quot;&gt;Chain of Thought (CoT) reasoning&lt;/h3&gt;
+
+&lt;p&gt;Asking the model to show its work dramatically improves accuracy on complex tasks.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Without reasoning:
+&quot;Solve this problem&quot;
+→ Answer: 42  (can&apos;t verify, can&apos;t debug)
+
+With reasoning:
+&quot;Let&apos;s think step by step&quot;
+→ First... Then... Therefore: 42  (verifiable, debuggable)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;2026 update&lt;/strong&gt;: Modern reasoning models (o3, Claude with extended thinking, Gemini 2.5 Pro) now do this automatically. But the concept still matters for debugging and for smaller/faster models where you want explicit reasoning.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;prewarming&quot;&gt;Prewarming&lt;/h3&gt;
+
+&lt;p&gt;Prime the model before asking your real question. Ask it to gather relevant knowledge first, then use that as context.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Without prewarming:
+&quot;Give me 5 product names for shoes that fit any size.&quot;
+→ UniFit, FlexShoe, AnySize... (generic)
+
+With prewarming:
+Step 1: &quot;List 10 expert tips for naming consumer products.&quot;
+Step 2: &quot;Now using those tips, give me 5 product names
+         for shoes that fit any size.&quot;
+→ iMorph, SoleFlex, TrueForm... (expert-informed, creative)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Also called &lt;strong&gt;Internal Retrieval&lt;/strong&gt; or &lt;strong&gt;Generate Knowledge Prompting&lt;/strong&gt;: the model retrieves from its own training data before answering.&lt;/p&gt;
+
+&lt;h3 id=&quot;react-pattern&quot;&gt;ReAct Pattern&lt;/h3&gt;
+
+&lt;p&gt;Reasoning + Action for complex tasks. Instead of letting the model jump straight to an answer, force it to show its thinking before each action.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Thought:  Reason about what to do next
+Action:   Use a tool or execute a step
+Observation: See the result and analyze it
+Repeat:   Until the task is complete
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This is the backbone of most modern agent frameworks. In practice: ask the model to explain what it’s doing before it does it. This makes errors visible and debuggable, rather than silently baked into the final output.&lt;/p&gt;
+
+&lt;h3 id=&quot;prompt-chaining&quot;&gt;Prompt Chaining&lt;/h3&gt;
+
+&lt;p&gt;Don’t ask the model to do everything at once. Break complex tasks into a pipeline of focused prompts:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-mermaid&quot;&gt;%%{init: {
+  &apos;theme&apos;: &apos;base&apos;,
+  &apos;themeVariables&apos;: {
+    &apos;primaryColor&apos;: &apos;#e3f2fd&apos;,
+    &apos;primaryTextColor&apos;: &apos;#0d47a1&apos;,
+    &apos;primaryBorderColor&apos;: &apos;#2196f3&apos;,
+    &apos;lineColor&apos;: &apos;#546e7a&apos;,
+    &apos;fontSize&apos;: &apos;14px&apos;
+  }
+}}%%
+flowchart LR
+    A[&quot;1. Extract\nPull key data\nfrom raw input&quot;] --&amp;gt; B[&quot;2. Transform\nRestructure into\nuseful format&quot;]
+    B --&amp;gt; C[&quot;3. Analyze\nReason over\nstructured data&quot;]
+    C --&amp;gt; D[&quot;4. Generate\nProduce the\nfinal output&quot;]
+
+    style A fill:#e3f2fd,stroke:#2196f3
+    style B fill:#e8f5e9,stroke:#4caf50
+    style C fill:#fff3e0,stroke:#ff9800
+    style D fill:#f3e5f5,stroke:#9c27b0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Each step is independently testable. When something breaks, you know exactly where.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Example: analyzing a contract&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;“Extract all dates, names, and amounts from this contract”&lt;/li&gt;
+  &lt;li&gt;“Given this data, create a JSON summary with…”&lt;/li&gt;
+  &lt;li&gt;“Compare these values and flag anomalies over 10%”&lt;/li&gt;
+  &lt;li&gt;“Write a 3-paragraph executive summary from this analysis”&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;rag-retrieval-augmented-generation&quot;&gt;RAG: Retrieval-Augmented Generation&lt;/h3&gt;
+
+&lt;p&gt;LLMs don’t know your internal data. RAG fetches relevant documents at query time and injects them as context. No retraining needed.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-mermaid&quot;&gt;%%{init: {
+  &apos;theme&apos;: &apos;base&apos;,
+  &apos;themeVariables&apos;: {
+    &apos;primaryColor&apos;: &apos;#e3f2fd&apos;,
+    &apos;primaryTextColor&apos;: &apos;#0d47a1&apos;,
+    &apos;primaryBorderColor&apos;: &apos;#2196f3&apos;,
+    &apos;lineColor&apos;: &apos;#546e7a&apos;,
+    &apos;fontSize&apos;: &apos;14px&apos;
+  }
+}}%%
+flowchart LR
+    A[&quot;🧑 User asks\nNatural language query&quot;] --&amp;gt; B[&quot;🔍 Retrieve\nSearch knowledge base&quot;]
+    B --&amp;gt; C[&quot;📄 Inject\nAdd docs to prompt&quot;]
+    C --&amp;gt; D[&quot;💬 Generate\nGrounded response&quot;]
+
+    style A fill:#fff3e0,stroke:#ff9800,stroke-width:2px
+    style B fill:#e3f2fd,stroke:#2196f3,stroke-width:2px
+    style C fill:#e8f5e9,stroke:#4caf50,stroke-width:2px
+    style D fill:#f3e5f5,stroke:#9c27b0,stroke-width:2px
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Use cases&lt;/strong&gt;: documentation bots, code search, customer support, enterprise knowledge bases.&lt;/p&gt;
+
+&lt;h3 id=&quot;context-engineering&quot;&gt;Context Engineering&lt;/h3&gt;
+
+&lt;p&gt;The prompt is only part of what the model reads. Context engineering means designing the &lt;em&gt;full information architecture&lt;/em&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-mermaid&quot;&gt;%%{init: {
+  &apos;theme&apos;: &apos;base&apos;,
+  &apos;themeVariables&apos;: {
+    &apos;primaryColor&apos;: &apos;#e3f2fd&apos;,
+    &apos;primaryTextColor&apos;: &apos;#1a1a2e&apos;,
+    &apos;primaryBorderColor&apos;: &apos;#2196f3&apos;,
+    &apos;lineColor&apos;: &apos;#546e7a&apos;,
+    &apos;fontSize&apos;: &apos;14px&apos;
+  }
+}}%%
+flowchart LR
+    A[&quot;⚙️ System Instructions\nStable rules, identity, behavior&quot;] --&amp;gt; G
+    B[&quot;🧠 Memory\nPersisted facts across sessions&quot;] --&amp;gt; G
+    C[&quot;📄 Retrieved Docs (RAG)\nDynamic knowledge per query&quot;] --&amp;gt; G
+    D[&quot;🔧 Tool Schemas\nAvailable actions &amp;amp; contracts&quot;] --&amp;gt; G
+    E[&quot;💬 Conversation History\nRecent messages &amp;amp; context&quot;] --&amp;gt; G
+    F[&quot;🎯 Current Task\nThe actual user request&quot;] --&amp;gt; G
+    G([&quot;🤖 LLM&quot;])
+
+    style A fill:#e3f2fd,stroke:#2196f3,stroke-width:2px
+    style B fill:#e8f5e9,stroke:#4caf50,stroke-width:2px
+    style C fill:#fff3e0,stroke:#ff9800,stroke-width:2px
+    style D fill:#fce4ec,stroke:#e91e63,stroke-width:2px
+    style E fill:#f3e5f5,stroke:#9c27b0,stroke-width:2px
+    style F fill:#e0f7fa,stroke:#00bcd4,stroke-width:2px
+    style G fill:#1a237e,color:#fff,stroke:#1a237e,stroke-width:3px
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“Prompt engineering is now being rebranded as context engineering” — promptingguide.ai&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Each layer can be tuned independently.&lt;/p&gt;
+
+&lt;h3 id=&quot;anatomy-of-a-system-prompt&quot;&gt;Anatomy of a system prompt&lt;/h3&gt;
+
+&lt;p&gt;When you build an AI feature, the system prompt is where you do most of the work. It has four distinct components:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Component&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Purpose&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Example&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Identity&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Who the model is and what it knows&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;“You are a senior software engineer specializing in Python and API design.”&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Rules&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;What the model must or must not do&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;“Always explain your reasoning. Never output code without a brief explanation.”&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Format&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;How output should be structured&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;“Respond in markdown. Use bullet points for lists, code blocks for code.”&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Guardrails&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;What to do when things go out of scope&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;“If asked about topics outside software engineering, politely redirect.”&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;A minimal but effective system prompt covers all four. You can leave Identity implicit (the model will infer from rules and context), but skipping Rules or Format usually leads to inconsistent output.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;You are a technical writing assistant helping developers write clear API documentation.
+
+Rules:
+- Use plain language. Avoid jargon unless the term is defined first.
+- Always include a request example and response example.
+- Flag any ambiguous parameter descriptions for human review.
+
+Format:
+- Use markdown with H3 headings for each endpoint.
+- Code blocks use the language tag (json, bash, etc.)
+
+If asked to document something outside the API, ask for clarification.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The guardrail at the end is short on purpose. Over-specifying edge cases in the system prompt leads to brittle behavior. Define the center, not all the edges.&lt;/p&gt;
+
+&lt;h3 id=&quot;from-chat-to-agents&quot;&gt;From chat to agents&lt;/h3&gt;
+
+&lt;p&gt;In 2026, the mode has shifted:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Chat mode&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Agent mode&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;You type, AI responds&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;You instruct, AI executes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;You write the prompt each time&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Instructions run autonomously&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;You iterate manually&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Agent self-corrects in a loop&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;You manage context yourself&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Context managed by the system&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;One task at a time&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Multi-step, multi-file workflows&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“GPT-3.5 in an agentic workflow outperforms GPT-4 with a single prompt.”
+— Andrew Ng, Sequoia AI Ascent&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Your “prompt” is now a configuration file. With Claude Code, GitHub Copilot, or Cursor, you write instructions once and they execute thousands of times. The surface has changed but the skill hasn’t: be specific, give examples, set constraints.&lt;/p&gt;
+
+&lt;h3 id=&quot;instructing-agents&quot;&gt;Instructing agents&lt;/h3&gt;
+
+&lt;p&gt;Each tool has its own instruction file. Here’s where your prompting skills live in 2026:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;File&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Tool&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Purpose&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CLAUDE.md&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Claude Code&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Global rules for the agent: conventions, workflow, preferences&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;agent.md&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Claude Code sub-agents&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Role and scope for a specialized sub-agent&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.github/copilot-instructions.md&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;GitHub Copilot&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Workspace-level coding conventions&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SKILL.md&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Claude Code skills&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Reusable task definitions the agent can invoke&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;System prompt&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Custom agents / APIs&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Core identity, rules, and guardrails for production agents&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gh&quot;&gt;# CLAUDE.md&lt;/span&gt;
+Use TypeScript strict mode.
+Run tests before committing.
+Prefer async/await patterns.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gh&quot;&gt;# agent.md  (security review sub-agent)&lt;/span&gt;
+You are a security reviewer.
+Focus: authentication, injection vulnerabilities, secrets in code.
+Flag severity as: critical / warning / info.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gh&quot;&gt;# skills/deploy/SKILL.md&lt;/span&gt;
+Use Bicep for all infrastructure. Target: Azure.
+Naming convention: rg-{app}-{env}.
+Always output a plan before applying changes.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Skills are particularly useful for repeated workflows: deploy, test, review, document. You define the skill once and the agent can invoke it by name.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;MCP (Model Context Protocol)&lt;/strong&gt; extends this further. It’s a standard for connecting agents to external tools: databases, APIs, file systems, internal services. When you define what tools an agent can use and how, you’re doing context engineering at the infrastructure level.&lt;/p&gt;
+
+&lt;p&gt;The same 80/20 principles apply. But with agents, vague instructions run at scale: across every file, every commit, every customer request.&lt;/p&gt;
+
+&lt;h3 id=&quot;meta-prompting&quot;&gt;Meta Prompting&lt;/h3&gt;
+
+&lt;p&gt;Stop writing prompts from scratch. Use a stronger model to generate and refine prompts for your target model.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Describe your task&lt;/strong&gt;: tell the LLM what you want to achieve&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;LLM generates prompt&lt;/strong&gt;: it produces a structured prompt using best practices&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Test and iterate&lt;/strong&gt;: run the prompt, give feedback, let it refine further&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Available tools: Anthropic Console prompt generator, OpenAI Playground system prompt builder, or simply ask Claude/GPT to write your prompt for you.&lt;/p&gt;
+
+&lt;h3 id=&quot;self-critique-prompting&quot;&gt;Self-Critique Prompting&lt;/h3&gt;
+
+&lt;p&gt;First drafts from AI are fine. Second drafts are better. Third drafts are great.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-mermaid&quot;&gt;%%{init: {
+  &apos;theme&apos;: &apos;base&apos;,
+  &apos;themeVariables&apos;: {
+    &apos;primaryColor&apos;: &apos;#e3f2fd&apos;,
+    &apos;primaryTextColor&apos;: &apos;#0d47a1&apos;,
+    &apos;primaryBorderColor&apos;: &apos;#2196f3&apos;,
+    &apos;lineColor&apos;: &apos;#546e7a&apos;,
+    &apos;fontSize&apos;: &apos;14px&apos;
+  }
+}}%%
+flowchart LR
+    A[&quot;✍️ Generate\nWrite first draft&quot;] --&amp;gt; B[&quot;🔎 Critique\nWhat&apos;s weak?\nWhat would make\nsomeone delete this?&quot;]
+    B --&amp;gt; C[&quot;♻️ Revise\nFix every issue\nidentified&quot;]
+    C --&amp;gt;|&quot;Still not great?&quot;| B
+
+    style A fill:#e3f2fd,stroke:#2196f3,stroke-width:2px
+    style B fill:#fff3e0,stroke:#ff9800,stroke-width:2px
+    style C fill:#e8f5e9,stroke:#4caf50,stroke-width:2px
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Why it works&lt;/strong&gt;: LLMs are better critics than creators. They spot issues they wouldn’t have caught on first pass. Ask “What’s missing?” to surface gaps the model skipped over.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Power move&lt;/strong&gt;: Give Claude’s output to GPT for critique, then back. Different models catch different things.&lt;/p&gt;
+
+&lt;h3 id=&quot;text-style-unbundling&quot;&gt;Text Style Unbundling&lt;/h3&gt;
+
+&lt;p&gt;Don’t describe the style you want. Extract it from examples.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Provide sample&lt;/strong&gt;: paste your best blog post, email, or brand copy&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Extract features&lt;/strong&gt;: “Analyze this text. Identify: tone, sentence structure, vocabulary level, rhetorical devices, and formatting.”&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Generate in style&lt;/strong&gt;: “Write a new [text] using EXACTLY these style features: [paste extracted features]”&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Use cases&lt;/strong&gt;: brand consistency, ghostwriting, matching someone’s writing style from samples.&lt;/p&gt;
+
+&lt;p&gt;Essentially advanced few-shot: instead of pasting examples, you extract the underlying rules and apply them explicitly.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;model-settings-and-behavior&quot;&gt;Model settings and behavior&lt;/h2&gt;
+
+&lt;h3 id=&quot;temperature&quot;&gt;Temperature&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;temp = 0.1  →  Deterministic   →  Facts, code, data extraction
+temp = 0.5  →  Professional    →  Emails, reports, analysis
+temp = 0.9  →  Creative        →  Brainstorming, fiction, copy
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;When in doubt, start at 0.3-0.5 and adjust from there.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-alignment-tax&quot;&gt;The alignment tax&lt;/h3&gt;
+
+&lt;p&gt;RLHF made models helpful but also verbose, hedging, and overly cautious. Modern models handle this better, but it still shows up:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;❌ &quot;What&apos;s the capital of France?&quot;
+→  &quot;Great question! The capital of France is Paris. I hope that helps!&quot;
+
+✓  Add: &quot;Be concise. No disclaimers. Direct answers only.&quot;
+→  &quot;Paris.&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;When output feels “off” or unnecessarily padded, add explicit constraints about tone and length.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;practice-and-evaluation&quot;&gt;Practice and evaluation&lt;/h2&gt;
+
+&lt;h3 id=&quot;common-pitfalls&quot;&gt;Common pitfalls&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Pitfall&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Fix&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Too vague&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Add specifics: who, what, how many, format, for whom&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Negative instructions&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Say what TO do, not what NOT to do. “Be concise” beats “Don’t be long”&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Monolithic prompts&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Break into steps. Complex tasks need sequential, focused prompts&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Ignoring hallucinations&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Ask for sources. Add “If unsure, say so”&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Not iterating&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;First prompt rarely perfect. Refine based on output&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;real-rewrites&quot;&gt;Real rewrites&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Too vague → Specific:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;❌  &quot;Summarize these meeting notes&quot;
+✓   &quot;Extract: (1) key decisions, (2) action items with owners,
+     (3) open questions. Max 150 words.&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Negative → Positive:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;❌  &quot;Don&apos;t be too technical and don&apos;t use jargon&quot;
+✓   &quot;Explain at high school level. Everyday analogies. Under 100 words.&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Monolith → Chained:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;❌  &quot;Analyze Q3 sales, find trends, compare Q2, write report&quot;
+✓   &quot;Step 1: Top 5 by revenue. Step 2: Compare to Q2.
+     Step 3: Biggest trend. Step 4: 3-sentence summary.&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;iteration-in-practice&quot;&gt;Iteration in practice&lt;/h3&gt;
+
+&lt;p&gt;Nobody writes the perfect prompt on the first try. Here’s what three rounds looks like:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Round 1:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;Write a product description for our new headphones&quot;
+→ Generic, bland. Missing audience, tone, differentiators.
+Fix: add who it&apos;s for and what makes it premium
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Round 2:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;You are a copywriter for premium audio. 50-word description.
+Target: remote workers. Tone: premium but approachable.&quot;
+→ Better tone. Still missing the actual product specs.
+Fix: add the features that matter
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Round 3:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;...Same. Must mention: 40hr battery, spatial audio, ANC.
+End with a call to action.&quot;
+→ Specific, compelling, on-brand. ✓
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Each round takes 30 seconds. Three rounds of iteration consistently beats one attempt at the perfect prompt.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-soma-framework-for-evaluation&quot;&gt;The SOMA framework for evaluation&lt;/h3&gt;
+
+&lt;p&gt;When building AI features, test systematically:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Letter&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Principle&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;What it means&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;S&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Specificity&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Test specific scenarios with concrete inputs and expected outputs&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;O&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Objective Measurement&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Define success criteria. Automate scoring. Track accuracy, consistency, format compliance&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;M&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Multiple Scenarios&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Test happy path AND edge cases, different input variations&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;A&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Automation&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Integrate testing into CI/CD. Treat prompts like production code&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;which-technique-when&quot;&gt;Which technique when?&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Situation&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Technique&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Output is vague or off-target&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Be specific + format constraints&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Need consistent results&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Few-shot examples&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;First draft not good enough&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Self-Critique: “Now critique this”&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Don’t know how to prompt it&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Meta Prompting: ask the AI to help&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Complex multi-step task&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Prompt Chaining&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Need domain expertise primed&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Prewarming first, then ask&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Need to match a voice or style&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Text Style Unbundling&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;High-stakes, can’t be wrong&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;CoT + Self-Consistency&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Building an AI feature&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Context Engineering + System Prompts&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Need to measure quality at scale&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;SOMA framework + automated eval&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Start at the top. Move down only when the simpler approach isn’t enough.&lt;/p&gt;
+
+&lt;h3 id=&quot;prompt-engineering-at-work&quot;&gt;Prompt engineering at work&lt;/h3&gt;
+
+&lt;p&gt;These aren’t tricks. They’re just clear communication applied to common tasks:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Code review:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;You are a senior Python developer reviewing code for a REST API.
+Review for: bugs, performance, readability.
+For each issue: describe it, rate severity (high/med/low), suggest a fix.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Data analysis:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Analyze this CSV of monthly sales data.
+Identify the top 3 trends, any anomalies, and explain what&apos;s driving them.
+Format: numbered list.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Email drafting:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Write a follow-up email to a client whose project is 2 weeks late due to API issues.
+Tone: firm but professional. Goal: get a new commitment date from them.
+Max 100 words.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Content creation:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;You are a B2B content strategist. Write a 300-word blog intro about cloud migration,
+targeted at CTOs. Tone: authoritative, not salesy.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;your-prompt-toolkit&quot;&gt;Your prompt toolkit&lt;/h2&gt;
+
+&lt;h3 id=&quot;templates&quot;&gt;Templates&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;The Expert:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;You are a [role] with [X] years of experience.
+[Task] for [audience]. Format: [format]. Max [N] words.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;The Extractor:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;From [source], extract: [field 1], [field 2], [field 3].
+Return as [JSON/table]. If unsure: unknown.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;The Analyst:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Analyze [data]. Top [N] trends. Compare to [benchmark].
+Present as [format].
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;The Creator:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Write [type] about [topic]. Audience: [who]. Tone: [tone].
+Include: [elements]. [N] words.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;rules&quot;&gt;Rules&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Start with a clear verb: Summarize, Compare, Create, Extract&lt;/li&gt;
+  &lt;li&gt;Assign a role and expertise level&lt;/li&gt;
+  &lt;li&gt;Set constraints: length, format, audience, tone&lt;/li&gt;
+  &lt;li&gt;Show 2-3 examples (few-shot)&lt;/li&gt;
+  &lt;li&gt;Use delimiters to separate instructions from data&lt;/li&gt;
+  &lt;li&gt;Break complex tasks into steps or chains&lt;/li&gt;
+  &lt;li&gt;Iterate: first prompt is a rough draft&lt;/li&gt;
+  &lt;li&gt;Say what TO do, not what NOT to do&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;key-takeaways&quot;&gt;Key takeaways&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;#&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Takeaway&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;LLMs are document completers&lt;/strong&gt;: they predict continuations. Design prompts as document beginnings&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;The Loop is your mental model&lt;/strong&gt;: you’re the translator between human intent and AI patterns&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;3&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;80/20 applies&lt;/strong&gt;: specificity, examples, and iteration deliver most of the value&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;4&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Context engineering &amp;gt; prompt engineering&lt;/strong&gt;: design all six layers, not just the message&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;5&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Agents change the surface, not the skill&lt;/strong&gt;: the same principles apply, with higher stakes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;6&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Evaluate systematically&lt;/strong&gt;: SOMA framework — Specificity, Objective measurement, Multiple scenarios, Automation&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;The skill that survived the “prompt engineering is dead” wave isn’t about magic phrases. It’s about communicating clearly with AI systems, in chat or in production.&lt;/p&gt;
+
+&lt;p&gt;Start today: pick one technique from this post, apply it to a real task, and iterate.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;resources&quot;&gt;Resources&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Resource&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;https://www.oreilly.com/library/view/prompt-engineering-for/9781098156145/&quot;&gt;&lt;strong&gt;Prompt Engineering for LLMs&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;O’Reilly book by Berryman &amp;amp; Ziegler&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;https://www.oreilly.com/library/view/prompt-engineering-for/9781098153427/&quot;&gt;&lt;strong&gt;Prompt Engineering for Generative AI&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;O’Reilly book by Phoenix &amp;amp; Taylor&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;https://docs.anthropic.com/en/prompt-library/library&quot;&gt;&lt;strong&gt;Anthropic Prompt Library&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Ready-to-use prompt templates from Anthropic&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;https://www.promptingguide.ai/&quot;&gt;&lt;strong&gt;Prompt Engineering Guide&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Comprehensive community resource&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;a href=&quot;https://platform.openai.com/docs/guides/prompt-engineering&quot;&gt;&lt;strong&gt;OpenAI Prompt Engineering&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Official OpenAI guidance&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;💬 &lt;strong&gt;What’s your go-to prompt technique?&lt;/strong&gt;&lt;/p&gt;
+
+  &lt;p&gt;I’d love to hear what works for your workflow. Connect with me on &lt;a href=&quot;https://linkedin.com/in/hiddedesmet&quot;&gt;LinkedIn&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+                <pubDate>Wed, 25 Feb 2026 00:00:00 +0100</pubDate>
+                <link>http://localhost:4000/prompt-engineering-that-actually-works</link>
+                <guid isPermaLink="true">http://localhost:4000/prompt-engineering-that-actually-works</guid>
+                
+                <category>prompt-engineering</category>
+                
+                <category>llm</category>
+                
+                <category>ai</category>
+                
+                <category>claude</category>
+                
+                <category>chatgpt</category>
+                
+                <category>github-copilot</category>
+                
+                <category>context-engineering</category>
+                
+                <category>agents</category>
+                
+                
+                <category>AI</category>
+                
+                <category>Development</category>
+                
+            </item>
         
             <item>
                 <title>From Vibe Coding to Spec-Driven Development: Part 4 - Team collaboration and advanced patterns</title>
@@ -8291,176 +9549,6 @@ terraform plan &lt;span class=&quot;nt&quot;&gt;-detailed-exitcode&lt;/span&gt; 
                 <category>IASA</category>
                 
                 <category>Ethics</category>
-                
-                <category>Series</category>
-                
-                
-            </item>
-        
-            <item>
-                <title>Is AI the right solution? Part 1: The decision framework</title>
-                <description>&lt;p&gt;Inspired by the IASA Global AI Architecture course, this post explores the critical decision-making process for validating whether an AI implementation is suitable for your project. The course really got me thinking about how often we jump to AI as a solution without rigorously evaluating if it’s truly the best fit. This guide aims to share some of those insights. This is Part 1 of a 3-part series.&lt;/p&gt;
-
-&lt;h1 id=&quot;is-ai-the-right-solution-a-guide-to-validating-ai-projects&quot;&gt;Is AI the right solution? A guide to validating AI projects&lt;/h1&gt;
-
-&lt;p&gt;Before diving into complex AI development, it’s crucial to determine if AI is genuinely the most effective and appropriate solution for the problem at hand. This guide outlines key considerations and a decision tree framework to help you make an informed decision.&lt;/p&gt;
-
-&lt;h2 id=&quot;the-ai-project-roi-decision-tree-framework&quot;&gt;The AI project ROI decision tree framework&lt;/h2&gt;
-
-&lt;p&gt;A decision tree for evaluating AI project ROI, especially for non-technical stakeholders, should be simple, clear, and focus on business outcomes. Here’s a potential starting structure:&lt;/p&gt;
-
-&lt;h3 id=&quot;level-1-strategic-alignment&quot;&gt;Level 1: Strategic alignment&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Question 1:&lt;/strong&gt; Does the proposed AI project directly align with our company’s strategic objectives? (e.g., related to core operations, innovation goals, market positioning, customer satisfaction)
-    &lt;ul&gt;
-      &lt;li&gt;&lt;strong&gt;Yes:&lt;/strong&gt; Proceed to evaluate key project pillars.&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;No:&lt;/strong&gt; Re-evaluate or reject. (Clearly state why it’s not aligned).&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;evaluating-key-project-pillars-objective-audience-training-operations&quot;&gt;Evaluating key project pillars (Objective, Audience, Training, Operations)&lt;/h3&gt;
-
-&lt;p&gt;To assess the feasibility and potential of an AI project, consider the following four pillars. These should be used alongside broader feasibility criteria (data readiness, skills availability, and technology stack readiness) for a comprehensive evaluation.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;Objective&lt;/strong&gt;: Clearly define the problem the AI project aims to solve. Ensure it aligns with the strategic goals of the company and addresses a specific, measurable pain point or opportunity. What does success look like?&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Audience/Impact scope&lt;/strong&gt;: Estimate the number of paying customers, internal users, or stakeholders who will benefit from the system. Quantify the potential positive impact (e.g., on customer satisfaction, employee productivity, operational efficiency, revenue generation).&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Training &amp;amp; data&lt;/strong&gt;: Evaluate the time, cost, and resources required to acquire/prepare data and train the AI model. Consider the availability, volume, and quality of (labeled) data, and the complexity of the training process. What are the data acquisition and preparation efforts?&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Operational cost &amp;amp; maintenance&lt;/strong&gt;: Assess the average daily, monthly, or annual cost of running the AI system in production. Include infrastructure, maintenance, monitoring, model retraining, and ongoing support costs.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;level-2-potential-business-impact&quot;&gt;Level 2: Potential business impact&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Question 2:&lt;/strong&gt; What is the primary expected business benefit?
-    &lt;ul&gt;
-      &lt;li&gt;&lt;strong&gt;A) Cost reduction:&lt;/strong&gt; (e.g., optimizing processes, reducing waste, automating manual tasks, lowering operational expenditures) -&amp;gt; Proceed to impact quantification (A)&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;B) Revenue increase:&lt;/strong&gt; (e.g., personalized experiences, new product/service offerings, market expansion, improved customer acquisition/retention) -&amp;gt; Proceed to impact quantification (B)&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;C) Risk mitigation:&lt;/strong&gt; (e.g., predicting supply chain disruptions, ensuring quality control, fraud detection, improving compliance) -&amp;gt; Proceed to impact quantification (C)&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;D) Efficiency improvement:&lt;/strong&gt; (e.g., automating repetitive tasks, speeding up processes, improving resource utilization) -&amp;gt; Proceed to impact quantification (D)&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;Other (specify):&lt;/strong&gt; (e.g., improved decision making, enhanced innovation capabilities) -&amp;gt; Proceed to impact quantification (Other)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;level-3-impact-quantification&quot;&gt;Level 3: Impact quantification&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Question 3 (Example for Cost Reduction):&lt;/strong&gt; Can we estimate the potential cost savings with reasonable accuracy?
-    &lt;ul&gt;
-      &lt;li&gt;&lt;strong&gt;Yes:&lt;/strong&gt; What are the estimated annual savings? (e.g., &amp;lt;$X, $X-$Y, &amp;gt;$Y). How confident are we in this estimate? -&amp;gt; Proceed to feasibility &amp;amp; effort.&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;No:&lt;/strong&gt; Further analysis needed before proceeding. Hold. The inability to quantify impact is a significant risk.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;em&gt;(Similar quantification questions, focusing on measurable outcomes and confidence levels, would follow for revenue increase, risk mitigation, efficiency improvements, etc.)&lt;/em&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;level-4-feasibility--effort&quot;&gt;Level 4: Feasibility &amp;amp; effort&lt;/h3&gt;
-
-&lt;p&gt;This level integrates the “Evaluate key project pillars” with a more direct assessment of implementation challenges.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Question 4:&lt;/strong&gt; What is the estimated effort/cost to implement this AI project (including development, infrastructure, training, and initial rollout)?
-    &lt;ul&gt;
-      &lt;li&gt;&lt;strong&gt;Low:&lt;/strong&gt; (e.g., &amp;lt;3 months, &amp;lt;$Budget_Low)&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;Medium:&lt;/strong&gt; (e.g., 3-9 months, $Budget_Low-$Budget_Medium)&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;High:&lt;/strong&gt; (e.g., &amp;gt;9 months, &amp;gt;$Budget_Medium)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Question 5:&lt;/strong&gt; Based on the “Pillars” evaluation, do we have the necessary data (quality, quantity, accessibility), skills (internal team, external support), and technology (infrastructure, tools)?
-    &lt;ul&gt;
-      &lt;li&gt;&lt;strong&gt;Yes, mostly:&lt;/strong&gt; Proceed.&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;Partially, gaps exist:&lt;/strong&gt; Identify gaps and formulate a clear plan to address them. This might involve investment in data acquisition/cleansing, upskilling/hiring, or technology adoption. Factor this into the overall effort and cost.&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;No, significant gaps:&lt;/strong&gt; High risk. Re-evaluate the project’s viability or make foundational investments in prerequisites before proceeding with the AI project itself.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;level-5-roi-assessment--gono-go-decision&quot;&gt;Level 5: ROI Assessment &amp;amp; Go/No-Go decision&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Based on quantified impact vs. estimated effort/cost and risk assessment:&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;strong&gt;High impact / Low effort:&lt;/strong&gt; Prioritize (Quick Win). These projects offer the best immediate returns with manageable risk.&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;High impact / Medium-High effort:&lt;/strong&gt; Strategic bet (plan carefully). These require significant investment and careful planning but promise substantial long-term value. Risk mitigation strategies are crucial.&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;Low impact / Low effort:&lt;/strong&gt; Consider if resources allow (opportunistic). These can be pursued if they align with strategic goals and don’t detract from higher-priority initiatives. Ensure they are genuinely low effort.&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;Low impact / High effort:&lt;/strong&gt; Avoid or De-prioritize. These projects are unlikely to deliver sufficient value for the investment and effort required.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;visualizing-the-decision-process-ai-project-roi-decision-tree&quot;&gt;Visualizing the decision process: AI project ROI decision tree&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-mermaid&quot;&gt;graph TD
-    A[Start: New AI project proposal] --&amp;gt; B{L1: Strategic alignment?};
-    B -- Yes --&amp;gt; FP[Evaluate: Objective, Audience, Training, Operations];
-    B -- No --&amp;gt; Z1[Reject/Re-evaluate: not aligned];
-
-    FP --&amp;gt; C{L2: Primary business benefit?};
-
-    C --&amp;gt; D1[Cost reduction];
-    C --&amp;gt; D2[Revenue increase];
-    C --&amp;gt; D3[Risk mitigation];
-    C --&amp;gt; D4[Efficiency improvement];
-    C --&amp;gt; D5[Other];
-
-    D1 --&amp;gt; E1{L3: Est. Cost savings accurately?};
-    E1 -- Yes --&amp;gt; F1[Est. Annual savings?];
-    F1 --&amp;gt; G1[Proceed to feasibility &amp;amp; effort];
-    E1 -- No --&amp;gt; Z2[Hold: Further Analysis Needed];
-
-    %% Paths for other benefits leading to feasibility &amp;amp; effort
-    D2 -- Quantify benefit --&amp;gt; G1;
-    D3 -- Quantify benefit --&amp;gt; G1;
-    D4 -- Quantify benefit --&amp;gt; G1;
-    D5 -- Quantify benefit --&amp;gt; G1;
-
-    G1 --&amp;gt; H{L4: Estimated effort/cost?};
-    H -- Low --&amp;gt; I{L4: Data, Skills, Tech available?};
-    H -- Medium --&amp;gt; I;
-    H -- High --&amp;gt; I;
-
-    I -- Yes, mostly --&amp;gt; J[Proceed to ROI assessment];
-    I -- Partially, gaps exist --&amp;gt; K[Identify/Address gaps then ROI assessment];
-    I -- No, significant gaps --&amp;gt; Z3[High risk: Re-evaluate/Invest in prerequisites];
-
-    J --&amp;gt; L{L5: ROI assessment};
-    K --&amp;gt; L;
-
-    L -- High impact / Low effort --&amp;gt; M[Prioritize: Quick win];
-    L -- High impact / Medium-High effort --&amp;gt; N[Strategic bet: Plan carefully];
-    L -- Low impact / Low effort --&amp;gt; O[Opportunistic: Consider if resources allow];
-    L -- Low impact / High effort --&amp;gt; P[Avoid/De-prioritize];
-
-    classDef question fill:#f9f,stroke:#333,stroke-width:2px,color:#333,font-size:12px;
-    classDef decision fill:#lightgrey,stroke:#333,stroke-width:2px,color:#333,font-size:12px;
-    classDef outcomeGreen fill:#ccffcc,stroke:#333,stroke-width:2px,color:#333,font-size:12px;
-    classDef outcomeRed fill:#ffcccc,stroke:#333,stroke-width:2px,color:#333,font-size:12px;
-    classDef outcomeOrange fill:#ffebcc,stroke:#333,stroke-width:2px,color:#333,font-size:12px;
-
-    class A,B,C,E1,F1,H,I,L,FP question;
-    class Z1,Z2,Z3,P outcomeRed;
-    class M outcomeGreen;
-    class N,O,K outcomeOrange;
-    class D1,D2,D3,D4,D5,G1,J decision;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;em&gt;(Note: The “Impact quantification” for benefits other than “Cost reduction” are simplified in this main diagram. For internal detailed planning, you might develop more detailed checklists or sub-diagrams for quantifying each type of benefit.)&lt;/em&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;p&gt;&lt;em&gt;In &lt;a href=&quot;/ai-project-validation-framework-part2&quot;&gt;Part 2 of this series&lt;/a&gt;, we’ll explore how to apply this framework with practical examples and delve into the critical ethical considerations for AI projects. Look for it on Monday, June 2, 2025!&lt;/em&gt;&lt;/p&gt;
-</description>
-                <pubDate>Mon, 26 May 2025 09:00:00 +0200</pubDate>
-                <link>http://localhost:4000/ai-project-validation-framework-part1</link>
-                <guid isPermaLink="true">http://localhost:4000/ai-project-validation-framework-part1</guid>
-                
-                <category>AI</category>
-                
-                <category>IASA</category>
-                
-                <category>Project validation</category>
                 
                 <category>Series</category>
                 
