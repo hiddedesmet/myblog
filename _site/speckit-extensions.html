@@ -6,22 +6,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>From Vibe Coding to Spec-Driven Development: Part 3 - Best practices and troubleshooting</title>
-  <meta name='description' content='Part 3 of our series on mastering AI-assisted development. Learn advanced specification techniques, debugging strategies, iteration patterns, and real-world ...'>
+  <title>Spec-Kit Extensions: Making spec-driven development your own</title>
+  <meta name='description' content='Spec-Kit's extension system turns a structured spec-driven workflow into something you can customize end-to-end. Here's how extensions work, which ones are w...'>
 
-  <link rel="canonical" href="http://localhost:4000/from-vibe-coding-to-spec-driven-development-part3">
+  <link rel="canonical" href="http://localhost:4000/speckit-extensions">
   <link rel="alternate" type="application/rss+xml" title="" href="/feed.xml">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="From Vibe Coding to Spec-Driven Development: Part 3 - Best practices and troubleshooting – Hidde de Smet">
-  <meta name="twitter:description" content="Part 3 of our series on mastering AI-assisted development. Learn advanced specification techniques, debugging strategies, iteration patterns, and real-world troubleshooting for production-ready AI-generated code.">
-  <meta name="twitter:image:src" content="http://localhost:4000/images/spec-kit/image-03.png">
+  <meta name="twitter:title" content="Spec-Kit Extensions: Making spec-driven development your own – Hidde de Smet">
+  <meta name="twitter:description" content="Spec-Kit&apos;s extension system turns a structured spec-driven workflow into something you can customize end-to-end. Here&apos;s how extensions work, which ones are worth looking at, and a hands-on walkthrough of the Ralph Loop extension for autonomous implementation.">
+  <meta name="twitter:image:src" content="http://localhost:4000/images/spec-kit/speckit-extensions.png">
 
   <!-- Facebook OpenGraph -->
-  <meta property="og:title" content="From Vibe Coding to Spec-Driven Development: Part 3 - Best practices and troubleshooting – Hidde de Smet">
-  <meta property="og:description" content="Part 3 of our series on mastering AI-assisted development. Learn advanced specification techniques, debugging strategies, iteration patterns, and real-world troubleshooting for production-ready AI-generated code.">
-  <meta property="og:image" content="http://localhost:4000/images/spec-kit/image-03.png">
+  <meta property="og:title" content="Spec-Kit Extensions: Making spec-driven development your own – Hidde de Smet">
+  <meta property="og:description" content="Spec-Kit&apos;s extension system turns a structured spec-driven workflow into something you can customize end-to-end. Here&apos;s how extensions work, which ones are worth looking at, and a hands-on walkthrough of the Ralph Loop extension for autonomous implementation.">
+  <meta property="og:image" content="http://localhost:4000/images/spec-kit/speckit-extensions.png">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -219,31 +219,31 @@
         
           <a href="/tags#copilot" class="post__tag">copilot</a>
         
-          <a href="/tags#vibe-coding" class="post__tag">vibe-coding</a>
+          <a href="/tags#extensions" class="post__tag">extensions</a>
         
           <a href="/tags#specification-driven-development" class="post__tag">specification-driven-development</a>
         
-          <a href="/tags#series" class="post__tag">series</a>
+          <a href="/tags#ralph-loop" class="post__tag">ralph-loop</a>
         
         </div>
         
         <div class="post__date">•
-          <time datetime="2026-01-19T00:00:00+01:00">Jan 19, 2026</time>
+          <time datetime="2026-04-08T00:00:00+02:00">Apr 08, 2026</time>
         </div>
         <div class="post__minutes">•
           <span>
             
             
-              35 min read
+              10 min read
             
           </span>
         </div>
       </div>
 
-      <h1 class="post__title">From Vibe Coding to Spec-Driven Development: Part 3 - Best practices and troubleshooting</h1>
+      <h1 class="post__title">Spec-Kit Extensions: Making spec-driven development your own</h1>
 
       
-      <div class="post__description">Part 3 of our series on mastering AI-assisted development. Learn advanced specification techniques, debugging strategies, iteration patterns, and real-world troubleshooting for production-ready AI-generated code.</div>
+      <div class="post__description">Spec-Kit's extension system turns a structured spec-driven workflow into something you can customize end-to-end. Here's how extensions work, which ones are worth looking at, and a hands-on walkthrough of the Ralph Loop extension for autonomous implementation.</div>
       
 
       <div class="post__meta">
@@ -265,25 +265,25 @@
   <ul class="share__list list-reset">
     <li class="share__item">
       <a class="share__link share__twitter"
-        href="https://twitter.com/intent/tweet?text=From%20Vibe%20Coding%20to%20Spec-Driven%20Development:%20Part%203%20-%20Best%20practices%20and%20troubleshooting&url=http://localhost:4000/from-vibe-coding-to-spec-driven-development-part3"
+        href="https://twitter.com/intent/tweet?text=Spec-Kit%20Extensions:%20Making%20spec-driven%20development%20your%20own&url=http://localhost:4000/speckit-extensions"
         onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
         title="Share on Twitter" rel="nofollow"><i class="fa-brands fa-x-twitter"></i></a>
     </li>
     <li class="share__item">
       <a class="share__link share__facebook"
-        href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/from-vibe-coding-to-spec-driven-development-part3"
+        href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/speckit-extensions"
         onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
         title="Share on Facebook" rel="nofollow"><i class="fa-brands fa-facebook-f"></i></a>
     </li>
     <li class="share__item">
       <a class="share__link share__pinterest"
-        href="http://pinterest.com/pin/create/button/?url=http://localhost:4000/from-vibe-coding-to-spec-driven-development-part3&amp;media=http://localhost:4000/images/spec-kit/image-03.png&amp;description=From%20Vibe%20Coding%20to%20Spec-Driven%20Development:%20Part%203%20-%20Best%20practices%20and%20troubleshooting"
+        href="http://pinterest.com/pin/create/button/?url=http://localhost:4000/speckit-extensions&amp;media=http://localhost:4000/images/spec-kit/speckit-extensions.png&amp;description=Spec-Kit%20Extensions:%20Making%20spec-driven%20development%20your%20own"
         onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"
         title="Share on Pinterest" rel="nofollow"><i class="fa-brands fa-pinterest"></i></a>
     </li>
     <li class="share__item">
       <a class="share__link share__linkedin"
-        href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/from-vibe-coding-to-spec-driven-development-part3&title=From%20Vibe%20Coding%20to%20Spec-Driven%20Development:%20Part%203%20-%20Best%20practices%20and%20troubleshooting&summary=Part%203%20of%20our%20series%20on%20mastering%20AI-assisted%20development.%20Learn%20advanced%20specification%20techniques,%20debugging%20strategies,%20iteration%20patterns,%20and%20real-world%20troubleshooting%20for%20production-ready%20AI-generated%20code.&source="
+        href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/speckit-extensions&title=Spec-Kit%20Extensions:%20Making%20spec-driven%20development%20your%20own&summary=Spec-Kit's%20extension%20system%20turns%20a%20structured%20spec-driven%20workflow%20into%20something%20you%20can%20customize%20end-to-end.%20Here's%20how%20extensions%20work,%20which%20ones%20are%20worth%20looking%20at,%20and%20a%20hands-on%20walkthrough%20of%20the%20Ralph%20Loop%20extension%20for%20autonomous%20implementation.&source="
         onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
         title="Share on LinkedIn" rel="nofollow"><i class="fa-brands fa-linkedin"></i></a>
     </li>
@@ -298,7 +298,7 @@
 
     
     <div class="post__image">
-      <img class="lazy" data-src="/images/spec-kit/image-03.png" alt="From Vibe Coding to Spec-Driven Development: Part 3 - Best practices and troubleshooting">
+      <img class="lazy" data-src="/images/spec-kit/speckit-extensions.png" alt="Spec-Kit Extensions: Making spec-driven development your own">
     </div>
     
     
@@ -312,1500 +312,479 @@
       
       <div class="post__toc">
         <h2 class="post__toc__title">Table of Contents</h2>
-        <ol class="post__toc__list"><li><a href="#series-overview">Series overview</a></li><li><a href="#the-reality-of-spec-driven-development">The reality of spec-driven development</a></li><li><a href="#section-1-advanced-specification-techniques">Section 1: Advanced specification techniques</a><ol><li><a href="#writing-specs-that-survive-reality">Writing specs that survive reality</a><ol><li><a href="#technique-1-use-given-when-then-scenarios">Technique #1: Use Given-When-Then scenarios</a></li><li><a href="#technique-2-specify-error-messages-exactly">Technique #2: Specify error messages exactly</a></li><li><a href="#technique-3-mock-the-ui-with-ascii-art">Technique #3: Mock the UI with ASCII art</a></li><li><a href="#technique-4-define-the-negative-space">Technique #4: Define the negative space</a></li></ol></li></ol></li><li><a href="#section-2-debugging-strategies">Section 2: Debugging strategies</a><ol><li><a href="#when-the-ai-goes-off-track">When the AI goes off track</a></li><li><a href="#strategy-1-the-validation-loop">Strategy #1: The validation loop</a></li><li><a href="#strategy-2-the-hallucination-detector">Strategy #2: The hallucination detector</a></li><li><a href="#strategy-3-the-context-refresh">Strategy #3: The context refresh</a></li></ol></li><li><a href="#section-3-iteration-patterns">Section 3: Iteration patterns</a><ol><li><a href="#evolving-specs-without-chaos">Evolving specs without chaos</a></li><li><a href="#pattern-1-additive-changes-safe">Pattern #1: Additive changes (safe)</a></li><li><a href="#pattern-2-modificative-changes-risky">Pattern #2: Modificative changes (risky)</a></li><li><a href="#pattern-3-subtractive-changes-dangerous">Pattern #3: Subtractive changes (dangerous)</a></li></ol></li><li><a href="#section-4-performance-optimization">Section 4: Performance optimization</a><ol><li><a href="#keeping-the-ai-focused-and-fast">Keeping the AI focused and fast</a></li><li><a href="#optimization-1-scope-reduction">Optimization #1: Scope reduction</a></li><li><a href="#optimization-2-reference-by-location">Optimization #2: Reference by location</a></li><li><a href="#optimization-3-checkpoint-saves">Optimization #3: Checkpoint saves</a></li><li><a href="#optimization-4-parallel-work-streams">Optimization #4: Parallel work streams</a></li></ol></li><li><a href="#section-5-real-world-edge-cases">Section 5: Real-world edge cases</a><ol><li><a href="#lessons-from-production-deployments">Lessons from production deployments</a></li><li><a href="#edge-case-1-concurrent-updates-conflict">Edge Case #1: Concurrent updates conflict</a></li><li><a href="#edge-case-2-n1-query-problem">Edge Case #2: N+1 query problem</a></li><li><a href="#edge-case-3-memory-leak-in-real-time-connections">Edge Case #3: Memory leak in real-time connections</a></li><li><a href="#edge-case-4-xss-vulnerability-in-task-descriptions">Edge Case #4: XSS vulnerability in task descriptions</a></li></ol></li><li><a href="#section-6-common-gotchas-and-fixes">Section 6: Common gotchas and fixes</a><ol><li><a href="#quick-reference-guide">Quick reference guide</a><ol><li><a href="#gotcha-1-ai-forgets-the-constitution-mid-implementation">Gotcha #1: AI forgets the constitution mid-implementation</a></li><li><a href="#gotcha-2-generated-tests-dont-run">Gotcha #2: Generated tests don’t run</a></li><li><a href="#gotcha-3-environment-variables-missing-in-production">Gotcha #3: Environment variables missing in production</a></li><li><a href="#gotcha-4-api-versioning-not-considered">Gotcha #4: API versioning not considered</a></li><li><a href="#gotcha-5-ai-uses-deprecated-patterns">Gotcha #5: AI uses deprecated patterns</a></li><li><a href="#gotcha-6-ai-generates-over-engineered-solutions">Gotcha #6: AI generates over-engineered solutions</a></li></ol></li></ol></li><li><a href="#section-7-measuring-success">Section 7: Measuring success</a><ol><li><a href="#how-do-you-know-if-spec-driven-development-is-working">How do you know if spec-driven development is working?</a><ol><li><a href="#fixing-slow-velocity">Fixing slow velocity</a></li><li><a href="#fixing-high-regression">Fixing high regression</a></li><li><a href="#fixing-high-spec-churn">Fixing high spec churn</a></li><li><a href="#fixing-low-coverage">Fixing low coverage</a></li><li><a href="#fixing-slow-recovery">Fixing slow recovery</a></li></ol></li></ol></li><li><a href="#section-8-tools-and-automation">Section 8: Tools and automation</a><ol><li><a href="#helpers-that-make-spec-driven-development-smoother">Helpers that make spec-driven development smoother</a></li><li><a href="#tool-1-specification-validator">Tool #1: Specification validator</a></li><li><a href="#tool-2-constitution-compliance-checker">Tool #2: Constitution compliance checker</a></li><li><a href="#tool-3-performance-testing-automation">Tool #3: Performance testing automation</a></li><li><a href="#tool-4-spec-change-impact-analyzer">Tool #4: Spec change impact analyzer</a></li></ol></li><li><a href="#section-9-when-to-abandon-spec-driven-development">Section 9: When to abandon spec-driven development</a><ol><li><a href="#its-not-always-the-right-tool">It’s not always the right tool</a></li></ol></li><li><a href="#recap-best-practices-checklist">Recap: Best practices checklist</a></li><li><a href="#whats-next">What’s next</a></li><li><a href="#key-takeaways-from-part-3">Key takeaways from Part 3</a></li><li><a href="#resources">Resources</a></li><li><a href="#series-navigation">Series navigation</a></li></ol>
+        <ol class="post__toc__list"><li><a href="#what-are-spec-kit-extensions">What are Spec-Kit extensions?</a></li><li><a href="#extensions-worth-knowing-about">Extensions worth knowing about</a><ol><li><a href="#process-extensions">Process extensions</a></li><li><a href="#code-extensions">Code extensions</a></li><li><a href="#integration-extensions">Integration extensions</a></li><li><a href="#docs-extensions">Docs extensions</a></li></ol></li><li><a href="#the-ralph-loop-autonomous-implementation-in-practice">The Ralph Loop: autonomous implementation in practice</a><ol><li><a href="#how-it-works">How it works</a></li><li><a href="#what-it-looks-like-in-the-terminal">What it looks like in the terminal</a></li><li><a href="#what-progressmd-looks-like">What progress.md looks like</a></li><li><a href="#installing-ralph">Installing Ralph</a></li><li><a href="#running-it">Running it</a></li><li><a href="#configuration">Configuration</a></li><li><a href="#termination-conditions">Termination conditions</a></li><li><a href="#when-ralph-makes-sense">When Ralph makes sense</a></li></ol></li><li><a href="#building-your-own-extension">Building your own extension</a></li><li><a href="#where-to-start">Where to start</a></li></ol>
       </div>
       
 
-      <blockquote>
-  <p>🎯 <strong>This is Part 3 of a 5-part series on mastering AI-assisted development.</strong></p>
+      <p>The core Spec-Kit workflow (constitution, specify, plan, tasks, implement) gets you far. But every team has different needs. Some want Jira integration. Others want post-implementation code review. A few want an autonomous loop that implements every task while they grab coffee.</p>
 
-  <p>We’ve covered the why and the how. Now let’s tackle the messy reality: debugging, iteration, and real-world troubleshooting.</p>
-</blockquote>
+<p>Spec-Kit ships with a modular extension system that lets you bolt on new commands, templates, and workflows without touching the core. The community has already built over 40 extensions, and the catalog keeps growing. In this post, I’ll walk through how extensions work, highlight a handful worth knowing, and dig into the <strong>Ralph Loop</strong> extension as an example.</p>
 
-<h2 id="series-overview">Series overview</h2>
+<hr />
+
+<h2 id="what-are-spec-kit-extensions">What are Spec-Kit extensions?</h2>
+
+<p>Extensions add new capabilities to Spec-Kit. Presets customize existing behavior. Quick comparison:</p>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">Part</th>
-      <th style="text-align: left">Topic</th>
-      <th style="text-align: center">Status</th>
+      <th>Mechanism</th>
+      <th>Purpose</th>
+      <th>Example</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><a href="/from-vibe-coding-to-spec-driven-development">Part 1</a></td>
-      <td style="text-align: left">The problem and the solution</td>
-      <td style="text-align: center">✓</td>
+      <td><strong>Extension</strong></td>
+      <td>Add new commands or workflows</td>
+      <td>Jira sync, code review, autonomous loops</td>
     </tr>
     <tr>
-      <td style="text-align: left"><a href="/from-vibe-coding-to-spec-driven-development-part2">Part 2</a></td>
-      <td style="text-align: left">Deep dive into the Spec-Kit workflow</td>
-      <td style="text-align: center">✓</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><strong>Part 3</strong></td>
-      <td style="text-align: left"><strong>Best practices and troubleshooting</strong></td>
-      <td style="text-align: center">📍</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Part 4</td>
-      <td style="text-align: left">Team collaboration and advanced patterns</td>
-      <td style="text-align: center">Jan 26</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Part 5</td>
-      <td style="text-align: left">Case studies and lessons learned</td>
-      <td style="text-align: center">Feb 2</td>
+      <td><strong>Preset</strong></td>
+      <td>Customize specs, plans, and task formats</td>
+      <td>Pirate speak, compliance templates, TOC navigation</td>
     </tr>
   </tbody>
 </table>
 
+<p>Extensions live in the <code class="language-plaintext highlighter-rouge">extensions/</code> directory and follow a standard structure: a manifest file (<code class="language-plaintext highlighter-rouge">extension.yml</code>), command templates, optional scripts, and configuration. You install them with the CLI:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Search what's available</span>
+specify extension search
+
+<span class="c"># Install an extension</span>
+specify extension add &lt;extension-name&gt;
+
+<span class="c"># List installed extensions</span>
+specify extension list
+</code></pre></div></div>
+
+<p>That’s it. The commands from the extension become available as slash commands in your AI agent session, just like the built-in ones.</p>
+
 <hr />
 
-<h2 id="the-reality-of-spec-driven-development">The reality of spec-driven development</h2>
+<h2 id="extensions-worth-knowing-about">Extensions worth knowing about</h2>
 
-<p>Last week, I was helping a team at a European airline build a proof-of-concept for managing contractors. Everything was going smoothly until the AI started generating code that referenced a workflow library that simply didn’t exist. Once we’d untangled the hallucination, it got me thinking: <strong>we need a field guide for when things go wrong.</strong></p>
+<p>The <a href="https://speckit-community.github.io/extensions/">community catalog</a> has extensions across five categories: <strong>docs</strong>, <strong>code</strong>, <strong>process</strong>, <strong>integration</strong>, and <strong>visibility</strong>. Here are a few worth highlighting.</p>
 
-<p>In Part 2, we walked through a clean, linear workflow: constitution → spec → plan → tasks → implementation. In reality, development is rarely that smooth.</p>
-
-<p>You’ll encounter:</p>
+<h3 id="process-extensions">Process extensions</h3>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">Challenge</th>
-      <th style="text-align: left">What happens</th>
+      <th>Extension</th>
+      <th>What it does</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><strong>AI hallucinations</strong></td>
-      <td style="text-align: left">The AI invents APIs that don’t exist</td>
+      <td><strong>Fleet Orchestrator</strong></td>
+      <td>Orchestrates a full feature lifecycle with human-in-the-loop gates across all SpecKit phases</td>
     </tr>
     <tr>
-      <td style="text-align: left"><strong>Spec ambiguities</strong></td>
-      <td style="text-align: left">Unclear requirements lead to wrong implementations</td>
+      <td><strong>MAQA</strong></td>
+      <td>Coordinator &gt; feature &gt; QA agent workflow with parallel worktree-based implementation</td>
     </tr>
     <tr>
-      <td style="text-align: left"><strong>Performance issues</strong></td>
-      <td style="text-align: left">Code works but doesn’t scale</td>
+      <td><strong>Conduct</strong></td>
+      <td>Delegates spec-kit phases to sub-agents to reduce context pollution</td>
     </tr>
     <tr>
-      <td style="text-align: left"><strong>Integration failures</strong></td>
-      <td style="text-align: left">Components don’t play well together</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><strong>Requirement changes</strong></td>
-      <td style="text-align: left">What you built isn’t what users need</td>
+      <td><strong>Product Forge</strong></td>
+      <td>Full product lifecycle: research &gt; product spec &gt; SpecKit &gt; implement &gt; verify &gt; test</td>
     </tr>
   </tbody>
 </table>
 
-<p>This post is about handling those messy situations. <strong>Think of it as your field guide for when things go wrong.</strong></p>
-
-<hr />
-
-<h2 id="section-1-advanced-specification-techniques">Section 1: Advanced specification techniques</h2>
-
-<h3 id="writing-specs-that-survive-reality">Writing specs that survive reality</h3>
-
-<p>The quality of your specification directly determines the quality of your output. Here’s how to write specs that work in practice.</p>
-
-<blockquote>
-  <p>💡 <strong>Quick win</strong></p>
-
-  <p>Start with Technique #1 (Given-When-Then). It alone will significantly improve your AI output quality.</p>
-</blockquote>
-
-<h4 id="technique-1-use-given-when-then-scenarios">Technique #1: Use Given-When-Then scenarios</h4>
-
-<p>Instead of vague descriptions, use structured scenarios:</p>
-
-<p><strong>DON’T</strong> (Vague):</p>
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Users should be able to filter tasks
-</code></pre></div></div>
-
-<p><strong>DO</strong> (Structured):</p>
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gs">**Scenario: Filter tasks by assignee**</span>
-
-<span class="gs">**Given**</span> I'm viewing the team dashboard
-<span class="gs">**And**</span> there are 50 tasks assigned to various team members
-<span class="gs">**When**</span> I select "John Smith" from the assignee filter
-<span class="gs">**Then**</span> I see only tasks assigned to John Smith (expected: 12 tasks)
-<span class="gs">**And**</span> the count updates to show "Showing 12 of 50 tasks"
-<span class="gs">**And**</span> the filter persists when I navigate away and return
-</code></pre></div></div>
-
-<p><strong>Why this works</strong>: The AI has concrete inputs, actions, and expected outputs. No room for interpretation.</p>
-
-<h4 id="technique-2-specify-error-messages-exactly">Technique #2: Specify error messages exactly</h4>
-
-<p>Don’t say “show an error.” Say exactly what the error should say.</p>
-
-<p><strong>DON’T</strong> (Vague):</p>
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>If the user enters an invalid email, show an error
-</code></pre></div></div>
-
-<p><strong>DO</strong> (Specific):</p>
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gs">**Validation: Email format**</span>
-
-<span class="gs">**Invalid inputs:**</span>
-<span class="p">-</span> Empty string → "Email is required"
-<span class="p">-</span> "notanemail" → "Please enter a valid email address"
-<span class="p">-</span> "test@" → "Please enter a valid email address"
-<span class="p">-</span> "test@domain" → "Please enter a valid email address"
-
-<span class="gs">**Valid inputs:**</span>
-<span class="p">-</span> "user@example.com" → Validation passes
-<span class="p">-</span> "user+tag@example.co.uk" → Validation passes
-
-<span class="gs">**Display:**</span>
-<span class="p">-</span> Error appears below input field
-<span class="p">-</span> Input border turns red (#dc3545)
-<span class="p">-</span> Error icon displayed to the left of message
-<span class="p">-</span> Error clears immediately when user starts typing
-</code></pre></div></div>
-
-<h4 id="technique-3-mock-the-ui-with-ascii-art">Technique #3: Mock the UI with ASCII art</h4>
-
-<p>Don’t assume the AI knows what you want visually.</p>
-
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gu">## Task Card Layout</span>
-
-┌─────────────────────────────────────────┐
-│ [✓] Task title goes here        [Edit]  │
-│                                          │
-│ Brief description preview shown here,    │
-│ truncated at 100 characters...          │
-│                                          │
-│ 👤 Assigned to: John Smith              │
-│ 📅 Due: Jan 25, 2026                    │
-│ 🏷️  Status: In Progress                 │
-└─────────────────────────────────────────┘
-
-<span class="gs">**Interactions:**</span>
-<span class="p">-</span> Checkbox: Click to toggle complete/incomplete
-<span class="p">-</span> Card body: Click to open detail view
-<span class="p">-</span> Edit button: Click to enter edit mode
-<span class="p">-</span> Hover: Box shadow elevation (0.5rem)
-</code></pre></div></div>
-
-<h4 id="technique-4-define-the-negative-space">Technique #4: Define the negative space</h4>
-
-<p>Explicitly state what you’re NOT building.</p>
-
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gu">## Out of Scope (Explicitly NOT Implementing)</span>
-
-<span class="gu">### Comments on tasks</span>
-<span class="gs">**Why**</span>: Adds complexity without MVP validation
-<span class="gs">**Future consideration**</span>: Phase 2 after user feedback
-
-<span class="gu">### File attachments</span>
-<span class="gs">**Why**</span>: Requires file storage infrastructure
-<span class="gs">**Alternative**</span>: Use task description to link to external files
-
-<span class="gu">### Recurring tasks</span>
-<span class="gs">**Why**</span>: Complex scheduling logic
-<span class="gs">**Alternative**</span>: Manual task duplication for now
-
-<span class="gu">### Subtasks/nested tasks</span>
-<span class="gs">**Why**</span>: Violates "Simplicity First" principle
-<span class="gs">**Alternative**</span>: Use task dependencies in future phase
-</code></pre></div></div>
-
-<p><strong>Why this matters</strong>: Prevents the AI from “helpfully” adding features you didn’t ask for.</p>
-
-<hr />
-
-<h2 id="section-2-debugging-strategies">Section 2: Debugging strategies</h2>
-
-<h3 id="when-the-ai-goes-off-track">When the AI goes off track</h3>
-
-<p>AI hallucinations are real. Here’s how to diagnose and fix them.</p>
-
-<blockquote>
-  <p>📋 <strong>TL;DR: The 5-step debug checklist</strong></p>
-
-  <ol>
-    <li>Validate dependencies exist</li>
-    <li>Check for hallucinated APIs</li>
-    <li>Reset context if issues repeat</li>
-    <li>Provide minimal reproductions</li>
-    <li>Audit dependencies after updates</li>
-  </ol>
-</blockquote>
-
-<h3 id="strategy-1-the-validation-loop">Strategy #1: The validation loop</h3>
-
-<p>After implementation, run this three-step validation:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Step 1: Verify dependencies exist</span>
-npm list  <span class="c"># Check all packages are installed</span>
-dotnet list package  <span class="c"># For .NET projects</span>
-
-<span class="c"># Step 2: Check for type errors</span>
-npm run typecheck  <span class="c"># TypeScript</span>
-dotnet build  <span class="c"># C#</span>
-
-<span class="c"># Step 3: Run tests</span>
-npm <span class="nb">test</span>  <span class="c"># Run test suite</span>
-dotnet <span class="nb">test</span>  <span class="c"># Run unit tests</span>
-</code></pre></div></div>
-
-<p><strong>Common issues caught:</strong></p>
-<ul>
-  <li>AI referenced packages that don’t exist</li>
-  <li>API endpoints that were never implemented</li>
-  <li>Type mismatches between frontend and backend</li>
-</ul>
-
-<h3 id="strategy-2-the-hallucination-detector">Strategy #2: The hallucination detector</h3>
-
-<p>AI models sometimes invent plausible-sounding but non-existent APIs.</p>
-
-<p><strong>Example hallucination:</strong></p>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// AI-generated code</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">usePrismaQuery</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@prisma/react</span><span class="dl">'</span><span class="p">;</span>
-
-<span class="c1">// This hook doesn't exist!</span>
-<span class="kd">const</span> <span class="p">{</span> <span class="nx">data</span> <span class="p">}</span> <span class="o">=</span> <span class="nf">usePrismaQuery</span><span class="p">(</span><span class="dl">'</span><span class="s1">users</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span> <span class="na">where</span><span class="p">:</span> <span class="p">{</span> <span class="nx">email</span> <span class="p">}</span> <span class="p">});</span>
-</code></pre></div></div>
-
-<p><strong>How to catch it:</strong></p>
-
-<ol>
-  <li>Check official documentation</li>
-  <li>Search GitHub for the import</li>
-  <li>Test in isolation</li>
-</ol>
-
-<p><strong>Fix:</strong></p>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Correct approach</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">prisma</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@/lib/prisma</span><span class="dl">'</span><span class="p">;</span>
-
-<span class="c1">// Manual query in server component</span>
-<span class="kd">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">prisma</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nf">findUnique</span><span class="p">({</span> <span class="na">where</span><span class="p">:</span> <span class="p">{</span> <span class="nx">email</span> <span class="p">}</span> <span class="p">});</span>
-</code></pre></div></div>
-
-<h3 id="strategy-3-the-context-refresh">Strategy #3: The context refresh</h3>
-
-<p>When the AI keeps making the same mistake, it’s context-poisoned.</p>
-
-<p><strong>Symptom</strong>: You fix a bug, the AI reintroduces it in the next iteration.</p>
-
-<p><strong>Solution</strong>: Reset context with explicit correction:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/implement fix and memorize: The TaskService uses async/await, NOT promises with .then()
-
-INCORRECT PATTERN (never use):
-```typescript
-taskService.createTask(data).then(result =&gt; { ... })
-</code></pre></div></div>
-
-<p>CORRECT PATTERN (always use):</p>
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">taskService</span><span class="p">.</span><span class="nf">createTask</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
-</code></pre></div></div>
-
-<p>Update all existing code that uses .then() to use async/await.
-Update the plan to reflect this as a coding standard.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-The AI will:
-1. Fix all instances
-2. Update the plan to document the pattern
-3. Remember the pattern for future tasks
-
-### Strategy #4: The minimal reproduction
-
-When something breaks, isolate it.
-
-**INEFFECTIVE bug report**:
-</code></pre></div></div>
-<p>The app crashes when I try to create a task</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-**EFFECTIVE bug report**:
-</code></pre></div></div>
-<p>/implement fix bug: Creating a task with empty title crashes the application</p>
-
-<p><strong>Steps to reproduce:</strong></p>
-<ol>
-  <li>Log in as user test@example.com</li>
-  <li>Navigate to /dashboard</li>
-  <li>Click “New Task” button</li>
-  <li>Leave title field empty</li>
-  <li>Enter description: “Test description”</li>
-  <li>Click “Create Task”</li>
-</ol>
-
-<p><strong>Expected</strong>: Validation error “Title is required”
-<strong>Actual</strong>: Server crashes with 500 error</p>
-
-<p><strong>Error log:</strong></p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>TypeError: Cannot read property 'trim' of undefined
-  at TaskService.createTask (services/TaskService.cs:47)
-  at TaskController.Create (controllers/TaskController.cs:23)
-</code></pre></div></div>
-
-<p><strong>Hypothesis</strong>: Title validation happens after attempting to trim, should happen before.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-### Strategy #5: The dependency audit
-
-When things mysteriously break after an update, check dependencies.
-
-```bash
-# Check for breaking changes
-npm outdated  # Shows available updates
-npm audit  # Security vulnerabilities
-
-# Lock down working versions
-npm ci  # Install exact versions from lockfile
-</code></pre></div></div>
-
-<p><strong>Real example</strong>: Express 5.0 (released late 2024) changed middleware signatures. Code using Express 4.x patterns breaks silently.</p>
-
-<p><strong>Solution</strong>: Pin major versions in constitution:</p>
-
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gu">## Technical Constraints</span>
-
-<span class="gu">### Dependency Versions (Pinned for Stability)</span>
-<span class="p">-</span> express: ^4.18.0 (NOT 5.x until migration planned)
-<span class="p">-</span> react: ^18.2.0
-<span class="p">-</span> typescript: ^5.0.0
-
-<span class="gs">**Rationale**</span>: Avoid breaking changes mid-development
-</code></pre></div></div>
-
-<hr />
-
-<h2 id="section-3-iteration-patterns">Section 3: Iteration patterns</h2>
-
-<h3 id="evolving-specs-without-chaos">Evolving specs without chaos</h3>
-
-<p>Requirements change. Your spec needs to evolve. Here’s how to do it systematically.</p>
-
-<blockquote>
-  <p>📐 <strong>Rule of thumb</strong></p>
-
-  <p><strong>Add</strong> → Do it freely (safe)
-<strong>Modify</strong> → Document everything (risky)
-<strong>Remove</strong> → Phase it out gradually (dangerous)</p>
-</blockquote>
-
-<h3 id="pattern-1-additive-changes-safe">Pattern #1: Additive changes (safe)</h3>
-
-<p><strong>Scenario</strong>: Add a new feature without modifying existing behavior.</p>
-
-<p><strong>Example</strong>: Add task comments to existing task system.</p>
-
-<p><strong>Process:</strong></p>
-
-<ol>
-  <li>Update spec with new section:</li>
-</ol>
-
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gu">## Feature: Task Comments (Added 2026-01-19)</span>
-
-<span class="gs">**As a team member**</span>, I want to add comments to tasks to discuss details with my team.
-
-<span class="gu">### User Stories</span>
-[... detailed scenarios ...]
-
-<span class="gu">### Acceptance Criteria</span>
-[... specific criteria ...]
-</code></pre></div></div>
-
-<ol>
-  <li>Run <code class="language-plaintext highlighter-rouge">/speckit.plan</code> → Generates updated plan</li>
-  <li>Run <code class="language-plaintext highlighter-rouge">/speckit.tasks</code> → Adds new tasks (existing tasks unchanged)</li>
-  <li>Run <code class="language-plaintext highlighter-rouge">/speckit.implement</code> → Implements only new tasks</li>
-</ol>
-
-<p><strong>Result</strong>: Clean addition, no regression risk.</p>
-
-<h3 id="pattern-2-modificative-changes-risky">Pattern #2: Modificative changes (risky)</h3>
-
-<p><strong>Scenario</strong>: Change existing behavior.</p>
-
-<p><strong>Example</strong>: Change task status from boolean (complete/incomplete) to enum (open/in-progress/completed).</p>
-
-<p><strong>Process:</strong></p>
-
-<ol>
-  <li>Document the change explicitly:</li>
-</ol>
-
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gu">## Breaking Change: Task Status Model (Changed 2026-01-19)</span>
-
-<span class="gs">**Previous behavior:**</span>
-<span class="p">-</span> Task.complete: boolean (true/false)
-
-<span class="gs">**New behavior:**</span>
-<span class="p">-</span> Task.status: enum (open | in_progress | completed)
-
-<span class="gs">**Migration plan:**</span>
-<span class="p">1.</span> Add new status column
-<span class="p">2.</span> Migrate data: false → open, true → completed
-<span class="p">3.</span> Update API to accept status enum
-<span class="p">4.</span> Update UI to show three states
-<span class="p">5.</span> Remove old complete column
-
-<span class="gs">**Affected components:**</span>
-<span class="p">-</span> Database schema (tasks table)
-<span class="p">-</span> TaskService.createTask, updateTask
-<span class="p">-</span> TaskCard component
-<span class="p">-</span> TaskDetailModal component
-<span class="p">-</span> API endpoints: PUT /api/tasks/:id
-</code></pre></div></div>
-
-<ol>
-  <li>
-    <p>Run <code class="language-plaintext highlighter-rouge">/speckit.analyze</code> to find all affected artifacts</p>
-  </li>
-  <li>
-    <p>Update each artifact explicitly:</p>
-  </li>
-</ol>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/implement migration: Task.complete (boolean) → Task.status (enum)
-
-Follow the migration plan in spec.md exactly:
-1. Add status column to database
-2. Run data migration script
-3. Update TypeScript types
-4. Update API validation
-5. Update UI components
-6. Remove complete column
-
-Test each step before proceeding to next.
-</code></pre></div></div>
-
-<p><strong>Result</strong>: Controlled migration, clear rollback path.</p>
-
-<h3 id="pattern-3-subtractive-changes-dangerous">Pattern #3: Subtractive changes (dangerous)</h3>
-
-<p><strong>Scenario</strong>: Remove a feature.</p>
-
-<p><strong>Example</strong>: Remove task due dates (users don’t use them).</p>
-
-<p><strong>Process:</strong></p>
-
-<ol>
-  <li>Document removal and rationale:</li>
-</ol>
-
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gu">## Feature Removal: Task Due Dates (Removed 2026-01-19)</span>
-
-<span class="gs">**Rationale**</span>: Usage analytics show only 3% of tasks have due dates.
-Feature adds UI complexity without user value.
-
-<span class="gs">**Affected components:**</span>
-<span class="p">-</span> Database: tasks.due_date column (keep for rollback, but don't display)
-<span class="p">-</span> API: Remove dueDate from POST/PUT payloads
-<span class="p">-</span> UI: Remove date picker from TaskDetailModal
-<span class="p">-</span> UI: Remove date display from TaskCard
-
-<span class="gs">**Rollback plan**</span>: Set UI flag to re-enable if users complain.
-
-<span class="gs">**Migration:**</span>
-<span class="p">1.</span> Hide UI controls (don't delete database column yet)
-<span class="p">2.</span> Monitor for 2 weeks
-<span class="p">3.</span> If no complaints, remove database column
-<span class="p">4.</span> If complaints, re-enable UI controls
-</code></pre></div></div>
-
-<ol>
-  <li>Implement in phases:</li>
-</ol>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Phase 1: Hide UI
-/implement: Remove due date UI controls but keep database column
-
-Phase 2: Monitor (2 weeks wait)
-
-Phase 3: Remove infrastructure
-/implement: Remove due_date column and API support
-</code></pre></div></div>
-
-<p><strong>Result</strong>: Safe removal with rollback option.</p>
-
-<hr />
-
-<h2 id="section-4-performance-optimization">Section 4: Performance optimization</h2>
-
-<h3 id="keeping-the-ai-focused-and-fast">Keeping the AI focused and fast</h3>
-
-<p>Large projects can overwhelm the AI’s context window. Here’s how to maintain performance.</p>
-
-<h3 id="optimization-1-scope-reduction">Optimization #1: Scope reduction</h3>
-
-<p>Don’t send everything to the AI at once.</p>
-
-<p><strong>SLOW</strong>:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/implement entire application from spec
-</code></pre></div></div>
-
-<p><strong>FAST</strong>:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/implement phase 3: User authentication only
-</code></pre></div></div>
-
-<p><strong>Why</strong>: Smaller context = faster responses = fewer errors.</p>
-
-<h3 id="optimization-2-reference-by-location">Optimization #2: Reference by location</h3>
-
-<p>Instead of pasting entire files, reference them:</p>
-
-<p><strong>BLOATED context</strong>:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Here's my entire spec.md (5000 lines) ...
-</code></pre></div></div>
-
-<p><strong>EFFICIENT reference</strong>:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/implement task 4.3 from tasks.md: Create TaskCard component
-
-Refer to spec.md section "Task Card Layout" for requirements.
-Refer to plan.md section "Component Architecture" for structure.
-</code></pre></div></div>
-
-<h3 id="optimization-3-checkpoint-saves">Optimization #3: Checkpoint saves</h3>
-
-<p>Save progress frequently to avoid re-generation.</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># After each phase</span>
-git add <span class="nb">.</span>
-git commit <span class="nt">-m</span> <span class="s2">"Phase 3 complete: Authentication working"</span>
-git tag phase-3-complete
-
-<span class="c"># If AI goes off track, reset to checkpoint</span>
-git reset <span class="nt">--hard</span> phase-3-complete
-</code></pre></div></div>
-
-<h3 id="optimization-4-parallel-work-streams">Optimization #4: Parallel work streams</h3>
-
-<p>Split independent features across multiple AI sessions.</p>
-
-<p><strong>Example</strong>: Task management and user authentication are independent.</p>
-
-<p><strong>Session 1</strong> (AI Agent A):</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/implement phase 3: User authentication
-</code></pre></div></div>
-
-<p><strong>Session 2</strong> (AI Agent B):</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/implement phase 4: Task CRUD operations
-(stub out authentication checks for now)
-</code></pre></div></div>
-
-<p><strong>Integration step</strong> (merge):</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/implement integration: Connect task CRUD to authentication
-</code></pre></div></div>
-
-<p><strong>Result</strong>: 2x faster implementation, no conflicts.</p>
-
-<hr />
-
-<h2 id="section-5-real-world-edge-cases">Section 5: Real-world edge cases</h2>
-
-<h3 id="lessons-from-production-deployments">Lessons from production deployments</h3>
-
-<p>These are real issues encountered in production spec-driven projects.</p>
-
-<blockquote>
-  <p>⚠️ <strong>Warning</strong></p>
-
-  <p>These aren’t hypothetical. Each of these cost real teams real time. Learn from their mistakes.</p>
-</blockquote>
-
-<h3 id="edge-case-1-concurrent-updates-conflict">Edge Case #1: Concurrent updates conflict</h3>
-
-<p><strong>Scenario</strong>: Two users edit the same task simultaneously. Last write should win with conflict notification.</p>
-
-<p><strong>Spec requirement</strong>:</p>
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gs">**Scenario: Concurrent task editing**</span>
-
-<span class="gs">**Given**</span> User A and User B both open Task #42 for editing
-<span class="gs">**When**</span> User A changes title to "Updated Title A" and saves
-<span class="gs">**And**</span> User B changes title to "Updated Title B" and saves
-<span class="gs">**Then**</span> User B sees notification: "This task was updated by User A. Your changes may conflict. Reload to see latest version?"
-<span class="gs">**And**</span> Latest saved version (User B's) is stored
-<span class="gs">**And**</span> User B can choose to reload or force save
-</code></pre></div></div>
-
-<p><strong>Implementation challenge</strong>: AI initially used naive timestamp comparison. Under load, race conditions caused data loss.</p>
-
-<p><strong>Solution</strong>: Implement optimistic concurrency with version tokens:</p>
-
-<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">class</span> <span class="nc">Task</span>
-<span class="p">{</span>
-    <span class="k">public</span> <span class="kt">int</span> <span class="n">Id</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-    <span class="k">public</span> <span class="kt">string</span> <span class="n">Title</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-    
-    <span class="p">[</span><span class="n">Timestamp</span><span class="p">]</span>  <span class="c1">// EF Core concurrency token</span>
-    <span class="k">public</span> <span class="kt">byte</span><span class="p">[]</span> <span class="n">RowVersion</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="c1">// In TaskService</span>
-<span class="k">public</span> <span class="k">async</span> <span class="n">Task</span><span class="p">&lt;</span><span class="n">Task</span><span class="p">&gt;</span> <span class="nf">UpdateTaskAsync</span><span class="p">(</span><span class="n">Task</span> <span class="n">task</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">try</span>
-    <span class="p">{</span>
-        <span class="n">_context</span><span class="p">.</span><span class="n">Tasks</span><span class="p">.</span><span class="nf">Update</span><span class="p">(</span><span class="n">task</span><span class="p">);</span>
-        <span class="k">await</span> <span class="n">_context</span><span class="p">.</span><span class="nf">SaveChangesAsync</span><span class="p">();</span>
-        <span class="k">return</span> <span class="n">task</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">catch</span> <span class="p">(</span><span class="n">DbUpdateConcurrencyException</span> <span class="n">ex</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="c1">// Conflict detected</span>
-        <span class="kt">var</span> <span class="n">entry</span> <span class="p">=</span> <span class="n">ex</span><span class="p">.</span><span class="n">Entries</span><span class="p">.</span><span class="nf">Single</span><span class="p">();</span>
-        <span class="kt">var</span> <span class="n">databaseValues</span> <span class="p">=</span> <span class="k">await</span> <span class="n">entry</span><span class="p">.</span><span class="nf">GetDatabaseValuesAsync</span><span class="p">();</span>
-        <span class="kt">var</span> <span class="n">databaseTask</span> <span class="p">=</span> <span class="p">(</span><span class="n">Task</span><span class="p">)</span><span class="n">databaseValues</span><span class="p">.</span><span class="nf">ToObject</span><span class="p">();</span>
-        
-        <span class="k">throw</span> <span class="k">new</span> <span class="nf">ConcurrencyException</span><span class="p">(</span>
-            <span class="s">$"Task was modified by </span><span class="p">{</span><span class="n">databaseTask</span><span class="p">.</span><span class="n">LastModifiedBy</span><span class="p">}</span><span class="s">. Reload to see latest version."</span><span class="p">,</span>
-            <span class="n">databaseTask</span>
-        <span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p><strong>Lesson</strong>: Specify concurrency handling explicitly in spec. Don’t assume AI will get it right.</p>
-
-<h3 id="edge-case-2-n1-query-problem">Edge Case #2: N+1 query problem</h3>
-
-<p><strong>Scenario</strong>: Loading 100 tasks takes 5 seconds. Performance requirement: &lt; 500ms.</p>
-
-<p><strong>Root cause</strong>: AI generated naive queries:</p>
-
-<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// AI-generated (slow)</span>
-<span class="k">public</span> <span class="k">async</span> <span class="n">Task</span><span class="p">&lt;</span><span class="n">List</span><span class="p">&lt;</span><span class="n">Task</span><span class="p">&gt;&gt;</span> <span class="nf">GetTeamTasksAsync</span><span class="p">(</span><span class="kt">int</span> <span class="n">teamId</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="kt">var</span> <span class="n">tasks</span> <span class="p">=</span> <span class="k">await</span> <span class="n">_context</span><span class="p">.</span><span class="n">Tasks</span>
-        <span class="p">.</span><span class="nf">Where</span><span class="p">(</span><span class="n">t</span> <span class="p">=&gt;</span> <span class="n">t</span><span class="p">.</span><span class="n">TeamId</span> <span class="p">==</span> <span class="n">teamId</span><span class="p">)</span>
-        <span class="p">.</span><span class="nf">ToListAsync</span><span class="p">();</span>
-    
-    <span class="c1">// Loops for each task - N+1 queries!</span>
-    <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">task</span> <span class="k">in</span> <span class="n">tasks</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="n">task</span><span class="p">.</span><span class="n">Creator</span> <span class="p">=</span> <span class="k">await</span> <span class="n">_context</span><span class="p">.</span><span class="n">Users</span><span class="p">.</span><span class="nf">FindAsync</span><span class="p">(</span><span class="n">task</span><span class="p">.</span><span class="n">CreatorId</span><span class="p">);</span>
-        <span class="n">task</span><span class="p">.</span><span class="n">Assignee</span> <span class="p">=</span> <span class="k">await</span> <span class="n">_context</span><span class="p">.</span><span class="n">Users</span><span class="p">.</span><span class="nf">FindAsync</span><span class="p">(</span><span class="n">task</span><span class="p">.</span><span class="n">AssigneeId</span><span class="p">);</span>
-    <span class="p">}</span>
-    
-    <span class="k">return</span> <span class="n">tasks</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p><strong>Problem</strong>: 100 tasks = 1 query + 100 queries for creators + 100 queries for assignees = 201 queries.</p>
-
-<p><strong>Solution</strong>: Use eager loading:</p>
-
-<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Optimized</span>
-<span class="k">public</span> <span class="k">async</span> <span class="n">Task</span><span class="p">&lt;</span><span class="n">List</span><span class="p">&lt;</span><span class="n">Task</span><span class="p">&gt;&gt;</span> <span class="nf">GetTeamTasksAsync</span><span class="p">(</span><span class="kt">int</span> <span class="n">teamId</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">return</span> <span class="k">await</span> <span class="n">_context</span><span class="p">.</span><span class="n">Tasks</span>
-        <span class="p">.</span><span class="nf">Include</span><span class="p">(</span><span class="n">t</span> <span class="p">=&gt;</span> <span class="n">t</span><span class="p">.</span><span class="n">Creator</span><span class="p">)</span>
-        <span class="p">.</span><span class="nf">Include</span><span class="p">(</span><span class="n">t</span> <span class="p">=&gt;</span> <span class="n">t</span><span class="p">.</span><span class="n">Assignee</span><span class="p">)</span>
-        <span class="p">.</span><span class="nf">Where</span><span class="p">(</span><span class="n">t</span> <span class="p">=&gt;</span> <span class="n">t</span><span class="p">.</span><span class="n">TeamId</span> <span class="p">==</span> <span class="n">teamId</span><span class="p">)</span>
-        <span class="p">.</span><span class="nf">ToListAsync</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p><strong>Result</strong>: 100 tasks = 1 query. Performance improved from 5s to 120ms.</p>
-
-<p><strong>Lesson</strong>: Add performance requirements to constitution:</p>
-
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gu">## Quality Standards</span>
-
-<span class="gu">### Database Query Performance</span>
-<span class="p">-</span> All list queries MUST use eager loading (.Include())
-<span class="p">-</span> Queries returning &gt; 10 rows MUST include execution plan review
-<span class="p">-</span> N+1 queries are PROHIBITED - PR will be rejected
-</code></pre></div></div>
-
-<h3 id="edge-case-3-memory-leak-in-real-time-connections">Edge Case #3: Memory leak in real-time connections</h3>
-
-<p><strong>Scenario</strong>: Application memory grows unbounded. After 2 hours, server crashes.</p>
-
-<p><strong>Root cause</strong>: SignalR connections not cleaned up:</p>
-
-<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// AI-generated (leaky)</span>
-<span class="k">public</span> <span class="k">class</span> <span class="nc">TaskHub</span> <span class="p">:</span> <span class="n">Hub</span>
-<span class="p">{</span>
-    <span class="k">private</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">_connections</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;();</span>
-    
-    <span class="k">public</span> <span class="k">override</span> <span class="k">async</span> <span class="n">Task</span> <span class="nf">OnConnectedAsync</span><span class="p">()</span>
-    <span class="p">{</span>
-        <span class="n">_connections</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">Context</span><span class="p">.</span><span class="n">ConnectionId</span><span class="p">);</span>  <span class="c1">// Added but never removed!</span>
-        <span class="k">await</span> <span class="k">base</span><span class="p">.</span><span class="nf">OnConnectedAsync</span><span class="p">();</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p><strong>Problem</strong>: <code class="language-plaintext highlighter-rouge">_connections</code> list grows forever. Disconnected clients never removed.</p>
-
-<p><strong>Solution</strong>: Use proper cleanup:</p>
-
-<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Fixed</span>
-<span class="k">public</span> <span class="k">class</span> <span class="nc">TaskHub</span> <span class="p">:</span> <span class="n">Hub</span>
-<span class="p">{</span>
-    <span class="c1">// Use ConcurrentDictionary for thread-safe operations</span>
-    <span class="k">private</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">ConcurrentDictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;</span> <span class="n">_connections</span> 
-        <span class="p">=</span> <span class="k">new</span> <span class="n">ConcurrentDictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;();</span>
-    
-    <span class="k">public</span> <span class="k">override</span> <span class="k">async</span> <span class="n">Task</span> <span class="nf">OnConnectedAsync</span><span class="p">()</span>
-    <span class="p">{</span>
-        <span class="n">_connections</span><span class="p">.</span><span class="nf">TryAdd</span><span class="p">(</span><span class="n">Context</span><span class="p">.</span><span class="n">ConnectionId</span><span class="p">,</span> <span class="n">Context</span><span class="p">.</span><span class="n">UserIdentifier</span><span class="p">);</span>
-        <span class="k">await</span> <span class="k">base</span><span class="p">.</span><span class="nf">OnConnectedAsync</span><span class="p">();</span>
-    <span class="p">}</span>
-    
-    <span class="k">public</span> <span class="k">override</span> <span class="k">async</span> <span class="n">Task</span> <span class="nf">OnDisconnectedAsync</span><span class="p">(</span><span class="n">Exception</span> <span class="n">exception</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="n">_connections</span><span class="p">.</span><span class="nf">TryRemove</span><span class="p">(</span><span class="n">Context</span><span class="p">.</span><span class="n">ConnectionId</span><span class="p">,</span> <span class="k">out</span> <span class="n">_</span><span class="p">);</span>  <span class="c1">// Cleanup!</span>
-        <span class="k">await</span> <span class="k">base</span><span class="p">.</span><span class="nf">OnDisconnectedAsync</span><span class="p">(</span><span class="n">exception</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p><strong>Lesson</strong>: Specify cleanup explicitly in spec:</p>
-
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gu">## Real-Time Requirements</span>
-
-<span class="gu">### WebSocket Connection Management</span>
-<span class="p">-</span> Connections MUST be tracked in thread-safe collection
-<span class="p">-</span> Disconnections MUST remove connection from tracking
-<span class="p">-</span> Server MUST handle abrupt disconnections (network failures)
-<span class="p">-</span> Connection cleanup MUST complete within 30 seconds
-</code></pre></div></div>
-
-<h3 id="edge-case-4-xss-vulnerability-in-task-descriptions">Edge Case #4: XSS vulnerability in task descriptions</h3>
-
-<p><strong>Scenario</strong>: User enters <code class="language-plaintext highlighter-rouge">&lt;script&gt;alert('XSS')&lt;/script&gt;</code> as task description. Alert executes when other users view the task.</p>
-
-<p><strong>Root cause</strong>: AI didn’t sanitize user input:</p>
-
-<pre><code class="language-cshtml">@* AI-generated (vulnerable) *@
-&lt;div class="task-description"&gt;
-    @((MarkupString)Task.Description)  @* Renders raw HTML! *@
-&lt;/div&gt;
-</code></pre>
-
-<p><strong>Problem</strong>: User-supplied HTML executed in other users’ browsers.</p>
-
-<p><strong>Solution</strong>: Sanitize and escape:</p>
-
-<pre><code class="language-cshtml">@* Fixed - Razor automatically escapes *@
-&lt;div class="task-description"&gt;
-    @Task.Description  @* Escaped by Blazor automatically *@
-&lt;/div&gt;
-</code></pre>
-
-<p>Or if Markdown support is needed:</p>
-
-<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">Markdig</span><span class="p">;</span>
-<span class="k">using</span> <span class="nn">Ganss.Xss</span><span class="p">;</span>
-
-<span class="k">public</span> <span class="kt">string</span> <span class="nf">SanitizeMarkdown</span><span class="p">(</span><span class="kt">string</span> <span class="n">markdown</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="c1">// Convert Markdown to HTML</span>
-    <span class="kt">var</span> <span class="n">html</span> <span class="p">=</span> <span class="n">Markdown</span><span class="p">.</span><span class="nf">ToHtml</span><span class="p">(</span><span class="n">markdown</span><span class="p">);</span>
-    
-    <span class="c1">// Sanitize HTML (HtmlSanitizer uses whitelist approach by default)</span>
-    <span class="c1">// Safe tags like p, strong, em, ul, ol, li are allowed by default</span>
-    <span class="c1">// Dangerous tags like script, iframe are NOT in the default allowlist</span>
-    <span class="kt">var</span> <span class="n">sanitizer</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">HtmlSanitizer</span><span class="p">();</span>
-    
-    <span class="c1">// Optionally restrict to only specific tags if needed:</span>
-    <span class="c1">// sanitizer.AllowedTags.Clear();</span>
-    <span class="c1">// sanitizer.AllowedTags.Add("p");</span>
-    <span class="c1">// sanitizer.AllowedTags.Add("strong");</span>
-    <span class="c1">// etc.</span>
-    
-    <span class="k">return</span> <span class="n">sanitizer</span><span class="p">.</span><span class="nf">Sanitize</span><span class="p">(</span><span class="n">html</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p><strong>Lesson</strong>: Add security requirements to constitution:</p>
-
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gu">## Security Standards</span>
-
-<span class="gu">### Input Validation and Sanitization</span>
-<span class="p">-</span> ALL user input MUST be sanitized before display
-<span class="p">-</span> HTML rendering MUST use whitelist approach (never blacklist)
-<span class="p">-</span> Markdown MUST be sanitized before rendering
-<span class="p">-</span> SQL queries MUST use parameterized queries (no string concatenation)
-<span class="p">-</span> OWASP Top 10 MUST be addressed for all features
-</code></pre></div></div>
-
-<hr />
-
-<h2 id="section-6-common-gotchas-and-fixes">Section 6: Common gotchas and fixes</h2>
-
-<h3 id="quick-reference-guide">Quick reference guide</h3>
-
-<h4 id="gotcha-1-ai-forgets-the-constitution-mid-implementation">Gotcha #1: AI forgets the constitution mid-implementation</h4>
-
-<p><strong>Symptom</strong>: Early tasks follow standards, later tasks deviate.</p>
-
-<p><strong>Fix</strong>:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/implement reminder: Review constitution.md before each task
-Verify compliance before proceeding.
-</code></pre></div></div>
-
-<h4 id="gotcha-2-generated-tests-dont-run">Gotcha #2: Generated tests don’t run</h4>
-
-<p><strong>Symptom</strong>: Tests pass when AI runs them, fail when you run them.</p>
-
-<p><strong>Cause</strong>: AI assumes mocked data, you have real database.</p>
-
-<p><strong>Fix</strong>: Add test data setup to tasks:</p>
-
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">-</span> [ ] 5.1 Write unit test for TaskService.createTask
-<span class="p">  -</span> <span class="gs">**Setup**</span>: Seed test database with team and user
-<span class="p">  -</span> <span class="gs">**Test**</span>: Call createTask with valid data
-<span class="p">  -</span> <span class="gs">**Assert**</span>: Task created with correct properties
-<span class="p">  -</span> <span class="gs">**Teardown**</span>: Clean up test data
-</code></pre></div></div>
-
-<h4 id="gotcha-3-environment-variables-missing-in-production">Gotcha #3: Environment variables missing in production</h4>
-
-<p><strong>Symptom</strong>: Works locally, crashes in production with “undefined environment variable.”</p>
-
-<p><strong>Cause</strong>: AI hard-coded localhost values.</p>
-
-<p><strong>Fix</strong>: Add environment configuration to constitution:</p>
-
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gu">## Deployment Requirements</span>
-
-<span class="gu">### Environment Variables (REQUIRED in production)</span>
-<span class="p">-</span> DATABASE_URL: PostgreSQL connection string
-<span class="p">-</span> JWT_SECRET: Random 32-character string
-<span class="p">-</span> SENDGRID_API_KEY: Email service API key
-<span class="p">-</span> NODE_ENV: "production"
-
-<span class="gs">**Validation**</span>: Application MUST fail to start if required env vars are missing.
-Show error: "Missing required environment variable: DATABASE_URL"
-</code></pre></div></div>
-
-<h4 id="gotcha-4-api-versioning-not-considered">Gotcha #4: API versioning not considered</h4>
-
-<p><strong>Symptom</strong>: Breaking API changes force mobile app update.</p>
-
-<p><strong>Cause</strong>: Spec didn’t mention API versioning.</p>
-
-<p><strong>Fix</strong>: Add to constitution:</p>
-
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gu">## API Design Principles</span>
-
-<span class="gu">### Versioning Strategy</span>
-<span class="p">-</span> All API endpoints MUST include version: /api/v1/tasks
-<span class="p">-</span> Breaking changes require new version: /api/v2/tasks
-<span class="p">-</span> Previous version MUST be supported for 6 months minimum
-<span class="p">-</span> Deprecation warnings in headers: <span class="sb">`X-API-Deprecated: v1 will be removed on 2026-07-01`</span>
-</code></pre></div></div>
-
-<h4 id="gotcha-5-ai-uses-deprecated-patterns">Gotcha #5: AI uses deprecated patterns</h4>
-
-<p><strong>Symptom</strong>: Code works but uses old syntax (e.g., <code class="language-plaintext highlighter-rouge">var</code> instead of <code class="language-plaintext highlighter-rouge">let/const</code>, callback-style instead of async/await).</p>
-
-<p><strong>Cause</strong>: AI trained on older codebases.</p>
-
-<p><strong>Fix</strong>: Add coding style requirements to constitution:</p>
-
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gu">## Code Style Requirements</span>
-
-<span class="gu">### Modern Patterns (REQUIRED)</span>
-<span class="p">-</span> Use async/await, NOT .then() callbacks
-<span class="p">-</span> Use const by default, let when reassignment needed, NEVER var
-<span class="p">-</span> Use arrow functions for callbacks
-<span class="p">-</span> Use template literals, NOT string concatenation
-</code></pre></div></div>
-
-<h4 id="gotcha-6-ai-generates-over-engineered-solutions">Gotcha #6: AI generates over-engineered solutions</h4>
-
-<p><strong>Symptom</strong>: Simple feature implemented with 5 classes, 3 interfaces, and a factory pattern.</p>
-
-<p><strong>Cause</strong>: AI saw enterprise patterns in training data.</p>
-
-<p><strong>Fix</strong>: Add simplicity constraints to constitution:</p>
-
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gu">## Simplicity Constraints</span>
-
-<span class="gu">### YAGNI Principle</span>
-<span class="p">-</span> No interfaces with single implementations
-<span class="p">-</span> No factory patterns unless 3+ concrete types exist
-<span class="p">-</span> No dependency injection for classes with no dependencies
-<span class="p">-</span> Maximum 3 levels of class inheritance
-
-Before adding abstraction, AI MUST justify with: "This abstraction is needed because..."
-</code></pre></div></div>
-
-<hr />
-
-<h2 id="section-7-measuring-success">Section 7: Measuring success</h2>
-
-<h3 id="how-do-you-know-if-spec-driven-development-is-working">How do you know if spec-driven development is working?</h3>
-
-<p>Track these five key metrics:</p>
+<h3 id="code-extensions">Code extensions</h3>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">Metric</th>
-      <th style="text-align: left">What to Measure</th>
-      <th style="text-align: left">🟢 Good</th>
-      <th style="text-align: left">🟡 Warning</th>
+      <th>Extension</th>
+      <th>What it does</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><strong>Velocity</strong></td>
-      <td style="text-align: left">Tasks completed per day</td>
-      <td style="text-align: left">5-10/day</td>
-      <td style="text-align: left">&lt; 3/day</td>
+      <td><strong>Review</strong></td>
+      <td>Post-implementation code review with specialized agents for quality, tests, error handling, and simplification</td>
     </tr>
     <tr>
-      <td style="text-align: left"><strong>Regression</strong></td>
-      <td style="text-align: left">Bugs reintroduced after fix</td>
-      <td style="text-align: left">&lt; 5%</td>
-      <td style="text-align: left">&gt; 20%</td>
+      <td><strong>Staff Review</strong></td>
+      <td>Staff-engineer-level review validating implementation against spec, checking security and performance</td>
     </tr>
     <tr>
-      <td style="text-align: left"><strong>Stability</strong></td>
-      <td style="text-align: left">Spec changes per week</td>
-      <td style="text-align: left">&lt; 2 major</td>
-      <td style="text-align: left">&gt; 5 major</td>
+      <td><strong>Fix Findings</strong></td>
+      <td>Automated analyze-fix-reanalyze loop that resolves spec findings until clean</td>
     </tr>
     <tr>
-      <td style="text-align: left"><strong>Coverage</strong></td>
-      <td style="text-align: left">Test coverage %</td>
-      <td style="text-align: left">&gt; 80%</td>
-      <td style="text-align: left">&lt; 50%</td>
+      <td><strong>Cleanup</strong></td>
+      <td>Post-implementation quality gate. Fixes small issues, creates tasks for medium ones</td>
     </tr>
     <tr>
-      <td style="text-align: left"><strong>Recovery</strong></td>
-      <td style="text-align: left">Bug report → fix deployed</td>
-      <td style="text-align: left">&lt; 30 min</td>
-      <td style="text-align: left">&gt; 4 hours</td>
+      <td><strong>Verify</strong></td>
+      <td>Validates implemented code against specification artifacts</td>
     </tr>
   </tbody>
 </table>
 
-<hr />
-
-<h4 id="fixing-slow-velocity">Fixing slow velocity</h4>
-
-<ul>
-  <li>Break tasks smaller (2-4 hours each)</li>
-  <li>Simplify constitution (too many constraints?)</li>
-  <li>Provide more context in spec</li>
-</ul>
-
-<h4 id="fixing-high-regression">Fixing high regression</h4>
-
-<ul>
-  <li>Use <code class="language-plaintext highlighter-rouge">/implement fix and memorize</code> instead of just <code class="language-plaintext highlighter-rouge">/implement fix</code></li>
-  <li>Update plan.md with lessons learned</li>
-  <li>Add regression tests to tasks</li>
-</ul>
-
-<h4 id="fixing-high-spec-churn">Fixing high spec churn</h4>
-
-<ul>
-  <li>Spend more time on spec before implementation</li>
-  <li>Validate spec with stakeholders early</li>
-  <li>Build MVP, then iterate based on feedback</li>
-</ul>
-
-<h4 id="fixing-low-coverage">Fixing low coverage</h4>
-
-<ul>
-  <li>Add test requirements to tasks explicitly</li>
-  <li>Require test task for each feature task</li>
-  <li>Run coverage reports in CI/CD</li>
-</ul>
-
-<h4 id="fixing-slow-recovery">Fixing slow recovery</h4>
-
-<ul>
-  <li>Improve bug report templates (see Strategy #4 above)</li>
-  <li>Add health monitoring endpoints</li>
-  <li>Implement feature flags for quick rollback</li>
-</ul>
-
-<hr />
-
-<h2 id="section-8-tools-and-automation">Section 8: Tools and automation</h2>
-
-<h3 id="helpers-that-make-spec-driven-development-smoother">Helpers that make spec-driven development smoother</h3>
-
-<h3 id="tool-1-specification-validator">Tool #1: Specification validator</h3>
-
-<p>Create a script to validate spec completeness:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
-<span class="c"># validate-spec.sh</span>
-
-<span class="nb">echo</span> <span class="s2">"Validating specification..."</span>
-
-<span class="c"># Check for required sections</span>
-<span class="nv">required_sections</span><span class="o">=(</span><span class="s2">"User Stories"</span> <span class="s2">"Acceptance Criteria"</span> <span class="s2">"Data Requirements"</span> <span class="s2">"Edge Cases"</span><span class="o">)</span>
-
-<span class="k">for </span>section <span class="k">in</span> <span class="s2">"</span><span class="k">${</span><span class="nv">required_sections</span><span class="p">[@]</span><span class="k">}</span><span class="s2">"</span><span class="p">;</span> <span class="k">do
-    if</span> <span class="o">!</span> <span class="nb">grep</span> <span class="nt">-q</span> <span class="s2">"## </span><span class="nv">$section</span><span class="s2">"</span> .speckit/spec.md<span class="p">;</span> <span class="k">then
-        </span><span class="nb">echo</span> <span class="s2">"[FAIL] Missing required section: </span><span class="nv">$section</span><span class="s2">"</span>
-        <span class="nb">exit </span>1
-    <span class="k">fi
-done</span>
-
-<span class="c"># Check for TODO markers</span>
-<span class="k">if </span><span class="nb">grep</span> <span class="nt">-q</span> <span class="s2">"TODO"</span> .speckit/spec.md<span class="p">;</span> <span class="k">then
-    </span><span class="nb">echo</span> <span class="s2">"[FAIL] Specification contains TODO markers"</span>
-    <span class="nb">exit </span>1
-<span class="k">fi</span>
-
-<span class="c"># Check for vague language</span>
-<span class="nv">vague_terms</span><span class="o">=(</span><span class="s2">"might"</span> <span class="s2">"maybe"</span> <span class="s2">"probably"</span> <span class="s2">"hopefully"</span> <span class="s2">"basically"</span><span class="o">)</span>
-<span class="k">for </span>term <span class="k">in</span> <span class="s2">"</span><span class="k">${</span><span class="nv">vague_terms</span><span class="p">[@]</span><span class="k">}</span><span class="s2">"</span><span class="p">;</span> <span class="k">do
-    if </span><span class="nb">grep</span> <span class="nt">-i</span> <span class="nt">-q</span> <span class="s2">"</span><span class="nv">$term</span><span class="s2">"</span> .speckit/spec.md<span class="p">;</span> <span class="k">then
-        </span><span class="nb">echo</span> <span class="s2">"[WARN] Spec contains vague term '</span><span class="nv">$term</span><span class="s2">'"</span>
-    <span class="k">fi
-done
-
-</span><span class="nb">echo</span> <span class="s2">"[PASS] Specification validation passed"</span>
-</code></pre></div></div>
-
-<p>Usage:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./validate-spec.sh
-</code></pre></div></div>
-
-<h3 id="tool-2-constitution-compliance-checker">Tool #2: Constitution compliance checker</h3>
-
-<p>Verify code follows constitution standards:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
-<span class="c"># check-compliance.sh</span>
-
-<span class="nb">echo</span> <span class="s2">"Checking constitution compliance..."</span>
-
-<span class="c"># Check nullable reference types enabled</span>
-<span class="k">if</span> <span class="o">!</span> <span class="nb">grep</span> <span class="nt">-q</span> <span class="s2">"&lt;Nullable&gt;enable&lt;/Nullable&gt;"</span> <span class="k">*</span>.csproj<span class="p">;</span> <span class="k">then
-    </span><span class="nb">echo</span> <span class="s2">"[FAIL] Nullable reference types not enabled (constitution requirement)"</span>
-    <span class="nb">exit </span>1
-<span class="k">fi</span>
-
-<span class="c"># Check for raw SQL (prohibited)</span>
-<span class="k">if </span><span class="nb">grep</span> <span class="nt">-r</span> <span class="s2">"ExecuteSqlRaw</span><span class="se">\|</span><span class="s2">FromSqlRaw"</span> ./Services ./Controllers<span class="p">;</span> <span class="k">then
-    </span><span class="nb">echo</span> <span class="s2">"[FAIL] Raw SQL detected (constitution prohibits)"</span>
-    <span class="nb">exit </span>1
-<span class="k">fi</span>
-
-<span class="c"># Check for console.log in production code (debugging leftovers)</span>
-<span class="k">if </span><span class="nb">grep</span> <span class="nt">-r</span> <span class="s2">"Console.WriteLine"</span> ./Services ./Controllers | <span class="nb">grep</span> <span class="nt">-v</span> <span class="s2">"// DEBUG"</span><span class="p">;</span> <span class="k">then
-    </span><span class="nb">echo</span> <span class="s2">"[WARN] Console.WriteLine found in production code"</span>
-<span class="k">fi
-
-</span><span class="nb">echo</span> <span class="s2">"[PASS] Constitution compliance check passed"</span>
-</code></pre></div></div>
-
-<h3 id="tool-3-performance-testing-automation">Tool #3: Performance testing automation</h3>
-
-<p>Add to CI/CD pipeline:</p>
-
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># .github/workflows/performance.yml</span>
-<span class="na">name</span><span class="pi">:</span> <span class="s">Performance Tests</span>
-
-<span class="na">on</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">push</span><span class="pi">,</span> <span class="nv">pull_request</span><span class="pi">]</span>
-
-<span class="na">jobs</span><span class="pi">:</span>
-  <span class="na">performance</span><span class="pi">:</span>
-    <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
-    <span class="na">steps</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v3</span>
-      
-      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Build application</span>
-        <span class="na">run</span><span class="pi">:</span> <span class="s">dotnet build</span>
-      
-      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Start application</span>
-        <span class="na">run</span><span class="pi">:</span> <span class="s">dotnet run &amp;</span>
-        <span class="na">env</span><span class="pi">:</span>
-          <span class="na">ASPNETCORE_ENVIRONMENT</span><span class="pi">:</span> <span class="s">Development</span>
-      
-      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Wait for startup</span>
-        <span class="na">run</span><span class="pi">:</span> <span class="s">sleep </span><span class="m">10</span>
-      
-      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Run performance tests</span>
-        <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
-          <span class="s"># Test API response times</span>
-          <span class="s">response_time=$(curl -w "%{time_total}" -s -o /dev/null http://localhost:5000/api/health)</span>
-          
-          <span class="s">if (( $(echo "$response_time &gt; 0.5" | bc -l) )); then</span>
-            <span class="s">echo "[FAIL] Health check took ${response_time}s (requirement: &lt; 500ms)"</span>
-            <span class="s">exit 1</span>
-          <span class="s">fi</span>
-          
-          <span class="s">echo "[PASS] Health check took ${response_time}s"</span>
-</code></pre></div></div>
-
-<h3 id="tool-4-spec-change-impact-analyzer">Tool #4: Spec change impact analyzer</h3>
-
-<p>When you change the spec, see what’s affected:</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env python3
-# analyze-impact.py
-</span>
-<span class="kn">import</span> <span class="n">re</span>
-<span class="kn">import</span> <span class="n">sys</span>
-
-<span class="k">def</span> <span class="nf">analyze_spec_changes</span><span class="p">(</span><span class="n">old_spec</span><span class="p">,</span> <span class="n">new_spec</span><span class="p">):</span>
-    <span class="sh">"""</span><span class="s">Compare two spec versions and identify affected components</span><span class="sh">"""</span>
-    
-    <span class="n">changes</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="sh">'</span><span class="s">added_sections</span><span class="sh">'</span><span class="p">:</span> <span class="p">[],</span>
-        <span class="sh">'</span><span class="s">modified_sections</span><span class="sh">'</span><span class="p">:</span> <span class="p">[],</span>
-        <span class="sh">'</span><span class="s">removed_sections</span><span class="sh">'</span><span class="p">:</span> <span class="p">[],</span>
-        <span class="sh">'</span><span class="s">affected_tasks</span><span class="sh">'</span><span class="p">:</span> <span class="p">[],</span>
-        <span class="sh">'</span><span class="s">affected_files</span><span class="sh">'</span><span class="p">:</span> <span class="p">[]</span>
-    <span class="p">}</span>
-    
-    <span class="c1"># Simple diff logic (extend as needed)
-</span>    <span class="n">old_sections</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="nf">findall</span><span class="p">(</span><span class="sa">r</span><span class="sh">'</span><span class="s">^## (.+)$</span><span class="sh">'</span><span class="p">,</span> <span class="n">old_spec</span><span class="p">,</span> <span class="n">re</span><span class="p">.</span><span class="n">MULTILINE</span><span class="p">)</span>
-    <span class="n">new_sections</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="nf">findall</span><span class="p">(</span><span class="sa">r</span><span class="sh">'</span><span class="s">^## (.+)$</span><span class="sh">'</span><span class="p">,</span> <span class="n">new_spec</span><span class="p">,</span> <span class="n">re</span><span class="p">.</span><span class="n">MULTILINE</span><span class="p">)</span>
-    
-    <span class="n">changes</span><span class="p">[</span><span class="sh">'</span><span class="s">added_sections</span><span class="sh">'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">new_sections</span> <span class="k">if</span> <span class="n">s</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">old_sections</span><span class="p">]</span>
-    <span class="n">changes</span><span class="p">[</span><span class="sh">'</span><span class="s">removed_sections</span><span class="sh">'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">old_sections</span> <span class="k">if</span> <span class="n">s</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">new_sections</span><span class="p">]</span>
-    
-    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="se">\n</span><span class="s">=== Spec Change Impact Analysis ===</span><span class="se">\n</span><span class="sh">"</span><span class="p">)</span>
-    
-    <span class="k">if</span> <span class="n">changes</span><span class="p">[</span><span class="sh">'</span><span class="s">added_sections</span><span class="sh">'</span><span class="p">]:</span>
-        <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">[+] Added sections:</span><span class="sh">"</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">section</span> <span class="ow">in</span> <span class="n">changes</span><span class="p">[</span><span class="sh">'</span><span class="s">added_sections</span><span class="sh">'</span><span class="p">]:</span>
-            <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">    - </span><span class="si">{</span><span class="n">section</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
-    
-    <span class="k">if</span> <span class="n">changes</span><span class="p">[</span><span class="sh">'</span><span class="s">removed_sections</span><span class="sh">'</span><span class="p">]:</span>
-        <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="se">\n</span><span class="s">[-] Removed sections:</span><span class="sh">"</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">section</span> <span class="ow">in</span> <span class="n">changes</span><span class="p">[</span><span class="sh">'</span><span class="s">removed_sections</span><span class="sh">'</span><span class="p">]:</span>
-            <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">    - </span><span class="si">{</span><span class="n">section</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
-    
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">changes</span><span class="p">[</span><span class="sh">'</span><span class="s">added_sections</span><span class="sh">'</span><span class="p">]</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">changes</span><span class="p">[</span><span class="sh">'</span><span class="s">removed_sections</span><span class="sh">'</span><span class="p">]:</span>
-        <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">[OK] No structural changes detected</span><span class="sh">"</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="se">\n</span><span class="s">[!] Actions required:</span><span class="sh">"</span><span class="p">)</span>
-        <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">    1. Run /speckit.plan to update technical plan</span><span class="sh">"</span><span class="p">)</span>
-        <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">    2. Run /speckit.tasks to regenerate task breakdown</span><span class="sh">"</span><span class="p">)</span>
-        <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">    3. Review affected files before re-implementation</span><span class="sh">"</span><span class="p">)</span>
-
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">'</span><span class="s">__main__</span><span class="sh">'</span><span class="p">:</span>
-    <span class="k">if</span> <span class="nf">len</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
-        <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Usage: ./analyze-impact.py old-spec.md new-spec.md</span><span class="sh">"</span><span class="p">)</span>
-        <span class="n">sys</span><span class="p">.</span><span class="nf">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-    
-    <span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="n">old_spec</span> <span class="o">=</span> <span class="n">f</span><span class="p">.</span><span class="nf">read</span><span class="p">()</span>
-    
-    <span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="n">new_spec</span> <span class="o">=</span> <span class="n">f</span><span class="p">.</span><span class="nf">read</span><span class="p">()</span>
-    
-    <span class="nf">analyze_spec_changes</span><span class="p">(</span><span class="n">old_spec</span><span class="p">,</span> <span class="n">new_spec</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p>Usage:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp</span> .speckit/spec.md .speckit/spec-old.md
-<span class="c"># Make changes to spec.md</span>
-./analyze-impact.py .speckit/spec-old.md .speckit/spec.md
-</code></pre></div></div>
-
-<hr />
-
-<h2 id="section-9-when-to-abandon-spec-driven-development">Section 9: When to abandon spec-driven development</h2>
-
-<h3 id="its-not-always-the-right-tool">It’s not always the right tool</h3>
-
-<p>As Addy Osmani notes in <a href="https://beyond.addy.ie/">Beyond Vibe Coding</a>, the key is knowing when structure helps and when it hinders. Spec-driven development has overhead. Know when to use simpler approaches.</p>
+<h3 id="integration-extensions">Integration extensions</h3>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">❌ Don’t use spec-driven for</th>
-      <th style="text-align: left">✅ Do use spec-driven for</th>
+      <th>Extension</th>
+      <th>What it does</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><strong>One-off scripts</strong>: vibe code is fine</td>
-      <td style="text-align: left"><strong>Production applications</strong>: users depend on it</td>
+      <td><strong>Jira Integration</strong></td>
+      <td>Creates Jira Epics, Stories, and Issues from spec-kit specs and task breakdowns</td>
     </tr>
     <tr>
-      <td style="text-align: left"><strong>Proof-of-concept demos</strong>: iterate fast</td>
-      <td style="text-align: left"><strong>Team projects</strong>: shared understanding needed</td>
+      <td><strong>Azure DevOps</strong></td>
+      <td>Syncs user stories and tasks to Azure DevOps work items</td>
     </tr>
     <tr>
-      <td style="text-align: left"><strong>Extremely simple apps</strong>: 3 features max</td>
-      <td style="text-align: left"><strong>Regulated industries</strong>: audit trails required</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><strong>Rapidly changing requirements</strong>: daily pivots</td>
-      <td style="text-align: left"><strong>Long-lived systems</strong>: years of maintenance</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><strong>Learning new tech</strong>: experimentation first</td>
-      <td style="text-align: left"><strong>Complex domains</strong>: intricate business logic</td>
+      <td><strong>Confluence</strong></td>
+      <td>Creates a Confluence doc summarizing specs and planning files</td>
     </tr>
   </tbody>
 </table>
 
-<hr />
-
-<h2 id="recap-best-practices-checklist">Recap: Best practices checklist</h2>
-
-<p>Use this before starting any spec-driven project:</p>
+<h3 id="docs-extensions">Docs extensions</h3>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">Phase</th>
-      <th style="text-align: left">Checklist Item</th>
-      <th style="text-align: center"> </th>
+      <th>Extension</th>
+      <th>What it does</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><strong>📜 Constitution</strong></td>
-      <td style="text-align: left">Specific technology constraints listed</td>
-      <td style="text-align: center">☐</td>
+      <td><strong>Iterate</strong></td>
+      <td>Refine specs mid-implementation and go straight back to building</td>
     </tr>
     <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">Performance targets are measurable numbers</td>
-      <td style="text-align: center">☐</td>
+      <td><strong>Reconcile</strong></td>
+      <td>Surgically updates feature artifacts when implementation drifts from spec</td>
     </tr>
     <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">Security requirements reference OWASP Top 10</td>
-      <td style="text-align: center">☐</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">Explicit non-goals prevent feature creep</td>
-      <td style="text-align: center">☐</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">Amendment process defined</td>
-      <td style="text-align: center">☐</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><strong>📝 Specification</strong></td>
-      <td style="text-align: left">User stories use Given-When-Then format</td>
-      <td style="text-align: center">☐</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">Error messages specified exactly</td>
-      <td style="text-align: center">☐</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">UI mockups provided (ASCII art is fine)</td>
-      <td style="text-align: center">☐</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">Edge cases documented with expected behavior</td>
-      <td style="text-align: center">☐</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">Success metrics are measurable</td>
-      <td style="text-align: center">☐</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><strong>🗺️ Planning</strong></td>
-      <td style="text-align: left">Technology choices align with constitution</td>
-      <td style="text-align: center">☐</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">Data model includes indexes for performance</td>
-      <td style="text-align: center">☐</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">API design is RESTful and consistent</td>
-      <td style="text-align: center">☐</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">Security patterns specified</td>
-      <td style="text-align: center">☐</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">Open questions documented</td>
-      <td style="text-align: center">☐</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><strong>📋 Tasks</strong></td>
-      <td style="text-align: left">Tasks are 2-4 hours each</td>
-      <td style="text-align: center">☐</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">Dependencies are explicit</td>
-      <td style="text-align: center">☐</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">Acceptance criteria per task</td>
-      <td style="text-align: center">☐</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">Parallel opportunities identified</td>
-      <td style="text-align: center">☐</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">Test tasks included for each feature</td>
-      <td style="text-align: center">☐</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><strong>🚀 Implementation</strong></td>
-      <td style="text-align: left">Test after each phase</td>
-      <td style="text-align: center">☐</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">Rich context for bug reports</td>
-      <td style="text-align: center">☐</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">Use <code class="language-plaintext highlighter-rouge">/implement fix and memorize</code> for recurring issues</td>
-      <td style="text-align: center">☐</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">Checkpoint progress with git tags</td>
-      <td style="text-align: center">☐</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">Run automated compliance checks</td>
-      <td style="text-align: center">☐</td>
+      <td><strong>Spec Critique</strong></td>
+      <td>Dual-lens critical review from product strategy and engineering risk perspectives</td>
     </tr>
   </tbody>
 </table>
 
+<p>Each extension declares whether it’s <strong>Read-only</strong> (reports without modifying files) or <strong>Read+Write</strong> (modifies files, creates artifacts). Check the label before you install something that writes to your repo.</p>
+
 <hr />
 
-<h2 id="whats-next">What’s next</h2>
+<h2 id="the-ralph-loop-autonomous-implementation-in-practice">The Ralph Loop: autonomous implementation in practice</h2>
 
-<p>In <strong>Part 4</strong> (next week), we’ll explore:</p>
+<p>Most extensions add a review step or a sync capability. The <a href="https://github.com/Rubiss/spec-kit-ralph">Ralph Loop</a> goes further: it takes your <code class="language-plaintext highlighter-rouge">tasks.md</code> and implements everything autonomously, task by task, in a loop.</p>
+
+<h3 id="how-it-works">How it works</h3>
+
+<p>Ralph spawns a fresh AI agent process for each iteration. The agent reads <code class="language-plaintext highlighter-rouge">tasks.md</code>, picks the first incomplete work unit, implements it, marks the tasks as done, commits the result, and hands control back to the orchestrator. The orchestrator checks termination conditions and loops.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>┌─────────────────────────────────────────┐
+│           ralph-loop starts             │
+│  validate prerequisites, load config    │
+└──────────────────┬──────────────────────┘
+                   ▼
+          ┌────────────────┐
+          │ Any tasks left?│──No──▶ exit 0 (COMPLETED)
+          └───────┬────────┘
+                  │ Yes
+                  ▼
+  ┌───────────────────────────────┐
+  │  Spawn fresh agent process    │
+  │  copilot --agent speckit.ralph│
+  └──────────────┬────────────────┘
+                 ▼
+  ┌───────────────────────────────┐
+  │  Agent reads tasks.md +       │
+  │  progress.md, implements      │
+  │  ONE work unit, commits       │
+  └──────────────┬────────────────┘
+                 ▼
+       ┌──────────────────┐
+       │ Check termination│
+       │   conditions     │
+       └────────┬─────────┘
+                ▼
+        back to "Any tasks left?"
+</code></pre></div></div>
+
+<p>Each iteration is self-contained. If you interrupt with Ctrl+C, you can resume later. Ralph reads the checkbox state in <code class="language-plaintext highlighter-rouge">tasks.md</code> and skips completed tasks. The <code class="language-plaintext highlighter-rouge">progress.md</code> log gives the agent context from prior iterations.</p>
+
+<h3 id="what-it-looks-like-in-the-terminal">What it looks like in the terminal</h3>
+
+<p>When you kick off a run, the orchestrator prints a header per iteration and streams the agent’s output in real-time:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>============================================================
+  Ralph Loop - 001-my-feature
+  Iteration 1 of 10
+============================================================
+
+[09:12:03] * Running   - Starting iteration
+
+--- Copilot Agent Output ---
+Reading tasks.md... found 12 tasks across 3 user stories.
+Working on US-001: Initialize project structure
+  [x] T001: Create directory layout
+  [x] T002: Add configuration files
+  [x] T003: Set up dependency management
+Committing: feat(001-my-feature): US-001 Initialize project structure
+--- End Agent Output ---
+
+[09:14:27] * Success   - Iteration completed
+9 task(s) remaining
+
+============================================================
+  Ralph Loop - 001-my-feature
+  Iteration 2 of 10
+============================================================
+
+[09:14:28] * Running   - Starting iteration
+
+--- Copilot Agent Output ---
+Reading tasks.md... found 9 tasks across 2 user stories.
+Working on US-002: Implement core API endpoints
+  [x] T004: Create REST controller
+  [x] T005: Add request validation
+  [x] T006: Write unit tests
+  [x] T007: Add integration tests
+Committing: feat(001-my-feature): US-002 Implement core API endpoints
+--- End Agent Output ---
+
+[09:18:41] * Success   - Iteration completed
+5 task(s) remaining
+</code></pre></div></div>
+
+<p>Each iteration gets its own banner, and you can see exactly which tasks are being checked off. When all tasks are done (or the agent hits a termination condition), the orchestrator prints a summary and exits.</p>
+
+<h3 id="what-progressmd-looks-like">What progress.md looks like</h3>
+
+<p>After each iteration, the agent appends an entry to <code class="language-plaintext highlighter-rouge">progress.md</code> in the spec directory. This file serves two purposes: it gives you a log of what happened, and it gives the next iteration context about what was already done.</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="c1">## Iteration 1 - 2026-04-08 09:14:27</span>
+<span class="na">**User Story**</span><span class="pi">:</span> <span class="s">US-001 Initialize project structure</span>
+<span class="na">**Tasks Completed**</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="pi">[</span><span class="nv">x</span><span class="pi">]</span> <span class="na">T001</span><span class="pi">:</span> <span class="s">Create directory layout</span>
+<span class="pi">-</span> <span class="pi">[</span><span class="nv">x</span><span class="pi">]</span> <span class="na">T002</span><span class="pi">:</span> <span class="s">Add configuration files</span>
+<span class="pi">-</span> <span class="pi">[</span><span class="nv">x</span><span class="pi">]</span> <span class="na">T003</span><span class="pi">:</span> <span class="s">Set up dependency management</span>
+<span class="na">**Tasks Remaining in Story**</span><span class="pi">:</span> <span class="s">None - story complete</span>
+<span class="na">**Commit**</span><span class="pi">:</span> <span class="s">a1b2c3d</span>
+<span class="na">**Files Changed**</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="s">src/config/app.yml</span>
+<span class="pi">-</span> <span class="s">src/config/database.yml</span>
+<span class="pi">-</span> <span class="s">package.json</span>
+<span class="na">**Learnings**</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="s">Project uses ESM modules, not CommonJS</span>
+<span class="pi">-</span> <span class="s">Prettier config already exists in repo root</span>
+
+<span class="nn">---</span>
+<span class="gu">## Iteration 2 - 2026-04-08 09:18:41</span>
+<span class="gs">**User Story**</span>: US-002 Implement core API endpoints
+<span class="gs">**Tasks Completed**</span>:
+<span class="p">-</span> [x] T004: Create REST controller
+<span class="p">-</span> [x] T005: Add request validation
+<span class="p">-</span> [x] T006: Write unit tests
+<span class="p">-</span> [x] T007: Add integration tests
+<span class="gs">**Tasks Remaining in Story**</span>: None - story complete
+<span class="gs">**Commit**</span>: d4e5f6a
+<span class="gs">**Files Changed**</span>:
+<span class="p">-</span> src/controllers/items.controller.ts
+<span class="p">-</span> src/validators/items.validator.ts
+<span class="p">-</span> tests/unit/items.test.ts
+<span class="p">-</span> tests/integration/items.integration.test.ts
+<span class="gs">**Learnings**</span>:
+<span class="p">-</span> Existing tests use vitest, not jest
+<span class="p">-</span> Validation uses zod schemas from src/validators/
+</code></pre></div></div>
+
+<p>The “Learnings” section is useful. The agent picks up conventions from the codebase during each iteration and writes them down, so the next fresh agent process doesn’t repeat the same discovery work.</p>
+
+<h3 id="installing-ralph">Installing Ralph</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Install from the community catalog</span>
+specify extension add ralph
+
+<span class="c"># Or install directly from the repository</span>
+specify extension add ralph <span class="nt">--from</span> <span class="se">\</span>
+  https://github.com/Rubiss/spec-kit-ralph/archive/refs/tags/v1.0.0.zip
+
+<span class="c"># Verify</span>
+specify extension list
+<span class="c"># ✓ Ralph Loop (v1.0.0)</span>
+<span class="c">#   Autonomous implementation loop using AI agent CLI</span>
+<span class="c">#   Commands: 2 | Hooks: 1 | Status: Enabled</span>
+</code></pre></div></div>
+
+<h3 id="running-it">Running it</h3>
+
+<p>Two paths. Inside an agent session:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/speckit.ralph.run
+</code></pre></div></div>
+
+<p>With options:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/speckit.ralph.run --max-iterations 5 --model gpt-5.1
+</code></pre></div></div>
+
+<p>Or directly from the terminal for debugging or CI use:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.specify/extensions/ralph/scripts/bash/ralph-loop.sh <span class="se">\</span>
+  <span class="nt">--feature-name</span> <span class="s2">"001-my-feature"</span> <span class="se">\</span>
+  <span class="nt">--tasks-path</span> <span class="s2">"specs/001-my-feature/tasks.md"</span> <span class="se">\</span>
+  <span class="nt">--spec-dir</span> <span class="s2">"specs/001-my-feature"</span> <span class="se">\</span>
+  <span class="nt">--max-iterations</span> 10 <span class="se">\</span>
+  <span class="nt">--model</span> <span class="s2">"claude-sonnet-4.6"</span>
+</code></pre></div></div>
+
+<h3 id="configuration">Configuration</h3>
+
+<p>Ralph uses a layered config system. Edit <code class="language-plaintext highlighter-rouge">.specify/extensions/ralph/ralph-config.yml</code> for project defaults:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># AI model for agent iterations</span>
+<span class="na">model</span><span class="pi">:</span> <span class="s2">"</span><span class="s">claude-sonnet-4.6"</span>
+
+<span class="c1"># Maximum loop iterations before stopping</span>
+<span class="na">max_iterations</span><span class="pi">:</span> <span class="m">10</span>
+
+<span class="c1"># Path or name of the agent CLI binary</span>
+<span class="na">agent_cli</span><span class="pi">:</span> <span class="s2">"</span><span class="s">copilot"</span>
+</code></pre></div></div>
+
+<p>Settings resolve from lowest to highest priority:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Priority</th>
+      <th>Source</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1 (lowest)</td>
+      <td>Extension defaults in <code class="language-plaintext highlighter-rouge">extension.yml</code></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Project config <code class="language-plaintext highlighter-rouge">.specify/extensions/ralph/ralph-config.yml</code></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Local overrides <code class="language-plaintext highlighter-rouge">.specify/extensions/ralph/ralph-config.local.yml</code> (gitignored)</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Environment variables (<code class="language-plaintext highlighter-rouge">SPECKIT_RALPH_MODEL</code>)</td>
+    </tr>
+    <tr>
+      <td>5 (highest)</td>
+      <td>CLI parameters (<code class="language-plaintext highlighter-rouge">--model</code>, <code class="language-plaintext highlighter-rouge">--max-iterations</code>)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Local overrides and environment variables mean each developer on the team can use their preferred model without committing changes.</p>
+
+<h3 id="termination-conditions">Termination conditions</h3>
+
+<p>Ralph stops for one of five reasons:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Condition</th>
+      <th>Exit code</th>
+      <th>Meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>All tasks marked <code class="language-plaintext highlighter-rouge">[x]</code></td>
+      <td>0</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>Agent outputs <code class="language-plaintext highlighter-rouge">&lt;promise&gt;COMPLETE&lt;/promise&gt;</code></td>
+      <td>0</td>
+      <td>Agent confirmed completion</td>
+    </tr>
+    <tr>
+      <td>Max iterations reached</td>
+      <td>1</td>
+      <td>Safety limit, increase if needed</td>
+    </tr>
+    <tr>
+      <td>3 consecutive failures</td>
+      <td>1</td>
+      <td>Circuit breaker, agent is stuck</td>
+    </tr>
+    <tr>
+      <td>Ctrl+C</td>
+      <td>130</td>
+      <td>User interrupted</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The circuit breaker at three consecutive failures is a practical safety net. If the agent can’t make progress, it stops rather than burning tokens in an infinite loop.</p>
+
+<h3 id="when-ralph-makes-sense">When Ralph makes sense</h3>
+
+<p>Ralph works best when:</p>
 
 <ul>
-  <li><strong>Team workflows</strong>: How multiple developers use Spec-Kit together</li>
-  <li><strong>Review processes</strong>: Code review checklist for spec-driven projects</li>
-  <li><strong>CI/CD integration</strong>: Automating validation and deployment</li>
-  <li><strong>Advanced patterns</strong>: Microservices, event-driven architectures</li>
-  <li><strong>Scaling strategies</strong>: When your application outgrows the initial architecture</li>
+  <li>Your <code class="language-plaintext highlighter-rouge">tasks.md</code> is well-structured with clear, independent work units</li>
+  <li>Tasks are granular enough for one agent iteration each</li>
+  <li>You’ve already validated your spec and plan</li>
+  <li>You’re comfortable reviewing commits after the fact rather than watching each one</li>
 </ul>
 
-<hr />
-
-<h2 id="key-takeaways-from-part-3">Key takeaways from Part 3</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: center">#</th>
-      <th style="text-align: left">Takeaway</th>
-      <th style="text-align: left">Remember</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: center">1</td>
-      <td style="text-align: left"><strong>Specifications need precision</strong></td>
-      <td style="text-align: left">Given-When-Then, exact error messages, UI mocks</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">2</td>
-      <td style="text-align: left"><strong>Debug systematically</strong></td>
-      <td style="text-align: left">Validation loops, hallucination detection, context refresh</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">3</td>
-      <td style="text-align: left"><strong>Iterate carefully</strong></td>
-      <td style="text-align: left">Add = safe, Modify = risky, Remove = dangerous</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">4</td>
-      <td style="text-align: left"><strong>Performance matters</strong></td>
-      <td style="text-align: left">Watch for N+1 queries, memory leaks, concurrency</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">5</td>
-      <td style="text-align: left"><strong>Measure success</strong></td>
-      <td style="text-align: left">Track velocity, regression rate, time to recovery</td>
-    </tr>
-  </tbody>
-</table>
+<p>It’s not a replacement for understanding what’s being built. But for teams that have already invested in thorough specs and plans, Ralph turns those artifacts into implemented code without manual shepherding.</p>
 
 <hr />
 
-<p><strong>Next week in Part 4</strong>, we’ll tackle team collaboration and how Spec-Kit scales beyond solo developers.</p>
+<h2 id="building-your-own-extension">Building your own extension</h2>
+
+<p>If the community catalog doesn’t cover your use case, you can build and publish your own. Here’s the structure:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>my-extension/
+├── extension.yml          # Manifest: name, version, commands, hooks
+├── commands/
+│   └── my-command.md      # Command template (becomes /speckit.ext.my-command)
+├── scripts/
+│   └── bash/
+│       └── my-script.sh   # Optional automation scripts
+├── README.md
+└── LICENSE
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">extension.yml</code> manifest declares your commands, hooks, and metadata. Once published, others can install it with <code class="language-plaintext highlighter-rouge">specify extension add</code>. The <a href="https://github.com/github/spec-kit/blob/main/extensions/EXTENSION-PUBLISHING-GUIDE.md">Extension Publishing Guide</a> covers the full process.</p>
 
 <hr />
 
-<h2 id="resources">Resources</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Resource</th>
-      <th style="text-align: left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><a href="https://github.com/github/spec-kit"><strong>Spec-Kit GitHub</strong></a></td>
-      <td style="text-align: left">Official toolkit repository</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><a href="https://beyond.addy.ie/"><strong>Beyond Vibe Coding</strong></a></td>
-      <td style="text-align: left">Addy Osmani’s guide to AI-assisted development</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><a href="https://owasp.org/www-project-top-ten/"><strong>OWASP Top 10</strong></a></td>
-      <td style="text-align: left">Security requirements reference</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><a href="https://martinfowler.com/articles/exploring-gen-ai.html"><strong>Exploring Gen AI</strong></a></td>
-      <td style="text-align: left">Martin Fowler’s AI development series</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><a href="https://martinfowler.com/bliki/GivenWhenThen.html"><strong>Given-When-Then</strong></a></td>
-      <td style="text-align: left">BDD specification pattern</td>
-    </tr>
-  </tbody>
-</table>
-
-<hr />
-
-<h2 id="series-navigation">Series navigation</h2>
+<h2 id="where-to-start">Where to start</h2>
 
 <ul>
-  <li><strong>Previous</strong>: <a href="/from-vibe-coding-to-spec-driven-development-part2">Part 2 - The Spec-Kit workflow</a></li>
-  <li><strong>📍 You are here: Part 3 - Best practices and troubleshooting</strong></li>
-  <li><strong>Next</strong>: Part 4 - Team collaboration and advanced patterns (Coming January 26, 2026)</li>
-  <li>Part 5 - Case studies and lessons learned (Coming February 2, 2026)</li>
+  <li>Browse the <a href="https://speckit-community.github.io/extensions/">community catalog</a> to see what’s out there</li>
+  <li>Install one or two extensions that fill gaps in your current workflow</li>
+  <li>If nothing fits, the extension format is simple enough to build your own in an afternoon</li>
 </ul>
 
-<hr />
-
-<blockquote>
-  <p>💬 <strong>Found a gotcha not covered here?</strong></p>
-
-  <p>Connect with me on <a href="https://linkedin.com/in/hiddedesmet">LinkedIn</a> to share your experience.</p>
-
-  <p><strong>Want to get notified when Part 4 drops?</strong> Follow me for updates!</p>
-</blockquote>
+<p>The core Spec-Kit workflow gives you structure. Extensions give you the specific tooling your team actually needs, from Jira sync to autonomous implementation. Ralph Loop shows what happens when you take the spec-driven approach to its logical end: you write the what, the loop handles the how.</p>
 
     </div>
   </article>
@@ -1930,73 +909,6 @@ done
             
 
             
-
-            <div class="col col-4 col-d-6 col-t-12">
-              <div class="article">
-  <div class="article__inner">
-
-    <div class="article__head">
-      
-
-      
-      <a href="/speckit-extensions" class="article__image" aria-hidden="true" tabindex="-1">
-        <img class="lazy" data-src="/images/spec-kit/speckit-extensions.png" alt="Spec-Kit Extensions: Making spec-driven development your own">
-      </a>
-      
-    </div>
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        
-        <div class="article__tags">
-        
-          <a href="/tags#ai-assisted-development" class="article__tag">ai-assisted-development</a>
-        
-          <a href="/tags#spec-kit" class="article__tag">spec-kit</a>
-        
-          <a href="/tags#github" class="article__tag">github</a>
-        
-          <a href="/tags#copilot" class="article__tag">copilot</a>
-        
-          <a href="/tags#extensions" class="article__tag">extensions</a>
-        
-          <a href="/tags#specification-driven-development" class="article__tag">specification-driven-development</a>
-        
-          <a href="/tags#ralph-loop" class="article__tag">ralph-loop</a>
-        
-        </div>
-        
-        <span class="article__date">•<time datetime="2026-04-08T00:00:00+02:00">Apr 08, 2026</time></span>
-      </div>
-
-      <h2 class="article__title">
-        <a href="/speckit-extensions">Spec-Kit Extensions: Making spec-driven development your own</a>
-      </h2>
-
-      <p class="article__excerpt">Spec-Kit's extension system turns a structured spec-driven workflow into something you can customize end-to-end. Here's how extensions work, which ones are worth looking at, and a hands-on walkthrough of the Ralph Loop extension for autonomous implementation.</p>
-
-      <div class="article__info">
-        
-        
-        <a href="/hidde" class="article__author__image">
-          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
-        </a>
-        <div class="article__info__bottom">
-          <span>Written by</span>
-          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
-        </div>
-        
-      </div>
-
-    </div>
-  </div>
-</div>
-            </div>
-
-            
-            
-            
           
             
             
@@ -2088,6 +1000,73 @@ done
 
             
 
+            
+
+            <div class="col col-4 col-d-6 col-t-12">
+              <div class="article">
+  <div class="article__inner">
+
+    <div class="article__head">
+      
+
+      
+      <a href="/from-vibe-coding-to-spec-driven-development-part3" class="article__image" aria-hidden="true" tabindex="-1">
+        <img class="lazy" data-src="/images/spec-kit/image-03.png" alt="From Vibe Coding to Spec-Driven Development: Part 3 - Best practices and troubleshooting">
+      </a>
+      
+    </div>
+
+    <div class="article__content">
+
+      <div class="article__meta">
+        
+        <div class="article__tags">
+        
+          <a href="/tags#ai-assisted-development" class="article__tag">ai-assisted-development</a>
+        
+          <a href="/tags#spec-kit" class="article__tag">spec-kit</a>
+        
+          <a href="/tags#github" class="article__tag">github</a>
+        
+          <a href="/tags#copilot" class="article__tag">copilot</a>
+        
+          <a href="/tags#vibe-coding" class="article__tag">vibe-coding</a>
+        
+          <a href="/tags#specification-driven-development" class="article__tag">specification-driven-development</a>
+        
+          <a href="/tags#series" class="article__tag">series</a>
+        
+        </div>
+        
+        <span class="article__date">•<time datetime="2026-01-19T00:00:00+01:00">Jan 19, 2026</time></span>
+      </div>
+
+      <h2 class="article__title">
+        <a href="/from-vibe-coding-to-spec-driven-development-part3">From Vibe Coding to Spec-Driven Development: Part 3 - Best practices and troubleshooting</a>
+      </h2>
+
+      <p class="article__excerpt">Part 3 of our series on mastering AI-assisted development. Learn advanced specification techniques, debugging strategies, iteration patterns, and real-world troubleshooting for production-ready AI-generated code.</p>
+
+      <div class="article__info">
+        
+        
+        <a href="/hidde" class="article__author__image">
+          <img class="lazy" data-src="/images/hiddedesmet.jpeg" alt="Hidde de Smet">
+        </a>
+        <div class="article__info__bottom">
+          <span>Written by</span>
+          <a class="article__author__name" href="/hidde">Hidde de Smet</a>
+        </div>
+        
+      </div>
+
+    </div>
+  </div>
+</div>
+            </div>
+
+            
+            
             
           
             

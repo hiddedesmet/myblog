@@ -7,7 +7,7 @@ tags: [prompt-engineering, llm, ai, claude, chatgpt, github-copilot, context-eng
 author: hidde
 description: "From vague prompts to reliable results: practical frameworks and mental models for working with LLMs, covering the 5 Principles, few-shot learning, Chain of Thought, RAG, context engineering, and how agents change everything."
 image: /images/promptengineering.png
-featured: true
+featured: false
 toc: true
 ---
 
