@@ -47,14 +47,13 @@ That's it. The commands from the extension become available as slash commands in
 
 The [community catalog](https://speckit-community.github.io/extensions/) has extensions across five categories: **docs**, **code**, **process**, **integration**, and **visibility**. Here are a few worth highlighting.
 
-### Process extensions
+### Docs extensions
 
 | Extension | What it does |
 |-----------|-------------|
-| **Fleet Orchestrator** | Orchestrates a full feature lifecycle with human-in-the-loop gates across all SpecKit phases |
-| **MAQA** | Coordinator > feature > QA agent workflow with parallel worktree-based implementation |
-| **Conduct** | Delegates spec-kit phases to sub-agents to reduce context pollution |
-| **Product Forge** | Full product lifecycle: research > product spec > SpecKit > implement > verify > test |
+| **Iterate** | Refine specs mid-implementation and go straight back to building |
+| **Reconcile** | Surgically updates feature artifacts when implementation drifts from spec |
+| **Spec Critique** | Dual-lens critical review from product strategy and engineering risk perspectives |
 
 ### Code extensions
 
@@ -66,6 +65,15 @@ The [community catalog](https://speckit-community.github.io/extensions/) has ext
 | **Cleanup** | Post-implementation quality gate. Fixes small issues, creates tasks for medium ones |
 | **Verify** | Validates implemented code against specification artifacts |
 
+### Process extensions
+
+| Extension | What it does |
+|-----------|-------------|
+| **Fleet Orchestrator** | Orchestrates a full feature lifecycle with human-in-the-loop gates across all SpecKit phases |
+| **MAQA** | Coordinator > feature > QA agent workflow with parallel worktree-based implementation |
+| **Conduct** | Delegates spec-kit phases to sub-agents to reduce context pollution |
+| **Product Forge** | Full product lifecycle: research > product spec > SpecKit > implement > verify > test |
+
 ### Integration extensions
 
 | Extension | What it does |
@@ -74,15 +82,16 @@ The [community catalog](https://speckit-community.github.io/extensions/) has ext
 | **Azure DevOps** | Syncs user stories and tasks to Azure DevOps work items |
 | **Confluence** | Creates a Confluence doc summarizing specs and planning files |
 
-### Docs extensions
+### Visibility extensions
 
 | Extension | What it does |
 |-----------|-------------|
-| **Iterate** | Refine specs mid-implementation and go straight back to building |
-| **Reconcile** | Surgically updates feature artifacts when implementation drifts from spec |
-| **Spec Critique** | Dual-lens critical review from product strategy and engineering risk perspectives |
+| **Project Health Check** | Diagnoses a Spec Kit project and reports health issues across structure, agents, features, scripts, extensions, and git |
+| **Project Status** | Shows current SDD workflow progress: active feature, artifact status, task completion, and extensions summary |
 
 Each extension declares whether it's **Read-only** (reports without modifying files) or **Read+Write** (modifies files, creates artifacts). Check the label before you install something that writes to your repo.
+
+That's a lot of options. Rather than staying at catalog level, let's pick one extension and look at how it actually works end-to-end.
 
 ---
 

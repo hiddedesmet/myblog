@@ -5,8 +5,8 @@
         <description>My blog is a collection of stories, journeys, and ideas for the creatively curious. I share my thoughts on design, technology, with a focus on creativity and innovation.</description>
         <link>http://localhost:4000/</link>
         <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Wed, 08 Apr 2026 11:28:59 +0200</pubDate>
-        <lastBuildDate>Wed, 08 Apr 2026 11:28:59 +0200</lastBuildDate>
+        <pubDate>Wed, 08 Apr 2026 11:36:44 +0200</pubDate>
+        <lastBuildDate>Wed, 08 Apr 2026 11:36:44 +0200</lastBuildDate>
         <generator>Jekyll v4.4.1</generator>
         
             <item>
@@ -63,7 +63,7 @@ specify extension list
 
 &lt;p&gt;The &lt;a href=&quot;https://speckit-community.github.io/extensions/&quot;&gt;community catalog&lt;/a&gt; has extensions across five categories: &lt;strong&gt;docs&lt;/strong&gt;, &lt;strong&gt;code&lt;/strong&gt;, &lt;strong&gt;process&lt;/strong&gt;, &lt;strong&gt;integration&lt;/strong&gt;, and &lt;strong&gt;visibility&lt;/strong&gt;. Here are a few worth highlighting.&lt;/p&gt;
 
-&lt;h3 id=&quot;process-extensions&quot;&gt;Process extensions&lt;/h3&gt;
+&lt;h3 id=&quot;docs-extensions&quot;&gt;Docs extensions&lt;/h3&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -74,20 +74,16 @@ specify extension list
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Fleet Orchestrator&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Orchestrates a full feature lifecycle with human-in-the-loop gates across all SpecKit phases&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Iterate&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Refine specs mid-implementation and go straight back to building&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;MAQA&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Coordinator &amp;gt; feature &amp;gt; QA agent workflow with parallel worktree-based implementation&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Reconcile&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Surgically updates feature artifacts when implementation drifts from spec&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Conduct&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Delegates spec-kit phases to sub-agents to reduce context pollution&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Product Forge&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Full product lifecycle: research &amp;gt; product spec &amp;gt; SpecKit &amp;gt; implement &amp;gt; verify &amp;gt; test&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Spec Critique&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Dual-lens critical review from product strategy and engineering risk perspectives&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -125,6 +121,35 @@ specify extension list
   &lt;/tbody&gt;
 &lt;/table&gt;
 
+&lt;h3 id=&quot;process-extensions&quot;&gt;Process extensions&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Extension&lt;/th&gt;
+      &lt;th&gt;What it does&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Fleet Orchestrator&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Orchestrates a full feature lifecycle with human-in-the-loop gates across all SpecKit phases&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;MAQA&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Coordinator &amp;gt; feature &amp;gt; QA agent workflow with parallel worktree-based implementation&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Conduct&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Delegates spec-kit phases to sub-agents to reduce context pollution&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Product Forge&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Full product lifecycle: research &amp;gt; product spec &amp;gt; SpecKit &amp;gt; implement &amp;gt; verify &amp;gt; test&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
 &lt;h3 id=&quot;integration-extensions&quot;&gt;Integration extensions&lt;/h3&gt;
 
 &lt;table&gt;
@@ -150,7 +175,7 @@ specify extension list
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;docs-extensions&quot;&gt;Docs extensions&lt;/h3&gt;
+&lt;h3 id=&quot;visibility-extensions&quot;&gt;Visibility extensions&lt;/h3&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -161,21 +186,19 @@ specify extension list
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Iterate&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Refine specs mid-implementation and go straight back to building&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Project Health Check&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Diagnoses a Spec Kit project and reports health issues across structure, agents, features, scripts, extensions, and git&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Reconcile&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Surgically updates feature artifacts when implementation drifts from spec&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Spec Critique&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Dual-lens critical review from product strategy and engineering risk perspectives&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Project Status&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Shows current SDD workflow progress: active feature, artifact status, task completion, and extensions summary&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
 &lt;p&gt;Each extension declares whether it’s &lt;strong&gt;Read-only&lt;/strong&gt; (reports without modifying files) or &lt;strong&gt;Read+Write&lt;/strong&gt; (modifies files, creates artifacts). Check the label before you install something that writes to your repo.&lt;/p&gt;
+
+&lt;p&gt;That’s a lot of options. Rather than staying at catalog level, let’s pick one extension and look at how it actually works end-to-end.&lt;/p&gt;
 
 &lt;hr /&gt;
 
