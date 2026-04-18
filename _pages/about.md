@@ -41,6 +41,11 @@ As a certified Azure Solution Architect, I specialize in designing, implementing
   <img src="/images/Picture16.png" alt="GitHub Copilot">
   <img src="/images/Picture17.png" alt="IASA CITA Foundation">
   <img src="/images/Picture18.png" alt="HashiCorp Certified: Terraform Associate (003)">
+  <img src="/images/Picture19.png" alt="IASA CITA-Associate (AI Architecture)">
+  <img src="/images/Picture20.png" alt="GitHub Copilot: Core Skills & Application Partner Delivery Credential">
+  <img src="/images/Picture21.png" alt="GitHub Migrations Partner Delivery Credential">
+  <img src="/images/Picture22.png" alt="AzureDevOps to GitHub Migrations Partner Delivery Credential">
+  <img src="/images/Picture23.png" alt="GitHub Advanced Security Partner Delivery Credential">
 </div>
 
 ## Competences
