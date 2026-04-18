@@ -68,6 +68,11 @@ layout: default
     <div class="post__image">
       <img class="lazy" data-src="{{ page.image | relative_url }}" alt="{{ page.title }}">
     </div>
+    {% else %}
+    {% assign first_tag = page.tags | first %}
+    <div class="post__image post__image--generated">
+      {% include generated-cover.html title=page.title tag=first_tag seed=page.url %}
+    </div>
     {% endif %}
     {% endif %}
 
@@ -77,15 +82,16 @@ layout: default
   </div>
 
   <!-- begin post -->
-  <article class="post">
-    <div class="post__content">
-      {% if page.toc == true %}
+  <article class="post post--magazine">
+    {% if page.toc == true %}
+    <aside class="post__sidebar">
       <div class="post__toc">
-        <h2 class="post__toc__title">Table of Contents</h2>
+        <h2 class="post__toc__title">On this page</h2>
         {% include toc.html html=content ordered=true class="post__toc__list" h_min=2 %}
       </div>
-      {% endif %}
-
+    </aside>
+    {% endif %}
+    <div class="post__content">
       {{ content }}
     </div>
   </article>

@@ -2,6 +2,42 @@
   box-sizing: border-box;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.25s;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: var(--primary-color);
+  color: var(--white);
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--lighten-gray);
+  border: 3px solid var(--background-color);
+  border-radius: 10px;
+
+  &:hover {
+    background: var(--primary-color);
+  }
+}
+
 body {
   font-family: $base-font-family;
   font-size: $base-font-size;
@@ -79,11 +115,28 @@ blockquote {
   text-align: center;
   color: var(--heading-font-color);
 
+  &::before {
+    content: "“";
+    position: absolute;
+    top: -24px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: $heading-font-family;
+    font-size: 96px;
+    line-height: 1;
+    color: var(--primary-color);
+    opacity: 0.25;
+  }
+
   &.q-left {
     padding: 0 0 0 20px;
     font-size: 20px;
     text-align: left;
-    border-left: 3px solid var(--primary-color);
+    border-left: 3px solid var(--heading-font-color);
+
+    &::before {
+      content: none;
+    }
   }
 
   p {
@@ -109,11 +162,23 @@ pre {
   overflow: auto;
   padding: 15px;
   margin-bottom: 0;
+  font-family: $mono-font-family;
   font-size: 14px;
+  line-height: 1.6;
   white-space: pre-wrap;
   word-wrap: break-word;
   word-break: break-all;
   color: var(--heading-font-color);
+}
+
+:not(pre) > code {
+  font-family: $mono-font-family;
+  font-size: 0.88em;
+  padding: 2px 7px;
+  border-radius: 6px;
+  background: var(--primary-color-soft);
+  color: var(--primary-color);
+  border: 1px solid transparent;
 }
 
 img,
@@ -155,6 +220,32 @@ img,
 a {
   text-decoration: none;
   color: var(--link-color);
+  transition: color .2s ease;
+
+  &:hover {
+    color: var(--link-color-hover);
+  }
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity .6s ease, transform .6s cubic-bezier(.2, .7, .2, 1);
+  will-change: opacity, transform;
+
+  &.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 hr {

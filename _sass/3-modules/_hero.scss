@@ -1,6 +1,36 @@
 /* Hero */
 .hero {
+  position: relative;
   margin-bottom: 80px;
+  padding-top: 24px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -40px 0 auto 0;
+    height: 520px;
+    z-index: -1;
+    background:
+      radial-gradient(ellipse 60% 60% at 30% 20%, var(--primary-color-soft), transparent 60%),
+      radial-gradient(ellipse 50% 60% at 80% 10%, rgba(125, 77, 255, 0.10), transparent 65%);
+    pointer-events: none;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: -40px 0 auto 0;
+    height: 520px;
+    z-index: -1;
+    background-image:
+      linear-gradient(to right, var(--border-color) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--border-color) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 30%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 30%, transparent 75%);
+    opacity: 0.5;
+    pointer-events: none;
+  }
 
   .hero__inner {
     max-width: 960px;
@@ -112,6 +142,28 @@
     font-size: 72px;
     line-height: 1.1;
     color: var(--heading-font-color);
+    letter-spacing: -0.02em;
+
+    em, .accent {
+      position: relative;
+      font-style: normal;
+      background: linear-gradient(120deg, var(--primary-color), #7d4dff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      white-space: nowrap;
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: -2%;
+        right: -2%;
+        bottom: 4px;
+        height: 14px;
+        background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 14' preserveAspectRatio='none'><path d='M2 9 C 50 2, 100 12, 198 5' stroke='%237d4dff' stroke-width='3' fill='none' stroke-linecap='round' opacity='0.55'/></svg>") no-repeat center / 100% 100%;
+        z-index: -1;
+      }
+    }
   }
 
   .hero__description {
@@ -133,11 +185,14 @@
     border-radius: 60px;
     color: var(--text-alt-color);
     background: var(--background-alt-color);
+    border: 1px solid var(--border-color);
     transition: $global-transition;
     cursor: pointer;
 
     &:hover {
       background: var(--background-alt-color-2);
+      border-color: var(--primary-color);
+      color: var(--primary-color);
     }
 
     .hero__search__icon {

@@ -191,4 +191,56 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 
+
+  /* =======================
+  // Code block enhancements: language label + copy button
+  ======================= */
+  document.querySelectorAll('div.highlighter-rouge, figure.highlight').forEach(block => {
+    if (block.dataset.enhanced) return;
+    block.dataset.enhanced = 'true';
+
+    const cls = (block.className.match(/language-([\w+-]+)/) || [])[1];
+    const lang = cls && cls !== 'plaintext' ? cls : '';
+
+    const header = document.createElement('div');
+    header.className = 'code-header';
+    header.innerHTML = `<span class="code-lang">${lang}</span><button type="button" class="code-copy" aria-label="Copy code">Copy</button>`;
+
+    const inner = block.querySelector('.highlight') || block;
+    inner.prepend(header);
+
+    const btn = header.querySelector('.code-copy');
+    btn.addEventListener('click', () => {
+      const codeEl = block.querySelector('pre code, pre');
+      if (!codeEl) return;
+      const text = codeEl.innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        btn.textContent = 'Copied';
+        btn.classList.add('is-copied');
+        setTimeout(() => {
+          btn.textContent = 'Copy';
+          btn.classList.remove('is-copied');
+        }, 1600);
+      });
+    });
+  });
+
+
+  /* =======================
+  // Scroll reveal — subtle fade + rise
+  ======================= */
+  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const revealEls = document.querySelectorAll('.article, .section__info, .post__head, .hero__inner, .card-author');
+    revealEls.forEach(el => el.classList.add('reveal'));
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => io.observe(el));
+  }
+
 });

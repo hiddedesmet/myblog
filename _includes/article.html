@@ -14,6 +14,11 @@
       <a href="{{ post.url | relative_url }}" class="article__image" aria-hidden="true" tabindex="-1">
         <img class="lazy" data-src="{{ post.image | relative_url }}" alt="{{ post.title }}">
       </a>
+      {% else %}
+      {% assign post_first_tag = post.tags | first %}
+      <a href="{{ post.url | relative_url }}" class="article__image article__image--generated" aria-hidden="true" tabindex="-1">
+        {% include generated-cover.html title=post.title tag=post_first_tag seed=post.url %}
+      </a>
       {% endif %}
     </div>
 
@@ -28,6 +33,8 @@
         </div>
         {% endif %}
         <span class="article__date">•<time datetime="{{ post.date | date_to_xmlschema }}">{% assign date_format = site.minima.date_format | default: "%-b %d, %Y" %}{{ post.date | date: date_format }}</time></span>
+        {% assign words = post.content | number_of_words %}
+        <span class="article__read">•<span>{% if words < 360 %}1{% else %}{{ words | divided_by:180 }}{% endif %} min read</span></span>
       </div>
 
       <h2 class="article__title">
