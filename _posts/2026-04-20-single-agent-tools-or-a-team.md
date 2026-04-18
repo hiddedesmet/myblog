@@ -6,7 +6,7 @@ categories: [AI, Development]
 tags: [ai-assisted-development, agents, multi-agent, mcp, github-copilot, claude, orchestration, prompt-engineering]
 author: hidde
 description: "Single-agent, agent-with-tools, or multi-agent? The same feature through all three setups, the failure modes to watch for, and a decision matrix you can actually use."
-image: /images/promptengineering.png
+image: /images/agent.png
 featured: true
 toc: true
 ---

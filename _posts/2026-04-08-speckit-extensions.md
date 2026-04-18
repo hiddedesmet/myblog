@@ -7,7 +7,7 @@ tags: [ai-assisted-development, spec-kit, github, copilot, extensions, specifica
 author: hidde
 description: "Spec-Kit's extension system turns a structured spec-driven workflow into something you can customize end-to-end. Here's how extensions work, which ones are worth looking at, and a hands-on walkthrough of the Ralph Loop extension for autonomous implementation."
 image: /images/spec-kit/speckit-extensions.png
-featured: true
+featured: false
 toc: true
 ---
 
