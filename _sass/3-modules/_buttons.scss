@@ -25,4 +25,17 @@
   &--big {
     padding: 14px 24px;
   }
+
+  &--ghost {
+    color: var(--heading-font-color);
+    background: transparent;
+    border: 1px solid var(--border-color);
+    padding: 14px 24px;
+
+    &:hover {
+      color: var(--primary-color);
+      background: var(--primary-color-soft);
+      border-color: var(--primary-color);
+    }
+  }
 }

@@ -2,10 +2,61 @@
   Syntax Highlighting
 */
 
+.code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px 8px 18px;
+  font-family: $mono-font-family;
+  font-size: 12px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: var(--text-alt-color);
+  background: color-mix(in srgb, var(--syntax-highlighting-background) 85%, var(--background-color));
+  border-bottom: 1px solid var(--border-color);
+
+  .code-lang {
+    font-weight: 600;
+  }
+
+  .code-copy {
+    appearance: none;
+    border: 1px solid var(--border-color);
+    background: transparent;
+    color: var(--text-alt-color);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font: inherit;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: $global-transition;
+
+    &:hover {
+      color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+
+    &.is-copied {
+      color: var(--primary-color);
+      border-color: var(--primary-color);
+      background: var(--primary-color-soft);
+    }
+  }
+}
+
 .highlight {
   margin-bottom: 32px;
-  border-radius: 8px;
+  border-radius: 12px;
   background: var(--syntax-highlighting-background);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+
+  pre {
+    padding: 20px 22px;
+    font-family: $mono-font-family;
+    font-size: 14px;
+    line-height: 1.6;
+  }
 
   .highlighter-rouge & {
     background: var(--syntax-highlighting-background);

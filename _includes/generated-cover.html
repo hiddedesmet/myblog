@@ -1,0 +1,39 @@
+{%- comment -%}
+  Generated SVG cover for posts that don't have a `image:` in front matter.
+  Params:
+    title  — required, post title
+    tag    — optional, first tag of the post (shown as eyebrow)
+    seed   — optional, used to vary the gradient (defaults to title)
+{%- endcomment -%}
+{%- assign seed = include.seed | default: include.title -%}
+{%- assign hash = seed | size | times: 37 | modulo: 360 -%}
+{%- assign hue_a = hash -%}
+{%- assign hue_b = hash | plus: 60 | modulo: 360 -%}
+{%- assign safe_title = include.title | strip_html | escape -%}
+<svg class="generated-cover" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" preserveAspectRatio="xMidYMid slice" role="img" aria-label="{{ safe_title }}">
+  <defs>
+    <linearGradient id="bg-{{ seed | slugify }}" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="hsl({{ hue_a }}, 70%, 22%)"/>
+      <stop offset="100%" stop-color="hsl({{ hue_b }}, 80%, 14%)"/>
+    </linearGradient>
+    <radialGradient id="glow-{{ seed | slugify }}" cx="20%" cy="15%" r="65%">
+      <stop offset="0%" stop-color="hsla({{ hue_a }}, 95%, 70%, 0.55)"/>
+      <stop offset="100%" stop-color="hsla({{ hue_b }}, 95%, 50%, 0)"/>
+    </radialGradient>
+    <pattern id="grid-{{ seed | slugify }}" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg-{{ seed | slugify }})"/>
+  <rect width="1200" height="900" fill="url(#grid-{{ seed | slugify }})"/>
+  <rect width="1200" height="900" fill="url(#glow-{{ seed | slugify }})"/>
+  {% if include.tag %}
+  <text x="64" y="120" font-family="Inter, system-ui, sans-serif" font-size="26" font-weight="700" letter-spacing="6" fill="rgba(255,255,255,0.7)">{{ include.tag | upcase | escape }}</text>
+  {% endif %}
+  <foreignObject x="64" y="180" width="1072" height="600">
+    <div xmlns="http://www.w3.org/1999/xhtml" style="font-family: 'Source Serif 4', Georgia, serif; color: #fff; font-size: 96px; line-height: 1.05; font-weight: 700; letter-spacing: -0.02em; text-shadow: 0 2px 24px rgba(0,0,0,0.35);">
+      {{ safe_title }}
+    </div>
+  </foreignObject>
+  <text x="64" y="830" font-family="Inter, system-ui, sans-serif" font-size="26" font-weight="600" fill="rgba(255,255,255,0.85)">{{ site.data.settings.title | escape }}</text>
+</svg>

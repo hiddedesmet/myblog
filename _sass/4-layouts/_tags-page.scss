@@ -3,23 +3,32 @@
   margin-bottom: 60px;
 
   .row {
-    row-gap: 32px;
+    row-gap: 16px;
   }
 
   .tag__link {
     display: block;
-    padding: 24px;
-    font-size: 18px;
+    padding: 22px 24px;
+    font-size: 16px;
     line-height: 1.35;
-    font-weight: 500;
-    text-align: center;
-    border-radius: 22px;
+    font-weight: 600;
+    text-align: left;
+    border-radius: 14px;
     color: var(--heading-font-color);
     background: var(--background-alt-color);
+    border: 1px solid var(--border-color);
     transition: $global-transition;
+
+    &::before {
+      content: "#";
+      margin-right: 6px;
+      color: var(--text-alt-color);
+      font-weight: 700;
+    }
 
     &:hover {
       background: var(--background-alt-color-2);
+      transform: translateY(-2px);
     }
   }
 

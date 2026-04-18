@@ -131,10 +131,14 @@
     border-radius: 50%;
     color: var(--heading-font-color);
     background-color: var(--background-alt-color);
+    border: 1px solid var(--border-color);
     transition: $global-transition;
 
     &:hover {
-      background-color: var(--background-alt-color-2);
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+      color: var(--white);
+      transform: translateY(-2px);
     }
   }
 
