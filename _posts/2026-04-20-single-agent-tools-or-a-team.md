@@ -7,7 +7,7 @@ tags: [ai-assisted-development, agents, multi-agent, mcp, github-copilot, claude
 author: hidde
 description: "Single-agent, agent-with-tools, or multi-agent? The same feature through all three setups, the failure modes to watch for, and a decision matrix you can actually use."
 image: /images/agent.png
-featured: true
+featured: false
 toc: true
 ---
 
