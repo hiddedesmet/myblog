@@ -124,6 +124,8 @@ Two things worth knowing:
 - Once a skill is loaded in a chat session, its instructions are available in that session's context.
 - Skills compose. A request can match more than one. Two small skills usually beat one big one.
 
+You also do not have to write the `SKILL.md` by hand. In Copilot, type `/create-skill` in chat, describe what you need, and it generates the frontmatter, directory structure, and body for you. It can even extract a skill from an ongoing conversation: after a multi-turn debugging session, ask "create a skill from how we just debugged that" and it captures the workflow. Claude Code follows the same Agent Skills standard and works the same way: ask it to turn a procedure into a skill and it writes the file into `.claude/skills/`.
+
 ---
 
 ## A real Azure skill: KQL for Application Insights
