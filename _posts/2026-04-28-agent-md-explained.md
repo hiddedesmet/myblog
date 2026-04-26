@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "AGENTS.md and .agent.md, explained: rules for the repo, roles for the agent"
-date: 2026-04-26
+date: 2026-04-28
 categories: [AI, Development]
 tags: [github-copilot, agents-md, agent-md, custom-agents, ai-assisted-development, claude-code, agent-customization, vscode]
 author: hidde
