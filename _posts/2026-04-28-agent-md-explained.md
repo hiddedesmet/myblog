@@ -183,7 +183,7 @@ Example planning agent:
 name: planner
 description: Creates implementation plans for features and refactoring tasks
 tools: ['search', 'read']
-model: GPT-5.2 (copilot)
+model: GPT-5.5 (copilot)
 handoffs:
   - label: Start Implementation
     agent: implementer
