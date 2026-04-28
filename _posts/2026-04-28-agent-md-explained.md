@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "AGENTS.md and .agent.md, explained: rules for the repo, roles for the agent"
+title: "AGENTS.md vs .agent.md: repo rules and custom agent roles explained"
 date: 2026-04-28
 categories: [AI, Development]
 tags: [github-copilot, agents-md, agent-md, custom-agents, ai-assisted-development, claude-code, agent-customization, vscode]
@@ -50,6 +50,8 @@ The shortest version:
 ## How GitHub Copilot uses `AGENTS.md`
 
 In VS Code, `AGENTS.md` is treated as an always-on instruction file. If `chat.useAgentsMdFile` is enabled, Copilot detects an `AGENTS.md` file at the workspace root and includes it in chat requests for that workspace.
+
+If you do not see this behavior, check your VS Code and Copilot versions first, then check the chat customization settings. This area is moving quickly, because apparently naming files was not enough excitement.
 
 ![VS Code settings panel with chat.useAgentsMdFile enabled](/images/agents-md-setting.png)
 
@@ -138,7 +140,7 @@ The useful fields:
 | `name` | Display name. Defaults to the filename if omitted. |
 | `description` | Explains what the agent does; used in UI and delegation. |
 | `tools` | Limits which tools the agent can use. Omit to allow all available tools. |
-| `model` | Optional model preference, such as `GPT-5.2 (copilot)`, if available in your environment. |
+| `model` | Optional model preference, such as `GPT-5.5 (copilot)`, if available in your environment. |
 | `handoffs` | Buttons that move from one agent to another with a prepared prompt. |
 | `agents` | Which subagents this agent can call. |
 | `user-invocable` | Whether the agent appears in the dropdown. |
@@ -227,7 +229,12 @@ The repository-level flow is:
 3. Commit it to the repository and merge it into the default branch.
 4. Select that custom agent when prompting Copilot cloud agent or assigning it to an issue.
 
-GitHub's docs call these files "agent profiles." They are still Markdown files with YAML frontmatter. If `name` is omitted, GitHub defaults to the filename. `description` is required for cloud agent profiles. The body prompt can be up to 30,000 characters.
+GitHub's docs call these files "agent profiles." A few details matter:
+
+- They are still Markdown files with YAML frontmatter.
+- If `name` is omitted, GitHub defaults to the filename.
+- `description` is required for cloud agent profiles.
+- The body prompt can be up to 30,000 characters.
 
 For organization or enterprise-level agents, GitHub supports defining them in a `.github-private` repository so they can be available across repositories. In VS Code, organization-level custom agents can appear in the Agents dropdown when `github.copilot.chat.organizationCustomAgents.enabled` is enabled.
 

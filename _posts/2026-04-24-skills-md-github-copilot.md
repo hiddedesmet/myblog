@@ -7,7 +7,7 @@ tags: [github-copilot, skills, skill-md, ai-assisted-development, azure, azure-m
 author: hidde
 description: "Why GitHub Copilot skills live in plural folders but singular SKILL.md files, how they load, and when supporting files are pulled in on demand."
 image: /images/skills.png
-featured: true
+featured: false
 toc: true
 ---
 
