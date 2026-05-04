@@ -7,7 +7,7 @@ tags: [github-copilot, agents-md, agent-md, custom-agents, ai-assisted-developme
 author: hidde
 description: "The difference between AGENTS.md and .agent.md, how GitHub Copilot uses both, and when to write repo instructions versus a custom agent persona."
 image: /images/agent-T1000.png
-featured: true
+featured: false
 toc: true
 ---
 
