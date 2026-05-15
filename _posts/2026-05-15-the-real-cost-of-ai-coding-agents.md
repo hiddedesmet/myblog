@@ -137,6 +137,25 @@ One caveat: Google's pricing page also includes separate charges for tools such 
 
 Source: [Gemini API pricing](https://ai.google.dev/gemini-api/docs/pricing)
 
+### Google AI consumer subscriptions
+
+Google also sells flat-rate subscriptions that bundle Gemini coding tools alongside the consumer Gemini app, storage, and creative tools. For developers, the relevant inclusions are Jules (the async coding agent), Google Antigravity (agentic workflows), the Vibe Coding agent in AI Studio, and daily request quotas for Gemini Code Assist and the Gemini CLI.
+
+| Plan | Price | Coding-relevant inclusions |
+|------|-------|----------------------------|
+| Google AI Plus | €7.99/month | Limited Jules tasks, limited Antigravity agent requests, limited AI Studio model access, limited Gemini Code Assist + CLI daily requests |
+| Google AI Pro | €21.99/month | Expanded Jules tasks and concurrency, higher Antigravity requests, higher AI Studio access, higher Code Assist + CLI quotas, **$10/month Google Cloud credits** |
+| Google AI Ultra | €274.99/month | Highest Jules tasks/concurrency and latest models, highest Antigravity quota, highest AI Studio + Code Assist + CLI quotas, **$100/month Google Cloud credits** |
+
+A few things to flag:
+
+- Google publishes the *shape* of the limits ("limited / higher / highest") rather than concrete request counts, so unlike GitHub's credit math you cannot calculate per-task cost in advance. Treat these as soft caps to monitor, not hard SLAs.
+- The $10 and $100 Google Cloud credits on Pro and Ultra effectively offset some Gemini API usage, which makes the subscription useful even if you also call the API directly.
+- Jules is still in beta, English-only, and capacity is "subject to availability and not guaranteed" per Google's footnotes. Do not build a team workflow that assumes 100% Jules uptime today.
+- The $274.99/month Ultra tier is priced at individual power users and AI-heavy creators. For a typical engineer who mostly wants Code Assist, CLI, and Jules access, Pro at €21.99 is the sensible entry point. Anything beyond that, the API is usually a better fit because you actually see what you are spending.
+
+Source: [Google AI plans](https://one.google.com/about/google-ai-plans/)
+
 ---
 
 ## What a typical session actually costs
@@ -204,7 +223,7 @@ The pricing signals are clear. Every major provider is converging on the same mo
 - GitHub Copilot has been multi-vendor for a while; usage-based billing just makes the per-vendor cost visible to the buyer, with some models (xAI, fine-tuned previews) gated behind admin policy
 - Anthropic offers fixed subscriptions (Pro and Max) alongside per-token API access
 - OpenAI has always been pay-per-token on the API side
-- Google Gemini is competitive on cheaper and mid-tier agent workloads, especially Flash and Flash-Lite
+- Google Gemini is competitive on cheaper and mid-tier agent workloads, especially Flash and Flash-Lite, and also offers flat-rate consumer subscriptions (AI Plus, Pro, Ultra) that bundle Jules, Antigravity, and Code Assist
 
 The teams that will pay the least per unit of value are the ones that pick the right model for each task, cache aggressively, and stop using frontier models for tasks that a $0.25/MTok model handles fine.
 
