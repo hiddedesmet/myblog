@@ -7,7 +7,7 @@ tags: [github-copilot, agents-md, agent-md, skill-md, instructions-md, prompt-md
 author: hidde
 description: "Five customization files, one .NET Aspire repo, one complete agent setup. How AGENTS.md, .instructions.md, SKILL.md, .prompt.md, and .agent.md work together in practice."
 image: /images/agent-fleet.png
-featured: true
+featured: false
 toc: true
 ---
 

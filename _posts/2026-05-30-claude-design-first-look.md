@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Claude Design: a first look at Anthropic's new visual workspace"
-date: 2026-05-12
+date: 2026-05-30
 categories: [AI, Design]
 tags: [claude, claude-design, anthropic, prototyping, design-systems, ai-assisted-design, claude-code]
 author: hidde
