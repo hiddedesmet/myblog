@@ -7,7 +7,7 @@ tags: [ai, copilot, claude-code, openai, anthropic, github-copilot, pricing, dev
 author: hidde
 description: "A quick chat costs about $0.0015. A heavy agent session costs $5. GitHub just admitted flat-rate pricing can't survive this gap. Here's what AI coding agents actually cost at team scale, with real numbers from official sources."
 image: /images/freelunch.png
-featured: true
+featured: false
 toc: true
 ---
 
