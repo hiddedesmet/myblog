@@ -142,6 +142,24 @@
     }
   }
 
+  .widget-social__link .icon-sessionize {
+    display: block;
+    width: 1em;
+    height: 1em;
+    background-image: url("https://sessionize.com/landing/images/brand/logo/sessionize-avatar.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+
+  .widget-social__link .icon-sessionize::before {
+    content: "";
+  }
+
+  .widget-social__link:hover .icon-sessionize {
+    filter: brightness(0) invert(1);
+  }
+
   @media (max-width: $tablet) {
     .widget-social__list {
       gap: 8px;
