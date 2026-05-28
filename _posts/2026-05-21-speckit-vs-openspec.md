@@ -7,7 +7,7 @@ tags: [ai-assisted-development, spec-kit, openspec, github, copilot, claude, spe
 author: hidde
 description: "Spec-Kit and OpenSpec are two prominent spec-driven workflows for AI coding agents. They look similar on the surface and diverge sharply once you actually use them. Here's how they compare on workflow, philosophy, brownfield support, and customization."
 image: /images/speckit-vs-openspec.png
-featured: true
+featured: false
 toc: true
 ---
 
