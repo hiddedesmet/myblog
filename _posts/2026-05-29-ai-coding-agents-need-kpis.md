@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "AI coding agents need KPIs: how to measure speed, quality, reliability, and cost"
-date: 2026-06-03 09:00:00 +0000
+date: 2026-05-29 09:00:00 +0000
 categories: [AI, Development, DevOps]
-tags: [ai, github-copilot, claude-code, engineering-metrics, productivity, governance, spec-driven-development, agents]
+tags: [ai, github-copilot, claude-code, engineering-metrics, productivity, governance, agents]
 author: hidde
 description: "A follow-up to the real cost of AI coding agents: how to turn usage-based billing, AI credits, model mix, and engineering outcomes into a practical KPI scorecard."
 image: '/images/kpi.png'
@@ -217,6 +217,10 @@ What does not work: claiming a baseline from gut feel, or comparing this quarter
   - security-sensitive changes flagged
   - spec/task link present for non-trivial changes
 
+<div class="tip" markdown="1">
+**Platform-level enforcement:** as of May 26, 2026, GitHub added [targeted model rules](https://github.blog/changelog/2026-05-26-target-copilot-models-to-organizations-with-model-rules/) for enterprise owners. You can now configure which Copilot models are available per organization, and set each model's availability to **Enabled** (automatically on for all orgs) or **Optional** (each org decides whether to enable it). This moves model policy from team convention into platform configuration — so "cheap by default, frontier by exception" becomes enforceable rather than advisory. Available to Copilot Business and Copilot Enterprise customers.
+</div>
+
 ### Days 61-90: optimize and decide
 
 - Compare high-performing and low-performing PR patterns
@@ -404,6 +408,8 @@ The same expensive model gets used for tiny edits and hard architecture work.
 - mid-tier models for normal multi-file implementation
 - frontier models for ambiguous, high-risk, or architecture-heavy work
 
+GitHub's [targeted model rules](https://github.blog/changelog/2026-05-26-target-copilot-models-to-organizations-with-model-rules/) (released May 26, 2026) give enterprise admins a platform-level mechanism to enforce this tiering. Setting frontier models to *Optional* means organizations must explicitly opt in to enable them, rather than having every engineer reach for GPT-5.5 or Claude Opus 4.8 by default. You can also create targeted rules that allow specific models only for selected organizations — useful when one team legitimately needs frontier access and others do not.
+
 ### 4) Metric gaming (Goodhart's Law)
 
 People optimize what is visible and ignore what matters.
@@ -451,7 +457,7 @@ With KPIs, it is engineering.
 
 Everything above is a working framework, not a settled one.
 
-Usage-based billing for AI coding has barely started in most organisations. GitHub's AI Credits model started on June 1, 2026, two days before this post is dated. The first-generation Copilot metrics API has only been GA since October 2024, and the current report-based usage metrics API and `aic_*` fields are much newer than that. There is no five-year benchmark dataset to point at, no industry-standard scorecard, and no consultancy that has run this playbook through a full annual cycle. Anyone selling you certainty here is selling you something.
+Usage-based billing for AI coding has barely started in most organisations. GitHub's AI Credits model launches on June 1, 2026, just days after this post is dated. The first-generation Copilot metrics API has only been GA since October 2024, and the current report-based usage metrics API and `aic_*` fields are much newer than that. There is no five-year benchmark dataset to point at, no industry-standard scorecard, and no consultancy that has run this playbook through a full annual cycle. Anyone selling you certainty here is selling you something.
 
 What is actually happening, across most engineering orgs right now: people are entering the first month under the new pricing, reading the billing docs for the first time, and trying to figure out which model choices and which workflows will actually be worth the spend. Token optimization is a live research problem, not a solved one. Best practices are being written in public, in real time, by people who are equally in the dark.
 
@@ -465,6 +471,18 @@ That is why the community tooling matters. A few examples worth knowing:
 None of these tools give you the full picture on their own. The scorecard in this post is my current best attempt to combine them into something a leadership team can act on. Expect it to change. Expect your own version to look different in six months. That is the work.
 
 If you have a better dashboard, a sharper metric, or a war story about a KPI that backfired, I want to hear it. We are all writing this playbook together.
+
+---
+
+## Closing thought
+
+Most teams do not fail with AI coding agents because the models are bad. They fail because they cannot separate speed gains from quality debt and cost noise. By the time finance notices the bill, the conversation is already defensive.
+
+A scorecard is not optional anymore. It is the only thing that lets you say "yes, expand this", "no, pull this back", or "change how we use it" without it being a fight.
+
+Keep it boring. Keep it team-level. Tie every number to a decision someone will actually make.
+
+Then you can argue about prompts and model mix all day, because the foundation is no longer the argument.
 
 ---
 
@@ -494,15 +512,5 @@ If you have a better dashboard, a sharper metric, or a war story about a KPI tha
 - [Xebia GitHub Copilot Premium Requests Usage Analyzer (open source)](https://github.com/xebia/github-copilot-premium-reqs-usage)
 - [AI Engineering Fluency by Rob Bos (open source)](https://github.com/rajbos/ai-engineering-fluency)
 - [AI Engineering Fluency: tracking your AI coding habits (devopsjournal.io)](https://devopsjournal.io/blog/2026/05/15/ai-engineering-fluency-extension)
-
----
-
-## Closing thought
-
-Most teams do not fail with AI coding agents because the models are bad. They fail because they cannot separate speed gains from quality debt and cost noise. By the time finance notices the bill, the conversation is already defensive.
-
-A scorecard is not optional anymore. It is the only thing that lets you say "yes, expand this", "no, pull this back", or "change how we use it" without it being a fight.
-
-Keep it boring. Keep it team-level. Tie every number to a decision someone will actually make.
-
-Then you can argue about prompts and model mix all day, because the foundation is no longer the argument.
+- [Target Copilot models to organizations with model rules](https://github.blog/changelog/2026-05-26-target-copilot-models-to-organizations-with-model-rules/)
+- [Managing availability of default models (GitHub Docs)](https://docs.github.com/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-availability-of-default-models)
