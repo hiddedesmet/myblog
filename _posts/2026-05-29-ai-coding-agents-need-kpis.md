@@ -219,7 +219,7 @@ What does not work: claiming a baseline from gut feel, or comparing this quarter
   - spec/task link present for non-trivial changes
 
 <div class="tip" markdown="1">
-**Platform-level enforcement:** as of May 26, 2026, GitHub added [targeted model rules](https://github.blog/changelog/2026-05-26-target-copilot-models-to-organizations-with-model-rules/) for enterprise owners. You can now configure which Copilot models are available per organization, and set each model's availability to **Enabled** (automatically on for all orgs) or **Optional** (each org decides whether to enable it). This moves model policy from team convention into platform configuration — so "cheap by default, frontier by exception" becomes enforceable rather than advisory. Available to Copilot Business and Copilot Enterprise customers.
+**Platform-level enforcement:** as of May 26, 2026, GitHub added [targeted model rules](https://github.blog/changelog/2026-05-26-target-copilot-models-to-organizations-with-model-rules/) for enterprise owners. You can now configure which Copilot models are available per organization, and set each model's availability to **Enabled** (automatically on for all orgs) or **Optional** (each org decides whether to enable it). This moves model policy from team convention into platform configuration, so "cheap by default, frontier by exception" becomes enforceable rather than advisory. Available to Copilot Business and Copilot Enterprise customers.
 </div>
 
 ### Days 61-90: optimize and decide
@@ -409,7 +409,7 @@ The same expensive model gets used for tiny edits and hard architecture work.
 - mid-tier models for normal multi-file implementation
 - frontier models for ambiguous, high-risk, or architecture-heavy work
 
-GitHub's [targeted model rules](https://github.blog/changelog/2026-05-26-target-copilot-models-to-organizations-with-model-rules/) (released May 26, 2026) give enterprise admins a platform-level mechanism to enforce this tiering. Setting frontier models to *Optional* means organizations must explicitly opt in to enable them, rather than having every engineer reach for GPT-5.5 or Claude Opus 4.8 by default. You can also create targeted rules that allow specific models only for selected organizations — useful when one team legitimately needs frontier access and others do not.
+GitHub's [targeted model rules](https://github.blog/changelog/2026-05-26-target-copilot-models-to-organizations-with-model-rules/) (released May 26, 2026) give enterprise admins a platform-level mechanism to enforce this tiering. Setting frontier models to *Optional* means organizations must explicitly opt in to enable them, rather than having every engineer reach for GPT-5.5 or Claude Opus 4.8 by default. You can also create targeted rules that allow specific models only for selected organizations, which is useful when one team legitimately needs frontier access and others do not.
 
 ### 4) Metric gaming (Goodhart's Law)
 
