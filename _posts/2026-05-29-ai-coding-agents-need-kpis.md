@@ -172,8 +172,8 @@ gantt
 
     section Optimize and Scale (Day 61-90)
   Compare patterns               :2026-08-02, 15d
-  Cut low-value spend            :2026-08-10, 12d
-  Scale decision                 :2026-08-22, 10d
+  Cut waste                      :2026-08-10, 12d
+  Scale call                     :2026-08-22, 10d
 ```
 
 ### Days 1-30: baseline and instrumentation
