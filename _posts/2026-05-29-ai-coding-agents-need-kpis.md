@@ -154,25 +154,26 @@ This also keeps the post aligned with the earlier budget recommendation: teams t
 ## 30-60-90 rollout plan
 
 ```mermaid
+%%{init: {"gantt": {"barHeight": 26, "barGap": 6}}}%%
 gantt
     title KPI rollout for AI coding agents
     dateFormat  YYYY-MM-DD
     axisFormat  %b %d
 
     section Baseline (Day 1-30)
-    Define KPI definitions         :2026-06-03, 10d
-    Collect baseline               :2026-06-11, 20d
-    Add PR metadata + attribution  :2026-06-15, 25d
+  Define KPIs                    :2026-06-03, 10d
+  Collect baseline               :2026-06-11, 20d
+  PR metadata                    :2026-06-15, 25d
 
     section Controlled Usage (Day 31-60)
-    Set default model policy       :2026-07-03, 12d
-    Add review guardrails          :2026-07-09, 16d
-    Start weekly scorecard         :2026-07-13, 20d
+  Model policy                   :2026-07-03, 12d
+  Review guardrails              :2026-07-09, 16d
+  Weekly scorecard               :2026-07-13, 20d
 
     section Optimize and Scale (Day 61-90)
-    Compare workflow patterns      :2026-08-02, 15d
-    Remove low-value spend         :2026-08-10, 12d
-    Decide scale or redesign       :2026-08-22, 10d
+  Compare patterns               :2026-08-02, 15d
+  Cut low-value spend            :2026-08-10, 12d
+  Scale decision                 :2026-08-22, 10d
 ```
 
 ### Days 1-30: baseline and instrumentation
