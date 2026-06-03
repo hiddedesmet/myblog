@@ -8,7 +8,24 @@ image_caption: My family and I
 ---
 
 ## biography
-As a certified Azure Solution Architect, I specialize in designing, implementing, and managing cloud-based solutions using Scrum and DevOps methodologies. My expertise lies in supporting applications throughout their lifecycle and advocating for agile processes, DevOps, testing, and continuous delivery. I am passionate about utilizing cloud technology and best practices to optimize performance, reduce costs, and align with business objectives. My commitment to continuous learning and industry developments positions me as an ideal candidate to drive digital transformation and the adoption of agile practices in any organization.
+As a certified Azure Solution Architect and Microsoft MVP, I specialize in designing, implementing, and managing cloud-based solutions using Scrum and DevOps methodologies. My expertise lies in supporting applications throughout their lifecycle and advocating for agile processes, DevOps, testing, and continuous delivery. I am passionate about utilizing cloud technology and best practices to optimize performance, reduce costs, and align with business objectives. My commitment to continuous learning and industry developments positions me as an ideal candidate to drive digital transformation and the adoption of agile practices in any organization.
+
+## Recognition
+
+I was awarded Microsoft Most Valuable Professional (MVP) status for 2026–2027 in two categories:
+
+- **Azure Infrastructure as Code** (Azure)
+- **Developer Tools** (Developer Technologies)
+
+<a href="https://www.credly.com/badges/5dc09d00-c7a5-43c1-bf97-facadf4ce410" target="_blank" rel="noopener noreferrer">
+  <img src="https://images.credly.com/size/340x340/images/71ec124b-1646-4086-a241-1c32b7b31047/blob" alt="2026-2027 Microsoft Most Valuable Professional (MVP)">
+</a>
+
+I also hold the Microsoft Certified Trainer (MCT) credential for 2026.
+
+<a href="https://www.credly.com/badges/d4c35186-19de-4044-8e95-d49a3c17f7c5" target="_blank" rel="noopener noreferrer">
+  <img src="https://images.credly.com/size/340x340/images/b81c1cec-da9d-4587-976c-ad8562f85e95/blob" alt="Microsoft Certified Trainer (MCT) 2026">
+</a>
 
 ## roles
 - **azure (solution) architect**  
