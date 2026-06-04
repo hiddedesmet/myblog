@@ -50,7 +50,6 @@ The GitHub Copilot App is a native desktop application for macOS, Windows, and L
 ![The GitHub Copilot App showing the inbox and an active agent session](/images/copilot-app-window.png)
 
 **Availability (as of June 2026):** Copilot Pro, Pro+, Business, and Enterprise users can download and use the app now. Copilot Free users and users without a Copilot plan still need the waitlist. For Business and Enterprise, org admins must enable preview features and Copilot CLI.
-
 ![Live GitHub Copilot App session showing agent conversation, files, and terminal output](/images/copilot-app-live-session.png)
 *Live GitHub Copilot App session in progress.*
 
