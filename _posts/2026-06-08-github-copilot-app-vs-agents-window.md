@@ -87,7 +87,7 @@ The Agents Window is a dedicated window mode in VS Code. Not a new product. Not 
 
 The framing VS Code uses is deliberate: the editor window is **code-first**, the Agents Window is **agent-first**. They share sessions, settings, and keybindings. Switching between them is switching windows, not switching tools.
 
-![The VS Code Agents Window with the sessions list and Changes panel](/images/vscode-agents-window.png)
+![The VS Code Agents Window with the sessions list and Changes panel](/images/vscode-agents-window-live-session.png)
 
 ### Sessions across workspaces
 
