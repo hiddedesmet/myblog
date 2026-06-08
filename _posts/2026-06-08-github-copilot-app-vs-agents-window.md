@@ -27,6 +27,8 @@ If your question is **"GitHub Copilot App vs VS Code Agents Window: which should
 - Use **VS Code Agents Window** when you still write code in VS Code and want agent sessions isolated from your editor flow.
 - Stay in the **main VS Code editor window** for day-to-day code-first development where AI is assisting, not leading.
 
+My short personal version: the GitHub Copilot App is the most fun I have had with a Copilot surface in a while. It feels opinionated in the right way. You give it a piece of work, watch the session unfold, review the result, and keep moving.
+
 ---
 
 ## How we got here
@@ -78,18 +80,22 @@ The app includes an integrated terminal and browser scoped to each session. You 
 
 In most current agent workflows, the last stretch is still manual. The agent finishes the implementation, a reviewer leaves a comment about error handling on line 42, and somebody has to pick that up. Agent Merge absorbs that step into the session. It runs in the background, survives app restarts, and turns itself off once the pull request is merged.
 
-**Canvases** handle the other half of the review problem: output that is hard to give feedback on when it lives only in the chat stream. Say the agent drafts a technical spec or generates a chart from your data. Instead of reading it inline and replying in text, a canvas opens it as a separate editable artifact beside the conversation. You mark up the spec directly, the agent picks up your changes, and the conversation thread stays intact. For browser previews the same model applies: the agent renders a live page in a canvas tab, you click around and flag what is wrong, and it updates in the same session.
+**Canvases** handle the other half of the review problem: output that is hard to give feedback on when it lives only in the chat stream. Say the agent drafts a technical spec or generates a chart from your data. Instead of reading it inline and replying in text, a canvas opens it as a separate editable artifact beside the conversation.
+
+You mark up the spec directly. The agent picks up your changes, and the conversation thread stays intact.
+
+Browser previews use the same idea. The app can open browser tabs inside the session, and the agent can interact with the integrated browser preview: navigate pages, read content, take screenshots, click, and type. This is an embedded preview within the desktop app. 
 
 ### Session controls are now deeper
 
-Beyond the core flow, current docs show three session modes (Interactive, Plan, Autopilot), per-session model and reasoning controls, and optional cloud sandboxes for isolated remote runs. The app now also documents first-class customization support: MCP servers, skills, extensions, and plugins.
+Beyond the core flow, current docs show three session modes (Interactive, Plan, Autopilot), per-session model and reasoning controls, and optional cloud sandboxes for isolated remote runs. GitHub's documentation now shows first-class customization support: MCP servers, skills, extensions, and plugins.
 
 There are four details worth not missing:
 
 - **Automations** save recurring agent tasks and run them on a schedule or on demand.
 - **Repository configuration** can come from `.github/github-app.yml`, but the app asks you to review and trust that file before applying customizations such as scripts, system-prompt changes, or automation settings.
 - **Cloud sandboxes have separate usage billing.** Local sandboxing is included with the Copilot seat, but cloud sandboxes are billed by compute time, memory, and snapshot storage.
-- **Public-code matching has a caveat.** GitHub's docs say the Copilot app may generate code that is a match or near match of public code, even if the usual "Suggestions matching public code" policy is set to block.
+- **Public-code matching caveat.** GitHub's docs say the Copilot app may generate code that is a match or near match of public code, even if the usual "Suggestions matching public code" policy is set to block.
 
 ---
 
@@ -142,7 +148,8 @@ Both surfaces do the same fundamental thing: move agent sessions out of the edit
 | **GitHub integration** | Native (issues, PRs, inbox, CI status) | Via GitHub Pull Requests extension |
 | **Agent Merge** | Yes | No |
 | **Automations** | Scheduled or on-demand agent tasks | Session/sub-session focused |
-| **Browser access** | No | insiders.vscode.dev/agents |
+| **Integrated browser preview** | Yes, including browser-agent tools | Yes, through VS Code/browser tooling |
+| **Browser-hosted access** | Not documented as a browser-hosted app | Yes, via insiders.vscode.dev/agents |
 | **Code editing** | No | Full VS Code capabilities |
 | **Customizations UI** | Yes (MCP, skills, extensions, plugins) | Yes (agents, skills, instructions, hooks, MCP, plugins) |
 | **Multiple repos simultaneously** | Yes | Grouped by workspace |
@@ -165,7 +172,9 @@ You are writing code with AI assistance, not delegating tasks. Agent mode in the
 
 The chat panel served its moment. It put the agent adjacent to your code because that was the only available surface in 2023. These two releases fit a different workflow: you direct a session instead of typing every change yourself. That needs isolation, statefulness, and a management surface that does not compete with your own editing.
 
-The GitHub Copilot App fits GitHub-native workflows. Agent Merge is the specific capability worth watching. A lot of agent sessions stall on a review comment or a small CI failure. Bringing that closing step inside the session means fewer tasks that need a human to pick them back up.
+The GitHub Copilot App fits GitHub-native workflows. It is also just really enjoyable to use. That matters more than it sounds. Tools for managing agent work can easily feel like dashboards: useful, but heavy. This app feels closer to a control room. Start a session, watch it plan, inspect the files, open the browser preview, nudge it, and let it continue. It makes agent work feel less like babysitting a terminal and more like directing a small workstream.
+
+Agent Merge is the specific capability worth watching. A lot of agent sessions stall on a review comment or a small CI failure. Bringing that closing step inside the session means fewer tasks that need a human to pick them back up.
 
 The VS Code Agents Window has the stronger story for daily development. It requires nothing new from your existing setup. The Customizations panel gives a management surface to the configuration work many VS Code users have already done. Browser access via dev tunnel is a quiet feature with a practical use: a long-running session stays accessible from anywhere without re-establishing context.
 
