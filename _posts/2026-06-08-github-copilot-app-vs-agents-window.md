@@ -47,11 +47,10 @@ The shared logic: a sidebar next to your code is not the right place to manage w
 
 The GitHub Copilot App is a native desktop application for macOS, Windows, and Linux. It is not a VS Code extension. It is distributed at [github.com/github/app](https://github.com/github/app), currently in technical preview, and shipping frequent updates (currently in the `v0.2.x` line).
 
-![The GitHub Copilot App showing the inbox and an active agent session](/images/copilot-app-window.png)
-
-**Availability (as of June 2026):** Copilot Pro, Pro+, Max, Business, and Enterprise users can download and use the app now, with no waitlist. Copilot Free users and new subscribers are opening soon. For Business and Enterprise, org admins must enable preview features and Copilot CLI.
 ![Live GitHub Copilot App session showing agent conversation, files, and terminal output](/images/copilot-app-live-session.png)
 *Live GitHub Copilot App session in progress.*
+
+**Availability (as of June 2026):** Copilot Pro, Pro+, Max, Business, and Enterprise users can download and use the app now, with no waitlist. Copilot Free users and new subscribers are opening soon. For Business and Enterprise, org admins must enable preview features and Copilot CLI.
 
 The app organizes work around three ideas.
 
