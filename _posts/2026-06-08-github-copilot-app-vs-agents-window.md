@@ -5,15 +5,15 @@ date: 2026-06-08 09:00:00 +0000
 categories: [AI, Development]
 tags: [github-copilot, ai-assisted-development, agents, vscode, developer-tools]
 author: hidde
-description: "GitHub Copilot App is now open to Pro, Pro+, Business, and Enterprise users. Compare it with the VS Code Agents Window and pick the right surface for each workflow."
+description: "GitHub Copilot App is now open to Pro, Pro+, Max, Business, and Enterprise users. Compare it with the VS Code Agents Window and pick the right surface for each workflow."
 image: '/images/agent.png'
 featured: false
 toc: true
 ---
 
-> **Update (June 2026):** The GitHub Copilot app is still in technical preview, but access is now open to paid Copilot plans (Pro, Pro+, Business, Enterprise). Copilot Free and users without a Copilot plan still need the waitlist.
+> **Update (June 2026):** The GitHub Copilot app is still in technical preview, but access is now open to all existing paid Copilot plans (Pro, Pro+, Max, Business, Enterprise) with no waitlist. Copilot Free and new subscribers are opening soon.
 
-If you are on Pro, Pro+, Business, or Enterprise, you can install the GitHub Copilot app today. No waitlist.
+If you are on Pro, Pro+, Max, Business, or Enterprise, you can install the GitHub Copilot app today. No waitlist.
 
 VS Code has the same directional move: an "Open in Agents" button in the title bar. Not another sidebar tab. A separate window built for managing agent sessions instead of writing code.
 
@@ -49,7 +49,7 @@ The GitHub Copilot App is a native desktop application for macOS, Windows, and L
 
 ![The GitHub Copilot App showing the inbox and an active agent session](/images/copilot-app-window.png)
 
-**Availability (as of June 2026):** Copilot Pro, Pro+, Business, and Enterprise users can download and use the app now. Copilot Free users and users without a Copilot plan still need the waitlist. For Business and Enterprise, org admins must enable preview features and Copilot CLI.
+**Availability (as of June 2026):** Copilot Pro, Pro+, Max, Business, and Enterprise users can download and use the app now, with no waitlist. Copilot Free users and new subscribers are opening soon. For Business and Enterprise, org admins must enable preview features and Copilot CLI.
 ![Live GitHub Copilot App session showing agent conversation, files, and terminal output](/images/copilot-app-live-session.png)
 *Live GitHub Copilot App session in progress.*
 
@@ -71,9 +71,11 @@ This matters because long agent tasks compete with your working environment insi
 
 The app includes an integrated terminal and browser scoped to each session. You review plan, changes, comments, and CI before merging.
 
-The standout capability here is **Agent Merge**. After you approve the direction, the agent can automatically address pull request review comments, fix failing CI checks, and merge once your specified conditions are met.
+**Agent Merge** is the key capability. After you approve the direction, the agent automatically addresses pull request review comments, fixes failing CI checks, and merges once your specified conditions are met.
 
 In most current agent workflows, the last stretch is still manual. The agent finishes the implementation, a reviewer leaves a comment about error handling on line 42, and somebody has to pick that up. Agent Merge absorbs that step into the session. It runs in the background, survives app restarts, and turns itself off once the pull request is merged.
+
+Canvases handle the other half of the review problem: output that is hard to give feedback on when it lives only in the chat stream. Say the agent drafts a technical spec or generates a chart from your data. Instead of reading it inline and replying in text, a canvas opens it as a separate editable artifact beside the conversation. You mark up the spec directly, the agent picks up your changes, and the conversation thread stays intact. For browser previews the same model applies: the agent renders a live page in a canvas tab, you click around and flag what is wrong, and it updates in the same session.
 
 ### Session controls are now deeper
 
@@ -105,11 +107,11 @@ The Changes panel shows the full diff for a session. Inside the diff view, you c
 
 ### Customizations panel
 
-One panel manages everything that configures agent behavior: skills, instruction files, hooks, MCP servers, and plugins. If you have built a customization stack — the [SKILL.md files](https://hiddedesmet.com/skills-md-github-copilot), [AGENTS.md and .agent.md configuration](https://hiddedesmet.com/agent-md-explained), and the [five-file setup that ties them together](https://hiddedesmet.com/building-a-complete-agent-fleet) — the Customizations panel is the management UI for all of it. No digging through directory trees.
+One panel manages everything that configures agent behavior: skills, instruction files, hooks, MCP servers, and plugins. If you have built a customization stack with [SKILL.md files](https://hiddedesmet.com/skills-md-github-copilot), [AGENTS.md and .agent.md configuration](https://hiddedesmet.com/agent-md-explained), and the [five-file setup that ties them together](https://hiddedesmet.com/building-a-complete-agent-fleet), the Customizations panel is the management UI for all of it. No digging through directory trees.
 
 ### Browser access and sub-sessions
 
-`insiders.vscode.dev/agents` gives you the full Agents Window from any browser on any device — but it requires a dev tunnel running on the remote machine first. Start one with `code tunnel` (stable) or `code-insiders tunnel` (Insiders), authenticate once with GitHub or Microsoft, and any device with a browser can connect. A session running on your desktop is then accessible from a tablet, a different machine, or a coffee shop without losing state.
+`insiders.vscode.dev/agents` gives you the full Agents Window from any browser on any device, but it requires a dev tunnel running on the remote machine first. Start one with `code tunnel` (stable) or `code-insiders tunnel` (Insiders), authenticate once with GitHub or Microsoft, and any device with a browser can connect. A session running on your desktop is then accessible from a tablet, a different machine, or a coffee shop without losing state.
 
 Sessions also support sub-sessions: parallel agent tasks scoped within the same workspace, coordinated from the same Agents Window.
 
@@ -124,7 +126,7 @@ Both surfaces do the same fundamental thing: move agent sessions out of the edit
 | **Surface type** | Standalone desktop app | VS Code window mode |
 | **Built on** | Copilot CLI | VS Code + extensions |
 | **Current status** | Technical preview (`v0.2.x` line) | Preview feature available in current VS Code builds |
-| **Availability** | Pro, Pro+, Business, Enterprise (Free/no-plan waitlist) | Any VS Code user signed into Copilot (including Free plan limits) |
+| **Availability** | Pro, Pro+, Max, Business, Enterprise (Free/new subscribers opening soon) | Any VS Code user signed into Copilot (including Free plan limits) |
 | **Requires VS Code** | No | Yes |
 | **Session isolation** | Own branch + worktree per session | Git worktree per session |
 | **GitHub integration** | Native (issues, PRs, inbox, CI status) | Via GitHub Pull Requests extension |
@@ -150,20 +152,20 @@ You are writing code with AI assistance, not delegating tasks. Agent mode in the
 
 ## My take
 
-The chat panel served its moment. It put the agent adjacent to your code because that was the only available surface in 2023. These two releases are the first honest answer to what "AI does the work, you direct it" actually requires: session isolation, statefulness, and a management surface that does not compete with your own editing.
+The chat panel served its moment. It put the agent adjacent to your code because that was the only available surface in 2023. These two releases fit a different workflow: you direct a session instead of typing every change yourself. That needs isolation, statefulness, and a management surface that does not compete with your own editing.
 
-The GitHub Copilot App has the stronger story for GitHub-native workflows. Agent Merge is the specific capability worth watching. The number of agent sessions that stall on a review comment or a small CI failure is high. Bringing that closing step inside the session changes the completion rate in a real way.
+The GitHub Copilot App fits GitHub-native workflows. Agent Merge is the specific capability worth watching. A lot of agent sessions stall on a review comment or a small CI failure. Bringing that closing step inside the session means fewer tasks that need a human to pick them back up.
 
 The VS Code Agents Window has the stronger story for daily development. It requires nothing new from your existing setup. The Customizations panel gives a management surface to the configuration work many VS Code users have already done. Browser access via dev tunnel is a quiet feature with a practical use: a long-running session stays accessible from anywhere without re-establishing context.
 
-The two are not competing. They address the same shift from different angles. The GitHub Copilot App is for orchestrating work you are mostly not writing. The Agents Window is for developers who still write code but want agent work fully separated from it. Both get the core insight right: agent sessions are units of work with state, not conversations that disappear when you close a window.
+The two are not competing. The GitHub Copilot App is for orchestrating work you are mostly not writing. The Agents Window is for developers who still write code but want agent work fully separated from it. Both treat agent sessions as units of work with state, not conversations that disappear when you close a window.
 
 ---
 
 ## Get started
 
-**Try `code --agents` today.** It is available as a preview feature in current VS Code builds. No additional extension required. Open a session and look at the Customizations panel — if you have instruction files or MCP servers configured, they are already listed there.
+**Try `code --agents` today.** It is available as a preview feature in current VS Code builds. No additional extension required. Open a session and look at the Customizations panel. If you have instruction files or MCP servers configured, they are already listed there.
 
-**Install the GitHub Copilot App directly.** If you are on Pro, Pro+, Business, or Enterprise, download it from [github.com/github/app](https://github.com/github/app). If you are on Copilot Free or no Copilot plan, join the waitlist from the same page.
+**Install the GitHub Copilot App directly.** If you are on Pro, Pro+, Max, Business, or Enterprise, download it from [github.com/github/app](https://github.com/github/app). If you are on Copilot Free or no Copilot plan, access is opening soon.
 
 **Check your credits before you scale up.** Both surfaces consume AI Credits under GitHub's usage-based billing. [The per-model rates and full cost breakdown are here](/the-real-cost-of-ai-coding-agents.html).
