@@ -76,15 +76,23 @@ Not every conversation needs that machinery. **Quick chats** let you ask questio
 
 The app includes an integrated terminal and browser scoped to each session. You review plan, changes, comments, and CI before merging.
 
-**Agent Merge** is the key capability. After you approve the direction, the agent automatically addresses pull request review comments, fixes failing CI checks, and merges once your specified conditions are met.
+**Agent Merge** is the key capability. It is not just a merge button with a sparkle icon. When you enable it on a pull request, the workspace's Copilot session reads the pull request, watches the review and CI state, fixes what is blocking the PR, and merges as soon as GitHub allows it.
 
-In most current agent workflows, the last stretch is still manual. The agent finishes the implementation, a reviewer leaves a comment about error handling on line 42, and somebody has to pick that up. Agent Merge absorbs that step into the session. It runs in the background, survives app restarts, and turns itself off once the pull request is merged.
+That last clause matters. Agent Merge does not bypass branch protection, required checks, or review rules. It sits in the boring gap between "the code is basically done" and "the PR is actually merged." If a reviewer leaves a comment, the agent can pick it up. If CI fails, the agent can investigate and push a fix. If checks are still pending, current releases re-check CI and pull request status every 10 minutes instead of leaving the task stranded in a wait state.
 
-**Canvases** handle the other half of the review problem: output that is hard to give feedback on when it lives only in the chat stream. Say the agent drafts a technical spec or generates a chart from your data. Instead of reading it inline and replying in text, a canvas opens it as a separate editable artifact beside the conversation.
+This is where a surprising amount of agent work dies today. The agent finishes the implementation, a reviewer asks for clearer error handling on line 42, one test flakes, or a required check takes 18 minutes. Nothing is conceptually hard anymore, but the task returns to a human queue. Someone has to notice it, reopen context, decide whether the agent should continue, and nudge it forward.
 
-You mark up the spec directly. The agent picks up your changes, and the conversation thread stays intact.
+Agent Merge keeps that loop attached to the original session. It runs in the background, survives app restarts, and turns itself off once the pull request is merged. That sounds small until you have five agent-created PRs waiting on small comments and CI tails. Then it is the difference between "I delegated this" and "I created five new things to babysit."
 
-Browser previews use the same idea. The app can open browser tabs inside the session, and the agent can interact with the integrated browser preview: navigate pages, read content, take screenshots, click, and type. This is an embedded preview within the desktop app. 
+**Canvases** handle the other half of the review problem: output that is hard to give feedback on when it lives only in the chat stream. GitHub describes them as custom, agent-driven artifacts and interfaces where people and agents collaborate. In practice, that means the agent can put a plan, spec, document, chart, or preview into its own working surface instead of burying it between tool calls and status messages.
+
+That difference is bigger than it sounds. A technical spec in chat is something you react to. A spec in a canvas is something you edit. You can select text, use the markdown toolbar, work with tables, copy the full document, and leave comments on plan text. The artifact becomes part of the session, not a blob of assistant output you have to copy into another editor before it is useful.
+
+For agent workflows, this changes the feedback loop. Instead of writing "in paragraph three, change the rollout section and make the table clearer," you can mark up the document where the problem is. The agent keeps the session context, sees the artifact, and can revise from there. The conversation stays as the control thread; the canvas becomes the shared workbench.
+
+Charts make the point even more clearly. The app changelog calls out chart canvases updating live when the agent edits the backing artifact. That is the right model for generated analysis: you do not want a static screenshot of a chart trapped in chat. You want the generated artifact visible while the agent changes the data or the code behind it.
+
+Browser previews use the same idea. The app can open browser tabs inside the session, and the agent can interact with the integrated browser preview: navigate pages, read content, take screenshots, click, and type. Canvas and browser tabs can also be split side by side, so you can review a generated document, a running UI, or a chart without leaving the session. This is where the app starts to feel less like a terminal wrapper and more like a workspace for agent-produced work.
 
 ### Session controls are now deeper
 
