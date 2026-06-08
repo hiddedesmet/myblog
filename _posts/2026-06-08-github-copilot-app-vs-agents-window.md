@@ -74,7 +74,7 @@ The app includes an integrated terminal and browser scoped to each session. You 
 
 In most current agent workflows, the last stretch is still manual. The agent finishes the implementation, a reviewer leaves a comment about error handling on line 42, and somebody has to pick that up. Agent Merge absorbs that step into the session. It runs in the background, survives app restarts, and turns itself off once the pull request is merged.
 
-Canvases handle the other half of the review problem: output that is hard to give feedback on when it lives only in the chat stream. Say the agent drafts a technical spec or generates a chart from your data. Instead of reading it inline and replying in text, a canvas opens it as a separate editable artifact beside the conversation. You mark up the spec directly, the agent picks up your changes, and the conversation thread stays intact. For browser previews the same model applies: the agent renders a live page in a canvas tab, you click around and flag what is wrong, and it updates in the same session.
+**Canvases** handle the other half of the review problem: output that is hard to give feedback on when it lives only in the chat stream. Say the agent drafts a technical spec or generates a chart from your data. Instead of reading it inline and replying in text, a canvas opens it as a separate editable artifact beside the conversation. You mark up the spec directly, the agent picks up your changes, and the conversation thread stays intact. For browser previews the same model applies: the agent renders a live page in a canvas tab, you click around and flag what is wrong, and it updates in the same session.
 
 ### Session controls are now deeper
 
