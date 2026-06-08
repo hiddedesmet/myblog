@@ -11,7 +11,7 @@ featured: true
 toc: true
 ---
 
-> **Update (June 2026):** The GitHub Copilot app is still in technical preview, but access is now open to all existing paid Copilot plans (Pro, Pro+, Max, Business, Enterprise) with no waitlist. Copilot Free and new subscribers are opening soon.
+> **Current availability (June 2026):** The GitHub Copilot app is still in technical preview, but access is now open to all existing paid Copilot plans (Pro, Pro+, Max, Business, Enterprise) with no waitlist. Copilot Free and new subscribers are opening soon.
 
 If you are on Pro, Pro+, Max, Business, or Enterprise, you can install the GitHub Copilot app today. No waitlist.
 
