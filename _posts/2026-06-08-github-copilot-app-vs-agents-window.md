@@ -47,6 +47,8 @@ The shared logic: a sidebar next to your code is not the right place to manage w
 
 The GitHub Copilot App is a native desktop application for macOS, Windows, and Linux. It is not a VS Code extension. It is distributed at [github.com/github/app](https://github.com/github/app), currently in technical preview, and shipping frequent updates (currently in the `v0.2.x` line).
 
+That repository is the public home for releases, issues, discussions, and the changelog. The application source lives elsewhere. You still need Git installed locally, plus an active Copilot subscription.
+
 ![Live GitHub Copilot App session showing agent conversation, files, and terminal output](/images/copilot-app-live-session.png)
 *Live GitHub Copilot App session in progress.*
 
@@ -56,15 +58,17 @@ The app organizes work around three ideas.
 
 ### Start from GitHub context
 
-Sessions launch from GitHub artifacts: an issue, a pull request, a saved prompt, or a previous session. The app shows an inbox of things that need attention across your repositories.
+Sessions launch from GitHub artifacts: an issue, a pull request, a saved prompt, or a previous session. The app shows a **My work** view for browsing and filtering issues and pull requests, checking CI status, and leaving reviews across your repositories. There is also repository search built into the app.
 
 When a session starts from an issue, the agent already has the issue body, repo state, branch, and CI history. You are not assembling context manually. You are navigating it.
 
 ### Focused sessions
 
-Each session gets its own isolated branch, worktree, file state, and conversation history. Pause at end of day, resume the next morning. Run three sessions across different repositories at the same time.
+Code-changing sessions usually run in an isolated workspace with its own branch, worktree, file state, and conversation history. The app also supports branch or folder-backed workspaces when that fits the project better, and GitHub documents cloud sandboxes as a public preview option for app sessions. Pause at end of day, resume the next morning. Run three sessions across different repositories at the same time.
 
 This matters because long agent tasks compete with your working environment inside an IDE. You edit one file, the agent edits another, and you are context-switching in both directions. Focused sessions remove that. The agent has its own space; you have yours.
+
+Not every conversation needs that machinery. **Quick chats** let you ask questions or brainstorm without creating a branch or worktree.
 
 ### Steer, validate, ship
 
@@ -79,6 +83,13 @@ In most current agent workflows, the last stretch is still manual. The agent fin
 ### Session controls are now deeper
 
 Beyond the core flow, current docs show three session modes (Interactive, Plan, Autopilot), per-session model and reasoning controls, and optional cloud sandboxes for isolated remote runs. The app now also documents first-class customization support: MCP servers, skills, extensions, and plugins.
+
+There are four details worth not missing:
+
+- **Automations** save recurring agent tasks and run them on a schedule or on demand.
+- **Repository configuration** can come from `.github/github-app.yml`, but the app asks you to review and trust that file before applying customizations such as scripts, system-prompt changes, or automation settings.
+- **Cloud sandboxes have separate usage billing.** Local sandboxing is included with the Copilot seat, but cloud sandboxes are billed by compute time, memory, and snapshot storage.
+- **Public-code matching has a caveat.** GitHub's docs say the Copilot app may generate code that is a match or near match of public code, even if the usual "Suggestions matching public code" policy is set to block.
 
 ---
 
@@ -127,9 +138,10 @@ Both surfaces do the same fundamental thing: move agent sessions out of the edit
 | **Current status** | Technical preview (`v0.2.x` line) | Preview feature available in current VS Code builds |
 | **Availability** | Pro, Pro+, Max, Business, Enterprise (Free/new subscribers opening soon) | Any VS Code user signed into Copilot (including Free plan limits) |
 | **Requires VS Code** | No | Yes |
-| **Session isolation** | Own branch + worktree per session | Git worktree per session |
+| **Session isolation** | Worktree/branch/folder workspace, plus cloud sandbox option | Git worktree per session |
 | **GitHub integration** | Native (issues, PRs, inbox, CI status) | Via GitHub Pull Requests extension |
 | **Agent Merge** | Yes | No |
+| **Automations** | Scheduled or on-demand agent tasks | Session/sub-session focused |
 | **Browser access** | No | insiders.vscode.dev/agents |
 | **Code editing** | No | Full VS Code capabilities |
 | **Customizations UI** | Yes (MCP, skills, extensions, plugins) | Yes (agents, skills, instructions, hooks, MCP, plugins) |
@@ -137,7 +149,7 @@ Both surfaces do the same fundamental thing: move agent sessions out of the edit
 
 ### When to use the GitHub Copilot App
 
-You are directing work on multiple GitHub repositories and you are not writing most of the code yourself. Tasks start from issues or pull requests that already exist on GitHub. You want Agent Merge to handle the close: addressing review comments, fixing CI, merging when conditions are met. You do not need VS Code running.
+You are directing work on multiple GitHub repositories and you are not writing most of the code yourself. Tasks start from issues or pull requests that already exist on GitHub. You want Agent Merge to handle the close: addressing review comments, fixing CI, merging when conditions are met. You want scheduled agent tasks for recurring maintenance or triage. You do not need VS Code running.
 
 ### When to use the VS Code Agents Window
 
@@ -167,4 +179,8 @@ The two are not competing. The GitHub Copilot App is for orchestrating work you 
 
 **Install the GitHub Copilot App directly.** If you are on Pro, Pro+, Max, Business, or Enterprise, download it from [github.com/github/app](https://github.com/github/app). If you are on Copilot Free or no Copilot plan, access is opening soon.
 
+Make sure Git is installed first. For Business and Enterprise users, confirm that preview features and Copilot CLI are enabled by your organization or enterprise.
+
 **Check your credits before you scale up.** Both surfaces consume AI Credits under GitHub's usage-based billing. [The per-model rates and full cost breakdown are here](/the-real-cost-of-ai-coding-agents.html).
+
+If you use cloud sandboxes with the GitHub Copilot App, also check the separate sandbox meters: compute time, memory, and snapshot storage.
