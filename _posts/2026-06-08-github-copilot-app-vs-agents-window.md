@@ -6,8 +6,8 @@ categories: [AI, Development]
 tags: [github-copilot, ai-assisted-development, agents, vscode, developer-tools]
 author: hidde
 description: "GitHub Copilot App is now open to Pro, Pro+, Max, Business, and Enterprise users. Compare it with the VS Code Agents Window and pick the right surface for each workflow."
-image: '/images/agent.png'
-featured: false
+image: '/images/copilotappvsagentswindow.png'
+featured: true
 toc: true
 ---
 

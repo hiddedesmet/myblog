@@ -7,7 +7,7 @@ tags: [ai, github-copilot, claude-code, engineering-metrics, productivity, gover
 author: hidde
 description: "A follow-up to the real cost of AI coding agents: how to turn usage-based billing, AI credits, model mix, and engineering outcomes into a practical KPI scorecard."
 image: '/images/kpi.png'
-featured: true
+featured: false
 toc: true
 ---
 
