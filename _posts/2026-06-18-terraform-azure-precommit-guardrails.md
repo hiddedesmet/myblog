@@ -36,7 +36,7 @@ What I like about it: the feedback lands while the change is still in my head, n
 
 - **Terraform skill (Anton Babenko):** [terraform-skill](https://github.com/antonbabenko/terraform-skill)
 - **HashiCorp Terraform MCP server:** [terraform-mcp-server](https://github.com/hashicorp/terraform-mcp-server)
-- **Azure MCP server:** [azure-mcp](https://github.com/Azure/azure-mcp)
+- **Azure MCP server:** [Azure.Mcp.Server](https://github.com/microsoft/mcp/tree/main/servers/Azure.Mcp.Server) (moved from archived [Azure/azure-mcp](https://github.com/Azure/azure-mcp))
 - **Pre-commit hooks for Terraform:** [pre-commit-terraform](https://github.com/antonbabenko/pre-commit-terraform)
 - **Pre-commit framework docs:** [pre-commit.com](https://pre-commit.com/)
 - **Terraform linting ruleset for Azure:** [tflint-ruleset-azurerm](https://github.com/terraform-linters/tflint-ruleset-azurerm)
@@ -131,7 +131,9 @@ For Claude Code it's a one-liner:
 claude mcp add terraform -s user -t stdio -- docker run -i --rm hashicorp/terraform-mcp-server
 ```
 
-The **Azure Terraform best-practices MCP server** (part of [azure-mcp](https://github.com/Azure/azure-mcp)) adds the Azure-specific layer: provider version floors, the validate-before-plan rule, and the [HashiCorp style guide](https://developer.hashicorp.com/terraform/language/style). Those three points shaped the code above and pushed the pin to `~> 4.77`.
+The **Azure MCP Server** ([now in microsoft/mcp](https://github.com/microsoft/mcp/tree/main/servers/Azure.Mcp.Server), archived from [Azure/azure-mcp](https://github.com/Azure/azure-mcp)) adds the Azure-specific layer: provider version floors, the validate-before-plan rule, and the [HashiCorp style guide](https://developer.hashicorp.com/terraform/language/style). Those three points shaped the code above and pushed the pin to `~> 4.77`.
+
+Install the [Azure MCP Server VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-mcp-server), or configure it manually via MCP:
 
 ```jsonc
 // .vscode/mcp.json (add alongside the terraform server)
