@@ -32,6 +32,15 @@ What I like about it: the feedback lands while the change is still in my head, n
 
 **What you'll need:** [Homebrew](https://brew.sh/) (or any package manager), [Docker Desktop](https://www.docker.com/products/docker-desktop/) running for the Terraform MCP server, and an Agent Skills-compatible host like Claude Code, Cursor, or Copilot. Everything else installs in one `brew` line below.
 
+## Quick links
+
+- **Terraform skill (Anton Babenko):** [terraform-skill](https://github.com/antonbabenko/terraform-skill)
+- **HashiCorp Terraform MCP server:** [terraform-mcp-server](https://github.com/hashicorp/terraform-mcp-server)
+- **Azure MCP server:** [azure-mcp](https://github.com/Azure/azure-mcp)
+- **Pre-commit hooks for Terraform:** [pre-commit-terraform](https://github.com/antonbabenko/pre-commit-terraform)
+- **Pre-commit framework docs:** [pre-commit.com](https://pre-commit.com/)
+- **Terraform linting ruleset for Azure:** [tflint-ruleset-azurerm](https://github.com/terraform-linters/tflint-ruleset-azurerm)
+
 Let me show the full setup on a tiny Azure example.
 
 ## The infrastructure
