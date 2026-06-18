@@ -13,6 +13,8 @@ toc: true
 
 Here is the loop I want before any Terraform leaves my machine, running on commit inside VS Code:
 
+<div style="clear: both; height: 0.4rem;"></div>
+
 ```bash
 $ git commit -m "add storage account"
 terraform fmt.............................................................Passed
