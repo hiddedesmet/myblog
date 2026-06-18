@@ -215,7 +215,10 @@ repos:
           - --hook-config=--create-file-if-not-exist=true
 ```
 
-![The .pre-commit-config.yaml open in VS Code](/images/precommit-config-vscode.png)
+The block above is the copy-paste version you can use directly.
+
+> **Why this config works well in practice**
+> It balances fast feedback with meaningful coverage: formatting and syntax checks keep commits clean, `tflint` catches provider-specific issues, `trivy` blocks high-severity misconfigurations, and `terraform-docs` keeps module docs in sync automatically.
 
 At a glance, here is what each hook does for you:
 
