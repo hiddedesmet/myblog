@@ -17,7 +17,7 @@ Here is the loop I want before any Terraform leaves my machine, running on commi
 
 ```bash
 $ git commit -m "add storage account"
-terraform fmt.............................................................Passed
+terraform fmt............................................................Passed
 terraform validate.......................................................Passed
 tflint...................................................................Passed
 trivy....................................................................Passed
