@@ -6,7 +6,7 @@ categories: [AI, MCP, Enterprise]
 tags: [mcp, enterprise, authorization, identity, agents, okta, anthropic, microsoft, github-copilot, vscode, governance, entra]
 author: hidde
 description: "MCP's Enterprise-Managed Authorization extension just went stable. VS Code 1.123 shipped it in Preview with Entra ID support. One OAuth prompt per server is now a policy problem, not a user problem."
-image: /images/mcp-enterprise-auth.jpg
+image: /images/mcp-enterprise-auth.png
 featured: false
 toc: true
 ---
