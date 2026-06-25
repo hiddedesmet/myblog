@@ -7,7 +7,7 @@ tags: [terraform, azure, pre-commit, trivy, tflint, terraform-docs, iac, devops]
 author: hidde
 description: "A small Azure Terraform setup wired to a pre-commit pipeline using Anton Babenko's pre-commit-terraform hooks: formatting, validation, linting, docs, and security scanning before code ever leaves your machine."
 image: /images/terraform-with-guardrails.png
-featured: true
+featured: false
 toc: true
 ---
 

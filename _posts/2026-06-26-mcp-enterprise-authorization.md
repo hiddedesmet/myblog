@@ -1,13 +1,13 @@
 ---
 layout: post
-title: "MCP finally got enterprise authorization — here's what changed"
+title: "MCP finally got enterprise authorization: here's what changed"
 date: 2026-06-25
 categories: [AI, MCP, Enterprise]
 tags: [mcp, enterprise, authorization, identity, agents, okta, anthropic, microsoft, github-copilot, vscode, governance, entra]
 author: hidde
 description: "MCP's Enterprise-Managed Authorization extension just went stable. VS Code 1.123 shipped it in Preview with Entra ID support. One OAuth prompt per server is now a policy problem, not a user problem."
 image: /images/mcp-enterprise-auth.png
-featured: false
+featured: true
 toc: true
 ---
 
@@ -15,7 +15,7 @@ MCP spread fast because it was easy to try. You point Copilot or Claude at a ser
 
 That same simplicity is what made enterprise IT nervous. Every developer connecting MCP servers by hand means no central policy, no unified audit trail, and a slow leak of personal accounts mixed into work sessions. Security teams had no good answer to "which servers is this developer actually talking to?"
 
-Two things changed in quick succession. On June 3, VS Code 1.123 shipped enterprise-managed MCP authentication as Preview, with Entra ID, Okta, and Auth0 all supported out of the box. Then on June 18, the [Enterprise-Managed Authorization](https://modelcontextprotocol.io/extensions/auth/enterprise-managed-authorization) extension for MCP itself went stable, with Anthropic also shipping support alongside Microsoft. If you run a Microsoft stack — VS Code, GitHub Copilot, Entra ID — the pieces are already there.
+Two things changed in quick succession. On June 3, VS Code 1.123 shipped enterprise-managed MCP authentication as Preview, with Entra ID, Okta, and Auth0 all supported out of the box. Then on June 18, the [Enterprise-Managed Authorization](https://modelcontextprotocol.io/extensions/auth/enterprise-managed-authorization) extension for MCP itself went stable, with Anthropic also shipping support alongside Microsoft. If you run a Microsoft stack (VS Code, GitHub Copilot, Entra ID), the pieces are already there.
 
 ---
 
@@ -35,9 +35,9 @@ These aren't edge cases. They're the exact blockers that keep enterprise IT from
 
 ## How it works
 
-Enterprise-Managed Authorization moves the authorization decision from the user to the identity provider — the same system that already controls which apps employees can access.
+Enterprise-Managed Authorization moves the authorization decision from the user to the identity provider, the same system that already controls which apps employees can access.
 
-The flow without this extension — a consent screen for every server:
+The flow without this extension, a consent screen for every server:
 
 ```mermaid
 flowchart LR
@@ -46,7 +46,7 @@ flowchart LR
     C --> D[(MCP server)]
 ```
 
-The flow with Enterprise-Managed Authorization — one sign-in, no consent screen:
+The flow with Enterprise-Managed Authorization, one sign-in, no consent screen:
 
 ```mermaid
 flowchart LR
@@ -70,11 +70,11 @@ From a developer perspective, the experience is simpler: log in once, all your p
 
 Once an identity provider is in the loop, a few things change for security and compliance teams.
 
-**Centralized access control.** An admin enables a server for the organization, a team, or a role. Developers inherit access based on their existing group memberships — no individual approvals needed. Revocation runs the same path: deactivate a user in Entra or Okta, and their MCP access goes with it.
+**Centralized access control.** An admin enables a server for the organization, a team, or a role. Developers inherit access based on their existing group memberships, with no individual approvals needed. Revocation runs the same path: deactivate a user in Entra or Okta, and their MCP access goes with it.
 
 **One audit trail.** Access decisions live in the IdP admin console, with one auditable trail across every connector. There's one place to ask "what did this person have access to?"
 
-**No more account mixing.** The interactive account selection step is gone. Connecting a personal GitHub account to a work Copilot session — accidentally or on purpose — becomes structurally much harder when the IdP controls the connection.
+**No more account mixing.** The interactive account selection step is gone. Connecting a personal GitHub account to a work Copilot session, accidentally or on purpose, becomes structurally much harder when the IdP controls the connection.
 
 **Agent identities (Anthropic-specific).** Anthropic's implementation goes a step further: Claude Managed Agents can be imported into the corporate directory and treated as first-class identities with human owners. That's not in the MCP spec itself, but it's part of what Anthropic shipped on top of it.
 
@@ -114,9 +114,9 @@ This keeps the IdP config in IT's hands, not the developer's.
 }
 ```
 
-When that flag is present, VS Code routes the server through the XAA provider instead of the standard per-server Dynamic Client Registration path. Servers without the flag continue using standard OAuth — the two flows coexist.
+When that flag is present, VS Code routes the server through the XAA provider instead of the standard per-server Dynamic Client Registration path. Servers without the flag continue using standard OAuth, so the two flows coexist.
 
-Separately, the same 1.123 release added the ability to pin a pre-registered OAuth `clientId` (and store a client secret in VS Code's OS-backed secret storage rather than plaintext config). That's a distinct feature from enterprise-managed auth — useful when a server expects a specific registered client instead of Dynamic Client Registration — but worth knowing about if you're hand-configuring servers.
+Separately, the same 1.123 release added the ability to pin a pre-registered OAuth `clientId` (and store a client secret in VS Code's OS-backed secret storage rather than plaintext config). That's a distinct feature from enterprise-managed auth (useful when a server expects a specific registered client instead of Dynamic Client Registration), but worth knowing about if you're hand-configuring servers.
 
 ---
 
@@ -127,7 +127,7 @@ Before EMA shipped, GitHub Enterprise admins could already control MCP server ac
 Three policy settings are available at the organization or enterprise level:
 
 - **MCP servers in Copilot**: enable or disable MCP entirely for all Copilot seats in the organization
-- **MCP Registry URL**: point to your own registry of approved servers — a catalog developers can discover and use without leaving their IDE
+- **MCP Registry URL**: point to your own registry of approved servers, a catalog developers can discover and use without leaving their IDE
 - **Restrict MCP access to registry servers**: flip this on, and developers can only connect to servers on your list
 
 That third setting is allowlist enforcement. It's enforced across VS Code, Copilot CLI, Visual Studio, Eclipse, JetBrains, and Xcode (the last three in pre-release). The Copilot cloud agent doesn't support allowlist enforcement yet.
@@ -158,7 +158,7 @@ A fully governed Copilot MCP setup uses both: the registry allowlist decides wha
 
 **MCP servers shipping support:** Asana, Atlassian, Canva, Figma, Granola, Linear, Supabase. Slack is incoming.
 
-If you're running a private MCP server inside your organization, the spec is at [modelcontextprotocol.io](https://modelcontextprotocol.io/extensions/auth/enterprise-managed-authorization) and VS Code's implementation details are in the [1.123 release notes](https://code.visualstudio.com/updates/v1_123#_enterprise-managed-mcp-authentication-preview). The extension works alongside standard OAuth — servers without the `enterpriseManaged` flag fall back to the existing per-server flow.
+If you're running a private MCP server inside your organization, the spec is at [modelcontextprotocol.io](https://modelcontextprotocol.io/extensions/auth/enterprise-managed-authorization) and VS Code's implementation details are in the [1.123 release notes](https://code.visualstudio.com/updates/v1_123#_enterprise-managed-mcp-authentication-preview). The extension works alongside standard OAuth, so servers without the `enterpriseManaged` flag fall back to the existing per-server flow.
 
 ---
 
@@ -185,7 +185,7 @@ The **authorization vs. permissions gap** is still real. Enterprise-Managed Auth
 
 **ID-JAG** is still an IETF draft. Okta is the first IdP to ship at the MCP spec level. VS Code ships its own Entra ID and Auth0 support on top of that, but broader IdP adoption at the spec level is still ahead.
 
-**The server-side Auth0 angle** is worth watching. VS Code already supports Auth0 as an IdP on the client side. The separate, still-emerging piece is Auth0 letting developers *expose* an MCP server with enterprise auth built in, so server authors don't implement ID-JAG from scratch. When that lands broadly, the supply of enterprise-ready servers grows quickly — the moment this goes from "enterprise feature" to "table stakes."
+**The server-side Auth0 angle** is worth watching. VS Code already supports Auth0 as an IdP on the client side. The separate, still-emerging piece is Auth0 letting developers *expose* an MCP server with enterprise auth built in, so server authors don't implement ID-JAG from scratch. When that lands broadly, the supply of enterprise-ready servers grows quickly. That's the moment this goes from "enterprise feature" to "table stakes."
 
 **The EMA Interest Group** is where the spec evolves. If you're building an MCP server or client and want input on compatibility or direction, the [EMA Interest Group](https://modelcontextprotocol.io/community/interest-groups/enterprise-managed-authorization) is the right place to track it.
 
