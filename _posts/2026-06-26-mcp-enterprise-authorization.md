@@ -15,7 +15,7 @@ MCP spread fast because it was easy to try. You point Copilot or Claude at a ser
 
 That same simplicity is what made enterprise IT nervous. Every developer connecting MCP servers by hand means no central policy, no unified audit trail, and a slow leak of personal accounts mixed into work sessions. Security teams had no good answer to "which servers is this developer actually talking to?"
 
-Two things changed in quick succession. On June 3, VS Code 1.123 shipped enterprise-managed MCP authentication as Preview, with Entra ID, Okta, and Auth0 all supported out of the box. Then on June 18, the [Enterprise-Managed Authorization](https://modelcontextprotocol.io/extensions/auth/enterprise-managed-authorization) extension for MCP itself went stable, with Anthropic also shipping support alongside Microsoft. If you run a Microsoft stack (VS Code, GitHub Copilot, Entra ID), the pieces are already there.
+Two things changed in quick succession. On June 3, VS Code 1.123 shipped enterprise-managed MCP authentication as Preview, with Entra ID, Okta, and Auth0 all supported out of the box. Then on June 18, the [Enterprise-Managed Authorization](https://modelcontextprotocol.io/extensions/auth/enterprise-managed-authorization) extension for MCP itself went stable, with Anthropic shipping the first client implementation in beta alongside Microsoft. If you run a Microsoft stack (VS Code, GitHub Copilot, Entra ID), the pieces are already there.
 
 ---
 
@@ -76,7 +76,7 @@ Once an identity provider is in the loop, a few things change for security and c
 
 **No more account mixing.** The interactive account selection step is gone. Connecting a personal GitHub account to a work Copilot session, accidentally or on purpose, becomes structurally much harder when the IdP controls the connection.
 
-**Agent identities (Anthropic-specific).** Anthropic's implementation goes a step further: Claude Managed Agents can be imported into the corporate directory and treated as first-class identities with human owners. That's not in the MCP spec itself, but it's part of what Anthropic shipped on top of it.
+**Faster deprovisioning.** Because checking access against the IdP is frictionless, admins can shorten token lifetimes without hurting productivity. When someone is deprovisioned in the IdP, their connector access expires fast instead of lingering on an old token.
 
 Here's how the admin side maps to what IT already does:
 
@@ -85,7 +85,7 @@ Here's how the admin side maps to what IT already does:
 | Developer clicks through OAuth per server | Admin enables server in IdP once |
 | No way to audit which servers developers access | Full audit trail in IdP console |
 | Revoking access is manual, per-server | Deactivating user in IdP cuts MCP access |
-| No concept of "agent" identity | Anthropic's impl: agents imported into directory with owners |
+| Deprovisioned users keep access until each token expires | Shorter IdP-checked token lifetimes expire access fast |
 | Personal and work accounts mix | Structurally separated by IdP policy |
 
 ---
@@ -152,7 +152,7 @@ A fully governed Copilot MCP setup uses both: the registry allowlist decides wha
 
 **VS Code 1.123 (Preview):** Enterprise-managed MCP authentication shipped in the June 3 release. Supported identity providers in VS Code: **Entra ID, Okta, and Auth0**. If your organization is already on Microsoft's identity stack, Entra is supported today. GitHub Copilot in VS Code runs on the same MCP layer, so Copilot agent mode with MCP tools goes through the same enterprise auth flow.
 
-**Anthropic (stable):** Claude, Claude Code, and Cowork support the extension across Anthropic's shared MCP layer. Admins can authorize servers for users organization-wide from a single place.
+**Anthropic (Beta):** Enterprise-managed auth is available in beta for Claude Team and Enterprise plans, working across Claude chat, Claude Code, and Cowork. Admins authorize a connector once and users inherit access on first login. Anthropic calls it the first implementation of the EMA extension.
 
 **Identity providers:** Okta is the first to ship support at the MCP spec level, via [Cross App Access (XAA)](https://www.okta.com/identity-101/cross-app-access-securing-ai-agent-and-app-to-app-connections/). VS Code independently supports Entra and Auth0 on top of that.
 
