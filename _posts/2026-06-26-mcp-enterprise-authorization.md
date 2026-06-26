@@ -42,8 +42,8 @@ The flow without this extension, a consent screen for every server:
 ```mermaid
 flowchart LR
     A["Developer"] --> B["VS Code / Copilot"]
-    B --> C{{"OAuth consent screen<br/>per server"}}
-    C --> D[("MCP server")]
+    B --> C["OAuth consent screen<br/>per server"]
+    C --> D["MCP server"]
 ```
 
 The flow with Enterprise-Managed Authorization, one sign-in, no consent screen:
@@ -52,7 +52,7 @@ The flow with Enterprise-Managed Authorization, one sign-in, no consent screen:
 flowchart LR
     A["Developer"] --> B["Corporate IdP<br/>Entra / Okta / Auth0"]
     B -->|"signed assertion<br/>ID-JAG"| C["MCP server<br/>auth server"]
-    C -->|"scoped token"| D[("MCP server")]
+    C -->|"scoped token"| D["MCP server"]
 ```
 
 The key difference: the consent screen is gone. During single sign-on, VS Code exchanges the developer's IdP identity for a resource-scoped assertion using [ID-JAG](https://datatracker.ietf.org/doc/draft-ietf-oauth-identity-assertion-authz-grant/) (Identity Assertion JWT Authorization Grant). It then redeems that assertion at the MCP server's authorization server for an access token scoped to that resource. One sign-in, every permitted server automatically connected.
