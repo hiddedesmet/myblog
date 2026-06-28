@@ -5,17 +5,19 @@ date: 2026-06-30
 categories: [AI, Design]
 tags: [claude, claude-design, anthropic, prototyping, design-systems, ai-assisted-design, claude-code]
 author: hidde
-description: "Anthropic launched Claude Design last week. Here's what it actually does, where it fits between Figma and Claude Code, and the cases where it earns its keep versus where it doesn't."
+description: "Anthropic launched Claude Design in April, then shipped a major overhaul in June. Here's what it actually does, where it fits between Figma and Claude Code, and when it earns its keep."
 image: /images/claude-design.png
 featured: false
 toc: true
 ---
 
-Anthropic shipped [Claude Design](https://www.anthropic.com/news/claude-design-anthropic-labs) on April 17, a research-preview product from their Anthropic Labs group. It lives at [claude.ai/design](https://claude.ai/design) and is included with Pro, Max, Team, and Enterprise plans.
+Anthropic shipped [Claude Design](https://www.anthropic.com/news/claude-design-anthropic-labs) on April 17, a research-preview product from their Anthropic Labs group. It lives at [claude.ai/design](https://claude.ai/design) and in the Claude desktop sidebar, and is included with Pro, Max, Team, and Enterprise plans. More than one million people used it in its first week.
 
-The pitch: describe what you want, Claude builds a first version, and you refine it through chat, inline comments, direct edits, or sliders Claude generates on the fly. When the design is ready, you hand the bundle off to Claude Code and build the real thing.
+On June 17, Anthropic pushed a major overhaul: rebuilt design system imports, two-way sync with Claude Code via `/design-sync`, WYSIWYG canvas editing, and a fix for the token-burning problem that made the original release feel rationed. This post covers what shipped on April 17 and what changed in June.
 
-Here is what the launch post and the official tutorial actually say, and where it fits in a tool stack you already have.
+The pitch: describe what you want, Claude builds a first version, and you refine it through chat, inline comments, direct edits, or sliders Claude generates on the fly. When the design is ready, it syncs directly into Claude Code for implementation.
+
+Here is what the launch post, the official tutorial, and the June update actually say, and where it fits in a tool stack you already have.
 
 ---
 
@@ -45,7 +47,7 @@ The flow follows four stages.
 
 **Refine with fine-grained controls.** Inline comments on specific elements, direct text edits, or adjustment knobs for spacing, color, and layout. The knobs are the interesting bit: Claude generates sliders contextual to what you are editing, so you can drag a "density" slider on a card grid instead of re-prompting "make it tighter" five times.
 
-**Hand off to Claude Code.** When a design is ready, click Export and "Hand off to Claude Code." The default bundle includes the project's design files, the chat, and a README that tells the model how to interpret the designs, plus a prompt you paste into local Claude Code (or your coding agent of choice). There is also a Claude Code Web option.
+**Hand off to Claude Code.** As of the June update, the handoff is bidirectional. In Claude Code, run `/design-sync` to pull your design system into the repo so everything you build starts from your actual components. Run `/design` from the terminal to create and edit design projects without leaving your workflow. From the design side, Claude Code picks up from your existing work instead of starting over from a screenshot — no re-prompting, no context loss. The original one-way export bundle is still there if you prefer it: the export package includes design files, the chat, and a README with implementation notes.
 
 Export options: internal share URL, folder save, Canva, PDF, PPTX, or standalone HTML.
 
@@ -55,7 +57,7 @@ Export options: internal share URL, folder save, Canva, PDF, PPTX, or standalone
 
 The official tutorial is blunt about this: connecting your codebase is where Claude Design "gets significantly more useful." Without it, you get generic prototypes. With it, Claude generates designs using your actual components, styling, and architecture.
 
-You connect by importing from GitHub or attaching a local directory via the Import button. Once linked, Claude analyzes:
+You connect by importing from GitHub, uploading design files directly, or attaching raw uploads via the Import button. The June overhaul rebuilt this entirely: Claude now checks its output against your design system and auto-corrects before you see the result. Once linked, Claude analyzes:
 
 - Component structure (your UI building blocks and how they compose)
 - Styling and theming (color system, spacing scale, typography, CSS approach)
@@ -64,7 +66,9 @@ You connect by importing from GitHub or attaching a local directory via the Impo
 
 You can then reference components by name in your prompts: *"use the ProductCard component"* or *"follow the same layout pattern as the settings page."*
 
-One performance note from Anthropic worth flagging: linking very large repos or monorepos causes browser issues, particularly in Chrome. The recommendation is to attach the specific package or directory containing the relevant components, and skip `.git` and `node_modules`.
+For teams, there is now an admin role: an admin can approve one standard design system and lock down edits so every project in the org starts from the same foundation. This matters if you have been fighting brand drift across projects.
+
+One performance note that still applies: linking very large repos or monorepos can slow things down. The recommendation is to attach the specific package or directory containing the relevant components, and skip `.git` and `node_modules`.
 
 ---
 
@@ -103,12 +107,13 @@ Three customers are quoted in the launch post. Read past the marketing tone and 
 
 ## The model and the limits
 
-Claude Design is powered by [Claude Opus 4.7](https://www.anthropic.com/news/claude-opus-4-7), Anthropic's most capable vision model. It uses your existing subscription limits, with extra-usage opt-in if you blow through them.
+Claude Design is powered by [Claude Opus 4.7](https://www.anthropic.com/news/claude-opus-4-7), Anthropic's most capable vision model. The June update fixed the biggest practical annoyance at launch: Claude Design now shares usage limits with chat, Claude Cowork, and Claude Code instead of drawing from a separate, smaller weekly pool. Most users will notice significantly more headroom. Anthropic also reduced average token consumption per turn while keeping output quality, and reports sharply lower error rates.
 
-Two practical notes:
+Three practical notes:
 
-1. **Enterprise admins**: it is off by default. Someone has to flip it on in Organization settings before your team can use it.
-2. **Research preview**: Anthropic specifically committed to making integrations easier "over the coming weeks," so expect the connector list to grow.
+1. **Enterprise admins**: it is off by default. Someone has to flip it on in Organization settings before your team can use it. Once enabled, admins can also set a standard design system org-wide.
+2. **Availability**: accessible at [claude.ai/design](https://claude.ai/design) and from the sidebar in the Claude desktop app (web and desktop only; not the mobile app).
+3. **Research preview**: The June overhaul delivered on Anthropic's April commitment to improve integrations quickly. The product is still in research preview, with no announced GA timeline.
 
 ---
 
@@ -120,18 +125,19 @@ Concrete cases where Claude Design pays off this week:
 - You need an internal deck that looks on-brand without spending a half-day in Keynote.
 - You are about to write a Jira ticket with a hand-drawn wireframe attached, and you would rather pass a real wireframe to Claude Code.
 - You want a landing page draft to hand to a designer for polish.
+- You are already using Claude Code and want to pull your design system in: run `/design-sync` in your repo and start from your actual components instead of a generic template.
 
 Cases where I would skip it for now:
 
 - Production-quality design work with a real design team. Stay in Figma.
 - Anything where the design system has not been onboarded. Output will look generic.
-- Highly interactive prototypes that need real backend data. The "frontier design" bucket is promising but still preview-quality.
+- Highly interactive prototypes that need real backend data. The "frontier design" bucket is more stable after the June fixes, but still preview-quality for complex data-driven flows.
 
 ---
 
 ## The bigger pattern
 
-Claude Design and Claude Code are part of the same loop. Design happens in one, implementation happens in the other, and a handoff bundle carries the design intent, component choices, and codebase context across the boundary. The artifacts move inside one model family instead of across tool boundaries that lose context.
+Claude Design and Claude Code are part of the same loop. Design happens in one, implementation happens in the other, and the `/design-sync` command keeps both sides in sync without a handoff step that loses context. The artifacts move inside one model family instead of across tool boundaries where intent gets re-explained and compressed every time it crosses.
 
 That is the part to pay attention to. The individual features are fine. The fact that your design intent now travels into your codegen step without a human re-explaining it is where the time savings actually come from.
 
