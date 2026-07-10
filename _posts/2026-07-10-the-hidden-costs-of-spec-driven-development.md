@@ -211,23 +211,23 @@ That pattern means you are paying more process cost without getting more quality
 
 ### Week 1
 
-- classify incoming work as full/light/no-spec,
-- stop forcing full-spec on low-risk items.
+- Sort every incoming ticket into full, light, or no-spec before work starts.
+- Anything reversible in a day goes straight to no-spec, no exceptions.
 
 ### Week 2
 
-- introduce one-page light-spec template,
-- reserve full-spec reviews for high-risk work.
+- Ship the one-page light-spec template: problem, scope, success, risks, validation.
+- Reserve full-spec reviews for cross-team or security-sensitive work only.
 
 ### Week 3
 
-- track three signals only: lead time, rework rate, escaped defects,
-- compare against the previous month.
+- Track exactly three signals: lead time, rework rate, escaped defects.
+- Write down last month's numbers first, so Week 4 has a baseline to beat.
 
 ### Week 4
 
-- keep what improved outcomes,
-- remove what only increased ceremony.
+- If time to first commit dropped and escaped defects held flat, the lighter lanes are working. Keep them.
+- If one lane produced more rework, tighten that lane, not the whole process.
 
 You do not need a transformation program to do this.
 You need one month of disciplined simplification.
@@ -236,10 +236,12 @@ You need one month of disciplined simplification.
 
 ## Failure modes worth avoiding
 
-1. **Treating all work like architecture work**
-2. **Confusing longer docs with better thinking**
-3. **Freezing plans too early when reality changed**
-4. **Never reviewing whether the process still pays off**
+Each of these is one of the six taxes wearing a disguise:
+
+- **Treating every change like architecture work.** Planning tax by default. A one-line config fix does not need a constitution check.
+- **Confusing longer documents with better thinking.** False precision tax. A vague ten-page spec is worse than a sharp one-pager.
+- **Freezing the plan after reality moved.** Still false precision. The team keeps building tasks.md instead of the thing that now matters.
+- **Never asking whether the process still earns its cost.** The meta-failure. If nobody owns that question, ceremony only accumulates.
 
 ---
 
@@ -254,14 +256,14 @@ The goal is this:
 
 > **Apply the minimum structure that reliably protects quality.**
 
-That is how spec-driven development scales.
+The 20-minute bug fix and the half-day spec can both be the right call. The whole job is knowing which one you are looking at before you start.
 
 ---
 
 ## Related reading
 
 - [From Vibe Coding to Spec-Driven Development: Part 1](/from-vibe-coding-to-spec-driven-development)
+- [Spec-Kit vs OpenSpec: two takes on spec-driven development](/speckit-vs-openspec)
 - [The real cost of AI coding agents: what your team actually spends](/the-real-cost-of-ai-coding-agents)
 - [AI coding agents need KPIs: how to measure speed, quality, reliability, and cost](/ai-coding-agents-need-kpis)
-- [Single-agent, tools, or a team?](/single-agent-tools-or-a-team)
 
