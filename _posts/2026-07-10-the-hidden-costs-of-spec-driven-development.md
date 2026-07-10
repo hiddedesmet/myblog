@@ -59,7 +59,7 @@ For low-risk work, it can be waste.
 Quick litmus test:
 
 ```text
-If “time to first commit” keeps rising,
+If "time to first commit" keeps rising,
 and escaped defects are flat,
 you are likely over-paying process cost.
 ```
@@ -167,11 +167,11 @@ If everything is routed through Full Spec, process cost compounds quickly.
 
 For most medium-risk work, this is enough:
 
-1. **Problem** — what is broken or missing
-2. **Scope** — what is in and explicitly out
-3. **Success criteria** — observable outcomes
-4. **Risks** — failure modes and constraints
-5. **Validation** — tests/checks before merge
+1. **Problem**: what is broken or missing
+2. **Scope**: what is in and explicitly out
+3. **Success criteria**: observable outcomes
+4. **Risks**: failure modes and constraints
+5. **Validation**: tests/checks before merge
 
 A short, sharp spec often beats a long, vague one.
 
@@ -179,11 +179,11 @@ A short, sharp spec often beats a long, vague one.
 
 ## If Spec-Kit feels too heavy, you have lighter options
 
-Someone in the same training asked a follow-up: "does it have to be Spec-Kit?" No. Spec-Kit is deliberately thorough — constitution, spec, plan, tasks, analyze — which is exactly why it fits the Full Spec lane and feels like overkill everywhere else. Two lighter tools are worth knowing about if that ceremony is the blocker, not the concept of writing things down.
+Someone in the same training asked a follow-up: "does it have to be Spec-Kit?" No. Spec-Kit is deliberately thorough (constitution, spec, plan, tasks, analyze), which is exactly why it fits the Full Spec lane and feels like overkill everywhere else. Two lighter tools are worth knowing about if that ceremony is the blocker, not the concept of writing things down.
 
-**[OpenSpec](https://openspec.dev/)** bills itself as "a lightweight spec-driven framework." Instead of a full spec/plan/tasks pipeline, each change produces a spec delta — a diff-style document showing exactly what requirements and scenarios changed, e.g. adding a "Remember me" scenario to a session-expiration spec. It's model-agnostic (no API keys, no MCP server needed), installs with `npm install -g @fission-ai/openspec@latest`, and works with Claude Code, Cursor, Codex, GitHub Copilot, and others. If your team wants the "review intent before reviewing code" benefit without adopting a whole methodology, this is the closer fit for the Light Spec lane.
+**[OpenSpec](https://openspec.dev/)** bills itself as "a lightweight spec-driven framework." Instead of a full spec/plan/tasks pipeline, each change produces a spec delta: a diff-style document showing exactly what requirements and scenarios changed, such as adding a "Remember me" scenario to a session-expiration spec. It's model-agnostic (no API keys, no MCP server needed), installs with `npm install -g @fission-ai/openspec@latest`, and works with Claude Code, Cursor, Codex, GitHub Copilot, and others. If your team wants the "review intent before reviewing code" benefit without adopting a whole methodology, this is the closer fit for the Light Spec lane.
 
-**[mattpocock/skills](https://github.com/mattpocock/skills)** takes a different angle entirely. Matt Pocock's own README calls out Spec-Kit by name: approaches that "own the process" can take away your control and make bugs in the process hard to resolve. His skills — `/grill-me` for interrogating a plan before you build it, `/to-spec` for turning a conversation into a spec, `/to-tickets` for breaking that into tracer-bullet work items, `/tdd` and `/code-review` for the build loop — are small, composable, and meant to be picked individually rather than adopted as one framework. That fits teams who already have their own change process (like the bank in this post) and just want a couple of sharp habits, not a new pipeline bolted onto the one they have.
+**[mattpocock/skills](https://github.com/mattpocock/skills)** takes a different angle entirely. Matt Pocock's own README calls out Spec-Kit by name: approaches that "own the process" can take away your control and make bugs in the process hard to resolve. His skills are small, composable, and meant to be picked individually rather than adopted as one framework: `/grill-me` for interrogating a plan before you build it, `/to-spec` for turning a conversation into a spec, `/to-tickets` for breaking that into tracer-bullet work items, and `/tdd` and `/code-review` for the build loop. That fits teams who already have their own change process (like the bank in this post) and just want a couple of sharp habits, not a new pipeline bolted onto the one they have.
 
 Neither replaces the decision you still have to make: how much structure does this specific change need. They just give you a lower-ceremony way to answer "some" instead of jumping straight to "all of it."
 
