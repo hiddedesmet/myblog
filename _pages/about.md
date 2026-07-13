@@ -18,7 +18,7 @@ I was awarded Microsoft Most Valuable Professional (MVP) status for 2026–2027 
 - **Developer Tools** (Developer Technologies)
 
 <a href="https://www.credly.com/badges/5dc09d00-c7a5-43c1-bf97-facadf4ce410" target="_blank" rel="noopener noreferrer">
-  <img src="https://images.credly.com/size/340x340/images/71ec124b-1646-4086-a241-1c32b7b31047/blob" alt="2026-2027 Microsoft Most Valuable Professional (MVP)">
+  <img src="https://images.credly.com/size/340x340/images/c4da2c74-dd74-4a97-a433-d8c21f06ca65/blob" alt="2026-2027 Microsoft Most Valuable Professional (MVP)">
 </a>
 
 I also hold the Microsoft Certified Trainer (MCT) credential for 2026.
