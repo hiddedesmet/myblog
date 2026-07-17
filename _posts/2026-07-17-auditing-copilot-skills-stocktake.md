@@ -137,12 +137,34 @@ Neither of those tells you *why* a duplicate exists or whether it's safe to dele
 
 ---
 
+## Put the audit where the work happens
+
+The manual commands are useful, but they still depend on you remembering to run them. [AI Engineering Fluency](https://marketplace.visualstudio.com/items?itemName=RobBos.ai-engineering-fluency), Rob Bos's VS Code extension, puts a version of this audit in the editor instead. It reads local session logs, then surfaces skills and tools that have been loaded but not used, along with their estimated prompt overhead.
+
+![AI Engineering Fluency's unused-skills view lists loaded skills, their source, descriptions, and estimated token overhead.](/images/unusedskills.png)
+
+That matters because a folder with no `SKILL.md` and a valid skill that nobody invokes are different problems. The first is broken configuration. The second is a cost-and-context problem. You can spot the first with `find`; you need usage data to spot the second.
+
+The extension applies the same idea to MCP servers and their tools. Its tool-curation view shows which servers were available, which tools were actually called in the last 30 days, and how much description context the unused ones keep adding.
+
+![AI Engineering Fluency's tool-curation view shows unused MCP servers, their available and used tools, and estimated prompt overhead.](/images/toolcuration.png)
+
+More importantly, it does not stop at a dashboard. The usage-analysis view turns the finding into a tip: remove or comment out an unused MCP server from `mcp.json`, review unused skills, or snooze the reminder if the tool is seasonal rather than stale.
+
+![AI Engineering Fluency's usage-analysis tips flag unused MCP servers, unused tools, and unused skills with estimated context overhead.](/images/aiusageoverview.png)
+
+The skills and tool-curation work was added by [Jesse Houwing](https://www.linkedin.com/in/jessehouwing/). [Fokko Veegens](https://www.linkedin.com/in/fokkoveegens/) added checks for configuration drift between AI tools: for example, a Claude skill configuration that no longer has an equivalent in Copilot, or the reverse. That closes a gap in the two one-liners above. Duplicate names are only one kind of drift; two tools can have different names and still be carrying inconsistent instructions.
+
+Worktree support has already been merged into the extension and is expected in an upcoming release. That matters for this audit because active worktree sessions should count as evidence of use, not disappear just because they are outside the main checkout.
+
+---
+
 ## Takeaways
 
 - Skill and agent customization files don't fail loudly when they rot. No build breaks, no lint warning fires. That's exactly why they need a scheduled look, not a "we'll notice when it's a problem."
 - A verdict without a reason isn't a verdict. "Superseded" tells you nothing; "superseded by X, no unique content remains" tells you whether to act.
 - Duplicate names across tool-specific folders (`~/.claude/skills/`, `~/.agents/skills/`, `~/.copilot/skills/`) are the cheapest thing to check first, before you spend time on deep content review.
 - The four-question checklist (overlap with another skill, overlap with always-on files, currency, usage) applies to `AGENTS.md`, `.instructions.md`, and `.agent.md` just as much as it applies to `SKILL.md`. Don't stop the audit at the layer that has a tool for it.
-- Tooling coverage is uneven today: `/skill-stocktake` only audits Claude's folder. If you're on Copilot or pulling from the shared `.agents/skills/` catalog, the checklist still applies, you just run it by hand for now with the one-liners above.
+- Tooling coverage is uneven today: `/skill-stocktake` only audits Claude's folder. The [AI Engineering Fluency extension](https://marketplace.visualstudio.com/items?itemName=RobBos.ai-engineering-fluency) closes part of that gap in VS Code by surfacing unused skills and tools, their prompt overhead, and cross-tool configuration drift. The checklist still applies to the shared `.agents/skills/` catalog and anything outside the extension's reach.
 - A clean folder isn't a permanent state, it's a head start. Copilot's six skills are overlap-free because nobody's added a seventh by hand yet. Claude's 56 got messy the same way yours will: one skill at a time, with no pruning step in between.
 - Run the two one-liners above against your own skill folders before you add skill number 99. There's a decent chance one of them is already empty.
