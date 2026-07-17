@@ -1,28 +1,28 @@
 ---
 layout: post
-title: "105 skill folders, three coding agents, seven that don't exist: auditing your own SKILL.md library"
+title: "98 skill folders, three coding setups, seven that don't exist: auditing your own SKILL.md library"
 date: 2026-07-17
 tags: [github-copilot, claude-code, skill-md, agent-customization, ai-assisted-development, developer-tools, maintenance]
 author: hidde
-description: "I counted the skill folders across Claude Code, a shared agents catalog, and Copilot on my own machine. 105 total, seven of them pointing at nothing. Here's what a real audit finds and the checklist to run it yourself."
+description: "I counted the skill folders across Claude Code, a shared agents catalog, and Copilot on my own machine. 98 total, including seven Google Agent CLI folders pointing at nothing. Here's what a real audit finds and the checklist to run it yourself."
 image: /images/auditskills.png
 featured: true
 toc: true
 ---
 
-Three coding agents run on this machine: Claude Code, GitHub Copilot in VS Code, and a shared `.agents/skills/` catalog a couple of other tools read from. That's three separate skill folders. I counted them while writing this post: `~/.claude/skills/` has 63 folders, `~/.agents/skills/` has 36, `~/.copilot/skills/` has 6. 105 total.
+This machine has three coding setups with separate skill folders: Claude Code, GitHub Copilot in VS Code, and a shared `.agents/skills/` catalog that a couple of other tools read from. I counted them while writing this post: `~/.claude/skills/` has 56 folders, `~/.agents/skills/` has 36, `~/.copilot/skills/` has 6. 98 total. The six in Copilot's folder are `docx`, `loop`, `mermaid-diagrams`, `pptx`, `web-artifacts-builder`, and `xlsx`, all shipped with the product, none of them added by hand. That distinction turns out to matter later in this post.
 
-Seven of those folders, the entire `google-agents-cli-*` set, exist under the exact same names in both `~/.claude/skills/` and `~/.agents/skills/`. I went to open one for this post, expecting a Google Agent CLI skill. Instead: an empty `references/` folder and no `SKILL.md` at all. Not in either copy.
+Seven of those folders, the entire `google-agents-cli-*` set, exist in the shared `.agents/skills/` catalog. I went to open one for this post, expecting a Google Agent CLI skill. Instead: an empty `references/` folder and no `SKILL.md` at all.
 
 ```text
-$ ls ~/.claude/skills/google-agents-cli-eval/
+$ ls ~/.agents/skills/google-agents-cli-eval/
 references/
 
-$ cat ~/.claude/skills/google-agents-cli-eval/SKILL.md
+$ cat ~/.agents/skills/google-agents-cli-eval/SKILL.md
 cat: SKILL.md: No such file or directory
 ```
 
-Two tools, two folders, both pointed at a name that can never load, because the file it's supposed to read doesn't exist. That's what a year of adding skills without ever subtracting one looks like.
+Seven folders point at a skill that can never load, because the file it's supposed to read doesn't exist. That's what adding skills without ever subtracting one looks like.
 
 ---
 
@@ -30,15 +30,15 @@ Two tools, two folders, both pointed at a name that can never load, because the 
 
 I've written about this stack from the build side three times: [SKILL.md itself](https://hiddedesmet.com/skills-md-github-copilot), [AGENTS.md and custom agents](https://hiddedesmet.com/agent-md-explained), and [all five customization files working together](https://hiddedesmet.com/building-a-complete-agent-fleet). Every one of those posts is about adding a file, writing a good description, getting the loading behavior right.
 
-None of them cover what happens after month twelve, when you have 105 skill folders and no idea which ones are dead weight.
+None of them cover what happens after month twelve, when you have 98 skill folders and no idea which ones are dead weight.
 
 And the reason it sneaks up on you is structural: [the loading loop for skills is index → match → load](https://hiddedesmet.com/skills-md-github-copilot#how-the-loading-loop-actually-works). A broken or redundant skill just sits in the index step. It costs a few tokens of frontmatter on every request, never matches, never loads, never throws an error. There's no CI job for "does this SKILL.md still make sense." No linter flags a skill that duplicates another one. No runtime exception fires when the folder is empty. The failure mode is silent by design, which is exactly why it needs a deliberate audit instead of waiting for something to break.
 
 ---
 
-## The tool: a stocktake, not a vibe check
+## The checklist: a stocktake, not a vibe check
 
-I didn't write the thing that caught the empty folders myself. It's a slash command, `/skill-stocktake`, that showed up when I pulled in a shared skills collection (its own frontmatter tags it `origin: ECC`). It scans `~/.claude/skills/` and, if you run it from a project root, that project's `.claude/skills/` too, then evaluates every skill against a fixed checklist:
+I didn't write the checklist I used for the audit. It comes from `/skill-stocktake`, a slash command that showed up when I pulled in a shared skills collection (its own frontmatter tags it `origin: ECC`). The command scans `~/.claude/skills/` and, if you run it from a project root, that project's `.claude/skills/` too, then evaluates every skill against a fixed checklist:
 
 ```text
 - [ ] Content overlap with other skills checked
@@ -59,11 +59,13 @@ Every skill gets one of five verdicts:
 
 Two modes: a **Quick Scan** that only re-evaluates skills changed since the last run (5-10 minutes, driven off a cached `results.json` and file mtimes), and a **Full Stocktake** that walks the entire folder (20-30 minutes, chunked into batches of about 20 skills per subagent call so the context doesn't blow up mid-review). The verdicts are holistic judgment against four dimensions, not a numeric score: actionability, scope fit, uniqueness, and currency. And it's explicit that a bad reason isn't good enough. "Superseded" is rejected. "Superseded by continuous-learning-v2, which covers all the same patterns plus confidence scoring, no unique content remains" is what it expects instead. Vague verdicts don't help you decide anything, so the checklist forces you to write the decision, not just the label.
 
+One scope limit worth flagging before you go looking for it yourself: this command only scans `~/.claude/skills/`, and a project's `.claude/skills/` if you invoke it from that project's root. It has no idea `~/.copilot/skills/` or `~/.agents/skills/` exist. The four-question checklist doesn't care which tool loaded the skill, but right now the automation only runs against one of the three folders on this machine. That's exactly why the manual one-liners further down loop over all three, not just Claude's.
+
 That's the mechanism. Here's what it actually finds when you point it at real files.
 
 ---
 
-## Two real examples from my own folder
+## Three real examples from my own folders
 
 **`continuous-learning` vs `continuous-learning-v2`.** Both live in `~/.claude/skills/`, both tagged `origin: ECC`. Here's the full frontmatter of each:
 
@@ -85,9 +87,11 @@ version: 2.0.0
 
 Run this through the checklist and the verdict writes itself. Overlap with another skill: yes, direct, the v2 description literally says it evolves into "skills/commands/agents," a superset of what v1 does. Uniqueness: none left in v1. This is a textbook **Merge into continuous-learning-v2**, not because v1 is bad, but because keeping both means every future session has to load two overlapping descriptions to decide which one applies.
 
-**The `google-agents-cli-*` set.** Seven skill names, cloned across two folders, all pointing at an empty `references/` directory with no `SKILL.md`. Actionability: zero, there's no body to act on. This isn't an "Improve" or a "Merge," it's a straight **Retire**, in both locations, because a skill that can't load isn't providing partial value, it's providing none while still occupying a slot in the index.
+**The `google-agents-cli-*` set.** Seven skill names in the shared catalog, each pointing at an empty `references/` directory with no `SKILL.md`. Actionability: zero, there's no body to act on. This isn't an "Improve" or a "Merge," it's a straight **Retire**, because a skill that can't load isn't providing partial value, it's providing none while still occupying a slot in the index.
 
-Neither of these needed a 30-minute Full Stocktake to spot. They needed someone to actually look.
+**Copilot's shipped six, for contrast.** Run the same four questions against `~/.copilot/skills/` and the answers are boring on purpose: `docx`, `pptx`, and `xlsx` each own a distinct Office format, `mermaid-diagrams` and `web-artifacts-builder` cover different output types, `loop` is the odd one out for Microsoft Loop pages. No `docx-v2` sitting next to `docx`. No duplicate names against the other two folders. That's not better discipline on my part, it's that these six shipped with the product instead of being added one session at a time over a year. The actual lesson isn't "Copilot skills are cleaner," it's that a folder only accumulates overlap once you start adding to it by hand. Give Copilot's skill folder the same year of manual additions Claude's has had, and it'll need the same audit.
+
+None of these needed a 30-minute Full Stocktake to spot. They needed someone to actually look.
 
 ---
 
@@ -122,10 +126,11 @@ for d in ~/.claude/skills ~/.agents/skills ~/.copilot/skills; do
 done
 ```
 
-Find skill names that exist in more than one folder, which is your shortlist for "check these for actual content overlap first":
+Find skill names that exist in more than one of the three folders, which is your shortlist for "check these for actual content overlap first":
 
 ```bash
-comm -12 <(ls ~/.claude/skills | sort) <(ls ~/.agents/skills | sort)
+find ~/.claude/skills ~/.agents/skills ~/.copilot/skills \
+  -mindepth 1 -maxdepth 1 -type d -exec basename {} \; | sort | uniq -d
 ```
 
 Neither of those tells you *why* a duplicate exists or whether it's safe to delete. That part still needs a human, or an agent, reading both files and applying the four questions: overlap, overlap with the always-on files, currency, usage. But it turns "I should probably review my skills sometime" into a five-second command that hands you a concrete list to start from.
@@ -138,4 +143,6 @@ Neither of those tells you *why* a duplicate exists or whether it's safe to dele
 - A verdict without a reason isn't a verdict. "Superseded" tells you nothing; "superseded by X, no unique content remains" tells you whether to act.
 - Duplicate names across tool-specific folders (`~/.claude/skills/`, `~/.agents/skills/`, `~/.copilot/skills/`) are the cheapest thing to check first, before you spend time on deep content review.
 - The four-question checklist (overlap with another skill, overlap with always-on files, currency, usage) applies to `AGENTS.md`, `.instructions.md`, and `.agent.md` just as much as it applies to `SKILL.md`. Don't stop the audit at the layer that has a tool for it.
-- Run the two one-liners above against your own skill folders before you add skill number 106. There's a decent chance one of them is already empty.
+- Tooling coverage is uneven today: `/skill-stocktake` only audits Claude's folder. If you're on Copilot or pulling from the shared `.agents/skills/` catalog, the checklist still applies, you just run it by hand for now with the one-liners above.
+- A clean folder isn't a permanent state, it's a head start. Copilot's six skills are overlap-free because nobody's added a seventh by hand yet. Claude's 56 got messy the same way yours will: one skill at a time, with no pruning step in between.
+- Run the two one-liners above against your own skill folders before you add skill number 99. There's a decent chance one of them is already empty.
