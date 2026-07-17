@@ -4,7 +4,7 @@ title: "98 skill folders, three coding setups, seven that don't exist: auditing 
 date: 2026-07-17
 tags: [github-copilot, claude-code, skill-md, agent-customization, ai-assisted-development, developer-tools, maintenance]
 author: hidde
-description: "I counted the skill folders across Claude Code, a shared agents catalog, and Copilot on my own machine. 98 total, including seven Google Agent CLI folders pointing at nothing. Here's what a real audit finds and the checklist to run it yourself."
+description: "I counted the skill folders across Claude Code, a shared agents catalog, and Copilot on my own machine. 98 total, including seven Google ADK Agents CLI folders pointing at nothing. Here's what a real audit finds and the checklist to run it yourself."
 image: /images/auditskills.png
 featured: true
 toc: true
@@ -12,7 +12,7 @@ toc: true
 
 This machine has three coding setups with separate skill folders: Claude Code, GitHub Copilot in VS Code, and a shared `.agents/skills/` catalog that a couple of other tools read from. I counted them while writing this post: `~/.claude/skills/` has 56 folders, `~/.agents/skills/` has 36, `~/.copilot/skills/` has 6. 98 total. The six in Copilot's folder are `docx`, `loop`, `mermaid-diagrams`, `pptx`, `web-artifacts-builder`, and `xlsx`, all shipped with the product, none of them added by hand. That distinction turns out to matter later in this post.
 
-Seven of those folders, the entire `google-agents-cli-*` set, exist in the shared `.agents/skills/` catalog. I went to open one for this post, expecting a Google Agent CLI skill. Instead: an empty `references/` folder and no `SKILL.md` at all.
+Seven of those folders, the entire `google-agents-cli-*` set, exist in the shared `.agents/skills/` catalog. Their names match Google's [ADK Agents CLI](https://adk.dev/tutorials/coding-with-ai/#agents-cli), which installs development skills for scaffolding, evaluation, deployment, publishing, observability, and ADK coding. I went to open one for this post expecting that material. Instead: an empty `references/` folder and no `SKILL.md` at all.
 
 ```text
 $ ls ~/.agents/skills/google-agents-cli-eval/
@@ -87,7 +87,7 @@ version: 2.0.0
 
 Run this through the checklist and the verdict writes itself. Overlap with another skill: yes, direct, the v2 description literally says it evolves into "skills/commands/agents," a superset of what v1 does. Uniqueness: none left in v1. This is a textbook **Merge into continuous-learning-v2**, not because v1 is bad, but because keeping both means every future session has to load two overlapping descriptions to decide which one applies.
 
-**The `google-agents-cli-*` set.** Seven skill names in the shared catalog, each pointing at an empty `references/` directory with no `SKILL.md`. Actionability: zero, there's no body to act on. This isn't an "Improve" or a "Merge," it's a straight **Retire**, because a skill that can't load isn't providing partial value, it's providing none while still occupying a slot in the index.
+**The `google-agents-cli-*` set.** Seven intended Google ADK Agents CLI skill names in the shared catalog, each pointing at an empty `references/` directory with no `SKILL.md`. Actionability: zero, there's no body to act on. This isn't an "Improve" or a "Merge," it's a straight **Retire**, because a skill that can't load isn't providing partial value, it's providing none while still occupying a slot in the index.
 
 **Copilot's shipped six, for contrast.** Run the same four questions against `~/.copilot/skills/` and the answers are boring on purpose: `docx`, `pptx`, and `xlsx` each own a distinct Office format, `mermaid-diagrams` and `web-artifacts-builder` cover different output types, `loop` is the odd one out for Microsoft Loop pages. No `docx-v2` sitting next to `docx`. No duplicate names against the other two folders. That's not better discipline on my part, it's that these six shipped with the product instead of being added one session at a time over a year. The actual lesson isn't "Copilot skills are cleaner," it's that a folder only accumulates overlap once you start adding to it by hand. Give Copilot's skill folder the same year of manual additions Claude's has had, and it'll need the same audit.
 
