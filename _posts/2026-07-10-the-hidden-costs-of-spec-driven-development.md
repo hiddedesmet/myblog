@@ -6,7 +6,7 @@ tags: [spec-driven-development, ai-assisted-development, spec-kit, engineering-m
 author: hidde
 description: "Spec-driven development fixes the 70% problem, but it also adds planning tax, review bottlenecks, and process overhead. Here is how to know when full specs are worth it and when to use a lighter path."
 image: /images/hiddencostsdd.png
-featured: true
+featured: false
 toc: true
 ---
 
