@@ -156,7 +156,7 @@ Failures stop at the narrowest boundary the spec defines:
 | Invalid top-level `mcp.json` | Disable MCP for that plugin |
 | Invalid skill | Skip that skill |
 | Invalid MCP server entry | Skip that server |
-| Server fails to start, connect, authenticate, or complete the handshake | Report the failure and continue loading independent components |
+| Server fails to start, connect, authenticate, or complete the handshake | Continue loading independent components; the client should report the failure |
 
 So one broken MCP server does not take down a valid skill in the same package.
 
