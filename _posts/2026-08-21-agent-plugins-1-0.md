@@ -5,7 +5,7 @@ date: 2026-08-21 09:00:00 +0000
 categories: [AI, Development]
 tags: [agent-plugins, github-copilot, mcp, skill-md, ai-assisted-development, agent-customization, vscode, open-standard]
 author: hidde
-description: "Agent Plugins 1.0 gives compatible clients one package format for skills and MCP servers. Here is what is portable, what stays client-specific, and how Copilot governs it."
+description: "Agent Plugins 1.0 removes duplicate packaging when the same skills and MCP servers must work across compatible clients. Here is when that helps and what remains client-specific."
 toc: true
 image: /images/agentplugins.png
 featured: true
@@ -24,6 +24,10 @@ my-plugin/
 ```
 
 That directory is an Agent Plugins 1.0 package. The skill and MCP configuration are portable. The custom Copilot agent is not, but it can stay in the same package under `com.github.copilot/`. A client that does not understand that namespace ignores it.
+
+It solves a specific maintenance problem. If a platform team wants to distribute the same deployment skill and MCP server to several clients that support Agent Plugins 1.0, it should not need a different wrapper for each one. With Agent Plugins 1.0, the team can maintain one portable core and keep client-specific additions beside it in namespaced directories.
+
+That means fewer manifests to update, fewer copies that can drift, and one package that compatible clients can consume through their own installation mechanisms. It does **not** make every customization portable or guarantee that a skill behaves identically in every client. The client still decides which component types it supports and how installation, permissions, and trust work.
 
 This is a small standard on purpose. It does not standardize marketplaces, installation, updates, permissions, trust prompts, or every kind of agent customization. It gives compatible clients a shared layout for two things: Agent Skills and MCP server configuration.
 
@@ -44,6 +48,15 @@ Before Agent Plugins 1.0, the same skill and MCP server could need different pac
 
 The component content could stay unchanged while manifests and directory layouts differed. That is the duplication this standard targets.
 
+Consider a team publishing ten shared integrations. The duplication is not just cosmetic. Every release can require updating multiple manifests, testing multiple layouts, and checking that one client-specific package has not fallen behind. Agent Plugins moves that repeated work to one package boundary:
+
+| Before | With Agent Plugins 1.0 |
+|--------|------------------------|
+| One wrapper per client format | One portable package for conformant clients |
+| Repeated manifest and layout updates | One canonical manifest and layout |
+| Separate copies can drift | Skills and MCP definitions have one source |
+| Client-specific files mixed into each package | Client-specific files live in namespaced directories |
+
 Compatible clients inspect the same package and load the component types they support:
 
 ```mermaid
@@ -55,6 +68,22 @@ flowchart LR
 ```
 
 Agent Plugins 1.0 standardizes package structure and component discovery. Distribution, installation, permissions, updates, trust behavior, and client extensions remain under each client's control.
+{: .important }
+
+---
+
+## Who should use it
+
+The strongest use case is not an individual with one local skill. It is a team or tool author distributing reusable capabilities:
+
+- **Platform teams** publishing an internal catalog of approved skills and MCP integrations.
+- **Tool vendors** supporting the same integration in more than one conformant agent client.
+- **Open source maintainers** who want one portable package without giving up client-specific enhancements.
+- **Enterprises** that want plugins to be an installable and governable unit in Copilot while keeping the portable components usable elsewhere.
+
+If everything you maintain targets one client, your current format works, and you do not duplicate packages, migration buys you little. Agent Plugins is useful when it removes repeated packaging work—not because version 1.0 exists.
+
+Portability also stops at the package boundary. A client may support skills, MCP servers, or both, and a skill can still depend on tools or behavior that another client does not provide. Use the shared format to remove packaging differences, then test the capability in every client you claim to support.
 {: .important }
 
 ---
@@ -177,7 +206,7 @@ Copilot Business and Enterprise administrators can govern plugins through the ex
 | Server-managed | GitHub account policy configured by an enterprise or organization admin |
 | File-based | `managed-settings.json` in the documented system location |
 
-All three channels use the same keys and values. In VS Code 1.128 and later, native MDM has the highest precedence, followed by server-managed settings, then file-based settings.
+All three channels use the same keys and values. [GitHub documents the precedence order](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings#precedence-rules) as native MDM first, followed by server-managed settings, then file-based settings.
 
 | Key | Effect |
 |-----|--------|
@@ -189,7 +218,7 @@ An empty `strictKnownMarketplaces` array locks marketplace installation down com
 
 A plugin can include MCP servers, so plugin policy should be paired with the [MCP allowlists GitHub announced on August 6](https://github.blog/changelog/2026-08-06-mcp-allowlists-in-enterprise-managed-settings). `allowedMcpServers` and `deniedMcpServers` match by `serverUrl`, `serverCommand`, or `serverName`. Deny entries take precedence over allow entries. Malformed or unverifiable configurations fail closed.
 
-`serverName` is a convenience matcher, not a secure identity check, because users control server names. Use `serverUrl` or `serverCommand` when server identity matters. GitHub's built-in first-party Copilot servers are exempt from deny rules and cannot be blocked through `deniedMcpServers`.
+`serverName` is a convenience matcher, not a secure identity check, because users control server names. Use `serverUrl` or `serverCommand` when server identity matters. [GitHub's managed-settings reference](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings#deniedmcpservers) says built-in first-party Copilot servers are exempt from deny rules and cannot be blocked through `deniedMcpServers`.
 
 This is the control layer missing from the unmanaged folders in [my July skill audit](/auditing-copilot-skills-stocktake). An administrator can define which plugins and marketplaces are available instead of hoping every developer keeps the same folders tidy.
 
@@ -217,16 +246,16 @@ You can also run `Chat: Install Plugin From Source` and provide a Git repository
 
 A project can recommend plugins through `enabledPlugins` and `extraKnownMarketplaces` in `.claude/settings.json` or `.github/copilot/settings.json`. VS Code shows a notification after the first chat message in that workspace. These are workspace recommendations, not enterprise-enforced policy.
 
-Installing a plugin is a trust decision. VS Code treats bundled MCP servers as implicitly trusted after plugin installation. It starts them when the plugin is enabled and does not show the separate startup trust prompt used for workspace MCP servers. Plugin hooks can also run shell commands at agent lifecycle events. Review the publisher and package contents before installing a community plugin.
+Installing a plugin is a trust decision. [VS Code treats bundled MCP servers as implicitly trusted](https://code.visualstudio.com/docs/agent-customization/agent-plugins#_how-plugin-mcp-servers-interact-with-other-servers) after plugin installation. It starts them when the plugin is enabled and does not show the separate startup trust prompt used for workspace MCP servers. Plugin hooks can also run shell commands at agent lifecycle events. Review the publisher and package contents before installing a community plugin.
 {: .important }
 
 ---
 
 ## When I would use it
 
-- **Use it when the same skill or MCP integration needs to reach more than one compatible client.** The required portable file is `plugin.json`; `skills/` and `mcp.json` are optional.
+- **Use it when separate client packages create real release and testing work.** The required portable file is `plugin.json`; `skills/` and `mcp.json` are optional.
 - **Keep client-only behavior in a namespace.** For Copilot, that means `com.github.copilot/` for agents, commands, rules, and hooks.
 - **Treat governance and runtime trust as separate problems.** Plugin policy controls what can be installed or enabled. MCP allowlists control which bundled servers may run. Installation still grants meaningful local capabilities.
 - **Do not migrate just for the label.** Existing formats still work in VS Code. The migration earns its keep when it removes packaging you would otherwise maintain twice.
 
-If you maintain a shared skill catalog or MCP integration across clients, Agent Plugins 1.0 gives those clients one package layout to read. That is useful. It is also narrower than the name suggests, which is probably why the first version has a chance of sticking.
+If you maintain a shared skill catalog or MCP integration across clients, Agent Plugins 1.0 can replace several wrappers with one package layout for conformant clients. If you do not have that duplication, keep what already works. Its narrow scope gives clients a realistic target without forcing them to standardize their entire extension model.
