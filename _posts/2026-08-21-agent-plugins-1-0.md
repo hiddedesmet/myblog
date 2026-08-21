@@ -137,6 +137,8 @@ MCP server definitions live in `mcp.json`:
 
 The MCP schema defines `stdio`, `streamable-http`, and legacy `sse` variants. An MCP-capable conformant client must support at least one of `stdio` or `streamable-http`; supporting both is recommended. Support for legacy `sse` is optional.
 
+Remote server URLs must use HTTPS except for loopback addresses. Values in MCP `env` and HTTP `headers` are visible package data, not secret storage. Agent Plugins 1.0 does not define portable OAuth or credential-reference fields; authentication discovery and credential storage remain client-managed.
+
 Clients that launch stdio MCP processes provide two standard locations:
 
 | Value | Purpose |
@@ -192,6 +194,8 @@ my-testing-plugin/
 
 A client that does not implement `com.github.copilot` ignores it. The package can therefore include Copilot-only files without claiming those files work elsewhere.
 
+There is one VS Code hook caveat worth calling out. VS Code parses Claude-compatible hook matchers but currently ignores their values, so the hook script must filter the event input when it should run only for particular tools. Plugin hooks run alongside workspace and user hooks. For `PreToolUse`, the most restrictive result wins: `deny`, then `ask`, then `allow`.
+
 VS Code also continues to support Copilot, Claude, and legacy OpenPlugin packages in their existing layouts. It detects the format from the manifest path and schema, so adopting Agent Plugins 1.0 is not mandatory for existing VS Code plugins.
 
 ---
@@ -210,7 +214,7 @@ All three channels use the same keys and values. [GitHub documents the precedenc
 
 | Key | Effect |
 |-----|--------|
-| `enabledPlugins` | Require a plugin to be enabled or disabled using `PLUGIN-NAME@MARKETPLACE-NAME` |
+| `enabledPlugins` | Automatically install and enable a plugin with `true`, or require it to remain blocked with `false`, using `PLUGIN-NAME@MARKETPLACE-NAME` |
 | `extraKnownMarketplaces` | Add marketplaces developers can access |
 | `strictKnownMarketplaces` | Restrict installation to marketplaces approved by the enterprise |
 
@@ -224,9 +228,9 @@ This is the control layer missing from the unmanaged folders in [my July skill a
 
 ---
 
-## Installing one
+## Installing and managing one in VS Code
 
-VS Code configures two marketplaces by default: [github/copilot-plugins](https://github.com/github/copilot-plugins) and [github/awesome-copilot](https://github.com/github/awesome-copilot). Open the Extensions view and search for:
+[VS Code's Agent Plugins support](https://code.visualstudio.com/docs/agent-customization/agent-plugins) requires `chat.plugins.enabled` to be `true`. VS Code configures two marketplaces by default: [github/copilot-plugins](https://github.com/github/copilot-plugins) and [github/awesome-copilot](https://github.com/github/awesome-copilot). Open the Extensions view and search for:
 
 ```text
 @agentPlugins
@@ -242,12 +246,30 @@ Add another marketplace in `settings.json`:
 }
 ```
 
-You can also run `Chat: Install Plugin From Source` and provide a Git repository URL. Plugins installed through Copilot CLI appear in VS Code from `~/.copilot/installed-plugins/`.
+The first installation from a new marketplace triggers a marketplace trust prompt. Review the repository before accepting it. You can also run `Chat: Install Plugin From Source` and provide a Git repository URL. Plugins installed through Copilot CLI appear in VS Code from `~/.copilot/installed-plugins/`.
+
+For a plugin you cloned or downloaded manually, register its directory without creating a marketplace:
+
+```json
+{
+  "chat.pluginLocations": {
+    "/path/to/my-plugin": true
+  }
+}
+```
+
+Set the value to `false` to keep the local plugin registered but inactive. Installed plugins can also be enabled or disabled globally or for one workspace from the Extensions view or Agent Customizations editor. Disabling one removes its skills, agents, commands, hooks, and MCP servers from chat without changing the shared plugin configuration.
 
 A project can recommend plugins through `enabledPlugins` and `extraKnownMarketplaces` in `.claude/settings.json` or `.github/copilot/settings.json`. VS Code shows a notification after the first chat message in that workspace. These are workspace recommendations, not enterprise-enforced policy.
 
-Installing a plugin is a trust decision. [VS Code treats bundled MCP servers as implicitly trusted](https://code.visualstudio.com/docs/agent-customization/agent-plugins#_how-plugin-mcp-servers-interact-with-other-servers) after plugin installation. It starts them when the plugin is enabled and does not show the separate startup trust prompt used for workspace MCP servers. Plugin hooks can also run shell commands at agent lifecycle events. Review the publisher and package contents before installing a community plugin.
+Plugin MCP servers appear in `MCP: List Servers` and the Chat tool picker. They start automatically when the plugin is enabled and stop when it is disabled. [VS Code treats bundled MCP servers as implicitly trusted](https://code.visualstudio.com/docs/agent-customization/agent-plugins#_how-plugin-mcp-servers-interact-with-other-servers) after plugin installation, so they do not show the separate startup trust prompt used for workspace MCP servers.
+
+Plugin hooks can run shell commands at agent lifecycle events with the same operating-system permissions as VS Code. Review the publisher, hook scripts, and MCP configuration before installing a community plugin.
 {: .important }
+
+VS Code checks for updates when you run `Extensions: Check for Extension Updates`, or every 24 hours when extension auto-update is enabled. Plugins sourced from npm or PyPI are the exception: VS Code shows an Update button and waits for explicit confirmation before running the package installation command.
+
+If a plugin does not appear, check `chat.plugins.enabled`, its manifest location, and its `name`. If only a skill is missing, verify that the skill's frontmatter name is kebab-case and matches its directory. If an update does not appear, bump `version` in `plugin.json` and in the marketplace entry when one exists.
 
 ---
 
