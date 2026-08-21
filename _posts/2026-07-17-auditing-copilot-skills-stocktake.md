@@ -6,7 +6,7 @@ tags: [github-copilot, claude-code, skill-md, agent-customization, ai-assisted-d
 author: hidde
 description: "I counted the skill folders across Claude Code, a shared agents catalog, and Copilot on my own machine. 98 total, including seven Google ADK Agents CLI folders pointing at nothing. Here's what a real audit finds and the checklist to run it yourself."
 image: /images/auditskills.png
-featured: true
+featured: false
 toc: true
 ---
 
