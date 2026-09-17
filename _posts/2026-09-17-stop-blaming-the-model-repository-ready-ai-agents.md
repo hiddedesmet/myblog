@@ -32,7 +32,7 @@ In Repository B, setup is executable. The toolchain is pinned. Tests bring their
 
 That is not a model comparison. It is a repository comparison.
 
-Changing the model can help, but it will not grant access to a private package feed. An agent may repair setup, but that consumes the session you meant to spend on the bug.
+Sometimes the model really is the problem: it can misunderstand the requirement or produce the wrong fix in a well-prepared repository. But changing it will not grant access to a private package feed. An agent may repair setup, but that consumes the session you meant to spend on the bug.
 
 Before you blame the agent, test the environment you gave it.
 
@@ -42,15 +42,18 @@ This guide helps you find what is blocking useful delegation, decide which tasks
 
 ## Run the clean-room drill
 
-Pick a small, reversible maintenance task, not an authentication change or cross-service redesign. Use existing development and CI tooling, allowing for hosted compute costs and plan requirements. Set least-privilege credential, network, and tool restrictions before any run with secrets or internal network access; [gate five](#gate-five-autonomy-must-stop-at-the-security-boundary) covers those controls.
+Pick a small, reversible maintenance task, not an authentication change or cross-service redesign. Use your existing development and CI tools. If you use hosted compute, check the costs and plan requirements first.
 
-1. Use a disposable environment with a clean checkout; a fresh clone on your usual laptop is not a clean environment.
-2. Do not use personal dotfiles, cached personal credentials, or manually started local services.
-3. Follow committed setup guidance, including dedicated credential provisioning and platform settings. Never commit secret values.
-4. Bootstrap, run focused tests, make the change, and run the pre-PR check.
-5. Open a draft pull request and confirm checks run. Copilot-created PRs need Actions approval from a user with write access: inspect the code before approving execution.
-6. Mark it ready for review and confirm owner requests and enforced review requirements. GitHub does not automatically request code-owner reviews on drafts; requests alone never block merges.
-7. **Record every undocumented human intervention.** If a prerequisite blocks the drill, record it rather than silently repairing the environment and calling the run a success.
+Before any run with secrets or internal network access, restrict credentials, network access, and tools to what the task needs. [Gate five](#gate-five-autonomy-must-stop-at-the-security-boundary) covers those controls.
+
+1. Start in a disposable environment with a clean checkout. No personal dotfiles, cached personal credentials, or manually started services. A fresh clone on your usual laptop does not count.
+2. Bootstrap using committed setup guidance. Provision dedicated credentials separately; never commit secret values.
+3. Run the focused test for the affected component.
+4. Make the small change.
+5. Run the complete pre-PR check.
+6. Open a draft pull request with the validation results.
+
+**Record every undocumented human intervention.** If a prerequisite blocks the drill, record it rather than silently repairing the environment and calling the run a success.
 
 Record specific failures rather than just a pass/fail verdict:
 
@@ -65,6 +68,15 @@ Record specific failures rather than just a pass/fail verdict:
 ```
 
 No cloud agent yet? Run the drill manually to check whether the committed setup instructions are enough.
+
+<details class="post__details" markdown="1">
+<summary>Copilot implementation note: checking the PR handoff</summary>
+
+By default, Actions workflows wait for approval when Copilot pushes changes to a pull request. Inspect the proposed code, especially workflow changes, before selecting **Approve and run workflows**. Administrators can [disable this approval requirement](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/configuring-agent-settings), but doing so can expose Actions secrets and write permissions to unreviewed code. Confirm the expected checks actually run.
+
+When the PR is ready, mark it ready for review and check owner routing. GitHub does not automatically request code-owner reviews on drafts. Review requests alone do not block merges: verify the enforced checks and review requirements described in [gate four](#gate-four-ci-must-enforce-the-same-definition-of-done).
+
+</details>
 
 Use the six gates below to connect each failure to a repair. Repository instructions can point to the right commands; the drill tests whether those commands actually work.
 
@@ -100,7 +112,9 @@ Copilot skips remaining setup steps after a non-zero exit code **but still start
 
 GitHub's [setup workflow](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/customize-the-agent-environment) lives at `.github/workflows/copilot-setup-steps.yml` on the default branch, with one job named `copilot-setup-steps`. It runs before the agent starts. Call shared project scripts from it so developers, CI, and agents use the same setup path.
 
-GitHub also supports self-hosted runners and recommends ephemeral, single-use instances. Its [documented workflow limits](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent#limitations-of-copilot-cloud-agent) allow changes in one repository and branch at a time, at most one pull request per task, and 59 minutes per session. Research-only sessions need not open a pull request. MCP can expand context access: the workflow limit is **not an access control**.
+GitHub also supports self-hosted runners and recommends ephemeral, single-use instances. Its [documented workflow limits](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent#limitations-of-copilot-cloud-agent) allow changes in one repository and branch at a time, at most one pull request per task, and 59 minutes per session. Research-only sessions need not open a pull request.
+
+The one-repository limit does not stop an MCP server from reaching other repositories or systems. That access depends on the server's credentials and enabled tools, not the scope of the coding task.
 
 </details>
 
@@ -123,6 +137,8 @@ make check         # run the complete pre-PR validation
 
 These are example `Makefile` targets, not built-in commands. Your target must also implement `TEST=users` where used. Pick names that suit your project.
 
+For a .NET repository, the same interface might use `dotnet restore`, `dotnet build`, `dotnet test`, and a committed PowerShell script such as `./scripts/check.ps1` for the full pre-PR check. npm scripts work too. The shared interface matters, not Make.
+
 Check that they do what CI expects:
 
 <div class="table-container" role="region" aria-label="Local commands compared with CI" tabindex="0" markdown="1">
@@ -136,9 +152,11 @@ Check that they do what CI expects:
 
 </div>
 
-Use instructions as an index: list the shared commands, directory layout, generated files and how to regenerate them, owners of sensitive code, and slow or external checks.
+Put that index in a root `AGENTS.md` for agents that support it, or in `.github/copilot-instructions.md` for Copilot. Copilot cloud agent supports both. Include the shared commands, a short component map, generated files and how to regenerate them, owners of sensitive code, and slow or external checks.
 
-Link to the scripts rather than copying their steps into several instruction files.
+For example: "User validation lives in `src/users/`; run `make test-unit TEST=users`. API clients are generated; refresh them with `make generate`, do not edit them by hand."
+
+Keep secrets, one-off task requirements, and pages of copied architecture documentation out. Link to maintained docs and scripts instead of duplicating their contents. The [AGENTS.md guide](/agent-md-explained) covers the file choices; here, the test is whether the index gets the agent to the right code and command.
 
 ---
 
@@ -153,6 +171,12 @@ make test-unit TEST=users
 ```
 
 There is no universal two-minute rule. The smallest relevant check should run unattended, return meaningful exit codes, use deterministic fixtures, and work regardless of test order. Failures should explain what broke.
+
+Three details make that feedback usable:
+
+- **Make the focused command discoverable.** Put the component-to-test mapping in the repository instructions or link to it there. Document the filter syntax and make an empty test selection fail rather than look like success.
+- **Separate flaky tests from reliable checks.** Track confirmed flakes in a visible quarantine with an owner and a repair issue. Do not retry until green and call it proof. Keep quarantined failures visible in CI, and record any coverage gap before delegating work that relies on those tests.
+- **Keep the useful output short.** Show the failing test, expected and actual values, and the relevant stack trace first. Save verbose logs as artifacts. A wall of setup logs consumes context and can bury the error the agent needs to fix.
 
 Follow with lint and type checks, then broader integration and end-to-end tests. Repository B catches the cheap failures first. Repository A is still looking for the database.
 
@@ -272,18 +296,18 @@ Use the failures from your drill as evidence, not the presence of a configuratio
 
 <div class="table-container post__scorecard" role="region" aria-label="Repository readiness scorecard" tabindex="0" markdown="1">
 
-| # | Criterion | 0 points | 1 point | 2 points |
-|---:|---|---|---|---|
-| 1 | Clean bootstrap | No reliable path | Needs manual repair | Documented path works from clean checkout |
-| 2 | Pinned tools and dependencies | Versions guessed | Partly pinned | Required versions declared and reproducible |
-| 3 | Services, config, test data | Undocumented | Examples; manual setup | Safe config, services, fixtures automated |
-| 4 | Canonical commands | Scattered | Documented but inconsistent | Stable setup, build, test, lint, check interface |
-| 5 | Repository map | Structure inferred | Main layout described | Components, owners, generated files and regeneration paths maintained |
-| 6 | Focused validation | No practical proof | Slow, flaky, IDE-bound | Unattended, deterministic, targeted checks |
-| 7 | CI parity and enforcement | Missing or unrelated | Parity or enforcement gaps | Shared scripts; required checks block merge |
-| 8 | Review and ownership | No clear reviewer | Advisory only | Human review enforced; sensitive paths require owners or teams |
-| 9 | Task contract | Vague issues | Some context captured | Outcome, validation, scope, exclusions required |
-| 10 | Security boundary | Broad credentials or unrestricted access | Partial controls | Tested credential, network, tool, isolation controls; review enforced |
+| # | Gate | Criterion | 0 points | 1 point | 2 points |
+|---:|---|---|---|---|---|
+| 1 | 1: Environment | Clean bootstrap | No reliable path | Needs manual repair | Documented path works from clean checkout |
+| 2 | 1: Environment | Pinned tools and dependencies | Versions guessed | Partly pinned | Required versions declared and reproducible |
+| 3 | 1: Environment | Services, config, test data | Undocumented | Examples; manual setup | Safe config, services, fixtures automated |
+| 4 | 2: Commands and context | Canonical commands | Scattered | Documented but inconsistent | Stable setup, build, test, lint, check interface |
+| 5 | 2: Commands and context | Repository map | Structure inferred | Main layout described | Components, owners, generated files and regeneration paths maintained |
+| 6 | 3: Focused tests | Focused validation | No practical proof | Slow, flaky, IDE-bound | Unattended, deterministic, targeted checks |
+| 7 | 4: Merge gates | CI parity and enforcement | Missing or unrelated | Parity or enforcement gaps | Shared scripts; required checks block merge |
+| 8 | 4: Merge gates | Review and ownership | No clear reviewer | Advisory only | Human review enforced; sensitive paths require owners or teams |
+| 9 | 6: Task scope | Task contract | Vague issues | Some context captured | Outcome, validation, scope, exclusions required |
+| 10 | 5: Security | Security boundary | Broad credentials or unrestricted access | Partial controls | Tested credential, network, tool, isolation controls; review enforced |
 
 </div>
 
@@ -312,13 +336,76 @@ The two highest bands require **enforced checks and human review**, including re
 
 The ranges are recommendations, not measured success probabilities. A score of 18 does not guarantee a good pull request.
 
+### Worked example: Repository A and Repository B
+
+The opening outputs cannot establish ten scores. To show how the scorecard works, extend those fictional repositories with the assumptions below. These are illustrative drill findings, not measured results.
+
+<div class="table-container" role="region" aria-label="Illustrative repository scores" tabindex="0" markdown="1">
+
+| # | Criterion | A | B | Assumed finding |
+|---:|---|---:|---:|---|
+| 1 | Clean bootstrap | 0 | 2 | A has no documented working setup; B repeats it cleanly |
+| 2 | Pinned tools and dependencies | 0 | 2 | A guesses versions; B installs declared versions |
+| 3 | Services, config, test data | 0 | 2 | A relies on laptop state; B provisions safe fixtures and services |
+| 4 | Canonical commands | 1 | 1 | Both document commands, but broader checks still differ from CI |
+| 5 | Repository map | 1 | 1 | Both describe the layout but omit generated-file guidance |
+| 6 | Focused validation | 0 | 2 | A cannot validate this task; B repeats targeted tests unattended |
+| 7 | CI parity and enforcement | 1 | 1 | Both run CI, but not every required check blocks merging |
+| 8 | Review and ownership | 1 | 1 | Both route reviews without enforcing owner approval |
+| 9 | Task contract | 1 | 1 | Both capture the problem but leave scope exclusions optional |
+| 10 | Security boundary | 0 | 1 | A has unrestricted access; B restricts credentials but has not tested all tool and network limits |
+| | **Total** | **5/20** | **14/20** | **Apply the hard stops before assigning a verdict** |
+
+</div>
+
+**A is not agent-ready.** Bootstrap and focused validation are both 0. Its security score also rules out autonomous execution with secrets or internal access.
+
+**B is still supervised only, despite scoring 14.** It loses six points across commands, context, CI, review, task scope, and security. Its unenforced merge controls cap the verdict. Fix those before calling it ready for bounded delegation; passing 42 tests does not settle the other criteria.
+
+<details class="post__details" markdown="1">
+<summary>Copyable Markdown scorecard for your next drill</summary>
+
+Copy this into an issue and use the rating definitions above. Check a box when you have recorded a score and evidence, not merely found a configuration file.
+
+```markdown
+## Repository readiness drill
+Task / commit:
+Disposable environment:
+Date / assessor:
+
+Score each item 0, 1, or 2; add evidence and the next repair.
+- [ ] 1. Clean bootstrap (gate 1):
+- [ ] 2. Pinned tools and dependencies (gate 1):
+- [ ] 3. Services, config, test data (gate 1):
+- [ ] 4. Canonical commands (gate 2):
+- [ ] 5. Repository map (gate 2):
+- [ ] 6. Focused validation (gate 3):
+- [ ] 7. CI parity and enforcement (gate 4):
+- [ ] 8. Review and ownership (gate 4):
+- [ ] 9. Task contract (gate 6):
+- [ ] 10. Security boundary (gate 5):
+
+Total: /20
+Undocumented human interventions:
+Hard stops: 1 or 6 = 0 means not agent-ready; 7 or 8 = 0
+means fix merge gates; 10 = 0 means no autonomous execution
+with secrets or internal access.
+Without enforced checks and human review (including required
+owners/teams for sensitive paths), cap at Supervised only.
+Verdict after hard stops and review cap:
+First repair / owner:
+Repeat-drill result:
+```
+
+</details>
+
 ---
 
 ## Fix the first failure, then repeat the drill
 
-Return to the illustrative opening. Repository A cannot connect to its database, so that test run provides no verdict on the bug. Investigate the service requirement and make the needed service and fixtures reproducible—or remove the database dependency if the focused test does not need it. Then repeat the same bounded task from a clean environment.
+Repository A needs a working validation path before its next score means much. Investigate the service requirement and make the needed service and fixtures reproducible. If the focused test does not need the database, remove that dependency. Then repeat the same bounded task from a clean environment.
 
-Repository B gets further: its focused tests run. That is evidence of usable validation, not proof that an agent's fix is correct or its permissions are safe. The broader checks, review, and access controls still matter.
+Repository B needs to close the gaps beyond its focused tests: align the broader checks, enforce review, and verify access controls. Another green unit-test run will not earn those missing points.
 
 For your repository, set access restrictions first, then repair bootstrap, focused tests, and CI enforcement in that order. Keep the fixes in shared tooling so the next developer benefits too. Once the drill runs without undocumented help, use the [AI coding agent KPI scorecard](/ai-coding-agents-need-kpis) to measure delivery outcomes separately from setup failures.
 
@@ -341,6 +428,8 @@ Product behavior checked against the documentation below on September 17, 2026. 
 
 - [About GitHub Copilot cloud agent](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent)
 - [Best practices for using GitHub Copilot to work on tasks](https://docs.github.com/en/copilot/tutorials/cloud-agent/get-the-best-results)
+- [Adding repository custom instructions for GitHub Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions)
+- [Configuring settings for GitHub Copilot cloud agent](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/configuring-agent-settings)
 - [Configuring the development environment for Copilot cloud agent](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/customize-the-agent-environment)
 - [Configuring secrets and variables for Copilot cloud agent](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/configure-secrets-and-variables)
 - [Configure MCP servers for your repository](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers)
