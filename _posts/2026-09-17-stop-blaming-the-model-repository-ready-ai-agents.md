@@ -36,11 +36,37 @@ Changing the model can help, but it will not grant access to a private package f
 
 Before you blame the agent, test the environment you gave it.
 
+This guide helps you find what is blocking useful delegation, decide which tasks you can safely hand over, and identify what to fix first. Start with a clean-room drill, use the six gates to diagnose the failures, then use the [20-point scorecard](#score-the-repository-out-of-20) to organize the repairs. The principles apply across coding agents; the implementation notes use GitHub Copilot cloud agent.
+
 ---
 
-The six gates below cover setup, commands, tests, CI, security, and task scope. Use the clean-room drill and 20-point scorecard to find what needs fixing. The principles apply across coding agents; the implementation notes use GitHub Copilot cloud agent.
+## Run the clean-room drill
 
-The earlier posts on [repository instructions](/agent-md-explained) and the [Copilot customization stack](/building-a-complete-agent-fleet) cover what to tell an agent. Here, the question is whether it can actually run the commands and verify its work.
+Pick a small, reversible maintenance task, not an authentication change or cross-service redesign. Use existing development and CI tooling, allowing for hosted compute costs and plan requirements. Set least-privilege credential, network, and tool restrictions before any run with secrets or internal network access; [gate five](#gate-five-autonomy-must-stop-at-the-security-boundary) covers those controls.
+
+1. Use a disposable environment with a clean checkout; a fresh clone on your usual laptop is not a clean environment.
+2. Do not use personal dotfiles, cached personal credentials, or manually started local services.
+3. Follow committed setup guidance, including dedicated credential provisioning and platform settings. Never commit secret values.
+4. Bootstrap, run focused tests, make the change, and run the pre-PR check.
+5. Open a draft pull request and confirm checks run. Copilot-created PRs need Actions approval from a user with write access: inspect the code before approving execution.
+6. Mark it ready for review and confirm owner requests and enforced review requirements. GitHub does not automatically request code-owner reviews on drafts; requests alone never block merges.
+7. **Record every undocumented human intervention.** If a prerequisite blocks the drill, record it rather than silently repairing the environment and calling the run a success.
+
+Record specific failures rather than just a pass/fail verdict:
+
+```text
+- runtime version had to be guessed
+- package registry was undocumented
+- test fixture existed only on one laptop
+- lint worked only through the IDE
+- CI ran an extra generated-code check
+- credential permissions exceeded the task
+- changed path had no owner
+```
+
+No cloud agent yet? Run the drill manually to check whether the committed setup instructions are enough.
+
+Use the six gates below to connect each failure to a repair. Repository instructions can point to the right commands; the drill tests whether those commands actually work.
 
 ---
 
@@ -234,37 +260,9 @@ If the task depends on repositories the agent cannot access, undocumented busine
 
 ---
 
-## Run the clean-room drill
-
-Pick a small, reversible maintenance task, not an authentication change or cross-service redesign. Use existing development and CI tooling, allowing for hosted compute costs and plan requirements.
-
-1. Use a disposable environment with a clean checkout; a fresh clone on your usual laptop is not a clean environment.
-2. Do not use personal dotfiles, cached personal credentials, or manually started local services.
-3. Follow committed setup guidance, including dedicated credential provisioning and platform settings. Never commit secret values.
-4. Bootstrap, run focused tests, make the change, and run the pre-PR check.
-5. Open a draft pull request and confirm checks run. Copilot-created PRs need Actions approval from a user with write access: inspect the code before approving execution.
-6. Mark it ready for review and confirm owner requests and enforced review requirements. GitHub does not automatically request code-owner reviews on drafts; requests alone never block merges.
-7. Record every undocumented human intervention.
-
-Record specific failures rather than just a pass/fail verdict:
-
-```text
-- runtime version had to be guessed
-- package registry was undocumented
-- test fixture existed only on one laptop
-- lint worked only through the IDE
-- CI ran an extra generated-code check
-- credential permissions exceeded the task
-- changed path had no owner
-```
-
-No cloud agent yet? Run the drill manually to check whether the committed setup instructions are enough.
-
----
-
 ## Score the repository out of 20
 
-The ten items below break the six gates into checks you can score separately. This is my suggested scorecard, not an industry benchmark. Score each item from 0 to 2:
+Use the failures from your drill as evidence, not the presence of a configuration file. The ten items below break the six gates into checks you can score separately. This is my suggested scorecard, not an industry benchmark. Score each item from 0 to 2:
 
 - **0: Missing.** Absent, unknown, or dependent on undocumented knowledge.
 - **1: Partial.** Documented or automated in places, but incomplete or dependent on an already-configured developer environment.
@@ -289,7 +287,17 @@ The ten items below break the six gates into checks you can score separately. Th
 
 </div>
 
-The two highest bands require **enforced checks and human review**, including required owners or teams for sensitive paths. Without those controls, do not exceed **Supervised only**, regardless of total. The hard stops below also apply.
+### Check the hard stops before interpreting the total
+
+A high total cannot compensate for a missing prerequisite. Any of these conditions overrides the total:
+
+1. **Bootstrap or focused validation is 0:** do not call the repository agent-ready.
+2. **CI parity and enforcement or review controls is 0:** fix the merge gates before treating delegated changes as ready to merge. A nonzero score alone is not permission to enable auto-merge.
+3. **The security boundary is 0:** do not provide autonomous execution with secrets or internal network access.
+
+The two highest bands require **enforced checks and human review**, including required owners or teams for sensitive paths. Without those controls, do not exceed **Supervised only**, regardless of total.
+
+### Use the score to organize the remaining improvements
 
 <div class="table-container" role="region" aria-label="Readiness score bands" tabindex="0" markdown="1">
 
@@ -304,21 +312,17 @@ The two highest bands require **enforced checks and human review**, including re
 
 The ranges are recommendations, not measured success probabilities. A score of 18 does not guarantee a good pull request.
 
-Any of these conditions overrides the total:
-
-1. **Bootstrap or focused validation is 0:** do not call the repository agent-ready.
-2. **CI parity and enforcement or review controls is 0:** fix the merge gates before treating delegated changes as ready to merge. A nonzero score alone is not permission to enable auto-merge.
-3. **The security boundary is 0:** do not provide autonomous execution with secrets or internal network access.
-
 ---
 
 ## Fix the first failure, then repeat the drill
 
-Set access restrictions before any run with credentials or internal network access. Then fix bootstrap, focused tests, and CI enforcement in that order. Keep the fixes in shared tooling wherever possible so the next developer benefits too.
+Return to the illustrative opening. Repository A cannot connect to its database, so that test run provides no verdict on the bug. Investigate the service requirement and make the needed service and fixtures reproducible—or remove the database dependency if the focused test does not need it. Then repeat the same bounded task from a clean environment.
 
-Repeat the task from a clean environment. Record whether it still needs undocumented help. Once setup and validation are reliable, use the [AI coding agent KPI scorecard](/ai-coding-agents-need-kpis) to measure delivery outcomes, keeping setup failures separate from coding failures.
+Repository B gets further: its focused tests run. That is evidence of usable validation, not proof that an agent's fix is correct or its permissions are safe. The broader checks, review, and access controls still matter.
 
-A stronger model may solve the bug better. Give it a repository where it can reach the bug first.
+For your repository, set access restrictions first, then repair bootstrap, focused tests, and CI enforcement in that order. Keep the fixes in shared tooling so the next developer benefits too. Once the drill runs without undocumented help, use the [AI coding agent KPI scorecard](/ai-coding-agents-need-kpis) to measure delivery outcomes separately from setup failures.
+
+Pick one small task. Run the drill, record the first blocker, fix it, and repeat. A failed bootstrap and a wrong fix are different failures. Separate them before deciding what to change.
 
 ---
 
