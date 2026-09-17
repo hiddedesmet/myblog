@@ -8,7 +8,7 @@ author: hidde
 description: "Agent Plugins 1.0 removes duplicate packaging when the same skills and MCP servers must work across compatible clients. Here is when that helps and what remains client-specific."
 toc: true
 image: /images/agentplugins.png
-featured: true
+featured: false
 ---
 
 ```text

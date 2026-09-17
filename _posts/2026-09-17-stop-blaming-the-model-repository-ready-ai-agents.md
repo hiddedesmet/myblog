@@ -1,0 +1,346 @@
+---
+layout: post
+title: "Stop blaming the model: is your repository ready for AI agents?"
+date: 2026-09-17 09:00:00 +0000
+categories: [AI, Development, DevOps]
+tags: [ai-coding-agents, github-copilot, repository-readiness, testing, ci-cd, developer-experience, devcontainers]
+author: hidde
+description: "A practical 20-point scorecard to test whether your repository gives AI coding agents the setup, context, tests, CI, and guardrails required to succeed."
+featured: true
+image: /images/stopblamingthemodel.png
+toc: true
+---
+
+```text
+# Repository A
+$ npm test
+Error: connect ECONNREFUSED 127.0.0.1:5432
+
+# Repository B
+$ make bootstrap
+Environment ready.
+
+$ make test-unit TEST=users
+42 tests passed.
+```
+
+These are illustrative outputs, not benchmark results. Imagine giving the same AI coding agent the same bug in these two repositories.
+
+In Repository A, it first has to discover which runtime to install, where the database comes from, which environment variables are required, and whether `npm test` even matches CI. Some of that knowledge exists, but only on a maintainer's laptop or in an old chat thread.
+
+In Repository B, setup is executable. The toolchain is pinned. Tests bring their own fixtures. One command produces a useful verdict.
+
+That is not a model comparison. It is a repository comparison.
+
+Changing the model can help, but it will not grant access to a private package feed. An agent may repair setup, but that consumes the session you meant to spend on the bug.
+
+Before you blame the agent, test the environment you gave it.
+
+---
+
+The six gates below cover setup, commands, tests, CI, security, and task scope. Use the clean-room drill and 20-point scorecard to find what needs fixing. The principles apply across coding agents; the implementation notes use GitHub Copilot cloud agent.
+
+The earlier posts on [repository instructions](/agent-md-explained) and the [Copilot customization stack](/building-a-complete-agent-fleet) cover what to tell an agent. Here, the question is whether it can actually run the commands and verify its work.
+
+---
+
+## Gate one: a clean checkout must become a working environment
+
+GitHub Copilot cloud agent starts in an ephemeral, GitHub Actions-powered environment. It does not inherit your laptop's cached credentials or manually installed services. A local agent may borrow those without exposing the setup gaps.
+
+Commit enough information to select the tools and set up the project. Depending on the stack, that includes:
+
+```text
+.tool-versions / .nvmrc / global.json
+package-lock.json / pnpm-lock.yaml / poetry.lock / Gemfile.lock
+Makefile / justfile / scripts/bootstrap
+.env.example
+compose.yaml
+.github/workflows/copilot-setup-steps.yml
+.devcontainer/devcontainer.json
+```
+
+Not every repository needs every file. Use a dev container if it helps make setup repeatable. Version files and lockfiles help only if setup uses them and packages remain accessible.
+
+Bootstrap should stop at a missing runtime, failed migration, or inaccessible registry and report what failed.
+
+Commit safe defaults or an `.env.example`; inject secrets separately. Supply disposable services and representative fixtures. The agent should not need to invent a database just to test a validation rule.
+
+{: .warning }
+Copilot skips remaining setup steps after a non-zero exit code **but still starts the agent**. A failed bootstrap does not stop the session. Inspect the setup logs and make validation reject missing prerequisites.
+
+<details class="post__details" markdown="1">
+<summary>Copilot implementation note: setup, runners, and session limits</summary>
+
+GitHub's [setup workflow](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/customize-the-agent-environment) lives at `.github/workflows/copilot-setup-steps.yml` on the default branch, with one job named `copilot-setup-steps`. It runs before the agent starts. Call shared project scripts from it so developers, CI, and agents use the same setup path.
+
+GitHub also supports self-hosted runners and recommends ephemeral, single-use instances. Its [documented workflow limits](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent#limitations-of-copilot-cloud-agent) allow changes in one repository and branch at a time, at most one pull request per task, and 59 minutes per session. Research-only sessions need not open a pull request. MCP can expand context access: the workflow limit is **not an access control**.
+
+</details>
+
+---
+
+## Gate two: give developers, agents, and CI the same commands
+
+The build command is in `README.md`, integration tests are in a wiki, and generated-code validation exists only in CI. Searching for each command wastes time and makes it easy to miss a check.
+
+Expose a small set of shared commands:
+
+```text
+make bootstrap     # prepare a clean environment
+make build         # compile or package the project
+make test-unit     # run the fast test layer
+make lint          # run static checks
+make generate      # refresh generated artifacts
+make check         # run the complete pre-PR validation
+```
+
+These are example `Makefile` targets, not built-in commands. Your target must also implement `TEST=users` where used. Pick names that suit your project.
+
+Check that they do what CI expects:
+
+<div class="table-container" role="region" aria-label="Local commands compared with CI" tabindex="0" markdown="1">
+
+| Repository says | CI actually does | Result |
+|---|---|---|
+| `npm test` | Tests plus schema generation | Stale generated files fail CI |
+| Use the default runtime | Uses a pinned runtime | Local success hides CI failure |
+| Run the linter | Treats warnings as errors | Avoidable review iteration |
+| Start any database | Uses a specific service version | Integration behavior differs |
+
+</div>
+
+Use instructions as an index: list the shared commands, directory layout, generated files and how to regenerate them, owners of sensitive code, and slow or external checks.
+
+Link to the scripts rather than copying their steps into several instruction files.
+
+---
+
+## Gate three: let the agent run focused tests
+
+An agent changes validation logic in `src/users/`. Its only test command launches every browser journey, rebuilds three containers, and waits for a shared environment.
+
+Let it check the affected component first:
+
+```bash
+make test-unit TEST=users
+```
+
+There is no universal two-minute rule. The smallest relevant check should run unattended, return meaningful exit codes, use deterministic fixtures, and work regardless of test order. Failures should explain what broke.
+
+Follow with lint and type checks, then broader integration and end-to-end tests. Repository B catches the cheap failures first. Repository A is still looking for the database.
+
+---
+
+## Gate four: CI must enforce the same definition of done
+
+Call the shared validation command from CI after checkout and setup:
+
+```yaml
+- name: Validate
+  run: make check
+```
+
+Runtimes, services, permissions, and the tested commit must still agree. Document any checks that can only run in CI.
+
+Require checks and human approval before merge. They cannot catch every defect, but they should block changes that fail the configured requirements. `CODEOWNERS` routes requests; to require an owner's approval, enable **Require review from Code Owners**.
+
+<details class="post__details" markdown="1">
+<summary>GitHub implementation note: rulesets and code owners</summary>
+
+[Rulesets](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets) can require checks, pull requests, approvals, and configured code scanning results. Verify plan and repository availability, activate rules on the target branch, and audit bypass permissions.
+
+Example `.github/CODEOWNERS`:
+
+```text
+/.github/CODEOWNERS  @your-org/platform-team
+/.github/workflows/  @your-org/platform-team
+/infra/              @your-org/platform-team @your-org/security-team
+/src/auth/           @your-org/identity-team
+```
+
+Use real, visible teams with explicit write access. Standard code-owner review accepts **either** listed `/infra/` owner, not both. For both approvals, configure separate required-team reviews in a ruleset.
+
+Protect `CODEOWNERS` itself. GitHub reads it from the pull request's **base branch**: edits cannot change that request's routing, but affect future requests once merged.
+
+</details>
+
+---
+
+## Gate five: autonomy must stop at the security boundary
+
+Making setup easy does not mean giving the agent the credentials from your laptop.
+
+```text
+Needed: download packages from a private registry
+Grant:  read-only package access for this repository
+Avoid:  a personal token with repository administration rights
+```
+
+Ordinary Copilot Agents secrets are available to the agent and setup scripts as environment variables. Calling something a secret does not hide it from the process using it.
+
+The hosted firewall is **not a complete sandbox**: setup and MCP processes are outside its direct coverage, and GitHub documents potential bypasses. MCP tools can run without per-call approval. Review before merge cannot undo an external action already taken by a tool.
+
+Before execution, configure and test:
+
+- dedicated, least-privilege credentials,
+- no production credentials for normal coding tasks,
+- approved network destinations,
+- isolated execution where practical.
+
+Keep required review and ownership for sensitive paths, as described above. Neither replaces limits on what the agent can do during a session.
+
+<details class="post__details" markdown="1">
+<summary>Copilot implementation note: secrets, firewall, and MCP</summary>
+
+- [Agents secrets and variables](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/configure-secrets-and-variables) are separate from Actions, Codespaces, and Dependabot. Restrict repository access and credential permissions. `COPILOT_MCP_` names are reserved for MCP servers.
+- The [hosted firewall](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-the-firewall) covers processes started through the agent's Bash tool. Review the default dependency allowlist and additions. Do not disable it without replacement controls. Self-hosted runners and Windows need separately configured network controls; the integrated firewall is incompatible with them.
+- Audit MCP credentials separately and [allowlist specific read-only tools](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers) where possible.
+
+</details>
+
+GitHub's [responsible-use guidance](https://docs.github.com/en/copilot/responsible-use/agents) also calls for review and testing: generated code can be inaccurate or insecure.
+
+---
+
+## Gate six: specify the task and its limits
+
+Compare these two issues:
+
+```text
+Improve user validation.
+```
+
+```text
+Reject an empty display name in src/users/.
+Return the existing validation error type.
+Add unit tests beside the current user-service tests.
+Do not change the public API schema.
+```
+
+The second gives the agent a starting point and the reviewer acceptance criteria. GitHub [recommends this level of clarity](https://docs.github.com/en/copilot/tutorials/cloud-agent/get-the-best-results), with more human involvement for ambiguous, sensitive, or cross-repository work.
+
+Use an issue form to ask for these details:
+
+```text
+Problem:
+Acceptance criteria:
+Expected validation:
+Likely component or path:
+Out of scope:
+```
+
+If the task depends on repositories the agent cannot access, undocumented business rules, or checks it cannot run, a maintainer needs to resolve those gaps or handle that part of the work.
+
+---
+
+## Run the clean-room drill
+
+Pick a small, reversible maintenance task, not an authentication change or cross-service redesign. Use existing development and CI tooling, allowing for hosted compute costs and plan requirements.
+
+1. Use a disposable environment with a clean checkout; a fresh clone on your usual laptop is not a clean environment.
+2. Do not use personal dotfiles, cached personal credentials, or manually started local services.
+3. Follow committed setup guidance, including dedicated credential provisioning and platform settings. Never commit secret values.
+4. Bootstrap, run focused tests, make the change, and run the pre-PR check.
+5. Open a draft pull request and confirm checks run. Copilot-created PRs need Actions approval from a user with write access: inspect the code before approving execution.
+6. Mark it ready for review and confirm owner requests and enforced review requirements. GitHub does not automatically request code-owner reviews on drafts; requests alone never block merges.
+7. Record every undocumented human intervention.
+
+Record specific failures rather than just a pass/fail verdict:
+
+```text
+- runtime version had to be guessed
+- package registry was undocumented
+- test fixture existed only on one laptop
+- lint worked only through the IDE
+- CI ran an extra generated-code check
+- credential permissions exceeded the task
+- changed path had no owner
+```
+
+No cloud agent yet? Run the drill manually to check whether the committed setup instructions are enough.
+
+---
+
+## Score the repository out of 20
+
+The ten items below break the six gates into checks you can score separately. This is my suggested scorecard, not an industry benchmark. Score each item from 0 to 2:
+
+- **0: Missing.** Absent, unknown, or dependent on undocumented knowledge.
+- **1: Partial.** Documented or automated in places, but incomplete or dependent on an already-configured developer environment.
+- **2: Proven.** Works from a clean environment and is repeatable or enforced.
+
+*On small screens, scroll the scorecard sideways to compare all three ratings.*
+
+<div class="table-container post__scorecard" role="region" aria-label="Repository readiness scorecard" tabindex="0" markdown="1">
+
+| # | Criterion | 0 points | 1 point | 2 points |
+|---:|---|---|---|---|
+| 1 | Clean bootstrap | No reliable path | Needs manual repair | Documented path works from clean checkout |
+| 2 | Pinned tools and dependencies | Versions guessed | Partly pinned | Required versions declared and reproducible |
+| 3 | Services, config, test data | Undocumented | Examples; manual setup | Safe config, services, fixtures automated |
+| 4 | Canonical commands | Scattered | Documented but inconsistent | Stable setup, build, test, lint, check interface |
+| 5 | Repository map | Structure inferred | Main layout described | Components, owners, generated files and regeneration paths maintained |
+| 6 | Focused validation | No practical proof | Slow, flaky, IDE-bound | Unattended, deterministic, targeted checks |
+| 7 | CI parity and enforcement | Missing or unrelated | Parity or enforcement gaps | Shared scripts; required checks block merge |
+| 8 | Review and ownership | No clear reviewer | Advisory only | Human review enforced; sensitive paths require owners or teams |
+| 9 | Task contract | Vague issues | Some context captured | Outcome, validation, scope, exclusions required |
+| 10 | Security boundary | Broad credentials or unrestricted access | Partial controls | Tested credential, network, tool, isolation controls; review enforced |
+
+</div>
+
+The two highest bands require **enforced checks and human review**, including required owners or teams for sensitive paths. Without those controls, do not exceed **Supervised only**, regardless of total. The hard stops below also apply.
+
+<div class="table-container" role="region" aria-label="Readiness score bands" tabindex="0" markdown="1">
+
+| Score | Interpretation | Recommended use |
+|---:|---|---|
+| **0–7** | Model-blame magnet | Fix setup and validation before judging agent performance |
+| **8–13** | Supervised only | Use draft-PR experiments with close human steering |
+| **14–17** | Ready for bounded tasks | Delegate small bugs, tests, docs, and contained maintenance |
+| **18–20** | Strong agent foundation | Expand task classes gradually; retain required checks and review |
+
+</div>
+
+The ranges are recommendations, not measured success probabilities. A score of 18 does not guarantee a good pull request.
+
+Any of these conditions overrides the total:
+
+1. **Bootstrap or focused validation is 0:** do not call the repository agent-ready.
+2. **CI parity and enforcement or review controls is 0:** fix the merge gates before treating delegated changes as ready to merge. A nonzero score alone is not permission to enable auto-merge.
+3. **The security boundary is 0:** do not provide autonomous execution with secrets or internal network access.
+
+---
+
+## Fix the first failure, then repeat the drill
+
+Set access restrictions before any run with credentials or internal network access. Then fix bootstrap, focused tests, and CI enforcement in that order. Keep the fixes in shared tooling wherever possible so the next developer benefits too.
+
+Repeat the task from a clean environment. Record whether it still needs undocumented help. Once setup and validation are reliable, use the [AI coding agent KPI scorecard](/ai-coding-agents-need-kpis) to measure delivery outcomes, keeping setup failures separate from coding failures.
+
+A stronger model may solve the bug better. Give it a repository where it can reach the bug first.
+
+---
+
+## Related reading
+
+- [AGENTS.md vs .agent.md: repo rules and custom agent roles explained](/agent-md-explained)
+- [Five files, one repo: the complete Copilot customization stack](/building-a-complete-agent-fleet)
+- [AI coding agents need KPIs: how to measure speed, quality, reliability, and cost](/ai-coding-agents-need-kpis)
+- [Terraform on Azure with guardrails: pre-commit, Trivy, and Anton Babenko's hooks](/terraform-azure-precommit-guardrails)
+
+---
+
+## Sources
+
+Product behavior checked against the documentation below on September 17, 2026. The gates, score thresholds, and suggested fixes are editorial recommendations.
+
+- [About GitHub Copilot cloud agent](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent)
+- [Best practices for using GitHub Copilot to work on tasks](https://docs.github.com/en/copilot/tutorials/cloud-agent/get-the-best-results)
+- [Configuring the development environment for Copilot cloud agent](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/customize-the-agent-environment)
+- [Configuring secrets and variables for Copilot cloud agent](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/configure-secrets-and-variables)
+- [Configure MCP servers for your repository](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers)
+- [Customizing or disabling the firewall for GitHub Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-the-firewall)
+- [Responsible use of GitHub Copilot agents](https://docs.github.com/en/copilot/responsible-use/agents)
+- [Available rules for GitHub rulesets](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets)
+- [About code owners](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners)
