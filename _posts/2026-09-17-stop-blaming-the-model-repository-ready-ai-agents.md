@@ -5,7 +5,7 @@ date: 2026-09-17 09:00:00 +0000
 categories: [AI, Development, DevOps]
 tags: [ai-coding-agents, github-copilot, repository-readiness, testing, ci-cd, developer-experience, devcontainers]
 author: hidde
-description: "A practical 20-point scorecard to test whether your repository gives AI coding agents the setup, context, tests, CI, and guardrails required to succeed."
+description: "A practical 10-check, 20-point scorecard for AI coding agents: test your repository's setup, context, validation, CI, and security guardrails."
 featured: true
 image: /images/stopblamingthemodel.png
 toc: true
@@ -118,7 +118,11 @@ Copilot skips remaining setup steps after a non-zero exit code **but still start
 <details class="post__details" markdown="1">
 <summary>Copilot implementation note: setup, runners, and session limits</summary>
 
-GitHub's [setup workflow](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/customize-the-agent-environment) lives at `.github/workflows/copilot-setup-steps.yml` on the default branch, with one job named `copilot-setup-steps`. It runs before the agent starts. Call shared project scripts from it so developers, CI, and agents use the same setup path.
+GitHub's [setup workflow](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-environment) lives at `.github/workflows/copilot-setup-steps.yml` on the default branch, with one job named `copilot-setup-steps`. It runs before the agent starts. Call shared project scripts from it so developers, CI, and agents use the same setup path.
+
+If Repository A's test genuinely needs PostgreSQL, the setup job supports `services` for provisioning it. Include service readiness checks, migrations, and fixtures in the reproducible setup.
+
+[Copilot code review](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/request-a-code-review/use-code-review#customizing-copilot-code-reviews-environment) reuses this setup file by default, so the same work also prepares its review environment. A dedicated `copilot-code-review.yml` takes precedence for code review when present.
 
 GitHub also supports self-hosted runners and recommends ephemeral, single-use instances. Its [documented workflow limits](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent#limitations-of-copilot-cloud-agent) allow changes in one repository and branch at a time, at most one pull request per task, and 59 minutes per session. Research-only sessions need not open a pull request.
 
@@ -210,6 +214,10 @@ Require passing checks and human approval before merge. Verify that a failed che
 
 [Rulesets](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets) can require checks, pull requests, approvals, and configured code scanning results. Verify plan and repository availability, activate rules on the target branch, and audit bypass permissions.
 
+Some rules, such as restrictions on commit authors, can [block Copilot cloud agent](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent#limitations-in-copilot-cloud-agents-compatibility-with-other-features). GitHub documents adding Copilot as a ruleset bypass actor as a workaround. That grants an exception to the ruleset, not just the author restriction. Keep required checks and human review enforced when resolving the conflict.
+
+Copilot code review can optionally [submit approving reviews that satisfy required-approval rules](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/request-a-code-review/use-code-review#pull-request-approvals-from-copilot). This is off by default and in public preview. If enabled, verify that a human approval is still mandatory before scoring human review as enforced.
+
 `CODEOWNERS` routes review requests. To make an owner's approval mandatory, enable **Require review from Code Owners**.
 
 Example `.github/CODEOWNERS`:
@@ -259,7 +267,7 @@ Keep required review and ownership for sensitive paths, as described above. Neit
 
 - [Agents secrets and variables](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/configure-secrets-and-variables) are separate from Actions, Codespaces, and Dependabot. Restrict repository access and credential permissions. `COPILOT_MCP_` names are reserved for MCP servers.
 - The [hosted firewall](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-the-firewall) covers processes started through the agent's Bash tool. Review the default dependency allowlist and additions. Do not disable it without replacement controls. Self-hosted runners and Windows need separately configured network controls; the integrated firewall is incompatible with them.
-- Audit MCP credentials separately and [allowlist specific read-only tools](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers) where possible.
+- The GitHub and Playwright MCP servers are [enabled by default](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers) for cloud agent and code review. The default GitHub MCP token is read-only and scoped to the current repository. Audit defaults as well as additions, check MCP credentials separately, and allowlist specific read-only tools where possible.
 
 </details>
 
@@ -327,11 +335,11 @@ Use the failures from your drill as evidence, not the presence of a configuratio
 
 A high total cannot compensate for a missing prerequisite. Any of these conditions overrides the total:
 
-1. **Bootstrap or focused validation is 0:** do not call the repository agent-ready.
-2. **Criterion 7 or 8 scores 0:** fix CI enforcement or review controls before treating delegated changes as ready to merge.
-3. **The security boundary is 0:** do not provide autonomous execution with secrets or internal network access.
+1. **Item 1 (bootstrap) or 6 (focused validation) scores 0:** record the verdict as **Blocked**, regardless of total. Repair setup or validation, then repeat the drill before assigning a readiness band.
+2. **Item 7 (CI enforcement) or 8 (review and ownership) scores 0:** fix merge controls before treating delegated changes as ready to merge.
+3. **Item 10 (security boundary) scores 0:** do not provide autonomous execution with secrets or internal network access.
 
-The two highest bands require **enforced checks and human review**, including required owners or teams for sensitive paths. Without those controls, do not exceed **Supervised only**, regardless of total.
+The two highest bands require **items 7 and 8 to both score 2**: enforced checks and human review, including required owners or teams for sensitive paths. If either scores below 2, do not exceed **Supervised only**, regardless of total. A **Blocked** verdict takes precedence over this cap.
 
 ### Use the score to organize the remaining improvements
 
@@ -368,7 +376,7 @@ To score our fictional repositories across all ten criteria, assume the drill un
 
 </div>
 
-**A is not agent-ready.** Bootstrap and focused validation are both 0. Its security score also rules out autonomous execution with secrets or internal access.
+**A is Blocked, despite having a recorded score of 5/20.** Items 1 (bootstrap) and 6 (focused validation) are both 0. Item 10 (security boundary) also rules out autonomous execution with secrets or internal access.
 
 **B is still supervised only, despite scoring 14.** It loses six points across commands, context, CI, review, task scope, and security. Its unenforced merge controls cap the verdict. Fix those before calling it ready for bounded delegation; passing 42 tests does not settle the other criteria.
 
@@ -397,11 +405,17 @@ Score each item 0, 1, or 2; add evidence and the next repair.
 
 Total: /20
 Undocumented human interventions:
-Hard stops: 1 or 6 = 0 means not agent-ready; 7 or 8 = 0
-means fix merge gates; 10 = 0 means no autonomous execution
-with secrets or internal access.
-Without enforced checks and human review (including required
-owners/teams for sensitive paths), cap at Supervised only.
+Hard stops:
+- Item 1 (bootstrap) or 6 (focused validation) = 0: Blocked.
+  Repair setup or validation, then repeat before assigning a band.
+- Item 7 (CI enforcement) or 8 (review and ownership) = 0:
+  fix merge controls before treating changes as ready to merge.
+- Item 10 (security boundary) = 0: no autonomous execution
+  with secrets or internal access.
+
+Top two bands require items 7 and 8 to both score 2, including
+enforced human review and required owners/teams for sensitive paths.
+Otherwise, cap at Supervised only. Blocked takes precedence.
 Verdict after hard stops and review cap:
 First repair / owner:
 Repeat-drill result:
@@ -440,7 +454,8 @@ Product behavior checked against the documentation below on September 17, 2026. 
 - [Best practices for using GitHub Copilot to work on tasks](https://docs.github.com/en/copilot/tutorials/cloud-agent/get-the-best-results)
 - [Adding repository custom instructions for GitHub Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions)
 - [Configuring settings for GitHub Copilot cloud agent](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/configuring-agent-settings)
-- [Configuring the development environment for Copilot cloud agent](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/customize-the-agent-environment)
+- [Configuring the development environment for Copilot cloud agent](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-environment)
+- [Using GitHub Copilot code review](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/request-a-code-review/use-code-review)
 - [Configuring secrets and variables for Copilot cloud agent](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/configure-secrets-and-variables)
 - [Configure MCP servers for your repository](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers)
 - [Customizing or disabling the firewall for GitHub Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-the-firewall)
