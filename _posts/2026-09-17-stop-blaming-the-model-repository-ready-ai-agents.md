@@ -24,7 +24,7 @@ $ make test-unit TEST=users
 42 tests passed.
 ```
 
-These are illustrative outputs, not benchmark results. Imagine giving the same AI coding agent the same bug in these two repositories.
+Imagine giving the same AI coding agent the same bug in these two fictional repositories.
 
 In Repository A, it first has to discover which runtime to install, where the database comes from, which environment variables are required, and whether `npm test` even matches CI. Some of that knowledge exists, but only on a maintainer's laptop or in an old chat thread.
 
@@ -69,6 +69,14 @@ Record specific failures rather than just a pass/fail verdict:
 
 No cloud agent yet? Run the drill manually to check whether the committed setup instructions are enough.
 
+### The local-agent false positive
+
+Imagine asking a local agent to fix a validation bug. It installs packages, runs the tests, and produces a green diff. You give the same task to an agent in a disposable environment. Package restore fails before it reaches the code.
+
+The difference? Your laptop had a cached login to the private package feed. It also had the test database running from yesterday. Neither dependency was covered by the setup instructions. Once you fix package access, the missing database becomes the next blocker.
+
+The local run tested your laptop's accumulated setup, not the repository's ability to recreate it. A local agent can be useful while hiding exactly the gaps a new developer or cloud agent will hit. That is why a fresh clone alone is not a clean-room test.
+
 <details class="post__details" markdown="1">
 <summary>Copilot implementation note: checking the PR handoff</summary>
 
@@ -78,13 +86,13 @@ When the PR is ready, mark it ready for review and check owner routing. GitHub d
 
 </details>
 
-Use the six gates below to connect each failure to a repair. Repository instructions can point to the right commands; the drill tests whether those commands actually work.
+Use the six gates below to connect each failure to a repair. They follow the work from setup to handoff for diagnosis, not the order in which to grant access: security restrictions come before execution, even though security is gate five.
 
 ---
 
 ## Gate one: a clean checkout must become a working environment
 
-GitHub Copilot cloud agent starts in an ephemeral, GitHub Actions-powered environment. It does not inherit your laptop's cached credentials or manually installed services. A local agent may borrow those without exposing the setup gaps.
+GitHub Copilot cloud agent starts in an ephemeral, GitHub Actions-powered environment. It does not inherit your laptop's cached credentials or manually installed services.
 
 Commit enough information to select the tools and set up the project. Depending on the stack, that includes:
 
@@ -135,7 +143,7 @@ make generate      # refresh generated artifacts
 make check         # run the complete pre-PR validation
 ```
 
-These are example `Makefile` targets, not built-in commands. Your target must also implement `TEST=users` where used. Pick names that suit your project.
+Define these targets in your project's `Makefile`, including support for the `TEST=users` filter. Pick names that suit your project.
 
 For a .NET repository, the same interface might use `dotnet restore`, `dotnet build`, `dotnet test`, and a committed PowerShell script such as `./scripts/check.ps1` for the full pre-PR check. npm scripts work too. The shared interface matters, not Make.
 
@@ -156,7 +164,9 @@ Put that index in a root `AGENTS.md` for agents that support it, or in `.github/
 
 For example: "User validation lives in `src/users/`; run `make test-unit TEST=users`. API clients are generated; refresh them with `make generate`, do not edit them by hand."
 
-Keep secrets, one-off task requirements, and pages of copied architecture documentation out. Link to maintained docs and scripts instead of duplicating their contents. The [AGENTS.md guide](/agent-md-explained) covers the file choices; here, the test is whether the index gets the agent to the right code and command.
+Keep secrets, one-off task requirements, and pages of copied architecture documentation out. Link to maintained docs and scripts instead of duplicating their contents.
+
+The [AGENTS.md guide](/agent-md-explained) explains the file choices. The [Copilot customization stack](/building-a-complete-agent-fleet) shows where instructions fit alongside skills and custom agents. Here, the test is whether the index gets the agent to the right code and command.
 
 ---
 
@@ -170,7 +180,7 @@ Let it check the affected component first:
 make test-unit TEST=users
 ```
 
-There is no universal two-minute rule. The smallest relevant check should run unattended, return meaningful exit codes, use deterministic fixtures, and work regardless of test order. Failures should explain what broke.
+The smallest relevant check should run unattended, return meaningful exit codes, use deterministic fixtures, and work regardless of test order. Failures should explain what broke.
 
 Three details make that feedback usable:
 
@@ -193,12 +203,14 @@ Call the shared validation command from CI after checkout and setup:
 
 Runtimes, services, permissions, and the tested commit must still agree. Document any checks that can only run in CI.
 
-Require checks and human approval before merge. They cannot catch every defect, but they should block changes that fail the configured requirements. `CODEOWNERS` routes requests; to require an owner's approval, enable **Require review from Code Owners**.
+Require passing checks and human approval before merge. Verify that a failed check or missing approval actually blocks merging.
 
 <details class="post__details" markdown="1">
 <summary>GitHub implementation note: rulesets and code owners</summary>
 
 [Rulesets](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets) can require checks, pull requests, approvals, and configured code scanning results. Verify plan and repository availability, activate rules on the target branch, and audit bypass permissions.
+
+`CODEOWNERS` routes review requests. To make an owner's approval mandatory, enable **Require review from Code Owners**.
 
 Example `.github/CODEOWNERS`:
 
@@ -211,7 +223,7 @@ Example `.github/CODEOWNERS`:
 
 Use real, visible teams with explicit write access. Standard code-owner review accepts **either** listed `/infra/` owner, not both. For both approvals, configure separate required-team reviews in a ruleset.
 
-Protect `CODEOWNERS` itself. GitHub reads it from the pull request's **base branch**: edits cannot change that request's routing, but affect future requests once merged.
+Protect `CODEOWNERS` itself. GitHub reads it from the pull request's **base branch**. Changing it in a PR does not change that PR's review routing. Once merged, the new ownership rules apply to future requests.
 
 </details>
 
@@ -229,7 +241,9 @@ Avoid:  a personal token with repository administration rights
 
 Ordinary Copilot Agents secrets are available to the agent and setup scripts as environment variables. Calling something a secret does not hide it from the process using it.
 
-The hosted firewall is **not a complete sandbox**: setup and MCP processes are outside its direct coverage, and GitHub documents potential bypasses. MCP tools can run without per-call approval. Review before merge cannot undo an external action already taken by a tool.
+The hosted firewall is **not a complete sandbox**. Setup and MCP processes are outside its direct coverage. GitHub also documents potential bypasses.
+
+MCP tools can run without per-call approval. Review before merge cannot undo an external action already taken by a tool.
 
 Before execution, configure and test:
 
@@ -248,8 +262,6 @@ Keep required review and ownership for sensitive paths, as described above. Neit
 - Audit MCP credentials separately and [allowlist specific read-only tools](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers) where possible.
 
 </details>
-
-GitHub's [responsible-use guidance](https://docs.github.com/en/copilot/responsible-use/agents) also calls for review and testing: generated code can be inaccurate or insecure.
 
 ---
 
@@ -286,7 +298,7 @@ If the task depends on repositories the agent cannot access, undocumented busine
 
 ## Score the repository out of 20
 
-Use the failures from your drill as evidence, not the presence of a configuration file. The ten items below break the six gates into checks you can score separately. This is my suggested scorecard, not an industry benchmark. Score each item from 0 to 2:
+Use the failures from your drill as evidence, not the presence of a configuration file. The ten items below break the six gates into checks you can score separately. Score each item from 0 to 2:
 
 - **0: Missing.** Absent, unknown, or dependent on undocumented knowledge.
 - **1: Partial.** Documented or automated in places, but incomplete or dependent on an already-configured developer environment.
@@ -316,7 +328,7 @@ Use the failures from your drill as evidence, not the presence of a configuratio
 A high total cannot compensate for a missing prerequisite. Any of these conditions overrides the total:
 
 1. **Bootstrap or focused validation is 0:** do not call the repository agent-ready.
-2. **CI parity and enforcement or review controls is 0:** fix the merge gates before treating delegated changes as ready to merge. A nonzero score alone is not permission to enable auto-merge.
+2. **Criterion 7 or 8 scores 0:** fix CI enforcement or review controls before treating delegated changes as ready to merge.
 3. **The security boundary is 0:** do not provide autonomous execution with secrets or internal network access.
 
 The two highest bands require **enforced checks and human review**, including required owners or teams for sensitive paths. Without those controls, do not exceed **Supervised only**, regardless of total.
@@ -334,11 +346,9 @@ The two highest bands require **enforced checks and human review**, including re
 
 </div>
 
-The ranges are recommendations, not measured success probabilities. A score of 18 does not guarantee a good pull request.
-
 ### Worked example: Repository A and Repository B
 
-The opening outputs cannot establish ten scores. To show how the scorecard works, extend those fictional repositories with the assumptions below. These are illustrative drill findings, not measured results.
+To score our fictional repositories across all ten criteria, assume the drill uncovers the following:
 
 <div class="table-container" role="region" aria-label="Illustrative repository scores" tabindex="0" markdown="1">
 
