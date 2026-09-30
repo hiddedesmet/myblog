@@ -2,7 +2,7 @@
 layout: post
 title: "GitHub AES: the work after the agent finishes"
 description: "Faster agents can leave slower handoffs. A practical take on GitHub AES: review capacity, enforced stopping points, and evidence from production."
-date: 2026-10-02 09:00:00 +0000
+date: 2026-09-30 09:00:00 +0000
 author: hidde
 image: /images/githubaes.png
 categories: [AI, Development, DevOps]
