@@ -1,0 +1,616 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - link "Skip to content" [ref=e4] [cursor=pointer]:
+      - /url: "#start-of-content"
+    - banner [ref=e9]:
+      - heading "Navigation Menu" [level=2] [ref=e10]
+      - generic [ref=e11]:
+        - link "Homepage" [ref=e13] [cursor=pointer]:
+          - /url: /
+        - generic [ref=e16]:
+          - navigation "Global" [ref=e17]:
+            - list [ref=e18]:
+              - listitem [ref=e19]:
+                - button "Platform" [ref=e21] [cursor=pointer]
+              - listitem [ref=e24]:
+                - button "Solutions" [ref=e26] [cursor=pointer]
+              - listitem [ref=e29]:
+                - button "Resources" [ref=e31] [cursor=pointer]
+              - listitem [ref=e34]:
+                - button "Open Source" [ref=e36] [cursor=pointer]
+              - listitem [ref=e39]:
+                - button "Enterprise" [ref=e41] [cursor=pointer]
+              - listitem [ref=e44]:
+                - link "Pricing" [ref=e45] [cursor=pointer]:
+                  - /url: https://github.com/pricing
+          - generic [ref=e46]:
+            - button "Search or jump to, type / to search" [ref=e48] [cursor=pointer]
+            - link "Sign in" [ref=e55] [cursor=pointer]:
+              - /url: /login?return_to=https%3A%2F%2Fgithub.com%2Fresources%2Finsights%2Fagentic-engineering-system
+            - link "Sign up" [ref=e58] [cursor=pointer]:
+              - /url: /signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2Fresources%2Finsights%2Fagentic-engineering-system&source=header
+  - main [ref=e63]:
+    - generic [ref=e67]:
+      - generic [ref=e69]:
+        - generic [ref=e71]:
+          - navigation "Breadcrumbs" [ref=e73]:
+            - list [ref=e74]:
+              - listitem [ref=e75]:
+                - link "Insights" [ref=e76] [cursor=pointer]:
+                  - /url: https://github.com/resources/insights
+              - listitem [ref=e77]:
+                - generic: GitHub's Agentic Engineering System
+          - generic [ref=e78]:
+            - region [ref=e80]:
+              - heading "GitHub's Agentic Engineering System" [level=1] [ref=e84]
+            - paragraph [ref=e85]:
+              - time [ref=e86]: August 12, 2026
+        - generic [ref=e88]:
+          - generic [ref=e90]:
+            - generic [ref=e91]:
+              - paragraph [ref=e94]: Code generation is getting easier, but delivering customer value requires more than just volume. It requires a system.
+              - generic [ref=e96]:
+                - paragraph [ref=e97]: AI agents can help teams ship faster, but shipping faster does not automatically deliver more value. Without a foundation of strong governance, shared knowledge, and clear feedback loops, agents can increase confusion, rework, and risk.
+                - paragraph [ref=e98]: "GitHub's Agentic Engineering System (AES) is a framework for building that foundation, so your teams are set up to deliver customer value from day one. It describes:"
+                - list [ref=e99]:
+                  - listitem [ref=e100]:
+                    - paragraph [ref=e101]: Governance, shared knowledge, and customer value as three "stocks" that shape system health over time
+                  - listitem [ref=e102]:
+                    - paragraph [ref=e103]: Define, deliver, and detect as three "activities" that move work through the system
+                  - listitem [ref=e104]:
+                    - paragraph [ref=e105]: Director, performer, and assessor as three "modes" that describe how people and agents contribute
+                - paragraph [ref=e106]: "Use this framework to:"
+                - list [ref=e107]:
+                  - listitem [ref=e108]:
+                    - paragraph [ref=e109]: Evaluate your readiness to scale agent use
+                  - listitem [ref=e110]:
+                    - paragraph [ref=e111]: Decide which work can be delegated, and which needs more human oversight
+                  - listitem [ref=e112]:
+                    - paragraph [ref=e113]: Improve the quality of information available to people and agents
+                - paragraph [ref=e115]: The diagram above shows how work moves through an engineering system with agents (a software component that can work asynchronously and (semi)-autonomously). The three activities form a continuous loop; the three modes describe how people participate; and over time, the three stocks accumulate and shape whether each cycle improves the next.
+                - paragraph [ref=e116]: "A simple way to tell whether agent adoption is working: as agent use expands, escaped defect rates should stay flat or fall, and the quality of shared knowledge should improve alongside delivery speed. When both happen, the system is getting faster without getting weaker. If they diverge, something in the operating model needs attention."
+                - paragraph [ref=e117]:
+                  - text: AES is tool-agnostic. The stocks, activities, and modes apply to any organization adopting agents in software engineering, regardless of vendor. This document uses examples from the GitHub ecosystem because it's the environment we know best, but the same concepts can be mapped to other toolchains. The framework is relevant at both the organizational and team level, though teams are often constrained by the conditions set at the organizational level. Implementation guidance related to this playbook is available in
+                  - link "GitHub Well-Architected" [ref=e118] [cursor=pointer]:
+                    - /url: https://learn.github.com/well-architected/governance/recommendations/agentic-engineering-system-on-github
+                  - text: .
+                - paragraph [ref=e119]: "AES also assumes a set of operating-environment conditions: reliable and secure infrastructure, appropriately skilled humans, a culture that supports responsible agent participation, and sufficient data and content access. These are preconditions for the framework to behave as described and are covered under readiness and preconditions in the adoption and readiness FAQ. If they are absent, agent adoption will struggle regardless of how well governance, shared knowledge, and participation modes are designed."
+                - paragraph [ref=e120]:
+                  - text: AES draws in part on ideas from
+                  - link "System Dynamics" [ref=e121] [cursor=pointer]:
+                    - /url: https://en.wikipedia.org/wiki/System_dynamics
+                  - text: and software delivery research, including
+                  - link "DORA" [ref=e122] [cursor=pointer]:
+                    - /url: https://cloud.google.com/resources/content/dora-roi-of-ai-assisted-software-development
+                  - text: . These sources help explain how system conditions shape outcomes over time, and why speed only creates value when it is paired with reliability, learning, and strong operational feedback loops.
+                - heading "The stocks that make agent use reliable" [level=2] [ref=e123]
+                - heading "How to keep people and agents working effectively at speed" [level=3] [ref=e124]
+                - paragraph [ref=e125]: Governance and shared knowledge determine whether agent use is reliable. Customer value tells you whether that reliability is producing results that customers actually value. Together, these three stocks shape whether faster processes lead to better outcomes or just more output and risk.
+                - paragraph [ref=e126]: The point is not just to have these stocks, but to keep improving them. In strong systems, each cycle leaves behind better governance, better shared knowledge, and clearer evidence of what customers value.
+                - 'heading "Governance: What determines what can be delegated, and what still needs human oversight" [level=3] [ref=e127]'
+                - paragraph [ref=e128]: Governance determines what people and agents are allowed to do, under what conditions, and with what oversight. It is what allows low-risk, well-bounded work to move quickly while ensuring higher-risk work gets the human attention it needs. While it may not impact customer value directly, it can make delivery more trustworthy.
+                - paragraph [ref=e129]: "When governance is strong, teams can delegate more work with confidence because the boundaries are clear and the controls match the risk. When it's weak, organizations usually end up in one of two bad states: over-restricting agents and losing potential speed gains, or under-restricting them and accumulating avoidable risk."
+                - paragraph [ref=e130]: "Good governance is less about creating a single gate and more about maintaining an operating layer that is evaluated continuously as work moves through the system: policy, permissions, reviews, automated checks, security requirements, deployment protections, and escalation paths. When that layer is current and well-calibrated, low-risk work can flow quickly and human attention can stay focused where judgment matters most. When it is vague, stale, or disconnected from real workflows, teams either work around it or are slowed down by it."
+                - paragraph [ref=e131]: "Signals:"
+                - list [ref=e132]:
+                  - listitem [ref=e133]:
+                    - paragraph [ref=e134]: Incidents or defects that point to missing controls or weak review boundaries
+                  - listitem [ref=e135]:
+                    - paragraph [ref=e136]: The share of low-risk work that still queues for manual review
+                  - listitem [ref=e137]:
+                    - paragraph [ref=e138]: How often automated policy checks pass versus require exceptions
+                  - listitem [ref=e139]:
+                    - paragraph [ref=e140]: How quickly incidents or near misses lead to governance updates
+                  - listitem [ref=e141]:
+                    - paragraph [ref=e142]: Whether approved tools and workflows are actually being used
+                - 'heading "Shared knowledge: What people and agents need to do good work" [level=3] [ref=e143]'
+                - paragraph [ref=e144]: "Shared knowledge is the information people and agents rely on to do good work: code, decisions, documentation, telemetry, and customer feedback. It shapes how well work is defined, delivered, and improved over time. When shared knowledge is current, relevant, and easy to use, both people and agents are more likely to make good decisions and produce useful output."
+                - paragraph [ref=e145]: When shared knowledge is strong, work is easier to scope, hand off, and complete with confidence because the right information is available in the right places. When it's weak, people and agents are more likely to rely on guesswork, outdated assumptions, or incomplete context. Humans can sometimes work around those gaps through experience or informal networks, while agents can only act on what they can access, which means weak shared knowledge often turns into fast, confident mistakes.
+                - paragraph [ref=e146]: When knowledge is well maintained, decisions are documented, and important information is easy to find, so teams can delegate more effectively and spend less time correcting avoidable errors. When knowledge is stale, scattered, or overloaded with irrelevant detail, work slows down, review burden rises, and mistakes are more likely to add up.
+                - paragraph [ref=e147]: "Signals:"
+                - list [ref=e148]:
+                  - listitem [ref=e149]:
+                    - paragraph [ref=e150]: The freshness and quality of documentation, instruction files, and architecture records
+                  - listitem [ref=e151]:
+                    - paragraph [ref=e152]: How often agent or human work has to be re-scoped because key context was missing
+                  - listitem [ref=e153]:
+                    - paragraph [ref=e154]: Agent task success rates, especially where low success points to unclear or incomplete inputs
+                  - listitem [ref=e155]:
+                    - paragraph [ref=e156]: High token use, repeated retries, or tool-call churn on tasks that should be straightforward
+                  - listitem [ref=e157]:
+                    - paragraph [ref=e158]: How often important decisions or learnings are captured in places the broader system can use
+                - heading "What a context window does and doesn't do" [level=3] [ref=e159]
+                - paragraph [ref=e160]: An agent's context window is not the same thing as organizational understanding. Even a powerful model can only act on the information it is given or allowed to retrieve, and large volumes of context do not guarantee that the right context is present, current, or well structured. In practice, better outcomes stem from giving agents the right information in a form they can use.
+                - 'heading "Customer value: What tells you whether faster delivery is actually paying off" [level=3] [ref=e161]'
+                - paragraph [ref=e162]: Customer value is the outcome these other two stocks exist to support. Governance and shared knowledge shape whether work can move quickly and reliably, while customer value tells you whether that work is solving real problems, improving the customer experience, and building trust over time. It is the clearest signal of whether agent adoption is creating better outcomes or just more activity.
+                - paragraph [ref=e163]: "When customer value is strong, faster delivery is translating into something customers actually notice: better experiences, more useful capabilities, fewer problems, or stronger trust in the product. When it's weak, teams may still be shipping quickly, but the work is not producing meaningful results. More output without more adoption, satisfaction, or reliability is a sign that something upstream is misaligned."
+                - paragraph [ref=e164]: Good customer value depends on the system learning from real signals. Teams need to know not just what they shipped, but whether it worked, who it helped, and what should change next. When delivery is connected to usage, feedback, support patterns, and operational results, teams can correct course earlier and invest more confidently in what matters. When those signals are weak or ignored, it becomes easy to mistake motion for progress.
+                - paragraph [ref=e165]: "Signals:"
+                - list [ref=e166]:
+                  - listitem [ref=e167]:
+                    - paragraph [ref=e168]: Feature adoption and usage after release
+                  - listitem [ref=e169]:
+                    - paragraph [ref=e170]: Customer-reported defects and support volume trends
+                  - listitem [ref=e171]:
+                    - paragraph [ref=e172]: Satisfaction, retention, or trust indicators tied to delivery cycles
+                  - listitem [ref=e173]:
+                    - paragraph [ref=e174]: How often shipped work needs rollback or immediate follow-up fixes
+                  - listitem [ref=e175]:
+                    - paragraph [ref=e176]: Whether teams can clearly connect delivery work to customer outcomes
+                - heading "How work moves, and how humans and agents contribute" [level=2] [ref=e177]
+                - paragraph [ref=e178]: "The AES framework describes work in two ways. Activities illustrate how work moves through the lifecycle: define, deliver, and detect. Modes describe how people and agents participate in that work as directors, performers, and assessors."
+                - paragraph [ref=e179]: These modes are not job titles or team boundaries. They are patterns of work that can shift depending on the situation. The same person or agent may move through multiple modes across the same activity, and the right mix of human and agent involvement depends on risk, governance, and shared knowledge.
+                - 'heading "Activities: How work moves" [level=3] [ref=e180]'
+                - paragraph [ref=e181]: "The three activities describe the active work of the lifecycle: deciding what should happen, making a change, and observing what happened. They repeat many times across a product's life. What changes from one cycle to the next is not the activity itself, but the surrounding conditions: what governance allows, what shared knowledge is available, and whether a person or an agent is doing the work."
+                - 'heading "Define: Decide what should happen" [level=4] [ref=e182]'
+                - paragraph [ref=e183]: Define is the decision about what should happen next. It could be writing a requirement, framing an issue, or deciding to act on an alert. In an agentic system, define matters more because cheaper delivery means poorly defined work can move into execution almost immediately.
+                - paragraph [ref=e184]: "Strong define depends on shared knowledge: customer insight, prior decisions, system constraints, and clear acceptance criteria. In strong systems, exploratory work is also more likely to turn into production outcomes, because the assumptions, constraints, and success criteria were defined clearly enough to build on. When they are weak, agents can produce well-structured but poorly grounded work very quickly."
+                - paragraph [ref=e185]: "Signal: The share of defined work that enters delivery without major re-scoping or rework."
+                - 'heading "Deliver: Make the change" [level=4] [ref=e186]'
+                - paragraph [ref=e187]: "Deliver is where work changes something in the world: shipping code, creating a prototype, updating documentation, changing infrastructure, or enabling a launch. In an agentic system, the key question is not whether agents can help deliver, but which kinds of delivery can safely move with less human involvement and which still require closer judgment."
+                - paragraph [ref=e188]: Low-risk, well-bounded work can often flow through agent performers with strong automated checks and light human review. Higher-risk work, especially work involving trade-offs, customer impact, or difficult-to-reverse consequences, still needs deeper human direction and assessment.
+                - paragraph [ref=e189]: "Signal: Whether faster delivery is increasing customer value or just creating more in-flight work and review burden."
+                - 'heading "Detect: Observe what happened" [level=4] [ref=e190]'
+                - paragraph [ref=e191]: "Detect is how the system observes what happened: telemetry, incidents, support patterns, customer feedback, performance changes, and other real-world signals. Its job is not just to notice those signals, but to turn them into information the next cycle can use."
+                - paragraph [ref=e192]: Agents can dramatically increase the volume and speed of detection. The challenge is no longer finding signals, but deciding which ones matter, when to escalate, and how to route them back into shared knowledge and governance. More detection without better interpretation creates noise, not insight.
+                - paragraph [ref=e193]: "Signal: Detection latency, signal coverage, and how often detected issues are structured and fed back into future work."
+                - 'heading "Modes: How people and agents participate" [level=3] [ref=e194]'
+                - paragraph [ref=e195]: "Modes describe how people and agents participate in work. Director sets direction. Performer acts on that direction. Assessor evaluates the result. These aren't fixed roles: the same person or agent may hold different modes at different times depending on capability, risk, and what governance allows."
+                - 'heading "Director: Set direction" [level=4] [ref=e196]'
+                - paragraph [ref=e197]: Director is the mode that sets intent, scope, and constraints. It decides what outcome matters, what trade-offs are acceptable, and what boundaries the work needs to stay within. In an agentic system, director becomes more important because faster execution makes weak direction more costly.
+                - paragraph [ref=e198]: People are often best placed to hold the director mode when the work depends on judgment, organizational context, customer understanding, or competing priorities. Agents can support them by surfacing options, summarizing context, or turning rough goals into clearer plans, but they should not be mistaken for the source of intent.
+                - paragraph [ref=e199]: "Anti-patterns:"
+                - list [ref=e200]:
+                  - listitem [ref=e201]:
+                    - paragraph [ref=e202]: Delegating execution without clearly defining the objective
+                  - listitem [ref=e203]:
+                    - paragraph [ref=e204]: Treating agent-generated plans as if they reflect business intent on their own
+                  - listitem [ref=e205]:
+                    - paragraph [ref=e206]: Leaving trade-offs or escalation paths implicit
+                - 'heading "Performer: Carry out the work" [level=4] [ref=e207]'
+                - paragraph [ref=e208]: Performer is the mode that carries out the work. It writes code, updates documentation, runs analysis, opens pull requests, executes remediation steps, or completes other bounded tasks. In an agentic system, agents can often hold this mode well when the task is clear, the context is strong, and the boundaries are well defined.
+                - paragraph [ref=e209]: The question is not whether agents can perform work, but which work they can perform reliably. For low-risk, well-scoped tasks, agent performers can increase speed significantly. For work with higher ambiguity, broader consequences, or difficult-to-reverse outcomes, human involvement usually needs to increase alongside automation.
+                - paragraph [ref=e210]: "Anti-patterns:"
+                - list [ref=e211]:
+                  - listitem [ref=e212]:
+                    - paragraph [ref=e213]: Using agents on poorly scoped tasks and expecting reliable execution
+                  - listitem [ref=e214]:
+                    - paragraph [ref=e215]: Expanding delegation without improving governance or shared knowledge
+                  - listitem [ref=e216]:
+                    - paragraph [ref=e217]: Confusing task completion with successful outcomes
+                - 'heading "Assessor: Evaluate the result" [level=4] [ref=e218]'
+                - paragraph [ref=e219]: Assessor is the mode that evaluates whether the work is correct, useful, safe, and complete enough to move forward. It reviews outputs against intent, standards, evidence, and real-world results. In an agentic system, assessor becomes more important, not less, because more generated work means more needs to be checked in the right way.
+                - paragraph [ref=e220]: People are especially important in this mode when judgment, accountability, or customer impact is involved. Agents can support assessment by running tests, checking policy compliance, flagging anomalies, summarizing diffs, or comparing outputs against known patterns. But strong assessment depends on knowing what evidence matters and when a result should be questioned, not just whether a check passed.
+                - paragraph [ref=e221]: "Anti-patterns:"
+                - list [ref=e222]:
+                  - listitem [ref=e223]:
+                    - paragraph [ref=e224]: Treating green checks as a complete substitute for review
+                  - listitem [ref=e225]:
+                    - paragraph [ref=e226]: Reviewing agent output more lightly than comparable human work
+                  - listitem [ref=e227]:
+                    - paragraph [ref=e228]: Measuring speed without measuring error, rework, or downstream impact
+                - heading "Participation modes grid" [level=3] [ref=e229]
+                - paragraph [ref=e230]: In successful organizations, activities and modes work together. Define, deliver, and detect describe the work itself. Director, performer, and assessor describe how people and agents take part in that work. The right mix depends on the task, the context available, and the risk involved.
+                - paragraph [ref=e231]: Sometimes people hold all three modes. Sometimes agents take on more of the execution while people stay focused on direction and judgment. The goal is not maximum agent participation. It is the right participation for the work.
+                - paragraph [ref=e232]: The matrix below is not a maturity ladder or a fixed operating model. It is a way to think through which forms of participation fit which kinds of work.
+                - table [ref=e233]:
+                  - rowgroup [ref=e234]:
+                    - row [ref=e235]:
+                      - cell [ref=e236]:
+                        - paragraph
+                        - paragraph
+                      - cell [ref=e237]:
+                        - paragraph [ref=e238]: Define
+                      - cell [ref=e239]:
+                        - paragraph [ref=e240]: Deliver
+                      - cell [ref=e241]:
+                        - paragraph [ref=e242]: Detect
+                    - row [ref=e243]:
+                      - cell [ref=e244]:
+                        - paragraph [ref=e245]: Director (human)
+                      - cell [ref=e246]:
+                        - paragraph [ref=e247]: PM raises an issue in GitHub Projects specifying a notification feature, assigns an agent to draft detailed requirements and acceptance criteria
+                      - cell [ref=e248]:
+                        - paragraph [ref=e249]: Engineer writes a prompt instructing an agent to create a React prototype with specific component structure and test coverage
+                      - cell [ref=e250]:
+                        - paragraph [ref=e251]: SRE configures an agent to collect latency and error rate metrics from Datadog (for the purpose of improving shared knowledge)
+                    - row [ref=e252]:
+                      - cell [ref=e253]:
+                        - paragraph [ref=e254]: Director (agent)
+                        - paragraph
+                        - paragraph [ref=e255]: (suited to higher agentic maturity)
+                      - cell [ref=e256]:
+                        - paragraph [ref=e257]: Agent reviews the backlog, weighs customer impact, technical debt, and team capacity, then proposes prioritized issues for the next sprint with written rationale.
+                      - cell [ref=e258]:
+                        - paragraph [ref=e259]: Agent evaluates a failing deployment by correlating error signatures, change history, and dependency health, then chooses the least disruptive remediation within pre-authorized boundaries.
+                      - cell [ref=e260]:
+                        - paragraph [ref=e261]: Agent investigates a latency shift by examining recent deployments and dependency graphs, then defines the observability changes it judges most informative within its pre-authorized scope.
+                    - row [ref=e262]:
+                      - cell [ref=e263]:
+                        - paragraph [ref=e264]: Performer (human)
+                      - cell [ref=e265]:
+                        - paragraph [ref=e266]: Architect researches technical constraints and writes a feasibility assessment for the notification feature in response to the PM's issue
+                      - cell [ref=e267]:
+                        - paragraph [ref=e268]: Engineer manually builds a payment integration requiring judgment about error handling and retry logic
+                      - cell [ref=e269]:
+                        - paragraph [ref=e270]: SRE investigates a novel outage by correlating logs across three services and interviewing the on-call engineer
+                    - row [ref=e271]:
+                      - cell [ref=e272]:
+                        - paragraph [ref=e273]: Performer (agent)
+                        - paragraph
+                        - paragraph [ref=e274]: (suited to emerging agentic maturity)
+                      - cell [ref=e275]:
+                        - paragraph [ref=e276]: Agent drafts requirements and acceptance criteria by synthesizing customer feedback tickets, prior decisions, and technical constraints from shared knowledge
+                      - cell [ref=e277]:
+                        - paragraph [ref=e278]: Agent writes code, generates tests, opens a pull request (which is assessed by a human), and deploys to staging
+                      - cell [ref=e279]:
+                        - paragraph [ref=e280]: Agent pulls telemetry from Datadog, correlates it with recent deployments, and summarizes findings as a comment on the relevant GitHub issue
+                    - row [ref=e281]:
+                      - cell [ref=e282]:
+                        - paragraph [ref=e283]: Assessor (human)
+                      - cell [ref=e284]:
+                        - paragraph [ref=e285]: Tech lead reviews the drafted requirements, flags missing edge cases, and approves the issue for delivery
+                      - cell [ref=e286]:
+                        - paragraph [ref=e287]: PM reviews the deployed prototype against the original issue description and acceptance criteria
+                      - cell [ref=e288]:
+                        - paragraph [ref=e289]: SRE evaluates whether the agent's monitoring configuration is capturing the right signals at the right granularity and adjusts thresholds
+                    - row [ref=e290]:
+                      - cell [ref=e291]:
+                        - paragraph [ref=e292]: Assessor (agent)
+                        - paragraph
+                        - paragraph [ref=e293]: (suited to higher agentic maturity)
+                      - cell [ref=e294]:
+                        - paragraph [ref=e295]: Agent evaluates a drafted issue against architectural standards, decision records, and dependency risks, then approves with confidence notes or returns it with specific concerns.
+                      - cell [ref=e296]:
+                        - paragraph [ref=e297]: Agent reviews a pull request by analyzing test results, complexity changes, and security findings, then approves, requests changes, or escalates based on residual risk.
+                      - cell [ref=e298]:
+                        - paragraph [ref=e299]: Agent examines its detection outputs against historical baselines, identifies where coverage is thin or signal quality has degraded, and recommends targeted improvements.
+                - paragraph [ref=e300]: Use activities and modes together to decide where agent participation should expand, where people should stay more involved, and what conditions need to improve first. If a task is poorly defined, high risk, or weakly supported by shared knowledge, increasing automation will usually increase rework and risk. If the task is well bounded, the context is strong, and the assessment path is clear, agent participation can often expand safely.
+                - paragraph [ref=e301]: A note on agentic workflows
+                - paragraph [ref=e302]:
+                  - text: Some teams use
+                  - link "orchestrator and worker agent" [ref=e303] [cursor=pointer]:
+                    - /url: https://www.anthropic.com/research/building-effective-agents
+                  - text: patterns or
+                  - link "agentic workflows" [ref=e304] [cursor=pointer]:
+                    - /url: https://github.github.com/gh-aw/
+                  - text: ", but these do not change the core framework. The same questions still apply: who is directing, who is performing, who is assessing, and what governance and shared knowledge make that participation reliable?"
+                - heading "See the framework in action" [level=2] [ref=e305]
+                - 'heading "New feature development: private preview to public preview to general availability" [level=3] [ref=e306]'
+                - paragraph [ref=e307]: New feature development rarely moves through the lifecycle just once. It usually moves through multiple loops, with each cycle adding to shared knowledge and changing what the team does next.
+                - paragraph [ref=e308]: "A team may begin with shared knowledge such as customer insights, product strategy, prior decisions, system constraints, and existing code. That context is used to define an initial version of the work, often a narrow private preview designed to test a specific assumption. The team then delivers that preview to a small group of users and detects what happens: usage, feedback, support needs, defects, and unexpected behavior. Those signals feed back into shared knowledge."
+                - paragraph [ref=e309]: The move from private preview to public preview is another loop. The team uses what it learned to define what needs to change before broader exposure, delivers those changes, and detects what happens at larger scale. By the time the feature reaches GA, the system has accumulated more shared knowledge about what users value, where the product struggles, and what needs to be true for a reliable launch.
+                - 'heading "Ongoing maintenance and sustainment: signals to stability" [level=3] [ref=e310]'
+                - paragraph [ref=e311]: A product in maintenance still moves through the lifecycle, but the cycle often starts with detect rather than a planned feature idea.
+                - paragraph [ref=e312]: Signals such as usage patterns, incidents, support tickets, cost changes, and security alerts are continuously produced by the system. Through observability, customer feedback, operational reviews, and agent-supported analysis, those signals are detected and added to shared knowledge. The team uses that updated context to define the next piece of work, which might be a bug fix, reliability improvement, documentation update, or alert change.
+                - paragraph [ref=e313]: The team then delivers the change, sometimes with agents doing part of the work under human review, and returns to detect to see whether the change had the intended effect. In this loop, customer value may not look like a new feature. It may show up as lower downtime, fewer support tickets, or more stable performance.
+                - 'heading "Security incident: from detection to recovery" [level=3] [ref=e314]'
+                - paragraph [ref=e315]: A security incident is another example of the lifecycle starting with detect and moving through the full cycle to restore stability and strengthen the system.
+                - paragraph [ref=e316]: "A vulnerability alert, unusual system behavior, or correlated monitoring signal may trigger the cycle. Those signals are detected, investigated, and added to shared knowledge: which systems are affected, what the blast radius is, and which assumptions failed. The team then defines the response, delivers the fix, and returns to detect to confirm that the issue is resolved and that no new problems have appeared."
+                - paragraph [ref=e317]: In this kind of loop, agents may help identify affected systems, open pull requests, or summarize evidence, while humans remain closely involved in higher-risk actions such as secret rotation, policy changes, and final approval. The value delivered is not a new feature but the preservation of trust, reliability, and control.
+                - heading "Assess where you are and decide what to do next" [level=2] [ref=e318]
+                - paragraph [ref=e319]: "This section helps you assess how much work you can safely delegate to agents today, and what you need to strengthen before delegating more. The answer depends on two things: the health of your leading stocks—governance and shared knowledge—and the current range and depth of agent usage across your lifecycle."
+                - paragraph [ref=e320]: Below you'll find our Stock-Adoption matrix. It helps teams locate their current posture, understand the risks of expanding too quickly or too slowly, and choose the next move that fits their system. You do not need to move the whole organization at once. Each process or task can shift on its own, so you can adopt one at a time and place each where it fits today.
+                - paragraph [ref=e322]: Organizations may move from Underdeveloped foundations to Healthy but underused, and then toward a Healthy agent-native system. But many teams expand agent usage faster than their stocks can support and end up in a Stretched agent-native system instead.
+                - paragraph [ref=e323]: To make the four quadrants concrete, the same small task is shown in each one. Only the surrounding conditions change.
+                - paragraph [ref=e324]:
+                  - text: Shared task. A backend engineer needs to add a
+                  - code [ref=e325]: customer_tier
+                  - text: field to the
+                  - code [ref=e326]: "GET /orders/{id}"
+                  - text: "response. The field already exists in the system, so the change is small and read-only: expose the field, update the schema and documentation, and add a test."
+                - paragraph [ref=e327]: Healthy agent-native system. Governance and shared knowledge are strong, and agent delegation is appropriately scoped. An agent picks up the task, uses current documentation and contract information, updates the API response, regenerates the spec, and opens a PR. Automated checks confirm the change is additive, and a human reviewer gives final approval. The work merges quickly because the surrounding system is reliable.
+                - list [ref=e328]:
+                  - listitem [ref=e329]:
+                    - paragraph [ref=e330]: "What to do next:"
+                    - paragraph
+                    - paragraph [ref=e331]: Stay the course and expand to the next safe class of work.
+                - paragraph [ref=e332]: Healthy but underused. The foundations are strong, but agent participation is still limited. A human engineer makes the same change using good documentation, reliable tests, and strong review controls. The work is safe and fast, but no agent is involved. The system could support more delegation than it is currently using.
+                - list [ref=e333]:
+                  - listitem [ref=e334]:
+                    - paragraph [ref=e335]: "What to do next:"
+                    - paragraph
+                    - paragraph [ref=e336]: Expand agent participation in small, well-bounded tasks first.
+                - paragraph [ref=e337]: "Underdeveloped foundations. Governance and shared knowledge are too weak to support broader delegation reliably. A human engineer makes the change, but key context is hard to find: the spec is known to drift, downstream consumers are unclear, and the impact must be discovered manually. The engineer eventually finds a dependency that would have broken and coordinates a safer rollout. A human can absorb that discovery cost; an agent likely would not."
+                - list [ref=e338]:
+                  - listitem [ref=e339]:
+                    - paragraph [ref=e340]: "What to do next:"
+                    - paragraph
+                    - paragraph [ref=e341]: Strengthen shared knowledge and governance before expanding agent use.
+                - paragraph [ref=e342]: Stretched agent-native system. Agent usage has expanded faster than governance and shared knowledge. An agent makes the same change using stale or incomplete context. CI passes, a busy reviewer approves, and the PR merges quickly. The hidden dependency is only discovered later when a downstream job fails. The problem is not the agent alone; it is the weak system around it.
+                - list [ref=e343]:
+                  - listitem [ref=e344]:
+                    - paragraph [ref=e345]: "What to do next:"
+                    - paragraph
+                    - paragraph [ref=e346]: Slow expansion, narrow agent scope, and repair the missing foundations.
+                - paragraph [ref=e347]: "The core lesson of the matrix is whether agent usage matches the strength of the foundations beneath it. Healthy agent-native and Underdeveloped foundations are aligned states: in one, strong governance and shared knowledge support broader delegation; in the other, weak foundations limit how much delegation is safe. Healthy but underused and Stretched agent-native are misaligned states: one could safely delegate more, while the other is already delegating too much for its current foundations."
+                - paragraph [ref=e348]: Risk appetite affects where an organization draws the line between "healthy enough" and "not yet." Teams with higher tolerance for defect leakage may expand agent usage earlier. Teams with high consequences for failure will require stronger governance and shared knowledge before delegating the same work. The matrix shows direction, not a universal threshold.
+                - paragraph
+            - generic [ref=e350]:
+              - generic [ref=e351]: Share
+              - generic [ref=e352]:
+                - button "Copy link to share" [ref=e354] [cursor=pointer]
+                - link "Share on Facebook Facebook" [ref=e358] [cursor=pointer]:
+                  - /url: https://www.facebook.com/sharer/sharer.php?u=https://github.com/resources/insights/agentic-engineering-system
+                  - generic [ref=e359]: Share on Facebook
+                  - img "Facebook" [ref=e360]
+                - link "Share on X X (formerly Twitter)" [ref=e362] [cursor=pointer]:
+                  - /url: https://x.com/intent/tweet?url=https://github.com/resources/insights/agentic-engineering-system
+                  - generic [ref=e363]: Share on X
+                  - img "X (formerly Twitter)" [ref=e364]
+                - link "Share on LinkedIn LinkedIn" [ref=e366] [cursor=pointer]:
+                  - /url: https://www.linkedin.com/shareArticle?mini=true&url=https://github.com/resources/insights/agentic-engineering-system
+                  - generic [ref=e367]: Share on LinkedIn
+                  - img "LinkedIn" [ref=e368]
+            - generic [ref=e371]:
+              - generic [ref=e372]: Tags
+              - 'link "Tags: AI" [ref=e373] [cursor=pointer]':
+                - /url: https://github.com/resources/insights?type=ai
+                - generic [ref=e374]: AI
+              - 'link "Tags: Software Development" [ref=e376] [cursor=pointer]':
+                - /url: https://github.com/resources/insights?type=software-development
+                - generic [ref=e377]: Software Development
+              - 'link "Tags: Enterprise" [ref=e379] [cursor=pointer]':
+                - /url: https://github.com/resources/insights?type=enterprise
+                - generic [ref=e380]: Enterprise
+              - 'link "Tags: Developer Productivity" [ref=e382] [cursor=pointer]':
+                - /url: https://github.com/resources/insights?type=developer-productivity
+                - generic [ref=e383]: Developer Productivity
+          - complementary [ref=e386]:
+            - navigation [ref=e387]:
+              - generic [ref=e388]:
+                - generic [ref=e389]:
+                  - heading "Table of contents" [level=2] [ref=e391]
+                  - list [ref=e393]:
+                    - listitem [ref=e394]:
+                      - link "The stocks that make agent use reliable" [ref=e395] [cursor=pointer]:
+                        - /url: "#the-stocks-that-make-agent-use-reliable"
+                    - listitem [ref=e396]:
+                      - link "How work moves, and how humans and agents contribute" [ref=e397] [cursor=pointer]:
+                        - /url: "#how-work-moves-and-how-humans-and-agents-contribute"
+                    - listitem [ref=e398]:
+                      - link "See the framework in action" [ref=e399] [cursor=pointer]:
+                        - /url: "#see-the-framework-in-action"
+                    - listitem [ref=e400]:
+                      - link "Assess where you are and decide what to do next" [ref=e401] [cursor=pointer]:
+                        - /url: "#assess-where-you-are-and-decide-what-to-do-next"
+                - generic [ref=e402]:
+                  - heading "Featured" [level=3] [ref=e403]
+                  - generic [ref=e404]:
+                    - heading "Keep learning about agentic engineering" [level=4] [ref=e406]
+                    - paragraph [ref=e407]: Attend an upcoming in-person event or webinar for the latest use cases, to learn best practices, build governance, reduce token waste, and more.
+                  - link "View events" [ref=e409] [cursor=pointer]:
+                    - /url: https://github.com/resources/events?topic=ai
+      - generic [ref=e415]:
+        - heading "Explore other resources" [level=2] [ref=e416]
+        - generic [ref=e417]:
+          - generic [ref=e421]:
+            - heading [level=3] [ref=e425]:
+              - link "What is application security and how does it work?" [ref=e426] [cursor=pointer]:
+                - /url: /resources/articles/what-is-application-security
+            - paragraph [ref=e427]: Application security, sometimes shortened to AppSec, refers to the security measures used to protect software from unauthorized access, use, disclosure, disruption, modification, or destruction. The practice of AppSec implements safeguards and controls to protect software from cyberthreats, and to ensure the confidentiality, integrity, and availability of the application and its data.
+            - generic: Learn more
+          - generic [ref=e431]:
+            - heading [level=3] [ref=e435]:
+              - 'link "GitHub for Leaders: Climbing the agentic ladder from assistance to orchestration" [ref=e436] [cursor=pointer]':
+                - /url: /resources/insights/climbing-the-agentic-ladder-from-assistance-to-orchestration
+            - paragraph [ref=e437]: How Visma’s developers moved from AI assistance to agentic supervision, delegation, and beyond.
+            - generic: Learn more
+          - generic [ref=e441]:
+            - heading [level=3] [ref=e445]:
+              - link "Unlock 376% ROI with GitHub Enterprise Cloud" [ref=e446] [cursor=pointer]:
+                - /url: /resources/whitepapers/forrester
+            - paragraph [ref=e447]: When every release can make or break customer trust, the right DevOps platform can be the difference between delivering value faster—or falling behind.
+            - generic: Learn more
+      - generic [ref=e449]:
+        - heading "Frequently asked questions" [level=2] [ref=e450]
+        - heading "Applying the framework" [level=2] [ref=e451]
+        - group [ref=e452]:
+          - heading "Why didn't our pilot scale?" [level=3] [ref=e457] [cursor=pointer]
+        - group [ref=e458]:
+          - heading "Where should we start with governance and data?" [level=3] [ref=e463] [cursor=pointer]
+        - group [ref=e464]:
+          - heading "Why haven't our workflows changed?" [level=3] [ref=e469] [cursor=pointer]
+        - group [ref=e470]:
+          - heading "Why is review burden rising?" [level=3] [ref=e475] [cursor=pointer]
+        - group [ref=e476]:
+          - heading "How do we reduce shadow AI use?" [level=3] [ref=e481] [cursor=pointer]
+        - heading "Readiness and preconditions" [level=2] [ref=e482]
+        - group [ref=e483]:
+          - heading "What does the AES framework assume, but not model directly?" [level=3] [ref=e488] [cursor=pointer]
+        - group [ref=e489]:
+          - heading "What if our infrastructure or vendors are too unstable to support this?" [level=3] [ref=e494] [cursor=pointer]
+        - group [ref=e495]:
+          - heading "Do people need special skills to work effectively with agents?" [level=3] [ref=e500] [cursor=pointer]
+        - group [ref=e501]:
+          - heading "What kind of culture makes agent participation work?" [level=3] [ref=e506] [cursor=pointer]
+        - group [ref=e507]:
+          - heading "What if agents can't access the information they need, or aren't allowed to use it?" [level=3] [ref=e512] [cursor=pointer]
+  - contentinfo [ref=e516]:
+    - heading "Site-wide Links" [level=2] [ref=e517]
+    - generic [ref=e519]:
+      - region [ref=e520]:
+        - link "Go to GitHub homepage" [ref=e521] [cursor=pointer]:
+          - /url: /
+        - heading "The developer newsletter" [level=3] [ref=e524]
+        - paragraph [ref=e526]: Get tips, technical guides, and best practices. Twice a month. Right in your inbox.
+        - link "Subscribe" [ref=e527] [cursor=pointer]:
+          - /url: /newsletter
+      - generic [ref=e530]:
+        - navigation [ref=e531]:
+          - heading "Platform" [level=3] [ref=e532]
+          - list [ref=e533]:
+            - listitem [ref=e534]:
+              - link "Features" [ref=e535] [cursor=pointer]:
+                - /url: /features
+            - listitem [ref=e537]:
+              - link "Enterprise" [ref=e538] [cursor=pointer]:
+                - /url: /enterprise
+            - listitem [ref=e540]:
+              - link "Copilot" [ref=e541] [cursor=pointer]:
+                - /url: /features/copilot
+            - listitem [ref=e543]:
+              - link "AI" [ref=e544] [cursor=pointer]:
+                - /url: /features/ai
+            - listitem [ref=e546]:
+              - link "Security" [ref=e547] [cursor=pointer]:
+                - /url: /security
+            - listitem [ref=e549]:
+              - link "Pricing" [ref=e550] [cursor=pointer]:
+                - /url: /pricing
+            - listitem [ref=e552]:
+              - link "Team" [ref=e553] [cursor=pointer]:
+                - /url: /team
+            - listitem [ref=e555]:
+              - link "Resources" [ref=e556] [cursor=pointer]:
+                - /url: https://github.com/resources
+            - listitem [ref=e558]:
+              - link "Roadmap" [ref=e559] [cursor=pointer]:
+                - /url: /github/roadmap
+            - listitem [ref=e561]:
+              - link "Compare GitHub" [ref=e562] [cursor=pointer]:
+                - /url: /resources/articles/devops-tools-comparison
+        - navigation [ref=e564]:
+          - heading "Ecosystem" [level=3] [ref=e565]
+          - list [ref=e566]:
+            - listitem [ref=e567]:
+              - link "Developer API" [ref=e568] [cursor=pointer]:
+                - /url: https://docs.github.com/integrations/concepts/about-building-integrations
+            - listitem [ref=e570]:
+              - link "Partners" [ref=e571] [cursor=pointer]:
+                - /url: https://github.com/partners
+            - listitem [ref=e573]:
+              - link "Education" [ref=e574] [cursor=pointer]:
+                - /url: /education
+            - listitem [ref=e576]:
+              - link "GitHub CLI" [ref=e577] [cursor=pointer]:
+                - /url: https://cli.github.com
+            - listitem [ref=e579]:
+              - link "GitHub Desktop" [ref=e580] [cursor=pointer]:
+                - /url: https://github.com/apps/desktop
+            - listitem [ref=e582]:
+              - link "GitHub Mobile" [ref=e583] [cursor=pointer]:
+                - /url: /mobile
+            - listitem [ref=e585]:
+              - link "GitHub Marketplace" [ref=e586] [cursor=pointer]:
+                - /url: /marketplace
+            - listitem [ref=e588]:
+              - link "MCP Registry" [ref=e589] [cursor=pointer]:
+                - /url: /mcp
+        - navigation [ref=e591]:
+          - heading "Support" [level=3] [ref=e592]
+          - list [ref=e593]:
+            - listitem [ref=e594]:
+              - link "Docs" [ref=e595] [cursor=pointer]:
+                - /url: https://docs.github.com
+            - listitem [ref=e597]:
+              - link "Community Forum" [ref=e598] [cursor=pointer]:
+                - /url: https://github.community
+            - listitem [ref=e600]:
+              - link "Professional Services" [ref=e601] [cursor=pointer]:
+                - /url: https://github.com/services
+            - listitem [ref=e603]:
+              - link "Premium Support" [ref=e604] [cursor=pointer]:
+                - /url: /enterprise/premium-support
+            - listitem [ref=e606]:
+              - link "Skills" [ref=e607] [cursor=pointer]:
+                - /url: https://skills.github.com
+            - listitem [ref=e609]:
+              - link "Status" [ref=e610] [cursor=pointer]:
+                - /url: https://www.githubstatus.com
+            - listitem [ref=e612]:
+              - link "Contact GitHub" [ref=e613] [cursor=pointer]:
+                - /url: https://support.github.com?tags=dotcom-footer
+            - listitem [ref=e615]:
+              - link "What is Git?" [ref=e616] [cursor=pointer]:
+                - /url: /git-guides
+            - listitem [ref=e618]:
+              - link "Sitemap" [ref=e619] [cursor=pointer]:
+                - /url: /sitemap
+        - navigation [ref=e621]:
+          - heading "Company" [level=3] [ref=e622]
+          - list [ref=e623]:
+            - listitem [ref=e624]:
+              - link "About" [ref=e625] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e627]:
+              - link "Why GitHub" [ref=e628] [cursor=pointer]:
+                - /url: /why-github
+            - listitem [ref=e630]:
+              - link "Customer Stories" [ref=e631] [cursor=pointer]:
+                - /url: /customer-stories?type=enterprise
+            - listitem [ref=e633]:
+              - link "Blog" [ref=e634] [cursor=pointer]:
+                - /url: https://github.blog
+            - listitem [ref=e636]:
+              - link "The ReadME Project" [ref=e637] [cursor=pointer]:
+                - /url: /readme
+            - listitem [ref=e639]:
+              - link "Careers" [ref=e640] [cursor=pointer]:
+                - /url: https://github.careers
+            - listitem [ref=e642]:
+              - link "Inclusion" [ref=e643] [cursor=pointer]:
+                - /url: /about/diversity
+            - listitem [ref=e645]:
+              - link "Social Impact" [ref=e646] [cursor=pointer]:
+                - /url: https://socialimpact.github.com
+            - listitem [ref=e648]:
+              - link "Shop" [ref=e649] [cursor=pointer]:
+                - /url: https://thegithubshop.com
+    - generic [ref=e652]:
+      - navigation "Legal and Resource Links" [ref=e653]:
+        - list [ref=e654]:
+          - listitem [ref=e655]:
+            - time [ref=e656]: © 2026 GitHub, Inc.
+          - listitem [ref=e657]:
+            - link "Terms" [ref=e658] [cursor=pointer]:
+              - /url: https://docs.github.com/site-policy/github-terms/github-terms-of-service
+          - listitem [ref=e659]:
+            - link "Privacy" [ref=e660] [cursor=pointer]:
+              - /url: https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement
+          - listitem [ref=e661]:
+            - button "Manage cookies" [ref=e663] [cursor=pointer]
+          - listitem [ref=e664]:
+            - button "Do not share my personal information" [ref=e666] [cursor=pointer]
+      - generic [ref=e667]:
+        - navigation "GitHub's Social Media Links" [ref=e668]:
+          - list [ref=e669]:
+            - listitem [ref=e670]:
+              - link "GitHub on LinkedIn" [ref=e671] [cursor=pointer]:
+                - /url: https://www.linkedin.com/company/github
+            - listitem [ref=e675]:
+              - link "GitHub on Instagram" [ref=e676] [cursor=pointer]:
+                - /url: https://www.instagram.com/github
+            - listitem [ref=e680]:
+              - link "GitHub on YouTube" [ref=e681] [cursor=pointer]:
+                - /url: https://www.youtube.com/github
+            - listitem [ref=e685]:
+              - link "GitHub on X" [ref=e686] [cursor=pointer]:
+                - /url: https://x.com/github
+            - listitem [ref=e690]:
+              - link "GitHub on TikTok" [ref=e691] [cursor=pointer]:
+                - /url: https://www.tiktok.com/@github
+            - listitem [ref=e695]:
+              - link "GitHub on Twitch" [ref=e696] [cursor=pointer]:
+                - /url: https://www.twitch.tv/github
+            - listitem [ref=e700]:
+              - link "GitHub’s organization on GitHub" [ref=e701] [cursor=pointer]:
+                - /url: https://github.com/github
+        - button "English - Select language" [ref=e706] [cursor=pointer]:
+          - generic [ref=e707]: English
+  - alert [ref=e718]:
+    - paragraph [ref=e723]:
+      - text: We use optional cookies to improve your experience on our websites and to display personalized advertising based on your online activity. If you reject optional cookies, only cookies necessary to provide you the services listed above will be used. You may change your selection on which cookies to accept by clicking "Manage Cookies" at the bottom of the page to change your selection. This selection is maintained for 180 days. Please review your selections regularly.
+      - link "How to manage cookie preferences" [ref=e724] [cursor=pointer]:
+        - /url: https://docs.github.com/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-your-cookie-preferences-for-githubs-enterprise-marketing-pages
+      - text: "|"
+      - link "Privacy Statement" [ref=e725] [cursor=pointer]:
+        - /url: https://docs.github.com/site-policy/privacy-policies/github-privacy-statement
+      - text: "|"
+      - link "Third-Party Cookies" [ref=e726] [cursor=pointer]:
+        - /url: https://docs.github.com/site-policy/privacy-policies/github-subprocessors-and-cookies
+      - text: .
+    - generic [ref=e727]:
+      - button "Accept" [ref=e728] [cursor=pointer]
+      - button "Reject" [ref=e729] [cursor=pointer]
+      - button "Manage cookies" [ref=e730] [cursor=pointer]

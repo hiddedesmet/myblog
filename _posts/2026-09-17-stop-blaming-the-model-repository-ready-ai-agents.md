@@ -6,7 +6,7 @@ categories: [AI, Development, DevOps]
 tags: [ai-coding-agents, github-copilot, repository-readiness, testing, ci-cd, developer-experience, devcontainers]
 author: hidde
 description: "A practical 10-check, 20-point scorecard for AI coding agents: test your repository's setup, context, validation, CI, and security guardrails."
-featured: true
+featured: false
 image: /images/stopblamingthemodel.png
 toc: true
 ---
